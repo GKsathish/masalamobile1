@@ -349,6 +349,16 @@ echo "<SCRIPT LANGUAGE='JavaScript'>
                     <li><a href="post-content&id=1">Sports</a></li> -->
                 </ul>
             </li>
+
+            <div>
+                <button>language</button>
+             <div>
+                <a>English</a>
+                <a>Telugu</a>
+                <a>Hindi</a>
+
+             </div>
+            </div>
 		</ul>
     </nav>
 </div>
