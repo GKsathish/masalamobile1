@@ -1,0 +1,356 @@
+@-ms-viewport
+{
+	width:device-width;
+}
+@-viewport
+{
+	width:device-width;
+}
+@media only screen and (max-width:1200px)
+{
+	img
+	{
+		max-width:100%;
+	}
+	.isStuck
+	{
+		display:none;
+	}
+	.main-navigation, .nav-shrink.main-navigation
+	{
+		position:static;
+	}
+	.main-navigation ul li
+	{
+		margin: 0;
+	}
+	.main-navigation ul li a
+	{
+		padding: 8px 0px;
+		text-align:center;
+    	background: rgba(0,0,0,0.8);
+		color:#fff;
+	}
+	.nav-shrink .main-navigation ul li a
+	{
+		padding: 8px 0px;
+		text-align:center;
+	}
+	.main-navigation ul li ul li a, .nav-shrink .main-navigation ul li ul li a
+	{
+    	background: #fff;
+		color:#000;
+		text-align:center;
+	}
+	.main-navigation ul li a i
+	{
+		display:none;
+	}
+	.main-navigation ul li ul
+	{
+		position: relative;
+		left:0;
+		width: auto;
+		-webkit-transform: translateX(-0%);
+		transform: translateX(-0%);
+		padding: 20px;
+	}
+	.main-navigation ul ul li a, .nav-shrink .main-navigation ul li ul li a
+	{
+		text-align:center;
+	} 
+	.main-navigation ul li ul:before
+	{
+		top: -12px;
+		left: 0;
+		right:0;
+	}
+	.main-navigation ul li a span
+	{
+		display: block;
+	}
+	.main-navigation ul li:hover > a, .main-navigation ul li.active > a 
+	{
+		color:#fff;
+	}
+	.nav-shrink .main-navigation ul li a
+	{
+		color:#fff;
+	}
+	.main-navigation ul li a::after
+	{
+		display:none;
+	}
+}
+@media only screen and (max-width:1024px)
+{
+	
+}
+@media only screen and (max-width:960px)
+{
+	.site-header
+	{
+		padding: 0px 0 0 20px;
+	}
+	.container, .site-footer, .newspost article:first-of-type aside
+	{
+		padding: 15px 20px;
+	}
+	.main-navigation
+	{
+		padding: 0 0px;
+	}
+	.related-post
+	{
+		margin:20px;
+	}
+	.visual-stories-inner-list .item
+	{
+		width: 33.333333%;
+	}
+}
+@media only screen and (max-width:768px)
+{
+	.whatsapp, .dateandtime, .contact:before
+	{
+		display:none;
+	}
+	.header-search .search-form input[type="submit"]
+	{
+		padding: 26px 15px;
+	}
+	.header-search .search-form input[type="search"]
+	{
+		right: 0px;
+	}
+	.header-search .search-form:hover input[type="search"]
+	{
+		width: 100%;
+	}
+	.header-nav
+	{
+		margin-right: 0;
+	}
+	.header-nav ul li
+	{
+		margin-left: 0;
+	}
+	.header-nav ul li a
+	{
+		padding: 0;
+		text-indent: -99999%;
+		width: 50px;
+		height: 50px;
+	}
+	.header-nav ul li:nth-of-type(2) a
+	{
+		padding: 0;
+	}
+	.header-nav ul li a::before
+	{
+		left: 13px;
+	}
+	.header-nav ul li:nth-of-type(2) a::before
+	{
+		left: 15px;
+	}
+	.content, .sidebar, .site-footer aside, .site-footer fieldset, .post-content, .post-sidebar, .searchwrapper article figure, .searchwrapper article aside, .contact aside, .contact fieldset
+	{
+		width: auto;
+		float:none;
+	}
+	.site-footer aside
+	{
+		margin:15px 0;
+	}
+	.sidebar, .searchwrapper article aside
+	{
+		padding:0;
+	}
+	.slider-carousel .item a figcaption, .slider-carousel-withdot .item a figcaption
+	{
+		padding: 20px;
+	}
+	.slider-carousel .item a figcaption h1, .newspost article:first-of-type aside h2
+	{
+		font-size: 17px;
+	}
+	.slider-carousel.owl-theme .owl-nav
+	{
+		top: 30px;
+		left: auto;
+		right: 20px;
+		width: 46px;
+		-webkit-transform: translateY(-0%);
+		transform: translateY(-0%);
+	}
+	.slider-carousel .owl-prev
+	{
+		background: url(../images/prev-thin.svg) center center no-repeat;
+		background-size: 15px;
+		width: 20px;
+		height: 20px;
+	}
+	.slider-carousel .owl-next
+	{
+		background: url(../images/next-thin.svg) center center no-repeat;
+		background-size: 15px;
+		width: 20px;
+		height: 20px;
+	}
+	.equal-height, .alignmiddle
+	{
+		display:block;
+	}
+	.slider-carousel-withdot.no-js .owl-carousel, .slider-carousel-withdot.owl-carousel.owl-loaded
+	{
+		height: 200px!important;
+		margin-top:45px;
+	}
+	.slider-carousel-withdot .item a figcaption h1, .grid article a figcaption h3
+	{
+		font-size: 16px;
+	}
+	.single-article-box aside, .news-list, .grid article
+	{
+		width: 100%;
+	}
+	.tagcloud, .site-footer fieldset
+	{
+		width:100%;
+	}
+	.newspost article:first-of-type aside h2
+	{
+		line-height:20px;
+	}
+	.random-posts ul li, .related-post ul li
+	{
+		width:50%;
+	}
+	.visual-stories .tab
+	{
+		float:left;
+		text-align:left;
+	}
+	.visual-stories .tab button
+	{
+		margin-left: 0;
+		margin-right: 6px;
+	}
+	.visual-stories-inner-list .item, .single-article ul li
+	{
+		width: 50%;
+	}
+	.searchwrapper article aside h4, .post-content-inner-postdetails h4
+	{
+		margin-bottom: 15px;
+		margin-right: 0px;
+	}
+	.adscategory
+	{
+		display:block !important;
+	}
+	.search-field
+	{
+		width: 78%;
+	}
+	.search-btn{
+		width: 18%;
+    	font-size: 12px;
+	}
+	.slider-carousel .item a figcaption h1
+	{
+		font-weight: 600;
+	}
+	.single-article-box aside a figcaption h3 {
+		font-size: 20px;
+	}
+	amp-story p
+	{
+		margin-bottom: 150px;
+	}
+	#b{
+		margin:65px;
+	}
+	.smd
+	{
+		width: 100%;
+		margin:4px;
+	}
+	.smd > p
+	{
+		font-size: 10px;
+	}
+	.img-thumbnail {
+		width: 50px;
+		height: 50px;
+	}
+	.ico:before {
+		top: 10px;
+	}
+	.modalcancel {
+		right: 4px;
+		top: 0px;
+	}
+	.visual-stories .owl-theme .owl-nav
+	{
+		/* position: absolute;
+		top: auto;
+		bottom:-38px; */
+		position: absolute;
+		top: 20px;
+		right: 10px;
+	}
+	#slider-carousel-sport .owl-nav
+	{
+		top: -28px;
+	}
+	.more_pap_btn {
+		margin-top: 3%;
+		padding: 1.5%;
+	}
+}
+@media only screen and (max-width:480px)
+{
+	.single-article ul li, .single-article ul li
+	{
+		width: 100%;
+	}
+	.newspost article
+	{
+		padding-left: 0px;
+		padding-bottom: 0px;
+		padding-top: 5px;
+	}
+	.newspost article aside
+	{
+		/* padding-top: 30px; */
+		padding-left: 0px;
+		padding-bottom:10px;
+	}
+	.newspost article figure, .newspost article aside, .post-content-inner-postdetails, .post-content-inner-details
+	{
+		width: auto;
+		float:none;
+	}
+	.post-content-inner-postdetails
+	{
+		padding-bottom: 50px;
+	}
+	.random-posts ul li, .related-post ul li
+	{
+		width:100%;
+	}
+	.post-content-inner-details > iframe
+	{
+		width: 100% !important;
+	}
+	
+}
+@media only screen and (max-width:320px)
+{
+	.random-posts ul li, .related-post ul li, .visual-stories-inner-list .item
+	{
+		width: 100%;
+	}
+}
