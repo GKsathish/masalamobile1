@@ -78,6 +78,7 @@ Route::get('edit_rss', function () {
     return view('back_end.edit_rss');
 });
 
+
 Route::get('view_stories', function () {
     return view('back_end.view_stories');
 });
@@ -103,6 +104,16 @@ Route::get('paparazzi-details', function () {
 Route::get('/index', function () {
     return view('front_end.index');
 });
+
+
+Route::get('/indexHindi', function () {
+    return view('front_end.indexHindi');
+});
+Route::get('/indexTelugu', function () {
+    return view('front_end.indexTelugu');
+});
+
+
 Route::get('/', function () {
     return view('front_end.index');
 });
@@ -125,6 +136,10 @@ Route::get('disclosure', function () {
 Route::get('send_noti', function () {
     return view('front_end.send_notification');
 });
+Route::get('tstindex', function () {
+    return view('front_end.tstindex');
+});
+
 
 // Route::get('send_noti','Controller@send_noti_contro');
 
@@ -154,7 +169,6 @@ Route::get('edit_paparazzi_posts', function () {
 });
 
 
-
 Route::get('addrss', 'addrsspostsController@index');
 Route::get('setschedule', 'addrsspostsController@schedule');
 Route::get('search', 'Controller@search');
@@ -166,6 +180,7 @@ Route::get('post-single&id={rsstitle}.html', 'Controller@feed');
 Route::get('admin-post-single&id={rsstitle}', 'Controller@adminfeed');
 Route::get('post-content&id={rsstitle}', 'Controller@category');
 Route::get('stories&id={id}', 'Controller@vs');
+Route::get('horoscope&id={id}', 'Controller@hs');
 Route::post('subscribe-addon', 'Controller@add_subscribe');
 Route::post('keep-in-touch', 'Controller@enquiry');
 
@@ -194,7 +209,6 @@ Route::get('delete_vstory&{id}','postController@delete_vstory');
 Route::post('edit_storynew', 'postController@edit_storynew');
 Route::get('delete_stories&transid={transid}&storyid={storyid}','postController@delete_stories');
 
-    
 Route::post('login_process','LoginController@login_process');
 Route::get('login_process','LoginController@login_process');
 Route::post('change_password','LoginController@change_password');
@@ -215,4 +229,6 @@ Route::post('get-user-rss', 'roleController@get_user_rss');
 Route::get('add_subcription','Controller@add_subcription');
 
 
-
+Route::get('/upload',function(){
+    return view('upload');
+});

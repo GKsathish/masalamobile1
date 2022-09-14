@@ -24,6 +24,8 @@
      </div>
      
 </div>
+
+<?php $email = Session::get('email'); ?>
                 </div>
             </div>
             <!-- end row -->
@@ -67,7 +69,10 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 form-group">
+                    
+      
+                    
+                     <div class="col-md-6 form-group">
                          <label>RSS Name</label>
                         <select class="form-control" name="rss">
                             <option value="0">Admin</option>
@@ -76,6 +81,14 @@
                             <!--<option value="4">Hindu</option>-->
                         </select>
                     </div>
+<!--                     
+                     <div class="col-md-6 form-group">
+                         <label>User</label>
+                        <select class="form-control" name="email" required>
+                           
+                            
+                        </select>
+                    </div> -->
 
                     <div class="col-md-6 form-group">
                         <label>Status</label>
@@ -102,9 +115,12 @@
                         <input required type="file" onchange="ValidateSize(this)" class="form-control" name="images" accept=".jpg,.png,.gif,.jpeg"> 
                     </div>
                 </div>
-                
                 <div class="row">
-                    
+                    <div class="col-md-6 form-group">
+                        <label>HashTag</label>
+                        <input type="text" class="form-control"  placeholder="Enter " name="hashtag" />
+                    </div>
+
                     <div class="col-md-6 form-group">
                         <label>Schedule Post</label>
 
@@ -117,15 +133,49 @@
                         <input type="datetime-local" class="form-control mt-4" id="schedule_input" name="schedule_input">
                     </div>
                     
+                  
+                    
                 </div>
                  <div class="row">
+
+                    <div class="col-md-6 form-group">
+                        <label>UploadedBy</label>
+                        <input type="text" class="form-control" required placeholder="Uploaded_by" name="uploaded_by" value=""/>
+                    </div>
+
                     
-                    <div class="col-md-12 form-group">
-                        <label>Post Description</label><br/>
-                        <textarea class="summernote" name="description"></textarea>
-                       <!--  <textarea id="w3review" name="description" rows="4" cols="65"></textarea> -->
+                    <div class="col-md-6 form-group">
+                  
+                        <input   type="checkbox"  name="terms" class="term" toggle="Checked"  /><br>
+                        <label>Email checkbox</label>
                     </div>
                 </div>
+
+
+               <div class="row">
+               <div class="col-md-6 form-group">
+                        <label>Post Description</label><br/>
+                        <textarea  id="" class="summernote" name="description"></textarea>
+                       <!--  <textarea id="w3review" name="description" rows="4" cols="65"></textarea> -->
+
+                    </div> 
+                    <div class="col-md-6 form group">
+                                      <label>Language</label>
+                                 
+                                        <select class="form-control" name="language" required>
+                                        <option value="english">English</option>
+                                        <option value="telugu">Telugu</option>
+                                      
+                                        <option value="hindi">Hindi</option>
+                                      
+                                          
+                                        </select>
+                                     
+
+                                   </div>
+               </div>
+
+
                 <input type='hidden' name='notification' id="notification_input">
                 <div style="float:right;">
                 <button type="button" class="btn btn-warning" onclick="location.href='posts'">Cancel</button>                                    
@@ -183,3 +233,20 @@ $(document).ready(function(){
 
 </script>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

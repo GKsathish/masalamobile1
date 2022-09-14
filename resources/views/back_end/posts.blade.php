@@ -39,13 +39,11 @@
                         <h4 class="page-title">Posts</h4>
 
                     </div>
-                   
                     @if($post_permit_add == '1' || $roleid == '0')
                     <div class="col-sm-6 text-right">
                         <button class="btn btn-info" onclick="window.location.href='{{url('add_posts')}}'"  type="button"><i class="fa fa-plus" aria-hidden="true"></i> Add New</button>
                     </div>
                     @endif
-                    
 
                 </div>
             </div>
@@ -72,35 +70,22 @@
                             </div>
                             @endif
                             <div class="form-group text-center">
-                                <form action="posts" method="POST">
-                                    @CSRF
+                                <form action="posts" method="GET">
+                                
                                     <div class="row border p-3" style="background-color:lightgrey;">
                                     <div class="col-md-1 mt-2">
-                                    <label class="m-auto text-dark">Filters :</label>
+                                    <label class="m-auto text-dark" >Filters :</label>
                                 </div>
                                 <div class="col-md-3">
                                
                                 @php
                                 $filter_cate = DB::table('category')->where('post_cate','Yes')->get();
                                 @endphp
-                                <select class="form-control" id="filtercategoryname" name="categoryname">
+                                <select class="form-control" id="categoryname" name="categoryname">
                                     <option value="">Select Category</option>
-                                    <?php if($roleid == '0') { ?>
                                     @foreach ($filter_cate as $filter_cate)
                                     <option value="{{$filter_cate->categoryid}}" >{{$filter_cate->categoryname}}</option>
                                     @endforeach
-                                    <?php } else { 
-                                        $access_rss = explode (",", $rss_access); 
-                                        
-                                        foreach($access_rss as $rss => $value)
-                                        {
-                                            $get_rss_cat = DB::table('rss')->join('category','rss.categoryid','=','category.categoryid')->where('rss.rssid',$value)->get();
-                                            foreach($get_rss_cat as $cate_name)
-                                            {  ?>
-                                                <option value = '{{$cate_name->categoryid}}'>{{$cate_name->categoryname}}</option>
-                                        
-                                        
-                                    <?php } } } ?>
                                 </select> 
                                 </div>
                                 <div class="col-md-3">
@@ -108,9 +93,8 @@
                                 @php
                                 $filter_cate = DB::table('rss')->get();
                                 @endphp
-                                <select class="form-control" id="" name="rssname">
-                                    <option value="">Select RSS</option>
-                                    <?php if($roleid == '0') { ?>
+                                <select class="form-control" id="rssname" name="rssname">
+                                    <option value="rssname">Select RSS</option>
                                     @foreach ($filter_cate as $filter_cate)
                                      @php
                                     $cate_name = DB::table('category')->where('categoryid', $filter_cate->categoryid)->get();
@@ -118,25 +102,15 @@
                                    @foreach($cate_name as $cate_names)
                                     <option value="{{$filter_cate->rssid}}" >{{$filter_cate->rssname}} - {{$cate_names->categoryname}}</option>
                                     @endforeach
+                                   
                                     @endforeach
-                                    <?php } else { 
-                                        $access_rss = explode (",", $rss_access); 
-                                        
-                                        foreach($access_rss as $rss => $value)
-                                        {
-                                            $get_rss_cat = DB::table('rss')->join('category','rss.categoryid','=','category.categoryid')->where('rss.rssid',$value)->get();
-                                            foreach($get_rss_cat as $cate_name)
-                                            {  ?>
-                                                <option value = '{{$cate_name->rssid}}'>{{$cate_name->rssname}} - {{$cate_name->categoryname}}</option>
-                                        
-                                        
-                                    <?php } } } ?>
                                 </select> 
                                 </div>
                                 <div class="col-md-3">
                                
                                
-                                <select class="form-control" id="" name="status">
+                                <select class="form-control" id="status" name="status">
+                               
                                     <option value="">Select Status</option>
                                     <option value="Pending">Pending</option>
                                     <option value="Publish">Publish</option>
@@ -171,16 +145,18 @@
                                         <th>Edited on</th>
                                         <th>View</th>
                                         <th>Action</th>
+                                        <th>uploaded_by</th>
+                                        <th>hashtag</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    
-                                   
-                                    <?php if($roleid == '0') { ?>
+                                    <?php if(isset($_GET['categoryname']) == "") { ?>
                                     @php 
-                                    
-                                  
+
+                                    $info = DB::table('post')
+                                            ->Orderby('postid', 'desc')->take(3000)                                             
+                                            ->get();
                                     foreach ($info as $val) { 
                                         $catid = $val->postid;
                                          $updated_at = $val->updated_at; 
@@ -188,9 +164,8 @@
                                  } 
 
                                     @endphp
-                                    <?php } else {
-
-                                         $access_rss = explode (",", $rss_access);
+                                    <?php } else{
+                                        $access_rss = explode (",", $rss_access);
                                          $cate_array = [];
                                         $info = DB::table('post')->Orderby('postid', 'desc')->whereIn('rssid',$access_rss);
                                        foreach($access_rss as $rss => $value)
@@ -203,26 +178,23 @@
                                            
                                        }
                                     }
-                                    $info = $info->whereIn('categoryid',$cate_array)->take(1000)->get();
+                                    $info = $info->wherein('categoryid',$cate_array)->take(1000)->get();
                                     
-                                    }
-                                        ?>
-                                    
-
+                                    }?>
                                     <?php $i = 1; ?>
-                                        @foreach ($info as $row)
+                                    @foreach ($info as $row)
                                         @php
-                                        $get_rss = DB::table('rss')->where('rssid',$row->rssid)->get();
+                                        $get_rss = DB::table('rss')->where('rssid',$row->rssid)->take(1000)->get();
                                         @endphp
                                         
                                         @php
-                                        $get_cate = DB::table('category')->where('categoryid',$row->categoryid)->get();
+                                        $get_cate = DB::table('category')->where('categoryid',$row->categoryid)->take(1000)->get();
                                         @endphp
                                         <tr style="text-align:center">
                                             <td><input type="checkbox" value="{{$row->postid}}" class="form-control posts"></td>
                                             <td style="max-width:10px;">{{$i}}</td>
-                                            @foreach($get_cate as $get_cate)
-                                            <td>{{$get_cate->categoryname}}</td>
+                                            @foreach($get_cate as $get_cates)
+                                            <td>{{$get_cates->categoryname}}</td>
                                             @endforeach
                                             <td>{{$row->posttitle}}</td>
                                             <?php if($row->rssid == '0')
@@ -235,25 +207,28 @@
                                             @endforeach
                                             <?php } ?>
                                             <td>
-                                            <?php if($row->status == 'Publish'){?>
+                                            <?php 
+                                            
+                                            if($row->status == 'Publish'){?>
                                                 <span class="badge badge-pill badge-success">Publish</span>
                                                 <?php }else{ ?>
                                                   <span class="badge badge-pill badge-danger">Pending</span>
                                                 <?php } ?>
                                             </td>
+
                         
                                             @if($row->created_at != '')
-                                            <td><?php echo date_format(date_create($row->created_at),"d-m-Y H:i:s"); ?></td>
+                                            <td><?php echo date_format(date_create($row->created_at),"Y-m-d h:i:sa"); ?></td>
                                             @else
                                             <td></td>
                                             @endif
                                             @if($row->published_date != '')
-                                            <td><?php echo date_format(date_create($row->published_date),"d-m-Y H:i:s"); ?></td>
+                                            <td><?php echo date_format(date_create($row->published_date),"Y-m-d h:i:sa"); ?></td>
                                             @else
                                             <td></td>
                                             @endif
                                             @if($row->updated_at != '')
-                                            <td><?php echo date_format(date_create($row->updated_at),"d-m-Y H:i:s"); ?></td>
+                                            <td><?php echo date_format(date_create($row->updated_at),"Y-m-d h:i:sa"); ?></td>
                                             @else
                                             <td></td>
                                             @endif
@@ -271,21 +246,31 @@
 
 
                             <td> 
-                               
-                            <?php if($post_permit_edit == '1' || $roleid == '0') { ?>
+                                <?php if($post_permit_edit == '1' || $roleid == '0') { ?>
                                 <a href="edit_posts?postid={{$row->postid}}" onclick="window.location.href=''"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                 <?php } ?>
                                 &nbsp;&nbsp;
                                 <?php if($post_permit_delete == '1' || $roleid == '0') { ?>
                                 <a href="delete_post&{{$row->postid}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                 <?php } ?>
-                                
                             </td>
-                                         
+
+                            <td><?php echo $row->uploaded_by; ?></td>
+                            <td><?php echo $row->hashtag; ?></td>
+
+
+      
+
+                
+                            </tr>          
                                     
-                                        </tr>
-                                        <?php $i++ ?>
+                           
+                                        <?php $i++  ?>
                                             @endforeach
+                               
+
+
+                                            
                                 </tbody>
 
                             </table>

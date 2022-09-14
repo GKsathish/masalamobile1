@@ -17,7 +17,7 @@
     <div class="float-right d-none d-md-block">
 
             <div class="button-items">
-                    <button type="button" class="btn btn-primary waves-effect waves-light" onclick="window.location.href='{{url('rss-feed')}}'">View RSS</button>
+                    <!-- <button type="button" class="btn btn-primary waves-effect waves-light" onclick="window.location.href='{{url('rss-feed')}}'">View RSS</button> -->
              
         </div>
          

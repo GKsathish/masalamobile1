@@ -12,30 +12,27 @@
 <meta charset="UTF-8">
 <meta name="robots" content="max-image-preview:large">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1">
-<!-- <meta property="og:title" content="<?php //echo $metatitle; ?>" />
-<meta property="og:description" content="<?php //echo strip_tags($metadescription); ?>" />
-<meta property="og:url" content="https://mobilemasala.com" />
-<meta property="og:image" content="<?php //echo $metaimage; ?>"/> -->
-<!--<meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0" />-->
-<!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
-<!--<meta name="mobile-web-app-capable" content="yes">-->
-<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
-<!--<meta name="description" content="@yield('description')">-->
-<!--<meta property="og:title" content="@yield('title')" />-->
-<!--<meta property="og:url" content="@yield('url')" />-->
-<!--<meta property="og:description" content="@yield('description')">-->
-<!--<meta property="og:image" content="@yield('image')">-->
-<!--<meta property="og:type" content="article" />-->
+<link rel="apple-touch-icon" href="https://mobilemasala.com/assets/front_end/images/logo.png" /> 
+<title>Mobile Masala</title>
+<meta property="og:image" content="https://mobilemasala.com/assets/front_end/images/logo.png" />
+<meta name="description" content="Mobile Masala is a popular entertainment website in India. It is the one-stop site for trending film news, paparazzi videos, celeb gossip news, lifestyle tips, health advice, etc. The spectrum of content includes Bollywood News, Entertainment, Fashion, Celebrity Gossip, Movies, Music, Technology and Gadgets,  Food, Health and Wellness, Sports, Auto, Travel and Tourism, Indian Television, Regional Cinema, Movie Reviews, and more. Mobile Masala curates the best and most popular content in the form of text articles, images, paparazzi videos and visual stories." />
+<meta name="keywords" content="Celebrity Gossips,Entertainment,Fashion,Visual Stories" />
+<meta name="Author" content="https://mobilemasala.com/" />
 
-<!-- fb & Whatsapp -->
+<meta property="og:url" content="https://mobilemasala.com/" /> 
+<meta property="og:title" content="@yield('title')">
+
+<meta property="og:description" content="Read the latest business, financial news on Moneycontrol. Manage your finance with our online Investment Portfolio. Get Live Stock Price, Stock/Share market news, Sensex, Nifty Live, Commodity Market, IPO news, economy news, personal finance news Today." />
+<meta property="og:image" content="https://mobilemasala.com/assets/front_end/images/logo.png" />
+
+
+<meta property="og:url" content="https://mobilemasala.com/"> 
+<meta property="og:description" content=" Mobile Masala is a popular entertainment website in India. It is the one-stop site for trending film news, paparazzi videos, celeb gossip news, lifestyle tips, health advice, etc. The spectrum of content includes Bollywood News, Entertainment, Fashion, Celebrity Gossip, Movies, Music, Technology and Gadgets,  Food, Health and Wellness, Sports, Auto, Travel and Tourism, Indian Television, Regional Cinema, Movie Reviews, and more. Mobile Masala curates the best and most popular content in the form of text articles, images, paparazzi videos and visual stories" /> 
+<meta property="og:image" content="https://mobilemasala.com/assets/front_end/images/logo.png" />
+
 <meta property="og:locale" content="en_us" />
 <!-- Site Name, Title, and Description to be displayed -->
-<meta property="og:site_name" content="@yield('title')">
-<meta property="og:title" content="@yield('title')">
-<meta property="og:description" content="@yield('description')">
 
-<!-- Image to display -->
-<meta property="og:image" content="@yield('image')">
 
 <!-- No need to change anything here -->
 <meta property="og:type" content="website" />
@@ -45,8 +42,19 @@
 <meta property="og:image:width" content="300">
 <meta property="og:image:height" content="300">
 
-<!-- Website to visit when clicked in fb or WhatsApp-->
-<meta property="og:url" content="@yield('url')">
+
+<link as="script" rel="preload" href="https://cdn.ampproject.org/v0.js">
+
+
+<script src="https://cdn.ampproject.org/v0.js" async>
+	
+</script>
+<script src="https://cdn.ampproject.org/v0/amp-video-0.1.js" custom-element="amp-video" async></script>
+<script src="https://cdn.ampproject.org/v0/amp-audio-0.1.js" custom-element="amp-audio" async></script>
+<script src="https://cdn.ampproject.org/v0/amp-story-1.0.js" custom-element="amp-story" async></script>
+<script src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js" custom-element="amp-analytics" async></script>
+<script src="https://cdn.ampproject.org/v0/amp-cache-url-0.1.js" custom-element="amp-cache-url" async></script>
+<script src="https://cdn.ampproject.org/v0/amp-story-auto-ads-0.1.js" custom-element="amp-story-auto-ads" async></script>
 
 
 
@@ -65,12 +73,130 @@
 <link href="{{asset('assets/front_end/css/owl.carousel.min.css')}}" rel="stylesheet" type="text/css">
 <link href="{{asset('assets/front_end/css/owl.theme.default.min.css')}}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <script async id="AV62382721bab93c441117d951" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=62382721bab93c441117d951&AV_PUBLISHERID=6229e046286f660f8b1f0456"></script>
+
 <script>function myFunction(x){x.classList.toggle("change");}</script>
 <script>
     $(document).ready(function(){
         $('.i-amphtml-story-unmute-audio-control').css("display", "none");
     });
+</script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-messaging.js"></script>
+<script>
+
+/* 
+   const firebaseConfig = {
+    apiKey: "AIzaSyDl1BNMw6BaBEAXQEtTDIddOgj8TlD4ZUc",
+    authDomain: "fir-testing-89579.firebaseapp.com",
+    projectId: "fir-testing-89579",
+    storageBucket: "fir-testing-89579.appspot.com",
+    messagingSenderId: "833792043931",
+    appId: "1:833792043931:web:ec917a948a2cae90424f3e",
+    measurementId: "G-J9K8FM9EVG"
+};*/
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBzrnYvralPnN_Sc7X_7XsNaCj137aMcZk",
+    authDomain: "mobilemasala-v2.firebaseapp.com",
+    projectId: "mobilemasala-v2",
+    storageBucket: "mobilemasala-v2.appspot.com",
+    messagingSenderId: "187223718471",
+    appId: "1:187223718471:web:72c8027b9ad9f8620ecf62",
+    measurementId: "G-2T6SCLK222"
+  };
+  
+
+
+    firebase.initializeApp(firebaseConfig);
+    
+    const messaging=firebase.messaging();
+
+    function IntitalizeFireBaseMessaging() {
+        messaging
+            .requestPermission()
+            .then(function () {
+                // console.log("Notification Permission");
+                return messaging.getToken();
+            })
+            .then(function (token) {
+             
+                console.log("Token : "+token);
+                   const xhttp = new XMLHttpRequest();
+                   
+                   xhttp.open("post", "https://rbm.studio/get_token.php?token="+token);
+                   xhttp.send();
+                   
+                // document.getElementById("token").innerHTML=token;
+                // $.post("noti-token-send", {noti_token: token}, function(result){
+                //     console.log(result);
+                // });
+                $.get("noti-token-send&id="+token, function(result){
+                    console.log(result)
+                });
+                
+                
+            })
+            .catch(function (reason) {
+                console.log(reason);
+            });
+    }
+
+    messaging.onMessage(function (payload) {
+        console.log(payload);
+        const notificationOption={
+            body:payload.notification.body,
+            icon:payload.notification.icon
+        };
+
+        if(Notification.permission==="granted"){
+            var notification=new Notification(payload.notification.title,notificationOption);
+
+            notification.onclick=function (ev) {
+                ev.preventDefault();
+                window.open(payload.notification.click_action,'_blank');
+                notification.close();
+            }
+        }
+
+    });
+    messaging.onTokenRefresh(function () {
+        messaging.getToken()
+            .then(function (newtoken) {
+                console.log("New Token : "+ newtoken);
+            })
+            .catch(function (reason) {
+                console.log(reason);
+            })
+    })
+    IntitalizeFireBaseMessaging();
+</script>
+
+<!-- GOOGLE NOTIFICATION ADDED BY Praveen  -->
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KX27D98');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2T6SCLK222"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2T6SCLK222');
 </script>
 
 <!--Bi Changes-->
@@ -118,7 +244,7 @@ $(document).ready(function(){
 	}
 
 	.Bi-model-box{
-	width: 30%;
+	width: 20%;
     margin: 8% auto;
 	}
 
@@ -207,6 +333,43 @@ $(document).ready(function(){
     	    text-decoration: underline;
             color: blue;
     	}
+
+
+        .dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
 </style>
 <!--Bi Changes-->
 <body>
@@ -226,11 +389,11 @@ $(document).ready(function(){
 			<center><h3>Subscribe to alerts and updates</h3></center>
 			<form action="" method="GET" autocomplete="off">
 			<div class="bi-formdata">
-				<label>Mobile no.</label>
-				<input type="number" name="mobile" pleaceholder="Please enter your mobile number">
+				<label>Gmail ID</label>
+				<input type="text" name="gmail" pleaceholder="Please enter your Gmail" required>
 			</div>
             <p style="font-size: 12px;
-    text-align: center;">Please enter you mobile number with country code</p>
+    text-align: center;">Please enter you Gmail</p>
 			<div class="bi-formdata" style="    margin: 0;">
 			<input type="checkbox" name="terms" class="term" Checked><p class="terms">I have read and agree to the <a href="https://mobilemasala.com/terms-of-use">terms of use</a> and  <span class="more">More...</span>
 
@@ -251,34 +414,37 @@ By submitting this form, I hereby authorize <a href="https://mobilemasala.com/">
 
 if(isset($_GET['Submit'])){
 
-$msisdn = $_GET['mobile'];
-$mobile='+'.$msisdn;
+$gmail = $_GET['gmail'];
 
-$postData = array(
-    'phone_number' => $mobile,
-);
+$urlgmail = "https://rbm.studio/mm_emails/get_emails.php?gmail=".$gmail;
+$ch = curl_init();
+curl_setopt($ch,CURLOPT_URL,$urlgmail);
+curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+$output = curl_exec($ch);
 
-$ch = curl_init('http://3.108.200.14/sendMessage');
-curl_setopt_array($ch, array(
-    CURLOPT_POST => TRUE,
-    CURLOPT_RETURNTRANSFER => TRUE,
-    CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
-    CURLOPT_POSTFIELDS => json_encode($postData)
-));
+if($output == 'success'){
+    
+echo "<SCRIPT LANGUAGE='JavaScript'> window.alert('Thank you for subscribing to Mobile Masala');window.location.href='https://mobilemasala.com/';</SCRIPT>";
 
-$response = curl_exec($ch);
-curl_close($ch);
 
-echo "<SCRIPT LANGUAGE='JavaScript'>
-        window.alert('Subscription Added Successfully')
-        window.location.href='https://mobilemasala.com/';
-        </SCRIPT>";
+
+
+    
+}else{
+    
+       echo "<SCRIPT LANGUAGE='JavaScript'> window.alert('Thank you for subscribing to Mobile Masala');window.location.href='https://mobilemasala.com/';</SCRIPT>";
+
+}
 
 }
 ?>
     
 <!--FORM BI-->
-    
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX27D98"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <div class="wrapper">
 <header class="site-header clear">
 	<div class="site-branding left">
@@ -292,7 +458,7 @@ echo "<SCRIPT LANGUAGE='JavaScript'>
 			<input type="submit" class="search-submit" value="Search" />
 		</form>
 	</aside> -->
-	<aside class="header-right right">
+	<!--<aside class="header-right right">
 		<div class="dateandtime" style="font-size:15px;margin-bottom: 30px;">
 		    <i class="fa fa-clock-o"></i> <span id='ct6'></span>
 		    <p class="bell"><i class="fa fa-bell"></i></p> 
@@ -300,7 +466,15 @@ echo "<SCRIPT LANGUAGE='JavaScript'>
 		<!--<div class="whatsapp">-->
 		<!--	<a href="https://web.whatsapp.com/send?phone=98844555446&amp;text=Hello!%20I%27m%20interested" target="_blank" title="Whatsapp" rel="noopener">+91-988445 55446</a>-->
   <!--      </div>-->
-	</aside>
+	<!--</aside>-->
+	
+	
+	 <aside class="header-right right">
+        <div class="dateandtime" style="font-size:15px;margin-bottom: 30px;">
+             <span><?php echo $date =  date("d/m/Y") ?> </span><i class="fa fa-clock-o"></i>
+            <p class="bell"><i class="fa fa-bell"></i></p> 
+            </div>
+            </aside>
 </header>
 <div id="stuck_container">
 	<nav class="main-navigation clear">
@@ -314,11 +488,11 @@ echo "<SCRIPT LANGUAGE='JavaScript'>
 		<input type="checkbox" id="toggleMenu" />
         <ul class="menu">
             <!-- <li><a href="/"><i class="fa fa-home"></i></a></li> -->
-            <li><a href="post-content&id=1">Fashion</a></li>
-            <li><a href="post-content&id=2">Celebrity Gossip</a></li>
+            <li><a href="post-content&id=1&Fashion">Fashion</a></li>
+            <li><a href="post-content&id=2&Celebrity Gossip">Celebrity Gossip</a></li>
             <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
-            <li><a href="post-content&id=4">Movies</a>
-            <li><a href="post-content&id=5">Music</a></li>
+            <li><a href="post-content&id=4&Movies">Movies</a>
+            <li><a href="post-content&id=5&Music">Music</a></li>
                 <!-- <ul class="sub-menu">
                     <li><a href="post-content&id=1">Movie Reviews</a></li>
                     <li><a href="post-content&id=1">New Movies (Trailers)</a></li>
@@ -326,15 +500,15 @@ echo "<SCRIPT LANGUAGE='JavaScript'>
                 </ul> -->
             </li>
             <!-- <li><a href="#">Hot Content</a></li> -->
-            <li><a href="post-content&id=6">Health &amp; Wellness</a></li>
+            <li><a href="post-content&id=6&Health_Wellness">Health &amp; Wellness</a></li>
             <!-- <li><a href="#">Fitness</a></li>
             <li><a href="#">General Gossip</a></li> -->
-            <li><a href="post-content&id=7">Technology &amp; Gadgets</a></li>
-            <li><a href="post-content&id=8">Entertainment</a></li>
-            <li><a href="post-content&id=9">Sports</a></li>
-            <li><a href="post-content&id=10">Auto News</a></li>
-            <li><a href="post-content&id=11">Travel &amp; Tourism</a></li>
-            <li><a href="post-content&id=17">More</a></li>
+            <li><a href="post-content&id=7&Technology&Gadgets">Technology &amp; Gadgets</a></li>
+            <li><a href="post-content&id=8&Entertainment">Entertainment</a></li>
+            <li><a href="post-content&id=9&Sports">Sports</a></li>
+            <li><a href="post-content&id=10&Auto_News">Auto News</a></li>
+            <li><a href="post-content&id=11&Travel & Tourism">Travel &amp; Tourism</a></li>
+            <li><a href="post-content&id=17&Others">More</a></li>
             <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
             <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
             <!-- <li class="subarrow"><a href="#">More</a> -->
@@ -350,15 +524,17 @@ echo "<SCRIPT LANGUAGE='JavaScript'>
                 </ul>
             </li>
 
-            <div>
-                <button>language</button>
-             <div>
-                <a>English</a>
-                <a>Telugu</a>
-                <a>Hindi</a>
+  
 
-             </div>
-            </div>
+    <div class="dropdown">
+  <button class="dropbtn"><i class="fa-solid fa-language"></i></button>
+  <div class="dropdown-content">
+    
+  <a href="http://127.0.0.1:8000/indexHindi">Hindi</a>
+    <a href="http://127.0.0.1:8000/indexTelugu">Telugu</a>
+    <a href="http://127.0.0.1:8000/">English</a>
+  </div>
+</div>
 		</ul>
     </nav>
 </div>

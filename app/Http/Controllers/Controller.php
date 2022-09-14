@@ -14,7 +14,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function feed($id){
-        $details =  DB::table('post')->where('postlink',$id)->where('status','Publish')->take(1)->get();
+        $details =  DB::table('post')->where('postid',$id)->where('status','Publish')->take(1)->get();
 
         // get previous 
         $previous = DB::table('post')->where('categoryid',$details[0]->categoryid)->where('status','Publish')->where('postid', '<', $details[0]->postid)->max('postid');
@@ -47,14 +47,24 @@ class Controller extends BaseController
      public function category($id){
             $categoryname =  DB::table('category')->where('categoryid',$id)->get();
             
-            $details =  DB::table('post')->where('categoryid',$id)->where('status','Publish')->Orderby('published_date', 'desc')->get();
+$details =  DB::table('post')->where('categoryid',$id)->where('status','Publish')->Orderby('published_date', 'desc')->get();
             return view('front_end.post-content',['details' => $details],['categoryname'=>$categoryname]);
             }
-              public function vs($id){
-            $details =  DB::table('v_storiestrans')->where('storyid',$id)->get();
-             $detailsmain =  DB::table('v_stories')->where('storyid',$id)->get();
-                       return view('front_end.stories',['details' => $details, 'detailsmain'=>$detailsmain]);
-            }
+
+            public function vs($id){
+              $details =  DB::table('v_storiestrans')->where('storyid',$id)->where('cat_type','stories')->Orderby('transid', 'desc')->get();
+               $detailsmain =  DB::table('v_stories')->where('storyid',$id)->where('cat_type','Visual Stories')->get();
+                         return view('front_end.stories',['details' => $details, 'detailsmain'=>$detailsmain]);
+              }
+
+              public function hs($id){
+                $details =  DB::table('v_storiestrans')->where('storyid',$id)->where('cat_type','Horoscope')->Orderby('transid', 'desc')->get();
+                 $detailsmain =  DB::table('v_stories')->where('storyid',$id)->where('cat_type','Horoscope')->get();
+                           return view('front_end.horoscope',['details' => $details, 'detailsmain'=>$detailsmain]);
+                }
+
+
+
             public function postcategoryadmin(Request $request){
               $cat_name = $request->input('categoryname');
               $rss_name = $request->input('rssname');
@@ -207,7 +217,7 @@ class Controller extends BaseController
                       
                       foreach($info as $postdet)
                       {
-                        $psttitle = $postdet->postlink;
+                        $psttitle = $postdet->postid;
                       }
                       // if($info->count() == 1)
                       // {
@@ -298,7 +308,7 @@ class Controller extends BaseController
                         return redirect('posts');
                       }
                       public function meta_share($id,$value){
-                        $details =  DB::table('post')->where('postlink',$id)->where('status','Publish')->take(1)->get();
+                        $details =  DB::table('post')->where('postid',$id)->where('status','Publish')->take(1)->get();
                           return view('front_end.meta_share',['details' => $details,'value' => $value]);
                         }
                     
