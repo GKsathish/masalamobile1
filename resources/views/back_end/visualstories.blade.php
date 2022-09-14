@@ -75,9 +75,11 @@
                                     <tr style="text-align:center">
                                          <th>S.No</th>
                                         <th>Category Name</th>
+                                        <th>categorytype</th>
                                         <th>Story title</th>
                                         <th>Manage/Add Sub Story</th>
                                         <th>View</th>
+                                        
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -95,6 +97,7 @@
                                         <tr style="text-align:center">
                                             <td>{{$i}}</td>
                                             <td>{{$row->categoryname}}</td>
+                                            <td>{{$row->cat_type}}</td>
                                             <td>{{$row->storytitle}}</td>
                                             <!-- <td><?php echo $row->description; ?></td> -->
                                             <!-- <td><button type="submit" class="btn btn-warning" onclick="window.location.href='add_stories?storyid={{$row->storyid}}'">Edit</button></td>

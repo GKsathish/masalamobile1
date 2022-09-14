@@ -17,14 +17,13 @@
     <div class="float-right d-none d-md-block">
 
             <div class="button-items">
-                    <button type="button" class="btn btn-primary waves-effect waves-light" onclick="window.location.href='{{url('posts')}}'">View Posts</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light" onclick="window.location.href='{{url('posts')}}'">View Posts</button>
              
         </div>
          
      </div>
      
 </div>
-
 <?php $email = Session::get('email'); ?>
                 </div>
             </div>

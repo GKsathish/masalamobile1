@@ -17,9 +17,9 @@
                                 <div class="float-right d-none d-md-block">
 
                                    <div class="button-items">
-                                      <!-- <button type="button" class="btn btn-primary waves-effect waves-light" onclick="window.location.href='{{url('visualstories')}}'">View Stories</button>
+                                      <button type="button" class="btn btn-primary waves-effect waves-light" onclick="window.location.href='{{url('visualstories')}}'">View Stories</button>
              
-                                   </div> -->
+                                   </div>
          
                                  </div>
      
@@ -71,8 +71,8 @@
                                     
                                  
                                         <select class="form-control" name="categorytype" required>
-                                        <option value="Visual Stories">Visual Stories</option>
-                                        <option value="Horoscope">Horoscope</option> 
+                                        <option value="visualstories">Visual Stories</option>
+                                        <option value="horoscope">Horoscope</option> 
                                         </select>
                                             
 

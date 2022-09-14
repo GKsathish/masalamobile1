@@ -40,7 +40,6 @@
 .inner-align-end p.cta_link { text-align: center; padding: 10px; background: #f70307; max-width: 280px;  border-radius: 50px;}
 .inner-align-end p.cta_link a{color: #fff !important; text-decoration: none; text-transform: uppercase;  font-size:15px; font-weight:bold}
 .cover .inner-align-end{background-image:linear-gradient(transparent, rgba(0,0,0,0.7)); background-color:transparent; border-radius:0;}
-.inner-align-end{/background-image:linear-gradient(transparent, rgba(0,0,0,0.7));/ background-color:rgba(0,0,0,0.35); margin-left:-5%; margin-right:-5%; width:110%; border-top-left-radius:50% 75px; border-top-right-radius:50% 75px; }
 
 
 .inner-align-end-next{ background: rgba(0,0,0,0); padding:20px 20px 170px 20px}

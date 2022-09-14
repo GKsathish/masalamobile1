@@ -84,9 +84,9 @@
                                       <label>Category</label>
                                  
                                         <select class="form-control" name="categorytype" required>
-                                        <option value="Stories">Stories</option>
+                                        <option value="stories">Stories</option>
                                       
-                                        <option value="Horoscope">Horoscope</option>
+                                        <option value="horoscope">Horoscope</option>
                                       
                                           
                                         </select>

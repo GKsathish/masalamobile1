@@ -46,7 +46,7 @@ public function new_post(Request $request)
     $schedule = $request->input('schedule');
     $noti_input = $request->input('notification_input');
     $email = $request->input('term');
-    $postid="5879";
+    $postid=$request->input('postid');
 
     $postlan=$request->input('language');
    
