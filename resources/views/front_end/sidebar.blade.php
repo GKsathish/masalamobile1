@@ -56,7 +56,7 @@
                     @endphp
                     @foreach($entertainmentinfo as $entertainmentinfo)
 						<li>
-						<a href="post-single&id={{$entertainmentinfo->postlink}}">
+						<a href="post-single&id={{$entertainmentinfo->postid}}">
 							<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
 						</a>
@@ -71,7 +71,7 @@
                         @endphp
                         @foreach($entertainmentinfo as $entertainmentinfo)
                             <li>
-                            <a href="post-single&id={{$entertainmentinfo->postlink}}">
+                            <a href="post-single&id={{$entertainmentinfo->postid}}">
                                 <figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                                 <h3>{{$entertainmentinfo->posttitle}}</h3>
                             </a>

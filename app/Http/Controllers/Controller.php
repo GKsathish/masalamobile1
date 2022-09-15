@@ -28,43 +28,41 @@ class Controller extends BaseController
           return view('front_end.post-single',['details' => $details,'next_feed' => $next_feed , 'previous_feed' => $previous_feed]);
         }
         public function paparazzi_feed($id){
-          $details =  DB::table('paparazzi_post')->where('postlink',$id)->where('status','Publish')->take(1)->get();
+          $details =  DB::table('paparazzi_post')->where('postid',$id)->where('status','Publish')->take(1)->get();
             
             return view('front_end.paparazzi-post',['details' => $details]);
           }
         
         public function feed_meta(Request $request){
-        $details =  DB::table('post')->where('postlink',$request->rsstitle)->where('status','Publish')->take(1)->get();
+        $details =  DB::table('post')->where('postid',$request->rsstitle)->where('status','Publish')->take(1)->get();
           
           return view('front_end.post-single',['details' => $details]);
         }
         
         public function adminfeed($id){
-          $details =  DB::table('post')->where('postlink',$id)->take(1)->get();
+          $details =  DB::table('post')->where('postid',$id)->take(1)->get();
             
             return view('front_end.admin-post-single',['details' => $details]);
           }
      public function category($id){
             $categoryname =  DB::table('category')->where('categoryid',$id)->get();
             
-$details =  DB::table('post')->where('categoryid',$id)->where('status','Publish')->Orderby('published_date', 'desc')->get();
+            $details =  DB::table('post')->where('categoryid',$id)->where('status','Publish')->Orderby('published_date', 'desc')->get();
             return view('front_end.post-content',['details' => $details],['categoryname'=>$categoryname]);
             }
-
-            public function vs($id){
+            
+              public function vs($id){
               $details =  DB::table('v_storiestrans')->where('storyid',$id)->where('cat_type','stories')->Orderby('transid', 'desc')->get();
-               $detailsmain =  DB::table('v_stories')->where('storyid',$id)->where('cat_type','Visual Stories')->get();
+               $detailsmain =  DB::table('v_stories')->where('storyid',$id)->where('cat_type','visualstories')->get();
                          return view('front_end.stories',['details' => $details, 'detailsmain'=>$detailsmain]);
               }
 
-              public function hs($id){
-                $details =  DB::table('v_storiestrans')->where('storyid',$id)->where('cat_type','Horoscope')->Orderby('transid', 'desc')->get();
-                 $detailsmain =  DB::table('v_stories')->where('storyid',$id)->where('cat_type','Horoscope')->get();
-                           return view('front_end.horoscope',['details' => $details, 'detailsmain'=>$detailsmain]);
-                }
-
-
-
+                public function hs($id){
+              $details =  DB::table('v_storiestrans')->where('storyid',$id)->where('cat_type','horoscope')->Orderby('transid', 'desc')->get();
+               $detailsmain =  DB::table('v_stories')->where('storyid',$id)->where('cat_type','horoscope')->get();
+                         return view('front_end.horoscope',['details' => $details, 'detailsmain'=>$detailsmain]);
+              }
+              
             public function postcategoryadmin(Request $request){
               $cat_name = $request->input('categoryname');
               $rss_name = $request->input('rssname');
@@ -123,6 +121,7 @@ $details =  DB::table('post')->where('categoryid',$id)->where('status','Publish'
                 }             
                 public function search(Request $request){
                   $search_value1 = $request->input('search');
+                  
                   $search_value = str_replace(" ","%",$search_value1);
                   //echo $search_value;
                   //die;
@@ -132,8 +131,8 @@ $details =  DB::table('post')->where('categoryid',$id)->where('status','Publish'
                   }
                   else
                   {
-                    $info =  DB::table('post')->where('posttitle', 'like', '%' . $search_value . '%')
-                                              ->where('postlink', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
+                    $info =  DB::table('post')->where('posttitle', 'like', '%' . $search_value . '%')->where('postlink', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
+                    
                     if($info->count() == '0')
                     {
                       $info =  DB::table('post')->where('postlink', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
@@ -217,7 +216,7 @@ $details =  DB::table('post')->where('categoryid',$id)->where('status','Publish'
                       
                       foreach($info as $postdet)
                       {
-                        $psttitle = $postdet->postid;
+                        $posttitle = $postdet->postid;
                       }
                       // if($info->count() == 1)
                       // {
@@ -228,7 +227,7 @@ $details =  DB::table('post')->where('categoryid',$id)->where('status','Publish'
                       //   $value = "Inserted";
                       //   DB::table('noti_token')->insert(['token_id' => $id]);
                       // }
-                      return response()->json(array('success' => true, 'posttitle'=> $psttitle));
+                      return response()->json(array('success' => true, 'posttitle'=> $posttitle));
                         
                       }
                       public function get_posts_admin(){
@@ -284,7 +283,7 @@ $details =  DB::table('post')->where('categoryid',$id)->where('status','Publish'
                                         "title"=>$post->posttitle,
                                         "icon"=>"https://mobilemasala.com/assets/noti_icon.png",
                                         "image"=>$post->imagepath,
-                                        "click_action"=>"https://mobilemasala.com/post-single&id=".$post->postlink
+                                        "click_action"=>"https://mobilemasala.com/post-single&id=".$post->postid
                                     )
                                 );
 

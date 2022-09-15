@@ -147,6 +147,7 @@
                                         <th>Action</th>
                                         <th>uploaded_by</th>
                                         <th>hashtag</th>
+                                        <th>language</th>
                                     </tr>
                                 </thead>
 
@@ -257,6 +258,7 @@
 
                             <td><?php echo $row->uploaded_by; ?></td>
                             <td><?php echo $row->hashtag; ?></td>
+                            <td><?php echo $row->language; ?></td>
 
 
       

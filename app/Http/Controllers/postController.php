@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use DB;
 use Validator;
@@ -47,8 +46,7 @@ public function new_post(Request $request)
     $noti_input = $request->input('notification_input');
     $email = $request->input('term');
     $postid=$request->input('postid');
-
-    $postlan=$request->input('language');
+     $postlan=$request->input('language');
    
     $hashtag=$request->input('hashtag');
  

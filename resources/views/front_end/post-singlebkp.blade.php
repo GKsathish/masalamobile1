@@ -45,13 +45,13 @@ $metaurl = "https://mobilemasala.com/";*/
     }
  </style>
 
-<meta property="og:title" content="@yield('title')">
+<meta property="og:title" content="Celebrity Gossips | Entertainment | Fashion | Visual Stories" />
 <meta name="description" content="Mobile Masala is a popular entertainment website in India. It is the one-stop site for trending film news, paparazzi videos, celeb gossip news, lifestyle tips, health advice, etc. The spectrum of content includes Bollywood News, Entertainment, Fashion, Celebrity Gossip, Movies, Music, Technology and Gadgets,  Food, Health and Wellness, Sports, Auto, Travel and Tourism, Indian Television, Regional Cinema, Movie Reviews, and more. Mobile Masala curates the best and most popular content in the form of text articles, images, paparazzi videos and visual stories." />
 <meta name="keywords" content="Celebrity Gossips,Entertainment,Fashion,Visual Stories" />
 <meta name="Author" content="https://mobilemasala.com/" />
 
   <meta property="og:url" content="https://mobilemasala.com/"> 
-
+<meta property="og:title" content="Celebrity Gossips | Entertainment | Fashion | Visual Stories" /> 
   <meta property="og:description" content=" Mobile Masala is a popular entertainment website in India. It is the one-stop site for trending film news, paparazzi videos, celeb gossip news, lifestyle tips, health advice, etc. The spectrum of content includes Bollywood News, Entertainment, Fashion, Celebrity Gossip, Movies, Music, Technology and Gadgets,  Food, Health and Wellness, Sports, Auto, Travel and Tourism, Indian Television, Regional Cinema, Movie Reviews, and more. Mobile Masala curates the best and most popular content in the form of text articles, images, paparazzi videos and visual stories." /> 
   <meta property="og:image" content="https://mobilemasala.com/assets/front_end/images/logo.png" />
 
@@ -74,19 +74,19 @@ $metaurl = "https://mobilemasala.com/";*/
 
 
 <header class="entry-nav clear">
-	<ul>
-		<li><a href="/">Home</a></li>
+    <ul>
+        <li><a href="/">Home</a></li>
         @php
         $get_categoryname = DB::table('category')->where('categoryid',$feed->categoryid)->get();
         @endphp
         @foreach ($get_categoryname as $categoryname)
-		<li>{{ $categoryname->categoryname }}</li>
+        <li>{{ $categoryname->categoryname }}</li>
         @endforeach
-	</ul>
+    </ul>
 </header>
 
 <div class="entry-content">
-	<div class="ads">
+    <div class="ads">
         
         <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
         <div id="gpt-passback-mobilemasala.com.Banner0.1638192042">
@@ -105,14 +105,14 @@ $metaurl = "https://mobilemasala.com/";*/
 <!--    <script async id="AV62382721bab93c441117d951" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=62382721bab93c441117d951&AV_PUBLISHERID=6229e046286f660f8b1f0456"></script>
 -->    
     <!--video ad added by praveen-->
-    </div>	
+    </div>  
    
-	<div class="container post-content left">
-    	<div class="post-content-inner clear">
+    <div class="container post-content left">
+        <div class="post-content-inner clear">
             <h1>{{$feed->posttitle}}</h1>
            <div class="postview-and-time clear">
            @if($feed->published_date != "")
-				<span class="left" ><i class="fa fa-eye"></i><?php
+                <span class="left" ><i class="fa fa-eye"></i><?php
 
 
 function time_elapsed_string($datetime, $full = false) {
@@ -154,12 +154,12 @@ $feed_date = $feed->published_date;
 ?></span>
 @endif
                 <span class="left"><i class="fa fa-eye"></i>{{$feed->hitcount}} View</span>
-			</div>
+            </div>
             <figure><img src="{{$feed->imagepath}}" alt="" width="100%"></figure>
             <div class="clear"></div>
             <aside class="post-content-inner-postdetails left">
             <?php if($feed->published_date != '') { ?>
-               	<h4><i class="fa fa-calendar"></i> Posted on <a href="#" rel="bookmark"><?php  $created_date = $feed->published_date;  echo date("F j, Y",strtotime($created_date)); ?></time></a></h4>
+                <h4><i class="fa fa-calendar"></i> Posted on <a href="#" rel="bookmark"><?php  $created_date = $feed->published_date;  echo date("F j, Y",strtotime($created_date)); ?></time></a></h4>
             <?php } ?>
                 <div class="socialshare clear">
                     <ul>
@@ -171,7 +171,7 @@ $feed_date = $feed->published_date;
                        <li><a href="https://api.whatsapp.com/send?text=<?php echo env('SITE_URL'); ?><?php echo "meta_share%26id=".$feed->postid."%26share=yes"; ?>" data-action="share/whatsapp/share"  data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
                 </div>
-    			<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+                <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
                 <div id="gpt-passback-mobilemasala.com.Banner0.1638192088">
                 <script>
                 window.googletag = window.googletag || {cmd: []};
@@ -198,7 +198,7 @@ $feed_date = $feed->published_date;
                     $catreplace =  str_replace(' ','',$cat);
                     
                     ?>
-            		<a href="https://mobilemasala.com/post-content&id={{$categoryname->categoryid}}&post=<?php echo $catreplace;?>" class="tagclick">#<?php echo $catreplace;  ?></a>
+                    <a href="https://mobilemasala.com/post-content&id={{$categoryname->categoryid}}" class="tagclick">#<?php echo $catreplace;  ?></a>
                     @endforeach
                 
 
@@ -240,63 +240,64 @@ $feed_date = $feed->published_date;
                             googletag.display("gpt-passback-mobilemasala.com.Banner0.1638192133");
                         });
                         </script>
-                        </div>	
+                        
+                
+                     
+                     
+                        </div>  
                  
                 </center>
                </div>
             </aside>
-			<!-- <div class="ads"><img src="assets/front_end/images/g8.jpg" /></div>	 -->
+            <!-- <div class="ads"><img src="assets/front_end/images/g8.jpg" /></div>     -->
         </div>
 
         <div class="next-prev-button clear">
             @foreach ($next_feed as $next_feed)
-			<a href="post-single&id={{$next_feed->postid}}" rel="prev">Previous</a>
+            <a href="post-single&id={{$next_feed->postid}}" rel="prev">Previous</a>
             @endforeach
             
             @foreach ($previous_feed as $previous_feed)
             <a href="post-single&id={{$previous_feed->postid}}" rel="next">Next</a>
             @endforeach
-		</div>
-    </div>	
+        </div>
+    </div>  
     @endforeach 
-	<aside id="secondary" class="container post-sidebar widget-area right">
+    <aside id="secondary" class="container post-sidebar widget-area right">
     @include('front_end.sidebar')
-	</aside>
-	<!-- <div class="ads clear"><img src="assets/front_end/images/g6.jpg" /></div>	 -->
+    </aside>
+    <!-- <div class="ads clear"><img src="assets/front_end/images/g6.jpg" /></div>   -->
     <div class="container related-post clear">
-		<h2><span>Related Posts</span></h2>
+        <h2><span>Related Posts</span></h2>
        
         <ul>
         @php 
         $entertainmentinfo = DB::table('post')->where('categoryid',$feed->categoryid)->where('postid', '<>', $feed->postid)->where('status','Publish')->orderBy('created_at','desc')->skip(4)->take(12)->get(); 
         @endphp
         @foreach($entertainmentinfo as $entertainmentinfo)
-       										 <?php 
-				$titlorl = $entertainmentinfo->posttitle;
-				$title = str_replace(" ","+",$titlorl);
-				?>
+       
             <li>
-				
+                
                 @php
-						$get_cat = DB::table('category')->where('categoryid',$feed->categoryid)->get();
-						@endphp
-						@foreach($get_cat as $get_cat)
-                    	<h5 style="    padding: 8px 0;">{{$get_cat->categoryname}}</h5>
-						@endforeach
-                   <a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title=""> <figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
-            	</a>
-            	<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title="">
+                        $get_cat = DB::table('category')->where('categoryid',$feed->categoryid)->get();
+                        @endphp
+                        @foreach($get_cat as $get_cat)
+                        <h5 style="    padding: 8px 0;">{{$get_cat->categoryname}}</h5>
+                        @endforeach
+                   <a href="post-single&id={{$entertainmentinfo->postid}" title=""> <figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
+                </a>
+                <a href="post-single&id={{$entertainmentinfo->postid}}" title="">
                     <h3>{{$entertainmentinfo->posttitle}}</h3>
-            	</a>
-            	<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title="">
+                </a>
+                <a href="post-single&id={{$entertainmentinfo->postid}}" title="">
                     <p></p>
-            	</a>
+                </a>
             </li>
          @endforeach
         </ul>
        
-	</div>
-	<!-- <div class="ads clear"><img src="assets/front_end/images/g8.jpg" /></div>	 -->
+    </div>
+    <!-- <div class="ads clear"><img src="assets/front_end/images/g8.jpg" /></div>   -->
 </div>
 
 <script async='async' src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
@@ -313,9 +314,9 @@ $feed_date = $feed->published_date;
     var slotId = event.slot.getSlotElementId();
     if(slotId=="gpt-passback-Sticky"){
     document.getElementById("sticky").style.visibility='visible';
-	document.getElementById("ad_close").onclick = function(){
-		document.getElementById("sticky").remove();
-	}
+    document.getElementById("ad_close").onclick = function(){
+        document.getElementById("sticky").remove();
+    }
     }
     });
     });
