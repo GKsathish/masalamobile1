@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('admin', function () {
     return view('auth.login');
 });
+
 Route::get('meta', function () {
     return view('front_end.meta');
 });
@@ -50,12 +51,15 @@ Route::get('posts', 'Controller@get_posts_admin');
 Route::get('dashboard', function () {
     return view('back_end.home');
 });
+
 Route::get('trending', function () {
     return view('back_end.trending');
 });
+
 Route::get('rss-feed', function () {
     return view('back_end.rss-feed');
 });
+
 Route::get('visualstories', function () {
     return view('back_end.visualstories');
 });
@@ -161,9 +165,7 @@ Route::get('add_paparazzi_posts', function () {
     return view('back_end.add_paparazzi_post');
 });
 
-// Route::get('search', function () {
-//     return view('front_end.search');
-// });
+
 Route::get('edit_paparazzi_posts', function () {
     return view('back_end.edit_paparazzi_post');
 });

@@ -800,11 +800,7 @@
   </script>
 </div>
 </div>
-         <?php if ( \Session::has('success')) { ?>
-		<script>
-			alert("Subscription Added Successfully");
-		</script>
-		<?php } ?>
+       
 </div>
 </div>
 

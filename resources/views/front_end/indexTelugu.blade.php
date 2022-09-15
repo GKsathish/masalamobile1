@@ -1,27 +1,339 @@
 @extends('front_end.header')
 @section('content')
+
+
+
+
+<head>
+ 
+<style>
+#tagchange {
+    width: auto;
+    float: left;
+    color: #1d1dc3;
+}
+
+.hashtag{
+    width: 90%;
+  
+    margin-left: 50px;
+    margin-bottom: 35px;
+}
+
+.vid-main-wrapper {
+    width: 100%;
+  }
+
+  /*  VIDEO PLAYER CONTAINER
+ 		############################### */
+  .vid-container {
+    position: relative;
+
+    height: 0;
+    width: 60%;
+    float: left;
+  }
+
+  .vid-container iframe,
+  .vid-container object,
+  .vid-container embed {
+    width: 100%;
+    height: 475px !important;
+  }
+
+
+  /*  VIDEOS PLAYLIST 
+ 		############################### */
+  .vid-list-container {
+    width: 40%;
+    height: 100%;
+    height: 475px;
+    overflow: hidden;
+    float: right;
+
+  }
+
+
+
+  .vid-list-container:hover,
+  .vid-list-container:focus {
+    overflow-y: auto;
+  }
+
+  ol#vid-list {
+    margin: 0px;
+    padding: 0;
+  
+  }
+
+  ol#vid-list li {
+      /* height: 130px; */
+    width: 100%;
+    float: left;
+  }
+
+  ol#vid-list li a {
+    text-decoration: none;
+    background-color: #fff;
+    height: 100%;
+    display: block;
+    padding: 0 10px;
+  }
+
+  ol#vid-list li a:hover {
+    background-color: #fff;
+  }
+
+  .vid-thumb {
+    float: left;
+    margin-right: 10px;
+
+  }
+
+
+.ytp-impression-link{
+    
+    display:none !important;
+}
+
+
+  .active-vid {
+    background: #3A3A3A;
+  }
+
+  #vid-list .desc {
+    color: #000;
+    font-size: 14px;
+    margin-top: 19px;
+    text-align: left;
+    width: 88%;
+  }
+
+.descp{
+    
+        -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: initial;
+    font-weight: bold;
+        font-size: 14px;
+        line-height: 18px !important;
+        font-weight:bold;
+}
+.descp2{
+    
+        -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: initial;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px !important;
+    margin: 11px 5px;
+    padding-top:25px;
+}
+
+#hidetext{
+ display:none;   
+}
+
+
+#vhidetext{
+ display:none;   
+}
+
+
+#hidetext_V{
+ display:none;   
+}
+
+
+#vhidetext_V{
+ display:none;   
+}
+.ytp-impression-link{
+    
+    display:none;
+    
+}
+
+  
+   #showdesk{
+      
+      display:block;
+  }
+  
+  #showmbl{
+      display:none ;
+  }
+  
+  
+  
+   #showdesk_V{
+      
+      display:block;
+  }
+  
+  #showmbl_V{
+      display:none ;
+  }
+  
+  
+  
+@media only screen and (max-width:1020px){
+      #showdesk{
+      
+      display:none  !important;
+  }
+  
+  #showmbl{
+      display:block;
+  }
+  
+  
+  
+        #showdesk_V{
+      
+      display:none  !important;
+  }
+  
+  #showmbl_V{
+      display:block;
+  }
+   
+.hashtag{
+    
+     
+    width: 90% !important;
+    margin: 0 auto;
+
+   
+}
+#vid-list .desc {
+    color: #000;
+    font-size: 12px;
+    margin-top: 19px;
+    text-align: left;
+    width: 100%;
+    line-height: 14px;
+    font-weight:bold;
+
+}
+
+.vid-list-container {
+    width: 100%;
+    height: 100%;
+    height: auto;
+    overflow: hidden;
+    float: right;
+    margin-top: 80%;
+    margin-left: 0;
+}
+
+.vid-container {
+    position: relative;
+    height: 0;
+    width: 100%;
+    float: left;
+}
+
+.vid-container iframe,
+  .vid-container object,
+  .vid-container embed {
+    width: 100%;
+    height: 235px;
+  }
+  
+  
+  .descp{
+    
+        -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: initial;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px !important;
+
+}
+
+  /* .descp2{
+    
+        -webkit-line-clamp: 2;POSITION
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: initial;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px !important;
+    margin: 11px 5px;
+    padding-top:25px;
+} */
+
+
+}
+@media only screen and (min-width: 275px) and (max-width: 910px) {
+	.vid-container iframe, .vid-container object, .vid-container embed {
+    width: 100%;
+
+    height: 215px !important;
+    
+}
+  .vid-list-container {
+    width: 100%;
+    height: 50%;
+
+    overflow: hidden;
+    float: right;
+
+  }
+  
+  
+
+  
+}
+
+
+
+</style>
+  
+</head>
+
+
 <div class="entry-content">
     <!--Trending Now-->
 	<section class="container clear">
-	<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-    <div id="gpt-passback-mobilemasala.com.Banner0.1638182447">
-		<script>
-			window.googletag = window.googletag || {cmd: []};
-			googletag.cmd.push(function() {
-			googletag.defineSlot('/22387492205,22578111928/mobilemasala.com.Banner0.1638182447', [[300,250],[250,250],[336,280],[360,300],[320,280],[320,50],[320,100],[300,100],[300,50]], 'gpt-passback-mobilemasala.com.Banner0.1638182447').addService(googletag.pubads());
-			googletag.enableServices();
-			googletag.display("gpt-passback-mobilemasala.com.Banner0.1638182447");
-			});
-		</script>
-     </div>
+	
+     
+    <!--video ad added by praveen--> 
+    
+<!--    <script async id="AV62382721bab93c441117d951" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=62382721bab93c441117d951&AV_PUBLISHERID=6229e046286f660f8b1f0456"></script>
+-->    
+    <!--video ad added by praveen-->
+     
+
+
  		<h2><span>Trending Now</span></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::select(DB::raw('SELECT * FROM (select  * from post WHERE trending_now="Trending Now" AND status="Publish" ORDER BY `published_date` DESC LIMIT 15) AS temptable ORDER BY RAND() LIMIT 8'));
+			
+		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW"  ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
+			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
+				<?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
+				
+			
             <div class="item clear">	
-				<a href="post-single&id={{$entertainmentinfo->postlink}}">   
+				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">   
                     <figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <aside>
 						@php
@@ -33,13 +345,77 @@
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
                     </aside>
 				</a>
+	
+				
 				<button style="float:right; position: relative; bottom: 95px; right: 10px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
 				<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
 				</svg></button>	
-            </div>
-			@endforeach
-        </div>
+		    </div>
+		    
+		    
+			 @endforeach
+			 @foreach($entertainmentinfo1 as $entertainmentinfo)
+			
+			    
+			
+						<a href="paparazzi-post&id={{$entertainmentinfo->postid}}">
+             			<div style="border:2px  solid #e9e9e9; display:flex;  border-radius:3px;">
+						 <figure style="margin:4px;"  >
+                							<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe> -->
+              								<iframe width="100" height="90" src="{{$entertainmentinfo->videopath}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+               							</figure>
+                	
+
+							
+						  <div  style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">  
+						  <h5>Paparazzi</h5>
+							<h3>{{$entertainmentinfo->posttitle}}</h3>
+			                </div>
+						</div>
+                        </a>
+		    @endforeach 
+				
+			
+				
+		</div>
+
+        
+        
 	</section>
+	
+	
+
+	
+
+
+      <div class="hashtag" style="padding: 10px;">
+          <marquee behavior="scroll" direction="left"  width="100%">
+              
+              	@php 
+              	
+				
+			
+			
+			 	$tag = DB::select(DB::raw('SELECT hashtag,count(*) as COUNT FROM `hashtags` WHERE  hashtag !="" and date(cdt)>=date(NOW()-INTERVAL 10 DAY) GROUP by hashtag HAVING COUNT(hashtag)>3 limit 16 offset 0;'));
+				@endphp
+					@foreach($tag as $taginfo)
+				@foreach($tag as $taginfo)
+					@foreach($tag as $taginfo)
+			    
+                <a   href="https://www.mobilemasala.com/search?search={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
+        
+	         @endforeach
+	          @endforeach
+	         @endforeach
+	     
+	     
+          </marquee>
+      </div>
+
+ 
+
+
+
 	
 	<!--Entertainment & Sports-->
 	<section class="container equal-height padding-top-none clear">
@@ -48,14 +424,19 @@
 				@php 
 					$entertainmentinfo = DB::table('post')->where('categoryid',8)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 				@endphp
-				@foreach($entertainmentinfo as $entertainmentinfo)
-					
+				@foreach($entertainmentinfo as $entertainmentinfo1)
+				
+				<?php 
+				$titlorl = $entertainmentinfo1->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
+				
 				<div class="item clear">
-					<a href="post-single&id={{$entertainmentinfo->postlink}}">
-                        <img src="{{$entertainmentinfo->imagepath}}" alt="">
+					<a href="post-single&id={{$entertainmentinfo1->postid}}&post=<?php echo $title;?>">
+                        <img src="{{$entertainmentinfo1->imagepath}}" alt="">
                         <figcaption>
 							<h5>Entertainment</h5>
-							<h1>{{$entertainmentinfo->posttitle}}</h1>
+							<h1>{{$entertainmentinfo1->posttitle}}</h1>
                         </figcaption>
 					</a>
 				</div>
@@ -63,14 +444,18 @@
 				@endforeach
             </div>
         </aside>
-        <aside class="sidebar right">
+        <aside class="sidebar right" style="margin:0;">
             <div class="slider-carousel-withdot owl-carousel owl-theme clear" id="slider-carousel-sport">
 			@php 
 					$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
+				<?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
 				<div class="item clear">
-					<a href="post-single&id={{$entertainmentinfo->postlink}}" style="background-image:url(<?php echo $entertainmentinfo->imagepath ?>)">
+					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" style="background-image:url(<?php echo $entertainmentinfo->imagepath ?>)">
                         <figcaption>
 							<h5>Sports</h5>
 							<h1>{{$entertainmentinfo->posttitle}}</h1>
@@ -88,9 +473,22 @@
 				</div> -->
             </div>
         </aside>
+        
+        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    
+    
+    <div id="gpt-passback-mobilemasala.com.Banner0.1638182447">
+		<script>
+			window.googletag = window.googletag || {cmd: []};
+			googletag.cmd.push(function() {
+			googletag.defineSlot('/22387492205,22578111928/mobilemasala.com.Banner0.1638182447', [[300,250],[250,250],[336,280],[360,300],[320,280],[320,50],[320,100],[300,100],[300,50]], 'gpt-passback-mobilemasala.com.Banner0.1638182447').addService(googletag.pubads());
+			googletag.enableServices();
+			googletag.display("gpt-passback-mobilemasala.com.Banner0.1638182447");
+			});
+		</script>
+     </div>
 	</section>
-	<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-    <div id="gpt-passback-mobilemasala.com.Banner0.1638182812">
+
     <script>
     window.googletag = window.googletag || {cmd: []};
     googletag.cmd.push(function() {
@@ -110,9 +508,13 @@
 				$entertainmentinfo = DB::table('post')->where('categoryid',2)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
+						<?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				 $title = str_replace(" ","+",$titlorl);
+				?>
 					
                 	<li>
-						<a href="post-single&id={{$entertainmentinfo->postlink}}">
+						<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
 						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
 						<figcaption>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
@@ -160,8 +562,12 @@
 			</div>
         </aside>
 	</section>
+	
+   
+     
+    
 
-      
+
       <!--Visual Stories-->
       <section class="container visual-stories clear">
 		<h2 class="left"><span><a href="javascript:void(0)">Visual Stories</a></span></h2>
@@ -181,7 +587,7 @@
 		<div id="FEATURED" class="tabVisualStories clear">
 			<div class="visual-stories-carousel owl-carousel owl-theme clear">	
 			@php
-			$get_vs1 = DB::table('v_stories')->where('categoryid',1)->get();
+			$get_vs1 = DB::table('v_stories')->where('categoryid',1)->orderBy('storyid','desc')->get();
 			@endphp			
 			@foreach ($get_vs1 as $get_vs1)		
 				<div class="item clear">
@@ -288,20 +694,172 @@
 			</div>
 		</div>
     </section>
+    
+    
+    <!-- Horoscope-->
+    
+      
+
+    <!--VIDEO STORIES-->
+    
+    
+    	<!--Paparazzi-->
+	
+	<section class="container random-posts padding-top-none clear" >
+ 		<h2><a href="Video-stories-details"><span>VIDEO STORIES</span></a></h2>
+		<div id="randomposts">
+	          
+		  
+	<div class="vid-main-wrapper clearfix" >
+
+        <!-- THE YOUTUBE PLAYER -->
+        <div class="vid-container" id = "videostories">
+          @php
+          $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->take(1)->get();
+          @endphp
+          @foreach($entertainmentinfo as $entertainmentinfo)
+
+          <?php
+          $video = $entertainmentinfo->videopath;
+          $vidoeurl = explode("https://www.youtube.com/embed/", $video);
+          //var_dump($vidoeurl);
+          $shortcode = $vidoeurl['1'];
+          ?>
+          <iframe id="vid_frame2" class="video" width="640" height="360" src="https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
+        
+            <div id ="hidemain_V" class="desc"><p class="descp2"><b>{{$entertainmentinfo->posttitle}}</b></p></div><br>
+            <div id ="" class="desc"><p id="addtext_V" class="descp2"></p></div><br>
+            
+          @endforeach
+
+        </div>
+
+        <!-- THE PLAYLIST -->
+        <div class="vid-list-container" id="vid-list">
+          <ol id="vid-list">
+            @php
+            $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
+            @endphp
+          	@foreach($entertainmentinfo ->slice(1, 20) as $entertainmentinfo)
+					
+            <?php
+            $video = $entertainmentinfo->videopath;
+            $vidoeurl = explode("https://www.youtube.com/embed/", $video);
+            //var_dump($vidoeurl);
+            $shortcode = $vidoeurl['1'];
+            ?>
+
+            <li  id="showdesk_V" class="youtubedesktoptext_V">
+                
+              <a  href="javascript:void();" onClick="document.getElementById('vid_frame2').src='https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=1'" >
+                <span class="vid-thumb"><img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" /></span>
+                
+                <div class="desc"><p class="descp2" id="gettittle">{{$entertainmentinfo->posttitle}}</p></div>
+       
+              </a>
+            </li>
+            
+            <li  id="showmbl_V" class="youtubembltoptext_V">
+                
+              <a  href=#videostories href="javascript:void();" onClick="document.getElementById('vid_frame2').src='https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=1'" >
+                <span class="vid-thumb"><img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" /></span>
+                
+                <div class="desc"><p class="descp2" id="gettittle">{{$entertainmentinfo->posttitle}}</p></div>
+       
+              </a>
+            </li>
+    
+            
+            
+            @endforeach
+
+          </ol>
+
+        </div>
+
+      </div>
+
+
+      <script>
+        $(document).ready(function() {
+          $('.vid-item').each(function(index) {
+            $(this).on('click', function() {
+              var current_index = index + 1;
+              $('.vid-item .thumb').removeClass('active');
+              $('.vid-item:nth-child(' + current_index + ') .thumb').addClass('active');
+            });
+          });
+          
+
+		     $(".youtubembltoptext_V").on('click', function() {
+      
+              var text = $(this). text();
+              
+              $("#hidemain_V").hide();
+           
+               $( "#addtext_V" ).empty();
+              $( "#addtext_V" ).append(text);
+              
+              
+               $('#showmbl_V').animate({
+					 scrollTop: $("#videostories").offset().top
+			}, 2000);
+			$('#vid_frame2')[0].contentWindow.postMessage('{"event":"command","func":"' + 'startVideo' + '","args":""}', '*');
+             
+			    
+          });			
+					
+          $(".youtubedesktoptext_V").on('click', function() {
+      
+              var text = $(this). text();
+              
+              $("#hidemain_V").hide();
+               $( "#addtext_V" ).empty();
+              $( "#addtext_V" ).append(text);
+          });
+        });
+      </script>
+      
+      <script>
+      $(document).ready(function() {
+        $(window).scroll(function() {
+
+          //alert('ok')
+
+          $('#vid_frame2')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+        });
+
+      });
+    </script>
+
+		</div>
+		<button class="more_pap_btn" onclick="location.href='Video-stories-details'">More Video Stories</button>
+	</section>
+    
+    
+    <!--VIDEO STORIES-->
+    
+    
+    
+    
+    
+   
+	
+	
     <!--Random Posts-->
 	<section class="container random-posts padding-top-none clear">
  		<h2><span>Random Posts</span></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('status','Publish')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)')->inRandomOrder()->take(5)->orderBy('published_date','desc')->get(); 
+				$entertainmentinfo = DB::table('post')->where('status','Publish')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)')->inRandomOrder()->take(5)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<li>
 				<button style="float:right; position: relative;cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
 	<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
 	</svg></button>
-					<a href="post-single&id={{$entertainmentinfo->postlink}}" title="">
+					<a href="post-single&id={{$entertainmentinfo->postid}}&postlink={{$entertainmentinfo->postlink}}" title="">
 					@php
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
@@ -318,7 +876,13 @@
 			</ul>
 		</div>
 	</section>
+	
+	  <!--Random Posts-->
+	
+	
+	
 	<!--Movies-->
+	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
  			<h2><a href="post-content&id=4"><span>Movies</span></a></h2>
@@ -327,8 +891,12 @@
 					$entertainmentinfo = DB::table('post')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
                     @endphp
                     @foreach($entertainmentinfo as $entertainmentinfo)
+                    <?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
 				<article>
-					<a href="post-single&id={{$entertainmentinfo->postlink}}">
+					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo->imagepath}}" alt="" width="100%">
                         <figcaption>
                             <h5>Movies</h5>
@@ -357,6 +925,8 @@
 				</article> -->
 			</div>
         </aside>
+        
+        
         <aside class="sidebar right">
         	<div class="ads">
 				<!-- <img src="assets/front_end/images/g7.jpg" width="80%"/> -->
@@ -385,8 +955,11 @@
 				</script>
 				</div> -->
 				<!--<img src="{{asset('assets/front_end/images/adimage/adimg4.jpg')}}" style="margin-top:20px;">-->
-				<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('image/zing_ad_1.jpg')}}" style="margin-top:20px;width:100%"></a>
-				<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('image/zing_ad_2.jpg')}}" style="margin-top:20px;width:100%"></a>
+				<!--<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('image/zing_ad_3.jpg')}}" style="margin-top:20px;width:100%"></a>-->
+				
+				<!--<script async id="AV62382721bab93c441117d951" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=62382721bab93c441117d951&AV_PUBLISHERID=6229e046286f660f8b1f0456"></script>-->
+				
+				<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/MMsep82022.jpg')}}" style="margin-top:50px;width:100%"></a>
 			</div>
         </aside>
 	</section>
@@ -396,32 +969,133 @@
 	<section class="container random-posts padding-top-none clear">
  		<h2><a href="paparazzi-details"><span>Paparazzi</span></a></h2>
 		<div id="randomposts">
-		<ul class="clear">
-				@php 
-				$entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(10)->get(); 
-				@endphp
-				@foreach($entertainmentinfo as $entertainmentinfo)
-				<li>
-				
-					<a href="paparazzi-post&id={{$entertainmentinfo->postlink}}" title="">
-				
-                    	<h5>Paparazzi</h5>
+	          
+		  
+	<div class="vid-main-wrapper clearfix">
+
+        <!-- THE YOUTUBE PLAYER -->
+        <div class="vid-container" id = "paparazzi-section">
+          @php
+          $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','paparazzi')->orderBy('postid','desc')->take(1)->get();
+          @endphp
+          @foreach($entertainmentinfo as $entertainmentinfo)
+
+          <?php
+          $video = $entertainmentinfo->videopath;
+          $vidoeurl = explode("https://www.youtube.com/embed/", $video);
+          //var_dump($vidoeurl);
+          $shortcode = $vidoeurl['1'];
+          ?>
+          <iframe id="vid_frame" class="video" width="640" height="360" src="https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
+        
+            <div id ="hidemain" class="desc"><p class="descp2"><b>{{$entertainmentinfo->posttitle}}</b></p></div><br>
+            <div id ="" class="desc"><p id="addtext" class="descp2"></p></div><br>
+            
+          @endforeach
+
+        </div>
+
+        <!-- THE PLAYLIST -->
+        <div class="vid-list-container" id="vid-list">
+          <ol id="vid-list">
+            @php
+            $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','<>','Video_Stories')->where('cat_type','paparazzi')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
+            @endphp
+          	@foreach($entertainmentinfo ->slice(1, 20) as $entertainmentinfo)
 					
-						
-						<figure>
-							<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe> -->
-							<iframe width="100%" height="315" src="{{$entertainmentinfo->videopath}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</figure>
-						<h3>{{$entertainmentinfo->posttitle}}</h3>
-					</a>
+            <?php
+            $video = $entertainmentinfo->videopath;
+            $vidoeurl = explode("https://www.youtube.com/embed/", $video);
+            //var_dump($vidoeurl);
+            $shortcode = $vidoeurl['1'];
+            ?>
+
+            <li  id="showdesk" class="youtubedesktoptext">
+                
+              <a  href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=1'" >
+                <span class="vid-thumb"><img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" /></span>
+                
+                <div class="desc"><p class="descp2" id="gettittle">{{$entertainmentinfo->posttitle}}</p></div>
+       
+              </a>
+            </li>
+            
+            <li  id="showmbl" class="youtubembltoptext">
+                
+              <a  href=#paparazzi-section href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=1'" >
+                <span class="vid-thumb"><img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" /></span>
+                
+                <div class="desc"><p class="descp2" id="gettittle">{{$entertainmentinfo->posttitle}}</p></div>
+       
+              </a>
+            </li>
+    
+            
+            
+            @endforeach
+
+          </ol>
+
+        </div>
+
+      </div>
+
+
+      <script>
+        $(document).ready(function() {
+          $('.vid-item').each(function(index) {
+            $(this).on('click', function() {
+              var current_index = index + 1;
+              $('.vid-item .thumb').removeClass('active');
+              $('.vid-item:nth-child(' + current_index + ') .thumb').addClass('active');
+            });
+          });
+          
+
+		     $(".youtubembltoptext").on('click', function() {
+      
+              var text = $(this). text();
+              
+              $("#hidemain").hide();
+           
+               $( "#addtext" ).empty();
+              $( "#addtext" ).append(text);
+              
+              
+               $('#showmbl').animate({
+					 scrollTop: $("#paparazzi-section").offset().top
+			}, 2000);
+			$('#vid_frame')[0].contentWindow.postMessage('{"event":"command","func":"' + 'startVideo' + '","args":""}', '*');
+             
+			    
+          });			
 					
-				</li>
-				@endforeach
-			</ul> 
+          $(".youtubedesktoptext").on('click', function() {
+      
+              var text = $(this). text();
+              
+              $("#hidemain").hide();
+               $( "#addtext" ).empty();
+              $( "#addtext" ).append(text);
+          });
+        });
+      </script>
+      
+      <script>
+      $(document).ready(function() {
+        $(window).scroll(function() {
+
+          //alert('ok')
+
+          $('#vid_frame')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+        });
+
+      });
+    </script>
+
 		</div>
 		<button class="more_pap_btn" onclick="location.href='paparazzi-details'">More Paparazzi</button>
 	</section>
-	
 	<!--Fashion and Autonews & Sidebar-->
 	<section class="container random-posts padding-top-none clear">
  		<h2><a href="post-content&id=1"><span>Fashion</span></a></h2>
@@ -435,7 +1109,7 @@
 				<button style="float:right; position: relative;cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
 	<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
 	</svg></button>
-					<a href="post-single&id={{$entertainmentinfo->postlink}}" title="">
+					<a href="post-single&id={{$entertainmentinfo->postid}}&postlink={{$entertainmentinfo->postlink}}" title="">
 					@php
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
@@ -465,8 +1139,12 @@
 			$entertainmentinfo = DB::table('post')->where('categoryid',7)->where('status','Publish')->orderBy('published_date','desc')->take(6)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
+			       <?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
                 	<li>
-					<a href="post-single&id={{$entertainmentinfo->postlink}}">
+					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
 					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <figcaption>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
@@ -482,23 +1160,10 @@
 			</div>
         </aside>
         <aside class="sidebar right">
-            <div class="hot-pick slider-carousel-withdot owl-carousel owl-theme clear" style="height:250px;">
-				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',8)->where('status','Publish')->orderBy('published_date','desc')->skip(8)->take(5)->get(); 
-				@endphp
-				@foreach($entertainmentinfo as $entertainmentinfo)
-				<div class="item clear">
-					<a href="post-single&id={{$entertainmentinfo->postlink}}">
-                        <figcaption style="background-image:url('<?php echo $entertainmentinfo->imagepath; ?>'); background-size:cover;">
-                            <h5>Entertainment</h5>
-                            <h1>{{$entertainmentinfo->posttitle}}</h1>
-                        </figcaption>
-					</a>
-				</div>
-				@endforeach
-            </div>
+            
         	<div class="ads">
-        	    <a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('image/zing-ad.jpg')}}"></a>
+        	    </br></br>
+        	    <a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/MMAUG222022.jpg')}}"></a>
 				<!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
 				<div id="gpt-passback-MRMTF">
 					<script>
@@ -524,8 +1189,12 @@
 			$entertainmentinfo = DB::table('post')->where('categoryid',6)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
+			   <?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
 			<div class="item clear">
-				<a href="post-single&id={{$entertainmentinfo->postlink}}">
+				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
 					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <aside>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
@@ -553,11 +1222,15 @@
  		<h2><a href="post-content&id=9"><span>Sports</span></a></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('status','Publish')->orderBy('published_date','desc')->skip(4)->take(8)->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
+			 <?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
 			<div class="item clear">
-				<a href="post-single&id={{$entertainmentinfo->postlink}}">
+				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
                     <figure><img src="<?php echo $entertainmentinfo->imagepath; ?>" alt=""></figure>
                     <aside>
                     	<h5>Sports</h5>
@@ -581,8 +1254,12 @@
 			$entertainmentinfo = DB::table('post')->where('categoryid',5)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
+			 <?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
 			<div class="item clear">
-				<a href="post-single&id={{$entertainmentinfo->postlink}}">
+				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
 					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <aside>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
@@ -608,11 +1285,17 @@
 				$entertainmentinfo = DB::table('post')->where('categoryid',11)->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(5)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
+				
+					 <?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
+				
 				<li>
 				<button style="float:right; position: relative;cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
 	<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
 	</svg></button>
-					<a href="post-single&id={{$entertainmentinfo->postlink}}" title="">
+					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title="">
 					@php
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
@@ -634,14 +1317,18 @@
 		<section class="container equal-height padding-top-none clear">
 	
 			<aside class="content left">
-			<h2><span><a href="post-content&id=10">Autonews</a></span></h2>
-				<article class="single-article-box clear">
-					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('status','Publish')->orderBy('published_date','desc')->take(1)->get(); 
+    			<h2><span><a href="post-content&id=10">Autonews</a></span></h2>
+    			<article class="single-article-box clear">
+    					@php 
+					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
 					@endphp
 					@foreach($entertainmentinfo as $entertainmentinfo)
+						 <?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
 					<aside>
-						<a href="post-single&id={{$entertainmentinfo->postlink}}">
+						<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
 							<figure style="background-image:url('<?php echo $entertainmentinfo->imagepath; ?>');"></figure>
 							<figcaption>
 								<h5>Autonews</h5>
@@ -649,64 +1336,20 @@
 							</figcaption>
 						</a>
 					</aside>
-					@endforeach
-					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('status','Publish')->orderBy('published_date','desc')->skip(1)->take(1)->get(); 
-					@endphp
-					@foreach($entertainmentinfo as $entertainmentinfo)
-					<aside>
-						<img src="{{asset('assets/front_end/images/adimage/adimg6.jpg')}}">
-						<!-- <a href="post-single&id={{$entertainmentinfo->postlink}}">
-							<figure style="background-image:url(<?php echo $entertainmentinfo->imagepath; ?>)"></figure>
-							<figcaption>
-								<h5>Autonews</h5>
-								<h3>{{$entertainmentinfo->posttitle}}</h3>
-							</figcaption>
-						</a> -->
-						<!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-						<div id="gpt-passback-MRBTF">
-							<script>
-								window.googletag = window.googletag || {cmd: []};
-								googletag.cmd.push(function() {
-								googletag.defineSlot('/22387492205/ad-masalamobile.com-bsnl(pyro)-banner-300x250-btf', [[360, 300], [250, 250], [336, 280], [300, 250], [300, 280]], 'gpt-passback-MRBTF').addService(googletag.pubads());
-								googletag.enableServices();
-								googletag.pubads().set('page_url', 'masalamobile.com');
-								googletag.display('gpt-passback-MRBTF');
-								});
-							</script>
-						</div> -->
-					</aside>
-					@endforeach
-				</article>
-				<article class="single-article-box clear">
-					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('status','Publish')->orderBy('published_date','desc')->skip(1)->take(1)->get(); 
-					@endphp
-					@foreach($entertainmentinfo as $entertainmentinfo)
-					<aside>
-						<a href="post-single&id={{$entertainmentinfo->postlink}}">
-							<figure style="background-image:url('<?php echo $entertainmentinfo->imagepath; ?>')"></figure>
-							<figcaption>
-								<h5>Autonews</h5>
-								<h3>{{$entertainmentinfo->posttitle}}</h3>
-							</figcaption>
-						</a>
-					</aside>
-					@endforeach
-					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('status','Publish')->orderBy('published_date','desc')->skip(2)->take(1)->get(); 
-					@endphp
-					@foreach($entertainmentinfo as $entertainmentinfo)
-					<aside>
-						<a href="post-single&id={{$entertainmentinfo->postlink}}">
-							<figure style="background-image:url('<?php echo $entertainmentinfo->imagepath; ?>')"></figure>
-							<figcaption>
-								<h5>Autonews</h5>
-								<h3>{{$entertainmentinfo->posttitle}}</h3>
-							</figcaption>
-						</a>
-					</aside>
-					@endforeach
+				
+						<!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>-->
+						<!--<div id="gpt-passback-MRBTF">-->
+						<!--	<script>-->
+						<!--		window.googletag = window.googletag || {cmd: []};-->
+						<!--		googletag.cmd.push(function() {-->
+						<!--		googletag.defineSlot('/22387492205/ad-masalamobile.com-bsnl(pyro)-banner-300x250-btf', [[360, 300], [250, 250], [336, 280], [300, 250], [300, 280]], 'gpt-passback-MRBTF').addService(googletag.pubads());-->
+						<!--		googletag.enableServices();-->
+						<!--		googletag.pubads().set('page_url', 'masalamobile.com');-->
+						<!--		googletag.display('gpt-passback-MRBTF');-->
+						<!--		});-->
+						<!--	</script>-->
+						<!--</div>-->
+				@endforeach
 				</article>
 			</aside>
 			<aside class="sidebar right">
@@ -718,11 +1361,15 @@
 					<div id="Recent" class="tabcontent clear">
 						<ul>
 						@php 
-						$entertainmentinfo = DB::table('post')->where('status','Publish')->orderBy('published_date','desc')->take(7)->get(); 
+						$entertainmentinfo = DB::table('post')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
 						@endphp
 						@foreach($entertainmentinfo as $entertainmentinfo)
+									 <?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
 							<li>
-							<a href="post-single&id={{$entertainmentinfo->postlink}}">
+							<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
 								<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
 								<h3>{{$entertainmentinfo->posttitle}}</h3>
 							</a>
@@ -737,8 +1384,12 @@
 							$entertainmentinfo = DB::table('post')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();
 							@endphp
 							@foreach($entertainmentinfo as $entertainmentinfo)
+													 <?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
 								<li>
-								<a href="post-single&id={{$entertainmentinfo->postlink}}">
+								<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
 									<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
 									<h3>{{$entertainmentinfo->posttitle}}</h3>
 								</a>
@@ -759,8 +1410,12 @@
 			$entertainmentinfo = DB::table('post')->where('categoryid',17)->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
+													 <?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
 			<div class="item clear">
-				<a href="post-single&id={{$entertainmentinfo->postlink}}">
+				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
                     <figure><img src="<?php echo $entertainmentinfo->imagepath; ?>" alt=""></figure>
                     <aside>
                     	<h5>More</h5>
@@ -800,11 +1455,7 @@
   </script>
 </div>
 </div>
-  <?php if (\Session::has('success')) { ?>
-		<script>
-			alert("Subscription Added Successfully");
-		</script>
-		<?php } ?>
+ 
 </div>
 </div>
 
@@ -853,9 +1504,22 @@
 				</div>
             <div class="modal-footer">
 				<label class="copylabel"></label>
-                <div class="row"> <input class="col-10 ur" type="url"  id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>
+                <div class="row"> <input class="col-10 ur" type="url"   id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>
             </div>
         </div>
 		</div>
+	 	
+<script>
+    $(document).ready(function() {
+        var value = $("#tagchange").text();
+        //alert(value)
+        var res = value.split(" ").join("");
+        $("#tagchange").empty();
+        $("#tagchange").append(res);
+       console.log(res);
+       
+    });
+</script>
+
 
 @endsection
