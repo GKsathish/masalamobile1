@@ -437,7 +437,7 @@
             <div class="slider-carousel-withdot owl-carousel owl-theme clear" id="slider-carousel-sport">
 			@php 
 					$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('language','Hindi')->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
-				@end
+				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<?php 
 				$titlorl = $entertainmentinfo->posttitle;
@@ -704,7 +704,7 @@
         <!-- THE YOUTUBE PLAYER -->
         <div class="vid-container" id = "videostories">
           @php
-          $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->take(1)->get();
+          $entertainmentinfo = DB::table('paparazzi_post')->where('language','Hindi')->where('status','Publish')->where('language','Telugu')->where('cat_type','Video_Stories')->orderBy('postid','desc')->take(1)->get();
           @endphp
           @foreach($entertainmentinfo as $entertainmentinfo)
 
@@ -727,7 +727,7 @@
         <div class="vid-list-container" id="vid-list">
           <ol id="vid-list">
             @php
-            $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
+            $entertainmentinfo = DB::table('paparazzi_post')->where('language','Hindi')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
             @endphp
           	@foreach($entertainmentinfo ->slice(1, 20) as $entertainmentinfo)
 					
@@ -1396,7 +1396,7 @@
  		<h2><a href="post-content&id=17"><span>More</span></a></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',17)->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',17)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 													 <?php 

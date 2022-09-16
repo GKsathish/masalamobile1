@@ -260,11 +260,22 @@
 
 }
 
-  
-
+  .descp2{
+    
+        -webkit-line-clamp: 2;POSITION
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: initial;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px !important;
+    margin: 11px 5px;
+    padding-top:25px;
 }
 
 
+}
 @media only screen and (min-width: 275px) and (max-width: 910px) {
 	.vid-container iframe, .vid-container object, .vid-container embed {
     width: 100%;
@@ -310,7 +321,7 @@
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			
-		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW"   ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
+		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW"  ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
 			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
 
 			@endphp
@@ -704,7 +715,7 @@
         <!-- THE YOUTUBE PLAYER -->
         <div class="vid-container" id = "videostories">
           @php
-          $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('language','Telugu')->where('cat_type','Video_Stories')->orderBy('postid','desc')->take(1)->get();
+          $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->take(1)->get();
           @endphp
           @foreach($entertainmentinfo as $entertainmentinfo)
 
@@ -1444,7 +1455,11 @@
   </script>
 </div>
 </div>
- 
+  <?php if (\Session::has('success')) { ?>
+		<script>
+			alert("Subscription Added Successfully");
+		</script>
+		<?php } ?>
 </div>
 </div>
 
