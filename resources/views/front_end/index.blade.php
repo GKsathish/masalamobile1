@@ -311,7 +311,7 @@
 			@php 
 			
 		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW"   ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
-			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"    ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
