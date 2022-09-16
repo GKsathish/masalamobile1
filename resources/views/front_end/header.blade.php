@@ -346,15 +346,16 @@ $(document).ready(function(){
 .dropdown {
   position: relative;
   display: inline-block;
+
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  min-width: 100px;
+  box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
+  z-index: 4;
 }
 
 .dropdown-content a {
@@ -529,10 +530,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="dropdown">
   <button class="dropbtn"><i class="fa-solid fa-language"></i></button>
   <div class="dropdown-content">
-    
-  <a href="http://127.0.0.1:8000/indexHindi">Hindi</a>
-    <a href="http://127.0.0.1:8000/indexTelugu">Telugu</a>
-    <a href="http://127.0.0.1:8000/">English</a>
+  <a href="/">Home</a>
+  <a href="/Telugu">Telugu</a>
+  <a href="/Hindi">Hindi</a>
+   
+    <a href="/English">English</a>
+   
   </div>
 </div>
 		</ul>

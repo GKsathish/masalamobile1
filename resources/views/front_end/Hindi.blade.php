@@ -321,8 +321,8 @@
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			
-		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW"  ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
-			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW" and language="Hindi" ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
+			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"and language="Hindi"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
@@ -422,7 +422,7 @@
     	<aside class="content left">
             <div class="slider-carousel owl-carousel owl-theme clear" id="slider-carousel-enter">
 				@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',8)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',8)->where('status','Publish')->where('language','Hindi')->take(8)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo1)
 				
@@ -447,7 +447,7 @@
         <aside class="sidebar right" style="margin:0;">
             <div class="slider-carousel-withdot owl-carousel owl-theme clear" id="slider-carousel-sport">
 			@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('language','Hindi')->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<?php 
@@ -505,7 +505,7 @@
             <div class="single-article clear">
             	<ul>
 				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',2)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
+				$entertainmentinfo = DB::table('post')->where('categoryid',2)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 						<?php 
@@ -852,7 +852,7 @@
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('status','Publish')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)')->inRandomOrder()->take(5)->orderBy('published_date','desc')->get(); 
+				$entertainmentinfo = DB::table('post')->where('status','Publish')->where('language','Hindi')->inRandomOrder()->take(5)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<li>
@@ -888,7 +888,7 @@
  			<h2><a href="post-content&id=4"><span>Movies</span></a></h2>
             <div class="grid clear">
 					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',4)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
                     @endphp
                     @foreach($entertainmentinfo as $entertainmentinfo)
                     <?php 
@@ -976,7 +976,7 @@
         <!-- THE YOUTUBE PLAYER -->
         <div class="vid-container" id = "paparazzi-section">
           @php
-          $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','paparazzi')->orderBy('postid','desc')->take(1)->get();
+          $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('language','Hindi')->where('cat_type','paparazzi')->orderBy('postid','desc')->take(1)->get();
           @endphp
           @foreach($entertainmentinfo as $entertainmentinfo)
 
@@ -999,7 +999,7 @@
         <div class="vid-list-container" id="vid-list">
           <ol id="vid-list">
             @php
-            $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','<>','Video_Stories')->where('cat_type','paparazzi')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
+            $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('language','Hindi')->where('cat_type','<>','Video_Stories')->where('cat_type','paparazzi')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
             @endphp
           	@foreach($entertainmentinfo ->slice(1, 20) as $entertainmentinfo)
 					
@@ -1102,7 +1102,7 @@
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',1)->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(10)->get(); 
+				$entertainmentinfo = DB::table('post')->where('categoryid',1)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(10)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<li>
@@ -1136,7 +1136,7 @@
             <div class="single-article clear">
             	<ul>
 				@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',7)->where('status','Publish')->orderBy('published_date','desc')->take(6)->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',7)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(6)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			       <?php 
@@ -1186,7 +1186,7 @@
  		<h2><a href="post-content&id=6"><span>Health & Wellness</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',6)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',6)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			   <?php 
@@ -1222,7 +1222,7 @@
  		<h2><a href="post-content&id=9"><span>Sports</span></a></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			 <?php 
@@ -1251,7 +1251,7 @@
  		<h2><a href="post-content&id=5"><span>Music</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',5)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',5)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			 <?php 
@@ -1282,7 +1282,7 @@
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',11)->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(5)->get(); 
+				$entertainmentinfo = DB::table('post')->where('categoryid',11)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','asc')->inRandomOrder()->take(5)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				
@@ -1320,7 +1320,7 @@
     			<h2><span><a href="post-content&id=10">Autonews</a></span></h2>
     			<article class="single-article-box clear">
     					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
 					@endphp
 					@foreach($entertainmentinfo as $entertainmentinfo)
 						 <?php 
@@ -1361,7 +1361,7 @@
 					<div id="Recent" class="tabcontent clear">
 						<ul>
 						@php 
-						$entertainmentinfo = DB::table('post')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
+						$entertainmentinfo = DB::table('post')->where('status','Publish')->where('language','Hindi')->orderBy('published_date','desc')->take(8)->get(); 
 						@endphp
 						@foreach($entertainmentinfo as $entertainmentinfo)
 									 <?php 
@@ -1381,7 +1381,7 @@
 						<ul>
 						<?php /* $entertainmentinfo = DB::table('post')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();  */  //OLD LOGIC ?> 
 						@php 
-							$entertainmentinfo = DB::table('post')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();
+							$entertainmentinfo = DB::table('post')->where('language','Hindi')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();
 							@endphp
 							@foreach($entertainmentinfo as $entertainmentinfo)
 													 <?php 

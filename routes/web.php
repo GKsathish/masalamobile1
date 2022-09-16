@@ -12,9 +12,6 @@
 */
 
 
-Route::get('/', function () {
-    return view('front_end.index');
-});
 
 
 Route::get('admin', function () {
@@ -105,16 +102,19 @@ Route::get('paparazzi-details', function () {
 // Route::gety('/post-single&id={rsstitle}', function () {
 //     return view('front_end.post-single');
 // });
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('front_end.index');
 });
 
 
-Route::get('/indexHindi', function () {
-    return view('front_end.indexHindi');
+Route::get('/Hindi', function () {
+    return view('front_end.Hindi');
 });
-Route::get('/indexTelugu', function () {
-    return view('front_end.indexTelugu');
+Route::get('/English', function () {
+    return view('front_end.English');
+});
+Route::get('/Telugu', function () {
+    return view('front_end.Telugu');
 });
 
 

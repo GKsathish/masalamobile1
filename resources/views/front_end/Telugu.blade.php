@@ -260,11 +260,22 @@
 
 }
 
-  
+  /* .descp2{
+    
+        -webkit-line-clamp: 2;POSITION
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: initial;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px !important;
+    margin: 11px 5px;
+    padding-top:25px;
+} */
+
 
 }
-
-
 @media only screen and (min-width: 275px) and (max-width: 910px) {
 	.vid-container iframe, .vid-container object, .vid-container embed {
     width: 100%;
@@ -310,8 +321,8 @@
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			
-		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW"   ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
-			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"    ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE  language ="Telugu"  ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
+	
 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
@@ -343,27 +354,8 @@
 		    
 		    
 			 @endforeach
-			 @foreach($entertainmentinfo1 as $entertainmentinfo)
-			
-			    
-			
-						<a href="paparazzi-post&id={{$entertainmentinfo->postid}}">
-             			<div style="border:2px  solid #e9e9e9; display:flex;  border-radius:3px;">
-						 <figure style="margin:4px;"  >
-                							<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe> -->
-              								<iframe width="100" height="90" src="{{$entertainmentinfo->videopath}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-               							</figure>
-                	
-
-							
-						  <div  style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">  
-						  <h5>Paparazzi</h5>
-							<h3>{{$entertainmentinfo->posttitle}}</h3>
-			                </div>
-						</div>
-                        </a>
-		    @endforeach 
-				
+		
+		
 			
 				
 		</div>
@@ -408,10 +400,10 @@
 	
 	<!--Entertainment & Sports-->
 	<section class="container equal-height padding-top-none clear">
-    	<aside class="content left">
+    	<aside class="content ">
             <div class="slider-carousel owl-carousel owl-theme clear" id="slider-carousel-enter">
 				@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',8)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',8)->where('language','Telugu')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo1)
 				
@@ -433,35 +425,7 @@
 				@endforeach
             </div>
         </aside>
-        <aside class="sidebar right" style="margin:0;">
-            <div class="slider-carousel-withdot owl-carousel owl-theme clear" id="slider-carousel-sport">
-			@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
-				@endphp
-				@foreach($entertainmentinfo as $entertainmentinfo)
-				<?php 
-				$titlorl = $entertainmentinfo->posttitle;
-				$title = str_replace(" ","+",$titlorl);
-				?>
-				<div class="item clear">
-					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" style="background-image:url(<?php echo $entertainmentinfo->imagepath ?>)">
-                        <figcaption>
-							<h5>Sports</h5>
-							<h1>{{$entertainmentinfo->posttitle}}</h1>
-                        </figcaption>
-					</a>
-				</div>
-				@endforeach
-				<!-- <div class="item clear">
-					<a href="#" style="background-image:url(assets/front_end/images/sports2.jpg)">
-                        <figcaption>                            
-							<h5>Sports & Gossip</h5>
-                            <h1>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</h1>
-                        </figcaption>
-					</a>
-				</div> -->
-            </div>
-        </aside>
+        <!--  -->
         
         <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
     
@@ -494,7 +458,7 @@
             <div class="single-article clear">
             	<ul>
 				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',2)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
+				$entertainmentinfo = DB::table('post')->where('categoryid',2)->where('language','Telugu')->where('status','Publish')->orderBy('published_date','asc')->take(3)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 						<?php 
@@ -689,150 +653,6 @@
     
       
 
-    <!--VIDEO STORIES-->
-    
-    
-    	<!--Paparazzi-->
-	
-	<section class="container random-posts padding-top-none clear" >
- 		<h2><a href="Video-stories-details"><span>VIDEO STORIES</span></a></h2>
-		<div id="randomposts">
-	          
-		  
-	<div class="vid-main-wrapper clearfix" >
-
-        <!-- THE YOUTUBE PLAYER -->
-        <div class="vid-container" id = "videostories">
-          @php
-          $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('language','Telugu')->where('cat_type','Video_Stories')->orderBy('postid','desc')->take(1)->get();
-          @endphp
-          @foreach($entertainmentinfo as $entertainmentinfo)
-
-          <?php
-          $video = $entertainmentinfo->videopath;
-          $vidoeurl = explode("https://www.youtube.com/embed/", $video);
-          //var_dump($vidoeurl);
-          $shortcode = $vidoeurl['1'];
-          ?>
-          <iframe id="vid_frame2" class="video" width="640" height="360" src="https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
-        
-            <div id ="hidemain_V" class="desc"><p class="descp2"><b>{{$entertainmentinfo->posttitle}}</b></p></div><br>
-            <div id ="" class="desc"><p id="addtext_V" class="descp2"></p></div><br>
-            
-          @endforeach
-
-        </div>
-
-        <!-- THE PLAYLIST -->
-        <div class="vid-list-container" id="vid-list">
-          <ol id="vid-list">
-            @php
-            $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
-            @endphp
-          	@foreach($entertainmentinfo ->slice(1, 20) as $entertainmentinfo)
-					
-            <?php
-            $video = $entertainmentinfo->videopath;
-            $vidoeurl = explode("https://www.youtube.com/embed/", $video);
-            //var_dump($vidoeurl);
-            $shortcode = $vidoeurl['1'];
-            ?>
-
-            <li  id="showdesk_V" class="youtubedesktoptext_V">
-                
-              <a  href="javascript:void();" onClick="document.getElementById('vid_frame2').src='https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=1'" >
-                <span class="vid-thumb"><img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" /></span>
-                
-                <div class="desc"><p class="descp2" id="gettittle">{{$entertainmentinfo->posttitle}}</p></div>
-       
-              </a>
-            </li>
-            
-            <li  id="showmbl_V" class="youtubembltoptext_V">
-                
-              <a  href=#videostories href="javascript:void();" onClick="document.getElementById('vid_frame2').src='https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=1'" >
-                <span class="vid-thumb"><img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" /></span>
-                
-                <div class="desc"><p class="descp2" id="gettittle">{{$entertainmentinfo->posttitle}}</p></div>
-       
-              </a>
-            </li>
-    
-            
-            
-            @endforeach
-
-          </ol>
-
-        </div>
-
-      </div>
-
-
-      <script>
-        $(document).ready(function() {
-          $('.vid-item').each(function(index) {
-            $(this).on('click', function() {
-              var current_index = index + 1;
-              $('.vid-item .thumb').removeClass('active');
-              $('.vid-item:nth-child(' + current_index + ') .thumb').addClass('active');
-            });
-          });
-          
-
-		     $(".youtubembltoptext_V").on('click', function() {
-      
-              var text = $(this). text();
-              
-              $("#hidemain_V").hide();
-           
-               $( "#addtext_V" ).empty();
-              $( "#addtext_V" ).append(text);
-              
-              
-               $('#showmbl_V').animate({
-					 scrollTop: $("#videostories").offset().top
-			}, 2000);
-			$('#vid_frame2')[0].contentWindow.postMessage('{"event":"command","func":"' + 'startVideo' + '","args":""}', '*');
-             
-			    
-          });			
-					
-          $(".youtubedesktoptext_V").on('click', function() {
-      
-              var text = $(this). text();
-              
-              $("#hidemain_V").hide();
-               $( "#addtext_V" ).empty();
-              $( "#addtext_V" ).append(text);
-          });
-        });
-      </script>
-      
-      <script>
-      $(document).ready(function() {
-        $(window).scroll(function() {
-
-          //alert('ok')
-
-          $('#vid_frame2')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
-        });
-
-      });
-    </script>
-
-		</div>
-		<button class="more_pap_btn" onclick="location.href='Video-stories-details'">More Video Stories</button>
-	</section>
-    
-    
-    <!--VIDEO STORIES-->
-    
-    
-    
-    
-    
-   
 	
 	
     <!--Random Posts-->
@@ -841,7 +661,7 @@
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('status','Publish')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)')->inRandomOrder()->take(5)->orderBy('published_date','desc')->get(); 
+				$entertainmentinfo = DB::table('post')->where('status','Publish')->where('language','Telugu')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)')->inRandomOrder()->take(5)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<li>
@@ -877,7 +697,7 @@
  			<h2><a href="post-content&id=4"><span>Movies</span></a></h2>
             <div class="grid clear">
 					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',4)->where('language','Telugu')->where('status','Publish')->orderBy('published_date','asc')->take(4)->get(); 
                     @endphp
                     @foreach($entertainmentinfo as $entertainmentinfo)
                     <?php 
@@ -955,136 +775,7 @@
 	
 	<!--Paparazzi-->
 	
-	<section class="container random-posts padding-top-none clear">
- 		<h2><a href="paparazzi-details"><span>Paparazzi</span></a></h2>
-		<div id="randomposts">
-	          
-		  
-	<div class="vid-main-wrapper clearfix">
 
-        <!-- THE YOUTUBE PLAYER -->
-        <div class="vid-container" id = "paparazzi-section">
-          @php
-          $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','paparazzi')->orderBy('postid','desc')->take(1)->get();
-          @endphp
-          @foreach($entertainmentinfo as $entertainmentinfo)
-
-          <?php
-          $video = $entertainmentinfo->videopath;
-          $vidoeurl = explode("https://www.youtube.com/embed/", $video);
-          //var_dump($vidoeurl);
-          $shortcode = $vidoeurl['1'];
-          ?>
-          <iframe id="vid_frame" class="video" width="640" height="360" src="https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
-        
-            <div id ="hidemain" class="desc"><p class="descp2"><b>{{$entertainmentinfo->posttitle}}</b></p></div><br>
-            <div id ="" class="desc"><p id="addtext" class="descp2"></p></div><br>
-            
-          @endforeach
-
-        </div>
-
-        <!-- THE PLAYLIST -->
-        <div class="vid-list-container" id="vid-list">
-          <ol id="vid-list">
-            @php
-            $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','<>','Video_Stories')->where('cat_type','paparazzi')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
-            @endphp
-          	@foreach($entertainmentinfo ->slice(1, 20) as $entertainmentinfo)
-					
-            <?php
-            $video = $entertainmentinfo->videopath;
-            $vidoeurl = explode("https://www.youtube.com/embed/", $video);
-            //var_dump($vidoeurl);
-            $shortcode = $vidoeurl['1'];
-            ?>
-
-            <li  id="showdesk" class="youtubedesktoptext">
-                
-              <a  href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=1'" >
-                <span class="vid-thumb"><img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" /></span>
-                
-                <div class="desc"><p class="descp2" id="gettittle">{{$entertainmentinfo->posttitle}}</p></div>
-       
-              </a>
-            </li>
-            
-            <li  id="showmbl" class="youtubembltoptext">
-                
-              <a  href=#paparazzi-section href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=1'" >
-                <span class="vid-thumb"><img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" /></span>
-                
-                <div class="desc"><p class="descp2" id="gettittle">{{$entertainmentinfo->posttitle}}</p></div>
-       
-              </a>
-            </li>
-    
-            
-            
-            @endforeach
-
-          </ol>
-
-        </div>
-
-      </div>
-
-
-      <script>
-        $(document).ready(function() {
-          $('.vid-item').each(function(index) {
-            $(this).on('click', function() {
-              var current_index = index + 1;
-              $('.vid-item .thumb').removeClass('active');
-              $('.vid-item:nth-child(' + current_index + ') .thumb').addClass('active');
-            });
-          });
-          
-
-		     $(".youtubembltoptext").on('click', function() {
-      
-              var text = $(this). text();
-              
-              $("#hidemain").hide();
-           
-               $( "#addtext" ).empty();
-              $( "#addtext" ).append(text);
-              
-              
-               $('#showmbl').animate({
-					 scrollTop: $("#paparazzi-section").offset().top
-			}, 2000);
-			$('#vid_frame')[0].contentWindow.postMessage('{"event":"command","func":"' + 'startVideo' + '","args":""}', '*');
-             
-			    
-          });			
-					
-          $(".youtubedesktoptext").on('click', function() {
-      
-              var text = $(this). text();
-              
-              $("#hidemain").hide();
-               $( "#addtext" ).empty();
-              $( "#addtext" ).append(text);
-          });
-        });
-      </script>
-      
-      <script>
-      $(document).ready(function() {
-        $(window).scroll(function() {
-
-          //alert('ok')
-
-          $('#vid_frame')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
-        });
-
-      });
-    </script>
-
-		</div>
-		<button class="more_pap_btn" onclick="location.href='paparazzi-details'">More Paparazzi</button>
-	</section>
 	<!--Fashion and Autonews & Sidebar-->
 	<section class="container random-posts padding-top-none clear">
  		<h2><a href="post-content&id=1"><span>Fashion</span></a></h2>
@@ -1305,42 +996,7 @@
 	
 		<section class="container equal-height padding-top-none clear">
 	
-			<aside class="content left">
-    			<h2><span><a href="post-content&id=10">Autonews</a></span></h2>
-    			<article class="single-article-box clear">
-    					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
-					@endphp
-					@foreach($entertainmentinfo as $entertainmentinfo)
-						 <?php 
-				$titlorl = $entertainmentinfo->posttitle;
-				$title = str_replace(" ","+",$titlorl);
-				?>
-					<aside>
-						<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
-							<figure style="background-image:url('<?php echo $entertainmentinfo->imagepath; ?>');"></figure>
-							<figcaption>
-								<h5>Autonews</h5>
-								<h3>{{$entertainmentinfo->posttitle}}</h3>
-							</figcaption>
-						</a>
-					</aside>
-				
-						<!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>-->
-						<!--<div id="gpt-passback-MRBTF">-->
-						<!--	<script>-->
-						<!--		window.googletag = window.googletag || {cmd: []};-->
-						<!--		googletag.cmd.push(function() {-->
-						<!--		googletag.defineSlot('/22387492205/ad-masalamobile.com-bsnl(pyro)-banner-300x250-btf', [[360, 300], [250, 250], [336, 280], [300, 250], [300, 280]], 'gpt-passback-MRBTF').addService(googletag.pubads());-->
-						<!--		googletag.enableServices();-->
-						<!--		googletag.pubads().set('page_url', 'masalamobile.com');-->
-						<!--		googletag.display('gpt-passback-MRBTF');-->
-						<!--		});-->
-						<!--	</script>-->
-						<!--</div>-->
-				@endforeach
-				</article>
-			</aside>
+			
 			<aside class="sidebar right">
 				<div class="news-list sidebarposts nomargin">
 					<div class="tab">
@@ -1392,32 +1048,7 @@
 	
 	<!--More-->
 	
-	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=17"><span>More</span></a></h2>
-        <div class="tumbnailcarousel owl-carousel owl-theme clear">
-			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',17)->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
-			@endphp
-			@foreach($entertainmentinfo as $entertainmentinfo)
-													 <?php 
-				$titlorl = $entertainmentinfo->posttitle;
-				$title = str_replace(" ","+",$titlorl);
-				?>
-			<div class="item clear">
-				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
-                    <figure><img src="<?php echo $entertainmentinfo->imagepath; ?>" alt=""></figure>
-                    <aside>
-                    	<h5>More</h5>
-                    	<h3>{{$entertainmentinfo->posttitle}}</h3>
-                    </aside>
-				</a>
-				<button style="float:right; position: relative; bottom: 95px; right: 10px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-				<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-				</svg></button>	
-			</div>
-			@endforeach
-        </div>
-	</section>
+	
 	
 	
 </div>
