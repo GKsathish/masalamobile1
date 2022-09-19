@@ -30,7 +30,7 @@ class addrsspostsController extends BaseController
                {
                    $imagepath = "";
                    
-                   if(isset($item->enclosure['url'][0]))
+                    if(isset($item->enclosure['url'][0]))
                         $imagepath = $item->enclosure['url'][0];
                     elseif(isset($item->enclosure['url']))
                         $imagepath = $item->enclosure['url'];
