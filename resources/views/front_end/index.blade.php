@@ -697,7 +697,29 @@
     
     
     <!-- Horoscope-->
-    
+    <section class="container visual-stories clear">
+		<h2 class="left"><span><a href="javascript:void(0)">Horoscope<h2>
+	
+		<div >
+			<div class="visual-stories-carousel owl-carousel owl-theme clear">	
+			@php
+			$get_vs1 = DB::table('v_stories')->where('cat_type','horoscope')->orderBy('storyid','desc')->get();
+			@endphp			
+			@foreach ($get_vs1 as $get_vs1)		
+				<div class="item clear">
+					<a href="horoscope&id={{$get_vs1->storyid}}" target="_blank">
+						<img src="<?php echo $get_vs1->imagelink; ?>" style="min-height: 400px;" />
+						<figcaption>
+							<h2>{{$get_vs1->storytitle}}</h2>
+							<h5>FEATURED</h5>
+						</figcaption>
+					</a>
+				</div>
+			@endforeach
+			</div>
+		</div>
+
+    </section>
       
 
     <!--VIDEO STORIES-->

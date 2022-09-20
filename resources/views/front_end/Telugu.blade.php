@@ -321,7 +321,7 @@
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			
-		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE  language ="Telugu"  ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
+		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE  language ="Telugu"   ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
 	
 
 			@endphp
