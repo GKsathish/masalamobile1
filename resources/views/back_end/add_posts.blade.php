@@ -162,10 +162,10 @@
                                       <label>Language</label>
                                  
                                         <select class="form-control" name="language" required>
-                                        <option value="english">English</option>
-                                        <option value="telugu">Telugu</option>
+                                        <option value="English">English</option>
+                                        <option value="Telugu">Telugu</option>
                                       
-                                        <option value="hindi">Hindi</option>
+                                        <option value="Hindi">Hindi</option>
                                       
                                           
                                         </select>

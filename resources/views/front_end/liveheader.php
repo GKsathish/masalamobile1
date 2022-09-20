@@ -42,10 +42,6 @@
 <meta property="og:image:width" content="300">
 <meta property="og:image:height" content="300">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 
 <link as="script" rel="preload" href="https://cdn.ampproject.org/v0.js">
 
@@ -61,6 +57,8 @@
 <script src="https://cdn.ampproject.org/v0/amp-story-auto-ads-0.1.js" custom-element="amp-story-auto-ads" async></script>
 
 
+    <link rel="canonical" href="https://amp.dev/documentation/examples/introduction/stories_in_amp/index.html">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
 <link href="{{asset('assets/front_end/css/style.css')}}" rel="stylesheet" type="text/css">
 <link href="{{asset('assets/front_end/css/responsive.css')}}" rel="stylesheet" type="text/css">
@@ -337,23 +335,27 @@ $(document).ready(function(){
     	    text-decoration: underline;
             color: blue;
     	}
-
-
-        .dropbtn {
-  background-color: #a83299;
-  color: white;
+    	
+    	
+    	        .dropbtn {
+  background-color: #3e8e41;
+  color: #fff;
   padding: 16px;
   font-size: 16px;
-  
-  border:none;
+  border: none;
 }
 
 .dropdown {
-  position: absolute;
+  position: relative;
   display: inline-block;
-    
-  
+  margin-left: 2px !important;
+
 }
+/*@media only screen and (max-width: 800px) {*/
+/*.dropdown{*/
+/*  display:none;   */
+/*}*/
+/*}*/
 
 .dropdown-content {
   display: none;
@@ -361,28 +363,26 @@ $(document).ready(function(){
   background-color: #000;
   min-width: 100px;
   box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
-  z-index: 4;
+  z-index: 9;
+  margin-left:-25px !important;
+  text-align:center !important;
 }
 
 .dropdown-content a {
-  color: white;
+  color: #fff;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  text-align:center !important;
 }
 
 .dropdown-content a:hover {background-color: #000;}
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: #a83299;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
-nav,.navv,ul{
-    margin-left:40px !important;
-    margin-top:0px !important;
-    font-size: 12px;
-}
-
+    	
 </style>
 <!--Bi Changes-->
 <body>
@@ -489,156 +489,80 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             </aside>
 </header>
-<div id="stuck_container" >
-<?php $lang = $_SERVER['REQUEST_URI'];?>
-    <nav class="navbar navbar-inverse">
-    <?php if($lang == "/"){ ?><div class="container-fluid">
-            
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>                        
-                </button>
-                    <div class="dropdown">
-                        <button class="dropbtn"><i class="fa-solid fa-language"></i></button>
-                        <div class="dropdown-content">
-                            
-                        
-                            <a href="/Telugu">Telugu</a>
-                            <a href="/Hindi">Hindi</a>
-                        
-                        </div>
-                    </div>
+
+<div id="stuck_container">
+	<nav class="main-navigation clear">
+		<label for="toggleMenu" class="menuTitle">
+            <div onclick="myFunction(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar" class="navv">
-                <ul class="nav navbar-nav">
-                <li><a href="post-content&id=1&Fashion">Fashion</a></li>
-                        <li><a href="post-content&id=2&Celebrity Gossip">Celebrity Gossip</a></li>
-                        <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
-                        <li><a href="post-content&id=4&Movies">Movies</a>
-                        <li><a href="post-content&id=5&Music">Music</a></li>
-                            <!-- <ul class="sub-menu">
-                                <li><a href="post-content&id=1">Movie Reviews</a></li>
-                                <li><a href="post-content&id=1">New Movies (Trailers)</a></li>
-                                <li><a href="post-content&id=1">Music Reviews</a></li>
-                            </ul> -->
-                        </li>
-                        <!-- <li><a href="#">Hot Content</a></li> -->
-                        <li><a href="post-content&id=6&Health_Wellness">Health &amp; Wellness</a></li>
-                        <!-- <li><a href="#">Fitness</a></li>
-                        <li><a href="#">General Gossip</a></li> -->
-                        <li><a href="post-content&id=7&Technology&Gadgets">Technology &amp; Gadgets</a></li>
-                        <li><a href="post-content&id=8&Entertainment">Entertainment</a></li>
-                        <li><a href="post-content&id=9&Sports">Sports</a></li>
-                        <li><a href="post-content&id=10&Auto_News">Auto News</a></li>
-                        <li><a href="post-content&id=11&Travel & Tourism">Travel &amp; Tourism</a></li>
-                        <li><a href="post-content&id=17&Others">More</a></li>
-                        <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-                        <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
-                        <!-- <li class="subarrow"><a href="#">More</a> -->
-                            <ul class="sub-menu">
-                                <!-- <li><a href="#">Believe It or Not</a></li> -->
-                                <!-- <li><a href="post-content&id=1">Auto News</a></li>
-                                <li><a href="post-content&id=1">Travel &amp; Tourism</a></li> -->
-                                <!-- <li><a href="#">App. Reviews</a></li> -->
-                                <!-- <li><a href="post-content&id=1">Horoscope</a></li> -->
-                                <!-- <li><a href="#">Shopping</a></li> -->
-                                <!-- <li><a href="post-content&id=12">Entertainment</a></li>
-                                <li><a href="post-content&id=1">Sports</a></li> -->
-                            </ul>
-                        </li>
-
-            
-
-                        
+        </label>
+        
+		<input type="checkbox" id="toggleMenu" />
+	<?php $lang = $_SERVER['REQUEST_URI'];?>
+	
+	<?php if($lang == "/"){ ?>
+	<ul class="menu">
+        
+            <!-- <li><a href="/"><i class="fa fa-home"></i></a></li> -->
+            <li><a href="post-content&id=1&Fashion">Fashion</a></li>
+            <li><a href="post-content&id=2&Celebrity Gossip">Celebrity Gossip</a></li>
+            <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
+            <li><a href="post-content&id=4&Movies">Movies</a>
+            <li><a href="post-content&id=5&Music">Music</a></li>
+                <!-- <ul class="sub-menu">
+                    <li><a href="post-content&id=1">Movie Reviews</a></li>
+                    <li><a href="post-content&id=1">New Movies (Trailers)</a></li>
+                    <li><a href="post-content&id=1">Music Reviews</a></li>
+                </ul> -->
+            </li>
+            <!-- <li><a href="#">Hot Content</a></li> -->
+            <li><a href="post-content&id=6&Health_Wellness">Health &amp; Wellness</a></li>
+            <!-- <li><a href="#">Fitness</a></li>
+            <li><a href="#">General Gossip</a></li> -->
+            <li><a href="post-content&id=7&Technology&Gadgets">Technology &amp; Gadgets</a></li>
+            <li><a href="post-content&id=8&Entertainment">Entertainment</a></li>
+            <li><a href="post-content&id=9&Sports">Sports</a></li>
+            <li><a href="post-content&id=10&Auto_News">Auto News</a></li>
+            <li><a href="post-content&id=11&Travel & Tourism">Travel &amp; Tourism</a></li>
+            <li><a href="post-content&id=17&Others">More</a></li>
+            <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
+            <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
+            <!-- <li class="subarrow"><a href="#">More</a> -->
+                <ul class="sub-menu">
+                    <!-- <li><a href="#">Believe It or Not</a></li> -->
+                    <!-- <li><a href="post-content&id=1">Auto News</a></li>
+                    <li><a href="post-content&id=1">Travel &amp; Tourism</a></li> -->
+                    <!-- <li><a href="#">App. Reviews</a></li> -->
+                    <!-- <li><a href="post-content&id=1">Horoscope</a></li> -->
+                    <!-- <li><a href="#">Shopping</a></li> -->
+                    <!-- <li><a href="post-content&id=12">Entertainment</a></li>
+                    <li><a href="post-content&id=1">Sports</a></li> -->
                 </ul>
-            
-            </div>
+            </li>
+             <li class="dropdown" >
+              <button class="dropbtn"><i class="fa-solid fa-language"></i></button>
+              <ul class="dropdown-content">
+              <a href="/Hindi">हिन्दी </a>
+               <a href="/Telugu">తెలుగు</a>
+              
+              </ul>
+              
+            </li>
+        
+		</ul>
+		   
+	
 
-        </div>
-        <?php }?>
 
-        <?php if($lang == "/Telugu"){ ?>
-        <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>                        
-                </button>
-                    <div class="dropdown">
-                        <button class="dropbtn"><i class="fa-solid fa-language"></i></button>
-                        <div class="dropdown-content">
-                            
-                            <a href="/Hindi">Hindi</a>
-                    
-                            <a href="/English">English</a>
-                        
-                         </div>
-                    </div>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar" class="navv">
-                <ul class="nav navbar-nav">
-                   
-            <li><a href="post-content&id=2&Celebrity Gossip">
-                
-                సెలబ్రిటీ గాసిప్
-                            </a></li>
-                            <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
-                            <li><a href="post-content&id=4&Movies">
-                                సినిమాలు
-                
-                            </a>
-                
-                            <li><a href="post-content&id=8&Entertainment">వినోదం</a></li>
-                      
-                            <!--<li><a href="post-content&id=17&Others">-->
-                                
-                            <!--    మరింత-->
-                            <!--</a></li>-->
-                            <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-                            <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> 
-                            వెతకండి
-                            </a></li>
-                            <!-- <li class="subarrow"><a href="#">More</a> -->
-                                <ul class="sub-menu">
-                                    <!-- <li><a href="#">Believe It or Not</a></li> -->
-                                    <!-- <li><a href="post-content&id=1">Auto News</a></li>
-                                    <li><a href="post-content&id=1">Travel &amp; Tourism</a></li> -->
-                                    <!-- <li><a href="#">App. Reviews</a></li> -->
-                                    <!-- <li><a href="post-content&id=1">Horoscope</a></li> -->
-                                    <!-- <li><a href="#">Shopping</a></li> -->
-                                    <!-- <li><a href="post-content&id=12">Entertainment</a></li>
-                                    <li><a href="post-content&id=1">Sports</a></li> -->
-                                </ul>
-                            </li>
-                </ul>
-            
-            </div>
+<?php }?>
 
-        </div>
-        <?php }?>
-        <?php if($lang == "/Hindi"){ ?>
-        <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>                        
-                </button>
-                    <div class="dropdown">
-                        <button class="dropbtn"><i class="fa-solid fa-language"></i></button>
-                        <div class="dropdown-content">
-                            
-                        
-                            <a href="/Telugu">Telugu</a>
-                            <a href="/English">English</a>
-                        
-                        </div>
-                     </div>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar" class="navv">
-                <ul class="nav navbar-nav">
-                 <!-- <li><a href="/"><i class="fa fa-home"></i></a></li> -->
+<?php if($lang == "/Hindi"){ ?>
+	<ul class="menu">
+        
+            <!-- <li><a href="/"><i class="fa fa-home"></i></a></li> -->
             <li><a href="post-content&id=1&Fashion"> फ़ैशन </a></li>
             <li><a href="post-content&id=2&Celebrity Gossip">  मशहूर व्यक्तियों के बारे में गपशप  </a></li>
             <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
@@ -674,16 +598,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <li><a href="post-content&id=1">Sports</a></li> -->
                 </ul>
             </li>
+             <li class="dropdown">
+              <button class="dropbtn"><i class="fa-solid fa-language"></i></button>
+              <ul class="dropdown-content">
+              <!--<a href="/Hindi"> हिन्दी  </a>-->
+               <a href="/Telugu"> తెలుగు </a>
+              
+              <a href="/">English</a>
+              </ul>
+            </li>
+        
+		</ul>
+		
+	
 
-                        
+
+<?php }?>
+
+	<?php if($lang == "/Telugu"){ ?>
+        <ul class="menu">
+        
+          
+            <li><a href="post-content&id=2&Celebrity Gossip">
+                
+సెలబ్రిటీ గాసిప్
+            </a></li>
+            <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
+            <li><a href="post-content&id=4&Movies">
+                సినిమాలు
+
+            </a>
+
+            <li><a href="post-content&id=8&Entertainment">వినోదం</a></li>
+      
+            <!--<li><a href="post-content&id=17&Others">-->
+                
+            <!--    మరింత-->
+            <!--</a></li>-->
+            <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
+            <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> 
+            వెతకండి
+            </a></li>
+            <!-- <li class="subarrow"><a href="#">More</a> -->
+                <ul class="sub-menu">
+                    <!-- <li><a href="#">Believe It or Not</a></li> -->
+                    <!-- <li><a href="post-content&id=1">Auto News</a></li>
+                    <li><a href="post-content&id=1">Travel &amp; Tourism</a></li> -->
+                    <!-- <li><a href="#">App. Reviews</a></li> -->
+                    <!-- <li><a href="post-content&id=1">Horoscope</a></li> -->
+                    <!-- <li><a href="#">Shopping</a></li> -->
+                    <!-- <li><a href="post-content&id=12">Entertainment</a></li>
+                    <li><a href="post-content&id=1">Sports</a></li> -->
                 </ul>
-            
-            </div>
+            </li>
+           <li class="dropdown" >
+              <button class="dropbtn"><i class="fa-solid fa-language"></i></button>
+              <ul class="dropdown-content">
+              <a href="/Hindi">हिन्दी  </a>
+               <!--<a href="/Telugu"> తెలుగు  </a>-->
+              
+             <a href="/">English</a>
+              </ul>
+            </li>
+        
+		</ul>
+		
+		<?php }?>
+		
+		
+		
 
-        </div>
-        <?php }?>
     </nav>
-   
 </div>
 @yield('content')
 @extends('front_end.footer')
