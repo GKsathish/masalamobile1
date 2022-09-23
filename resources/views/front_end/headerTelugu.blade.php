@@ -496,49 +496,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="bar3"></div>
             </div>
         </label>
+        <li class="dropdown">
+           <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}"   class="dropbtn">
+          <ul class="dropdown-content">
+          <a href="/Hindi"> हिन्दी  </a>
+           <a href="/Telugu"> తెలుగు </a>
+          
+          <a href="/">English</a>
+          </ul>
+        </li>
 		<input type="checkbox" id="toggleMenu" />
         <ul class="menu">
-            <!-- <li><a href="/"><i class="fa fa-home"></i></a></li> -->
-            <li><a href="post-content&id=1&Fashion">Fashion</a></li>
-            <li><a href="post-content&id=2&Celebrity Gossip">Celebrity Gossip</a></li>
-            <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
-            <li><a href="post-content&id=4&Movies">Movies</a>
-            <li><a href="post-content&id=5&Music">Music</a></li>
-                <!-- <ul class="sub-menu">
-                    <li><a href="post-content&id=1">Movie Reviews</a></li>
-                    <li><a href="post-content&id=1">New Movies (Trailers)</a></li>
-                    <li><a href="post-content&id=1">Music Reviews</a></li>
-                </ul> -->
-            </li>
-            <!-- <li><a href="#">Hot Content</a></li> -->
-            <li><a href="post-content&id=6&Health_Wellness">Health &amp; Wellness</a></li>
-            <!-- <li><a href="#">Fitness</a></li>
-            <li><a href="#">General Gossip</a></li> -->
-            <li><a href="post-content&id=7&Technology&Gadgets">Technology &amp; Gadgets</a></li>
-            <li><a href="post-content&id=8&Entertainment">Entertainment</a></li>
-            <li><a href="post-content&id=9&Sports">Sports</a></li>
-            <li><a href="post-content&id=10&Auto_News">Auto News</a></li>
-            <li><a href="post-content&id=11&Travel & Tourism">Travel &amp; Tourism</a></li>
-            <li><a href="post-content&id=17&Others">More</a></li>
-            <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-            <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
-            <!-- <li class="subarrow"><a href="#">More</a> -->
-                <ul class="sub-menu">
-                    <!-- <li><a href="#">Believe It or Not</a></li> -->
-                    <!-- <li><a href="post-content&id=1">Auto News</a></li>
-                    <li><a href="post-content&id=1">Travel &amp; Tourism</a></li> -->
-                    <!-- <li><a href="#">App. Reviews</a></li> -->
-                    <!-- <li><a href="post-content&id=1">Horoscope</a></li> -->
-                    <!-- <li><a href="#">Shopping</a></li> -->
-                    <!-- <li><a href="post-content&id=12">Entertainment</a></li>
-                    <li><a href="post-content&id=1">Sports</a></li> -->
-                </ul>
-            </li>
+        
+          
+        <li><a href="post-content&id=2&Celebrity Gossip">
+            
+సెలబ్రిటీ గాసిప్
+        </a></li>
+        <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
+        <li><a href="post-content&id=4&Movies">
+            సినిమాలు
 
+        </a>
+
+        <li><a href="post-content&id=8&Entertainment">వినోదం</a></li>
   
+        <!--<li><a href="post-content&id=17&Others">-->
+            
+        <!--    మరింత-->
+        <!--</a></li>-->
+        <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
+        <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> 
+        వెతకండి
+        </a></li>
+        <!-- <li class="subarrow"><a href="#">More</a> -->
+            <ul class="sub-menu">
+                <!-- <li><a href="#">Believe It or Not</a></li> -->
+                <!-- <li><a href="post-content&id=1">Auto News</a></li>
+                <li><a href="post-content&id=1">Travel &amp; Tourism</a></li> -->
+                <!-- <li><a href="#">App. Reviews</a></li> -->
+                <!-- <li><a href="post-content&id=1">Horoscope</a></li> -->
+                <!-- <li><a href="#">Shopping</a></li> -->
+                <!-- <li><a href="post-content&id=12">Entertainment</a></li>
+                <li><a href="post-content&id=1">Sports</a></li> -->
+            </ul>
+        </li>
 
-   
-		</ul>
+        <li class="dropdown">
+           <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}"   class="dropbtn">
+          <ul class="dropdown-content">
+          <a href="/Hindi"> हिन्दी  </a>
+           <!-- <a href="/Telugu"> తెలుగు </a> -->
+          
+          <a href="/">English</a>
+          </ul>
+        </li>
+     
+    
+    </ul>
     </nav>
 </div>
              

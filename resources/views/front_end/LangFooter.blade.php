@@ -1,11 +1,13 @@
-<?php   $langn = $_SERVER['REQUEST_URI'];?>
-	
-	
-	<?php  $langnn = (explode("/",$langn)); $lang = $langnn['1'];?>
+			
+<?php  $lang = $feed->language;?>
 	
 	
 	
-<?php if($lang == ""){ ?>
+    <?php if(($lang == "") || ($lang == "English")){ ?>
+	
+	
+	
+
 <footer id="colophon" class="site-footer clear">
     	<article class="clear">
         	<aside class="footer-nav left">

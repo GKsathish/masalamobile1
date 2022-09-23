@@ -1,9 +1,11 @@
+
+
+
+
 @extends('front_end.header')
+
+
 @section('content')
-
-
-
-
 <head>
  
 <style>
@@ -306,12 +308,12 @@
      
 
 
- 		<h2><span>Trending Now</span></h2>
+ 		<h2><span>अभी का दौर</span></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			
 		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW" and language="Hindi"   ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
-			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW" and language="Hindi"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"    ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
@@ -357,7 +359,7 @@
 
 							
 						  <div  style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">  
-						  <h5>Paparazzi</h5>
+						  <h5>अभी का द</h5>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
 			                </div>
 						</div>
@@ -372,11 +374,6 @@
         
 	</section>
 	
-	
-
-	
-
-
       <div class="hashtag" style="padding: 10px;">
           <marquee behavior="scroll" direction="left"  width="100%">
               
@@ -424,7 +421,7 @@
 					<a href="post-single&id={{$entertainmentinfo1->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo1->imagepath}}" alt="">
                         <figcaption>
-							<h5>Entertainment</h5>
+							<h5>मनोरंजन</h5>
 							<h1>{{$entertainmentinfo1->posttitle}}</h1>
                         </figcaption>
 					</a>
@@ -446,7 +443,7 @@
 				<div class="item clear">
 					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" style="background-image:url(<?php echo $entertainmentinfo->imagepath ?>)">
                         <figcaption>
-							<h5>Sports</h5>
+							<h5>खेल</h5>
 							<h1>{{$entertainmentinfo->posttitle}}</h1>
                         </figcaption>
 					</a>
@@ -490,7 +487,7 @@
       <!--Celebrity Gossip-->
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=2" class="text-dark"><span>Celebrity Gossip</span></a></h2>
+ 			<h2><a href="post-content&id=2" class="text-dark"><span>मशहूर व्यक्तियों के बारे में गपशप</span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
@@ -507,7 +504,7 @@
 						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
 						<figcaption>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
-							<h5>Celebrity Gossip</h5>
+							<h5>मशहूर व्यक्तियों के बारे में गपशप</h5>
 						</figcaption>
 						</a>
 						<button style="float:right; position: relative; bottom: 40px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
@@ -559,7 +556,7 @@
 
       <!--Visual Stories-->
       <section class="container visual-stories clear">
-		<h2 class="left"><span><a href="javascript:void(0)">Visual Stories</a></span></h2>
+		<h2 class="left"><span><a href="javascript:void(0)">दृश्य कहानियां</a></span></h2>
 		<div class="tab visualstories right">
 			<!-- <button class="tablinks_VS" onclick="openVisualStories(event, 'FEATURED')" id="defaultOpenvs">FASHION</button>
 			<button class="tablinks_VS" onclick="openVisualStories(event, 'LIFESTYLE')">LIFESTYLE</button>
@@ -576,7 +573,7 @@
 		<div id="FEATURED" class="tabVisualStories clear">
 			<div class="visual-stories-carousel owl-carousel owl-theme clear">	
 			@php
-			$get_vs1 = DB::table('v_stories')->where('categoryid',1)->orderBy('storyid','desc')->get();
+			$get_vs1 = DB::table('v_stories')->where('categoryid',1)->where('cat_type','visualstories')->orderBy('storyid','desc')->get();
 			@endphp			
 			@foreach ($get_vs1 as $get_vs1)		
 				<div class="item clear">
@@ -685,7 +682,7 @@
     </section>
     
     
-    <!-- Horoscope-->
+  
     
       
 
@@ -695,7 +692,7 @@
     	<!--Paparazzi-->
 	
 	<section class="container random-posts padding-top-none clear" >
- 		<h2><a href="Video-stories-details"><span>VIDEO STORIES</span></a></h2>
+ 		<h2><a href="Video-stories-details"><span>वीडियो कहानियां</span></a></h2>
 		<div id="randomposts">
 	          
 		  
@@ -704,7 +701,7 @@
         <!-- THE YOUTUBE PLAYER -->
         <div class="vid-container" id = "videostories">
           @php
-          $entertainmentinfo = DB::table('paparazzi_post')->where('language','Hindi')->where('status','Publish')->where('language','Telugu')->where('cat_type','Video_Stories')->orderBy('postid','desc')->take(1)->get();
+           $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->take(1)->get();
           @endphp
           @foreach($entertainmentinfo as $entertainmentinfo)
 
@@ -727,7 +724,7 @@
         <div class="vid-list-container" id="vid-list">
           <ol id="vid-list">
             @php
-            $entertainmentinfo = DB::table('paparazzi_post')->where('language','Hindi')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
+           $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
             @endphp
           	@foreach($entertainmentinfo ->slice(1, 20) as $entertainmentinfo)
 					
@@ -822,7 +819,7 @@
     </script>
 
 		</div>
-		<button class="more_pap_btn" onclick="location.href='Video-stories-details'">More Video Stories</button>
+		<button class="more_pap_btn" onclick="location.href='Video-stories-details'">अधिक वीडियो कहानियां</button>
 	</section>
     
     
@@ -837,7 +834,7 @@
 	
     <!--Random Posts-->
 	<section class="container random-posts padding-top-none clear">
- 		<h2><span>Random Posts</span></h2>
+ 		<h2><span>यादृच्छिक पोस्ट</span></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
@@ -874,7 +871,7 @@
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=4"><span>Movies</span></a></h2>
+ 			<h2><a href="post-content&id=4"><span>चलचित्र</span></a></h2>
             <div class="grid clear">
 					@php 
 					$entertainmentinfo = DB::table('post')->where('language','Hindi')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
@@ -888,7 +885,7 @@
 					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo->imagepath}}" alt="" width="100%">
                         <figcaption>
-                            <h5>Movies</h5>
+                            <h5>चलचित्र</h5>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
                         </figcaption>
                     </a>
@@ -956,7 +953,7 @@
 	<!--Paparazzi-->
 	
 	<section class="container random-posts padding-top-none clear">
- 		<h2><a href="paparazzi-details"><span>Paparazzi</span></a></h2>
+ 		<h2><a href="paparazzi-details"><span>पत्रकारों</span></a></h2>
 		<div id="randomposts">
 	          
 		  
@@ -965,7 +962,7 @@
         <!-- THE YOUTUBE PLAYER -->
         <div class="vid-container" id = "paparazzi-section">
           @php
-          $entertainmentinfo = DB::table('paparazzi_post')->where('language','Hindi')->where('status','Publish')->where('cat_type','paparazzi')->orderBy('postid','desc')->take(1)->get();
+          $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','paparazzi')->orderBy('postid','desc')->take(1)->get();
           @endphp
           @foreach($entertainmentinfo as $entertainmentinfo)
 
@@ -988,7 +985,7 @@
         <div class="vid-list-container" id="vid-list">
           <ol id="vid-list">
             @php
-            $entertainmentinfo = DB::table('paparazzi_post')->where('language','Hindi')->where('status','Publish')->where('cat_type','<>','Video_Stories')->where('cat_type','paparazzi')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
+            $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','<>','Video_Stories')->where('cat_type','paparazzi')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
             @endphp
           	@foreach($entertainmentinfo ->slice(1, 20) as $entertainmentinfo)
 					
@@ -1083,11 +1080,11 @@
     </script>
 
 		</div>
-		<button class="more_pap_btn" onclick="location.href='paparazzi-details'">More Paparazzi</button>
+		<button class="more_pap_btn" onclick="location.href='paparazzi-details'">अधिक पापराज़ी</button>
 	</section>
 	<!--Fashion and Autonews & Sidebar-->
 	<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=1"><span>Fashion</span></a></h2>
+ 		<h2><a href="post-content&id=1"><span>फ़ैशन</span></a></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
@@ -1121,7 +1118,7 @@
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=7"><span>Technology & Gadgets</span></a></h2>
+ 			<h2><a href="post-content&id=7"><span>प्रौद्योगिकी और गैजेट्स</span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
@@ -1137,7 +1134,10 @@
 					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <figcaption>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
-                        <h5>Technology & Gadgets</h5>
+                        <h5>
+                            प्रौद्योगिकी और गैजेट्स
+                            
+                        </h5>
                     </figcaption>
                     </a>
 					<button style="float:right; position: relative; bottom: 40px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
@@ -1172,7 +1172,7 @@
 	<!--Health and Wellness-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=6"><span>Health & Wellness</span></a></h2>
+ 		<h2><a href="post-content&id=6"><span>स्वास्थ्य और कल्याण</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
 			$entertainmentinfo = DB::table('post')->where('categoryid',6)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
@@ -1187,7 +1187,11 @@
 					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <aside>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
-                        <h5>Health & Wellness</h5>
+                        <h5> 
+                        
+                        स्वास्थ्य और कल्याण   
+                        
+                        </h5>
                     </aside>
 				</a>
 				<button style="float:right; position: relative; bottom: 20px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
@@ -1208,7 +1212,7 @@
 	<!--Sports-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=9"><span>Sports</span></a></h2>
+ 		<h2><a href="post-content&id=9"><span>खेल</span></a></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
@@ -1237,7 +1241,7 @@
 	<!--Music-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=5"><span>Music</span></a></h2>
+ 		<h2><a href="post-content&id=5"><span>संगीत</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
 			$entertainmentinfo = DB::table('post')->where('categoryid',5)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
@@ -1252,7 +1256,12 @@
 					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <aside>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
-                        <h5>Music</h5>
+                        <h5>
+                            
+                            संगीत
+                        
+                        
+                        </h5>
                     </aside>
 				</a>
 				<button style="float:right; position: relative; bottom: 20px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
@@ -1267,7 +1276,7 @@
 	
 	
 		<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=11"><span>Travel & Tourism</span></a></h2>
+ 		<h2><a href="post-content&id=11"><span>यात्रा पर्यटन</span></a></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
@@ -1306,7 +1315,7 @@
 		<section class="container equal-height padding-top-none clear">
 	
 			<aside class="content left">
-    			<h2><span><a href="post-content&id=10">Autonews</a></span></h2>
+    			<h2><span><a href="post-content&id=10">ऑटो समाचारs</a></span></h2>
     			<article class="single-article-box clear">
     					@php 
 					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
@@ -1320,7 +1329,12 @@
 						<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
 							<figure style="background-image:url('<?php echo $entertainmentinfo->imagepath; ?>');"></figure>
 							<figcaption>
-								<h5>Autonews</h5>
+								<h5>
+								    
+ऑटोन्यूज़
+								
+								
+								</h5>
 								<h3>{{$entertainmentinfo->posttitle}}</h3>
 							</figcaption>
 						</a>
@@ -1344,8 +1358,8 @@
 			<aside class="sidebar right">
 				<div class="news-list sidebarposts nomargin">
 					<div class="tab">
-						<button class="tablinks" onclick="openCity(event, 'Recent')" id="defaultOpen">Recent</button>
-						<button class="tablinks" onclick="openCity(event, 'Popular')">Popular</button>
+						<button class="tablinks" onclick="openCity(event, 'Recent')" id="defaultOpen">हाल ही का</button>
+						<button class="tablinks" onclick="openCity(event, 'Popular')">लोकप्रिय</button>
 					</div>
 					<div id="Recent" class="tabcontent clear">
 						<ul>
@@ -1390,36 +1404,7 @@
 			</aside>
 		</section>
 	
-	<!--More-->
-	
-	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=17"><span>More</span></a></h2>
-        <div class="tumbnailcarousel owl-carousel owl-theme clear">
-			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',17)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
-			@endphp
-			@foreach($entertainmentinfo as $entertainmentinfo)
-													 <?php 
-				$titlorl = $entertainmentinfo->posttitle;
-				$title = str_replace(" ","+",$titlorl);
-				?>
-			<div class="item clear">
-				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
-                    <figure><img src="<?php echo $entertainmentinfo->imagepath; ?>" alt=""></figure>
-                    <aside>
-                    	<h5>More</h5>
-                    	<h3>{{$entertainmentinfo->posttitle}}</h3>
-                    </aside>
-				</a>
-				<button style="float:right; position: relative; bottom: 95px; right: 10px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-				<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-				</svg></button>	
-			</div>
-			@endforeach
-        </div>
-	</section>
-	
-	
+
 </div>
 <script async='async' src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
 <div id='sticky' style='position: fixed; right: 0px; bottom: 0px; margin: 0 auto;width: 100%; background-color: rgba(255, 255, 255, 0.8); border-top: 2px solid rgba(225, 225, 225, 0.8); visibility: hidden; z-index:99999999;'><button id='ad_close' style='color:#000; background-color: hsla(0,0%,100%,.8); border: hsla(0,0%,100%,.8); position:absolute; left : 0px; top : -45px;'>x</button>
@@ -1460,13 +1445,15 @@
 				<div class="modal-body" style="padding: 5.5% 14%">
 					<div class="icon-container1" style="display:flex;" >
 						<a id="twit" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class=" img-thumbnail fab fa-twitter fa-2x ico" style="color:#4c6ef5;background-color: aliceblue"></i>
-							<p>Twitter</p>
+							<p>ट्विटर</p>
 						</div></a>
 						<a id="fb" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class="img-thumbnail fab fa-facebook fa-2x ico" style="color: #3b5998;background-color: #eceff5;"></i>
-							<p>Facebook</p>
+							<p>फेसबुक</p>
 						</div></a>
 						<a id="wa" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class="img-thumbnail fab fa-whatsapp fa-2x ico" style="color: #25D366;background-color: #cef5dc;"></i>
-							<p>Whatsapp</p>
+							<p> 
+							Whatsapp
+							</p>
 						</div></a>
 						<!-- <div class="smd"> <i class="img-thumbnail fab fa-reddit-alien fa-2x" style="color: #FF5700;background-color: #fdd9ce;"></i>
 							<p>Reddit</p>
@@ -1478,37 +1465,24 @@
 					<div class="icon-container2" style="display:flex;" >
 						
 						<a id="mail"onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class="img-thumbnail fas fa-envelope-open-text fa-2x ico" style="color: #3b5998;background-color: #eceff5;"></i>
-							<p>Mail</p>
+							<p>  ईमेल  </p>
 						</div></a>
 						<a id="telegram" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class="img-thumbnail fab fa-telegram fa-2x ico" style="color: #4c6ef5;background-color: aliceblue"></i>
-							<p>Telegram</p>
+							<p> तार </p>
 						</div></a>
 						<a id="insta" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class="img-thumbnail fab fa-instagram fa-2x ico" style="color: #bd3c96;background-color: aliceblue"></i>
-							<p>Instagram</p>
+							<p>   Instagram  </p>
 						</div></a>
 						<!-- <div class="smd"> <i class="img-thumbnail fab fa-weixin fa-2x" style="color: #7bb32e;background-color: #daf1bc;"></i>
 							<p>WeChat</p>
 						</div> -->
 					</div>
 				</div>
-            <div class="modal-footer">
-				<label class="copylabel"></label>
-                <div class="row"> <input class="col-10 ur" type="url"   id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>
-            </div>
+            
         </div>
 		</div>
 	 	
-<script>
-    $(document).ready(function() {
-        var value = $("#tagchange").text();
-        //alert(value)
-        var res = value.split(" ").join("");
-        $("#tagchange").empty();
-        $("#tagchange").append(res);
-       console.log(res);
-       
-    });
+
 </script>
-
-
+@include('front_end/footer');
 @endsection

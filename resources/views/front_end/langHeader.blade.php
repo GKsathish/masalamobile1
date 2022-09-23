@@ -57,6 +57,8 @@
 <script src="https://cdn.ampproject.org/v0/amp-story-auto-ads-0.1.js" custom-element="amp-story-auto-ads" async></script>
 
 
+    <link rel="canonical" href="https://amp.dev/documentation/examples/introduction/stories_in_amp/index.html">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
 <link href="{{asset('assets/front_end/css/style.css')}}" rel="stylesheet" type="text/css">
 <link href="{{asset('assets/front_end/css/responsive.css')}}" rel="stylesheet" type="text/css">
@@ -333,54 +335,105 @@ $(document).ready(function(){
     	    text-decoration: underline;
             color: blue;
     	}
-
-
-        .dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 20px;
-  font-size: 12px;
-  border: none;
+    	
+    	
+    	        .dropbtn {
+  height:45px;
+  width:45px;
+  margin:5px;
+  
+  
+  
+  
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+  margin-left: 2px !important;
 
 }
+/*@media only screen and (max-width: 800px) {*/
+/*.dropdown{*/
+/*  display:none;   */
+/*}*/
+/*}*/
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #000;
   min-width: 100px;
   box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
-  z-index: 4;
+  z-index: 9;
+  margin-left:-25px !important;
+  text-align:center !important;
 }
 
 .dropdown-content a {
-  color: black;
+  color: #fff;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  text-align:center !important;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: #000;}
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {background-color:#a83299;}
+.dropd{
+    display:none;
+}
 
-
-
-.headercontainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding:20px;
+    
+    @media only screen and (max-width:900px){
+        
+        .dropdown {
+   display:none;
+  
+}
+.dropd{
+    display:block;
+    float:right;
     
 }
+    .dropdbtn1{
+         height:45px;
+         width:45px;
+         margin:5px;
+  
+    }
+    
+    .dropdcontent1 {
+  display: none;
+  position: absolute;
+  background-color: #000;
+  min-width: 100px;
+  box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
+  z-index: 9;
+  margin-left:-25px !important;
+  text-align:center !important;
+}
+
+.dropdcontent1 a {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align:center !important;
+}
+
+dropdown-content1 a:hover {background-color: #000;}
+
+.dropd:hover .dropdcontent1 {display: block;}
+
+.dropd:hover .dropdbtn1 {background-color:#a83299;}
+    }
+    
+    
+    	
 </style>
 <!--Bi Changes-->
 <body>
@@ -487,8 +540,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             </aside>
 </header>
-<div id="stuck_container" class="headercontainer p-2">
-	<div><nav class="main-navigation clear">
+
+<div id="stuck_container">
+	<nav class="main-navigation clear">
 		<label for="toggleMenu" class="menuTitle">
             <div onclick="myFunction(this)">
                 <div class="bar1"></div>
@@ -496,8 +550,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="bar3"></div>
             </div>
         </label>
+         
+         <li class="dropd">
+               <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}"   class="dropdbtn1">
+              <ul class="dropdcontent1">
+              <a href="/Hindi"> हिन्दी  </a>
+               <a href="/Telugu"> తెలుగు </a>
+              
+              <a href="/">English</a>
+              
+              
+              </ul>
+         </li>
+        
 		<input type="checkbox" id="toggleMenu" />
-        <ul class="menu">
+		
+	
+			
+<?php  $lang = $feed->language;?>
+	
+	
+	
+<?php if(($lang == "") || ($lang == "English")){ ?>
+	<ul class="menu">
+        
             <!-- <li><a href="/"><i class="fa fa-home"></i></a></li> -->
             <li><a href="post-content&id=1&Fashion">Fashion</a></li>
             <li><a href="post-content&id=2&Celebrity Gossip">Celebrity Gossip</a></li>
@@ -534,14 +610,131 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <li><a href="post-content&id=1">Sports</a></li> -->
                 </ul>
             </li>
-
-  
-
-   
+             <li class="dropdown" >
+              <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}"   class="dropbtn">
+              <ul class="dropdown-content">
+              <a href="/Hindi">हिन्दी </a>
+               <a href="/Telugu">తెలుగు</a>
+              
+              </ul>
+              
+            </li>
+        
 		</ul>
+		   
+	<?php }?>
+
+
+
+
+<?php if($lang == "Hindi"){ ?>
+	<ul class="menu">
+        
+            <!-- <li><a href="/"><i class="fa fa-home"></i></a></li> -->
+            <li><a href="post-content&id=1&Fashion"> फ़ैशन </a></li>
+            <li><a href="post-content&id=2&Celebrity Gossip">  गपशप  </a></li>
+            <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
+            <li><a href="post-content&id=4&Movies"> मूवीज़ </a>
+            <li><a href="post-content&id=5&Music"> म्यूज़िक</a></li>
+                <!-- <ul class="sub-menu">
+                    <li><a href="post-content&id=1">Movie Reviews</a></li>
+                    <li><a href="post-content&id=1">New Movies (Trailers)</a></li>
+                    <li><a href="post-content&id=1">Music Reviews</a></li>
+                </ul> -->
+            </li>
+            <!-- <li><a href="#">Hot Content</a></li> -->
+            <li><a href="post-content&id=6&Health_Wellness">  हेल्थ और फिटनेस  </a></li>
+            <!-- <li><a href="#">Fitness</a></li>
+            <li><a href="#">General Gossip</a></li> -->
+            <li><a href="post-content&id=7&Technology&Gadgets"> टेक्नोलॉजी </a></li>
+            <li><a href="post-content&id=8&Entertainment"> मनोरंजन </a></li>
+            <li><a href="post-content&id=9&Sports">खेल</a></li>
+            <li><a href="post-content&id=10&Auto_News">  ऑटो न्यूज़  </a></li>
+            <li><a href="post-content&id=11&Travel & Tourism ">  ट्रेवल & टूरिज़म   </a></li>
+            <!--<li><a href="post-content&id=17&Others">अधिक</a></li>-->
+            <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
+            <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i>  खोज </a></li>
+            <!-- <li class="subarrow"><a href="#">More</a> -->
+                <ul class="sub-menu">
+                    <!-- <li><a href="#">Believe It or Not</a></li> -->
+                    <!-- <li><a href="post-content&id=1">Auto News</a></li>
+                    <li><a href="post-content&id=1">Travel &amp; Tourism</a></li> -->
+                    <!-- <li><a href="#">App. Reviews</a></li> -->
+                    <!-- <li><a href="post-content&id=1">Horoscope</a></li> -->
+                    <!-- <li><a href="#">Shopping</a></li> -->
+                    <!-- <li><a href="post-content&id=12">Entertainment</a></li>
+                    <li><a href="post-content&id=1">Sports</a></li> -->
+                </ul>
+            </li>
+             <li class="dropdown">
+               <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}"   class="dropbtn">
+              <ul class="dropdown-content">
+              <!--<a href="/Hindi"> हिन्दी  </a>-->
+               <a href="/Telugu"> తెలుగు </a>
+              
+              <a href="/">English</a>
+              </ul>
+            </li>
+        
+		</ul>
+		
+	
+
+
+<?php }?>
+
+	<?php if($lang == "Telugu"){ ?>
+        <ul class="menu">
+        
+          
+            <li><a href="post-content&id=2&Celebrity Gossip">
+                
+సెలబ్రిటీ గాసిప్
+            </a></li>
+            <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
+            <li><a href="post-content&id=4&Movies">
+                సినిమా            </a>
+
+            <li><a href="post-content&id=8&Entertainment">  ఎంటర్టైన్మెంట్  </a></li>
+        
+            <!--<li><a href="post-content&id=17&Others">-->
+                
+            <!--    మరింత-->
+            <!--</a></li>-->
+            <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
+            <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> 
+            వెతకండి
+            </a></li>
+            <!-- <li class="subarrow"><a href="#">More</a> -->
+                <ul class="sub-menu">
+                    <!-- <li><a href="#">Believe It or Not</a></li> -->
+                    <!-- <li><a href="post-content&id=1">Auto News</a></li>
+                    <li><a href="post-content&id=1">Travel &amp; Tourism</a></li> -->
+                    <!-- <li><a href="#">App. Reviews</a></li> -->
+                    <!-- <li><a href="post-content&id=1">Horoscope</a></li> -->
+                    <!-- <li><a href="#">Shopping</a></li> -->
+                    <!-- <li><a href="post-content&id=12">Entertainment</a></li>
+                    <li><a href="post-content&id=1">Sports</a></li> -->
+                </ul>
+            </li>
+           <li class="dropdown" >
+              <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}" class="dropbtn" >
+              <ul class="dropdown-content">
+              <a href="/Hindi">हिन्दी  </a>
+               <!--<a href="/Telugu"> తెలుగు  </a>-->
+              
+             <a href="/">English</a>
+              </ul>
+            </li>
+        
+		</ul>
+		
+		<?php }?>
+		
+		
+		
+
     </nav>
-</div>
-             
 </div>
 @yield('content')
 @extends('front_end.footer')

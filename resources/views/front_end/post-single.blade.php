@@ -8,7 +8,11 @@ DB::table('post')->where('postid', $feed->postid)->take(1)->update(['hitcount' =
 @endphp
 @endforeach
 
-@extends('front_end.header')
+
+<?php $lang = $feed->language;?>
+
+
+@extends('front_end.langHeader')
 @section('content')
 
 <?php
@@ -26,12 +30,12 @@ $metaurl = "https://mobilemasala.com/";*/
 
      }
      .post-content-inner-postdetails{
-         width: 350px !important;
+         width: 300px !important;
     padding-right: 5px;
      }
      
      .post-content-inner-details {
-            width: 63% !important; 
+            width: 55% !important; 
             
         }
         
@@ -43,6 +47,9 @@ $metaurl = "https://mobilemasala.com/";*/
         }
 
     }
+    /*.AV62382721bab93c441117d951{*/
+    /*    display:none;*/
+    /*}*/
  </style>
 
 <meta property="og:title" content="@yield('title')">
@@ -56,7 +63,6 @@ $metaurl = "https://mobilemasala.com/";*/
   <meta property="og:image" content="https://mobilemasala.com/assets/front_end/images/logo.png" />
 
 </head>
-
 
 
 
@@ -334,4 +340,6 @@ $(document).ready(function(){
   $("aside a:contains(Also Read)").css("display", "none");
 });
 </script>
+
+@include('front_end/footer');
 @endsection

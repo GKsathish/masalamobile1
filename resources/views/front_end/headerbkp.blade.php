@@ -500,16 +500,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>                        
                 </button>
-                    <div class="dropdown">
-                        <button class="dropbtn"><i class="fa-solid fa-language"></i></button>
-                        <div class="dropdown-content">
-                            
-                        <a href="/Hindi">Hindi</a>
-                        <a href="/Telugu">Telugu</a>
-                            <a href="/English">English</a>
-                        
-                        </div>
-                    </div>
+                 
             </div>
             <div class="collapse navbar-collapse" id="myNavbar" class="navv">
                 <ul class="nav navbar-nav">

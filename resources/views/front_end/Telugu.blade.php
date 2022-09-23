@@ -1,9 +1,8 @@
+
+
 @extends('front_end.header')
+
 @section('content')
-
-
-
-
 <head>
  
 <style>
@@ -260,22 +259,11 @@
 
 }
 
-  /* .descp2{
-    
-        -webkit-line-clamp: 2;POSITION
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    max-height: initial;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 18px !important;
-    margin: 11px 5px;
-    padding-top:25px;
-} */
-
+  
 
 }
+
+
 @media only screen and (min-width: 275px) and (max-width: 910px) {
 	.vid-container iframe, .vid-container object, .vid-container embed {
     width: 100%;
@@ -317,12 +305,16 @@
      
 
 
- 		<h2><span>Trending Now</span></h2>
+ 		<h2><span>
+ 		    
+ 		    ఇప్పుడు ట్రెండింగ్‌లో ఉంది
+ 		    
+ 		</span></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			
-		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE  language ="Telugu"   ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
-	
+		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW" and language="Telugu"   ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
+			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"    ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
@@ -354,8 +346,27 @@
 		    
 		    
 			 @endforeach
-		
-		
+			 @foreach($entertainmentinfo1 as $entertainmentinfo)
+			
+			    
+			
+						<a href="paparazzi-post&id={{$entertainmentinfo->postid}}">
+             			<div style="border:2px  solid #e9e9e9; display:flex;  border-radius:3px;">
+						 <figure style="margin:4px;"  >
+                							<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe> -->
+              								<iframe width="100" height="90" src="{{$entertainmentinfo->videopath}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+               							</figure>
+                	
+
+							
+						  <div  style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">  
+						  <h5>Paparazzi</h5>
+							<h3>{{$entertainmentinfo->posttitle}}</h3>
+			                </div>
+						</div>
+                        </a>
+		    @endforeach 
+				
 			
 				
 		</div>
@@ -364,11 +375,6 @@
         
 	</section>
 	
-	
-
-	
-
-
       <div class="hashtag" style="padding: 10px;">
           <marquee behavior="scroll" direction="left"  width="100%">
               
@@ -400,7 +406,7 @@
 	
 	<!--Entertainment & Sports-->
 	<section class="container equal-height padding-top-none clear">
-    	<aside class="content ">
+    	<aside class="content left">
             <div class="slider-carousel owl-carousel owl-theme clear" id="slider-carousel-enter">
 				@php 
 					$entertainmentinfo = DB::table('post')->where('categoryid',8)->where('language','Telugu')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
@@ -416,7 +422,8 @@
 					<a href="post-single&id={{$entertainmentinfo1->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo1->imagepath}}" alt="">
                         <figcaption>
-							<h5>Entertainment</h5>
+							<h5>  వినోదం </h5>
+							
 							<h1>{{$entertainmentinfo1->posttitle}}</h1>
                         </figcaption>
 					</a>
@@ -425,7 +432,7 @@
 				@endforeach
             </div>
         </aside>
-        <!--  -->
+       
         
         <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
     
@@ -454,11 +461,14 @@
       <!--Celebrity Gossip-->
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=2" class="text-dark"><span>Celebrity Gossip</span></a></h2>
+ 			<h2><a href="post-content&id=2" class="text-dark"><span>
+ 			    ప్రముఖుల గాసిప్
+
+ 			</span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',2)->where('language','Telugu')->where('status','Publish')->orderBy('published_date','asc')->take(3)->get(); 
+				$entertainmentinfo = DB::table('post')->where('categoryid',2)->where('language','Telugu')->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 						<?php 
@@ -471,7 +481,10 @@
 						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
 						<figcaption>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
-							<h5>Celebrity Gossip</h5>
+							<h5>
+							    సెలబ్రిటీ గాసిప్
+
+							</h5>
 						</figcaption>
 						</a>
 						<button style="float:right; position: relative; bottom: 40px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
@@ -516,14 +529,14 @@
         </aside>
 	</section>
 	
-   
-     
-    
-
-
+ 
       <!--Visual Stories-->
       <section class="container visual-stories clear">
-		<h2 class="left"><span><a href="javascript:void(0)">Visual Stories</a></span></h2>
+		<h2 class="left"><span><a href="javascript:void(0)">
+		    
+		    విజువల్ కథలు
+
+		</a></span></h2>
 		<div class="tab visualstories right">
 			<!-- <button class="tablinks_VS" onclick="openVisualStories(event, 'FEATURED')" id="defaultOpenvs">FASHION</button>
 			<button class="tablinks_VS" onclick="openVisualStories(event, 'LIFESTYLE')">LIFESTYLE</button>
@@ -540,7 +553,7 @@
 		<div id="FEATURED" class="tabVisualStories clear">
 			<div class="visual-stories-carousel owl-carousel owl-theme clear">	
 			@php
-			$get_vs1 = DB::table('v_stories')->where('categoryid',1)->orderBy('storyid','desc')->get();
+			$get_vs1 = DB::table('v_stories')->where('categoryid',1)->where('cat_type','visualstories')->orderBy('storyid','desc')->get();
 			@endphp			
 			@foreach ($get_vs1 as $get_vs1)		
 				<div class="item clear">
@@ -649,19 +662,21 @@
     </section>
     
     
-    <!-- Horoscope-->
     
+        
       
 
 	
-	
     <!--Random Posts-->
 	<section class="container random-posts padding-top-none clear">
- 		<h2><span>Random Posts</span></h2>
+ 		<h2><span>
+ 		    యాదృచ్ఛిక పోస్ట్‌లు
+
+ 		</span></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('status','Publish')->where('language','Telugu')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)')->inRandomOrder()->take(5)->orderBy('published_date','desc')->get(); 
+				$entertainmentinfo = DB::table('post')->where('language','Telugu')->where('status','Publish')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)')->inRandomOrder()->take(5)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<li>
@@ -694,10 +709,12 @@
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=4"><span>Movies</span></a></h2>
+ 			<h2><a href="post-content&id=4"><span>
+ 			    సినిమాలు
+ 			</span></a></h2>
             <div class="grid clear">
 					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',4)->where('language','Telugu')->where('status','Publish')->orderBy('published_date','asc')->take(4)->get(); 
+					$entertainmentinfo = DB::table('post')->where('language','Telugu')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
                     @endphp
                     @foreach($entertainmentinfo as $entertainmentinfo)
                     <?php 
@@ -708,7 +725,8 @@
 					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo->imagepath}}" alt="" width="100%">
                         <figcaption>
-                            <h5>Movies</h5>
+                            <h5>    సినిమాలు  </h5>
+							
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
                         </figcaption>
                     </a>
@@ -773,240 +791,23 @@
         </aside>
 	</section>
 	
-	<!--Paparazzi-->
-	
-
-	<!--Fashion and Autonews & Sidebar-->
-	<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=1"><span>Fashion</span></a></h2>
-		<div id="randomposts">
-			<ul class="clear">
-				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',1)->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(10)->get(); 
-				@endphp
-				@foreach($entertainmentinfo as $entertainmentinfo)
-				<li>
-				<button style="float:right; position: relative;cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-	<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-	</svg></button>
-					<a href="post-single&id={{$entertainmentinfo->postid}}&postlink={{$entertainmentinfo->postlink}}" title="">
-					@php
-						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
-						@endphp
-						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryname}}</h5>
-						@endforeach
-						
-						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
-						<h3>{{$entertainmentinfo->posttitle}}</h3>
-					</a>
-					
-				</li>
-				@endforeach
-			</ul>
-		</div>
-	</section>
 
 	
-	<!--Technology & Gadgets-->
-	
-	<section class="container padding-top-none clear">
-    	<aside class="content left">
- 			<h2><a href="post-content&id=7"><span>Technology & Gadgets</span></a></h2>
-            <div class="single-article clear">
-            	<ul>
-				@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',7)->where('status','Publish')->orderBy('published_date','desc')->take(6)->get(); 
-			@endphp
-			@foreach($entertainmentinfo as $entertainmentinfo)
-			       <?php 
-				$titlorl = $entertainmentinfo->posttitle;
-				$title = str_replace(" ","+",$titlorl);
-				?>
-                	<li>
-					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
-					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
-                    <figcaption>
-						<h3>{{$entertainmentinfo->posttitle}}</h3>
-                        <h5>Technology & Gadgets</h5>
-                    </figcaption>
-                    </a>
-					<button style="float:right; position: relative; bottom: 40px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-	<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-	</svg></button>
-                   	</li>
-			@endforeach
-                </ul>
-			</div>
-        </aside>
-        <aside class="sidebar right">
-            
-        	<div class="ads">
-        	    </br></br>
-        	    <a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/MMAUG222022.jpg')}}"></a>
-				<!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-				<div id="gpt-passback-MRMTF">
-					<script>
-						window.googletag = window.googletag || {cmd: []};
-						googletag.cmd.push(function() {
-						googletag.defineSlot('/22387492205/ad-masalamobile.com-bsnl(pyro)-banner-300x250-mtf', [[360, 300], [250, 250], [336, 280], [300, 250], [300, 280]], 'gpt-passback-MRMTF').addService(googletag.pubads());
-						googletag.enableServices();
-						googletag.pubads().set('page_url', 'masalamobile.com');
-						googletag.display('gpt-passback-MRMTF');
-						});
-					</script>
-				</div> -->
-			</div>
-        </aside>
-	</section>
-	
-	<!--Health and Wellness-->
-	
-	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=6"><span>Health & Wellness</span></a></h2>
-		<div class="single-article-carousel owl-carousel owl-theme clear">
-			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',6)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
-			@endphp
-			@foreach($entertainmentinfo as $entertainmentinfo)
-			   <?php 
-				$titlorl = $entertainmentinfo->posttitle;
-				$title = str_replace(" ","+",$titlorl);
-				?>
-			<div class="item clear">
-				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
-					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
-                    <aside>
-						<h3>{{$entertainmentinfo->posttitle}}</h3>
-                        <h5>Health & Wellness</h5>
-                    </aside>
-				</a>
-				<button style="float:right; position: relative; bottom: 20px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-	<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-	</svg></button>
-			</div>
-			@endforeach
-        </div>
-	</section>
-	<!-- <div class="container padding-top-none ads"><img src="assets/front_end/images/g3.jpg" /></div> -->
-		
-	<!-- <div class="container padding-top-none ads"><img src="assets/front_end/images/g5.jpg" /></div> -->
-	
-	<!-- <div class="container ads"><img src="assets/front_end/images/g6.jpg" /></div>	 -->
-	
-	<!-- <div class="container padding-top-none ads"><img src="assets/front_end/images/g8.jpg" /></div>	 -->
-	
-	<!--Sports-->
-	
-	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=9"><span>Sports</span></a></h2>
-        <div class="tumbnailcarousel owl-carousel owl-theme clear">
-			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
-			@endphp
-			@foreach($entertainmentinfo as $entertainmentinfo)
-			 <?php 
-				$titlorl = $entertainmentinfo->posttitle;
-				$title = str_replace(" ","+",$titlorl);
-				?>
-			<div class="item clear">
-				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
-                    <figure><img src="<?php echo $entertainmentinfo->imagepath; ?>" alt=""></figure>
-                    <aside>
-                    	<h5>Sports</h5>
-                    	<h3>{{$entertainmentinfo->posttitle}}</h3>
-                    </aside>
-				</a>
-				<button style="float:right; position: relative; bottom: 95px; right: 10px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-				<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-				</svg></button>	
-			</div>
-			@endforeach
-        </div>
-	</section>
-	
-	<!--Music-->
-	
-	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=5"><span>Music</span></a></h2>
-		<div class="single-article-carousel owl-carousel owl-theme clear">
-			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',5)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
-			@endphp
-			@foreach($entertainmentinfo as $entertainmentinfo)
-			 <?php 
-				$titlorl = $entertainmentinfo->posttitle;
-				$title = str_replace(" ","+",$titlorl);
-				?>
-			<div class="item clear">
-				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
-					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
-                    <aside>
-						<h3>{{$entertainmentinfo->posttitle}}</h3>
-                        <h5>Music</h5>
-                    </aside>
-				</a>
-				<button style="float:right; position: relative; bottom: 20px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-	<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-	</svg></button>
-			</div>
-			@endforeach
-        </div>
-	</section>
-	
-	<!--Travel & Tourism-->
 	
 	
-		<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=11"><span>Travel & Tourism</span></a></h2>
-		<div id="randomposts">
-			<ul class="clear">
-				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',11)->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(5)->get(); 
-				@endphp
-				@foreach($entertainmentinfo as $entertainmentinfo)
-				
-					 <?php 
-				$titlorl = $entertainmentinfo->posttitle;
-				$title = str_replace(" ","+",$titlorl);
-				?>
-				
-				<li>
-				<button style="float:right; position: relative;cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-	<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-	</svg></button>
-					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title="">
-					@php
-						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
-						@endphp
-						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryname}}</h5>
-						@endforeach
-						
-						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
-						<h3>{{$entertainmentinfo->posttitle}}</h3>
-					</a>
-					
-				</li>
-				@endforeach
-			</ul>
-		</div>
-	</section>
-		<!--Fashion and Autonews & Sidebar-->
 	
-		<section class="container equal-height padding-top-none clear">
-	
-			
-			<aside class="sidebar right">
+			<aside class="sidebar left">
 				<div class="news-list sidebarposts nomargin">
 					<div class="tab">
-						<button class="tablinks" onclick="openCity(event, 'Recent')" id="defaultOpen">Recent</button>
-						<button class="tablinks" onclick="openCity(event, 'Popular')">Popular</button>
+						<button class="tablinks" onclick="openCity(event, 'Recent')" id="defaultOpen">  ఇటీవలి </button>
+						
+						<button class="tablinks" onclick="openCity(event, 'Popular')"> జనాదరణ పొందినది </button>
+						
 					</div>
 					<div id="Recent" class="tabcontent clear">
 						<ul>
 						@php 
-						$entertainmentinfo = DB::table('post')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
+						$entertainmentinfo = DB::table('post')->where('status','Publish')->where('language','Telugu')->orderBy('published_date','desc')->take(8)->get(); 
 						@endphp
 						@foreach($entertainmentinfo as $entertainmentinfo)
 									 <?php 
@@ -1026,7 +827,7 @@
 						<ul>
 						<?php /* $entertainmentinfo = DB::table('post')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();  */  //OLD LOGIC ?> 
 						@php 
-							$entertainmentinfo = DB::table('post')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();
+							$entertainmentinfo = DB::table('post')->where('language','Telugu')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();
 							@endphp
 							@foreach($entertainmentinfo as $entertainmentinfo)
 													 <?php 
@@ -1046,9 +847,7 @@
 			</aside>
 		</section>
 	
-	<!--More-->
-	
-	
+
 	
 	
 </div>
@@ -1122,24 +921,10 @@
 						</div> -->
 					</div>
 				</div>
-            <div class="modal-footer">
-				<label class="copylabel"></label>
-                <div class="row"> <input class="col-10 ur" type="url"   id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>
-            </div>
+            
         </div>
 		</div>
-	 	
-<script>
-    $(document).ready(function() {
-        var value = $("#tagchange").text();
-        //alert(value)
-        var res = value.split(" ").join("");
-        $("#tagchange").empty();
-        $("#tagchange").append(res);
-       console.log(res);
-       
-    });
+
 </script>
-
-
+@include('front_end/footer');
 @endsection
