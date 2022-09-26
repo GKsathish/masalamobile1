@@ -552,7 +552,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </label>
          
          <li class="dropd">
-               <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}"   class="dropdbtn1">
+               <img src="{{asset('assets/front_end/images/adimage/A Icon1.png')}}"   class="dropdbtn1">
               <ul class="dropdcontent1">
               <a href="/Hindi"> हिन्दी  </a>
                <a href="/Telugu"> తెలుగు </a>
@@ -568,13 +568,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	
 			
 	<?php   $langn = $_SERVER['REQUEST_URI'];?>
-	
-	
+    
 	<?php  $langnn = (explode("/",$langn)); $lang = $langnn['1'];?>
 	
 	
 	
-<?php if($lang == ""){ ?>
+<?php if($lang == "" || $lang =="English"){ ?>
 	<ul class="menu">
         
             <!-- <li><a href="/"><i class="fa fa-home"></i></a></li> -->
@@ -614,7 +613,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
             </li>
              <li class="dropdown" >
-              <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}"   class="dropbtn">
+              <img src="{{asset('assets/front_end/images/adimage/A Icon1.png')}}"   class="dropbtn">
               <ul class="dropdown-content">
               <a href="/Hindi">हिन्दी </a>
                <a href="/Telugu">తెలుగు</a>
@@ -670,7 +669,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
             </li>
              <li class="dropdown">
-               <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}"   class="dropbtn">
+               <img src="{{asset('assets/front_end/images/adimage/A Icon1.png')}}"   class="dropbtn">
               <ul class="dropdown-content">
               <!--<a href="/Hindi"> हिन्दी  </a>-->
                <a href="/Telugu"> తెలుగు </a>
@@ -722,7 +721,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
             </li>
            <li class="dropdown" >
-              <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}" class="dropbtn" >
+              <img src="{{asset('assets/front_end/images/adimage/A Icon1.png')}}" class="dropbtn" >
               <ul class="dropdown-content">
               <a href="/Hindi">हिन्दी  </a>
                <!--<a href="/Telugu"> తెలుగు  </a>-->
@@ -741,4 +740,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </nav>
 </div>
 @yield('content')
-
+@extends('front_end.footer')

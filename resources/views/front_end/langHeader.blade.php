@@ -552,7 +552,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </label>
          
          <li class="dropd">
-               <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}"   class="dropdbtn1">
+               <img src="{{asset('assets/front_end/images/adimage/A Icon1.png')}}"   class="dropdbtn1">
               <ul class="dropdcontent1">
               <a href="/Hindi"> हिन्दी  </a>
                <a href="/Telugu"> తెలుగు </a>
@@ -567,7 +567,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 	
 			
-<?php  $lang = $feed->language;?>
+<?php $lang = $feed->language;?>
 	
 	
 	
@@ -611,7 +611,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
             </li>
              <li class="dropdown" >
-              <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}"   class="dropbtn">
+              <img src="{{asset('assets/front_end/images/adimage/A Icon1.png')}}"   class="dropbtn">
               <ul class="dropdown-content">
               <a href="/Hindi">हिन्दी </a>
                <a href="/Telugu">తెలుగు</a>
@@ -667,7 +667,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
             </li>
              <li class="dropdown">
-               <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}"   class="dropbtn">
+               <img src="{{asset('assets/front_end/images/adimage/A Icon1.png')}}"   class="dropbtn">
               <ul class="dropdown-content">
               <!--<a href="/Hindi"> हिन्दी  </a>-->
                <a href="/Telugu"> తెలుగు </a>
@@ -688,15 +688,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
           
             <li><a href="post-content&id=2&Celebrity Gossip">
+                సెలబ్రిటీ గాసిప్స్
                 
-సెలబ్రిటీ గాసిప్
-            </a></li>
+                </a></li>
             <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
             <li><a href="post-content&id=4&Movies">
-                సినిమా            </a>
+                సినిమా
+            </a>
 
-            <li><a href="post-content&id=8&Entertainment">  ఎంటర్టైన్మెంట్  </a></li>
-        
+            <li><a href="post-content&id=8&Entertainment"> ఎంటర్టైన్మెంట్</a></li>
+      
             <!--<li><a href="post-content&id=17&Others">-->
                 
             <!--    మరింత-->
@@ -718,7 +719,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
             </li>
            <li class="dropdown" >
-              <img src="{{asset('assets/front_end/images/adimage/A Icon.png')}}" class="dropbtn" >
+              <img src="{{asset('assets/front_end/images/adimage/A Icon1.png')}}" class="dropbtn" >
               <ul class="dropdown-content">
               <a href="/Hindi">हिन्दी  </a>
                <!--<a href="/Telugu"> తెలుగు  </a>-->
@@ -737,4 +738,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </nav>
 </div>
 @yield('content')
-@extends('front_end.footer')
+@extends('front_end.langFooter')

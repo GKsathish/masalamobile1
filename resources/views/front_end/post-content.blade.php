@@ -1,4 +1,8 @@
-@extends('front_end.header')
+
+<?php $lang = $feed->language;?>
+
+
+@extends('front_end.langHeader')
 
 @section('content')
 

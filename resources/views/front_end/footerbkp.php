@@ -1,10 +1,12 @@
 <?php   $langn = $_SERVER['REQUEST_URI'];?>
 	
 	
-<?php  $langnn = (explode("/",$langn)); $lang = $langnn['1'];?>
-		
+	<?php  $langnn = (explode("/",$langn)); $lang = $langnn['1'];?>
+	
+	
+	
 <?php if($lang == ""){ ?>
-    <footer id="colophon" class="site-footer clear">
+<footer id="colophon" class="site-footer clear">
     	<article class="clear">
         	<aside class="footer-nav left">
             	<h2>Information</h2>
@@ -67,21 +69,20 @@
 
 <?php }?>
 <?php if($lang == "Hindi"){ ?>
-    <footer id="colophon" class="site-footer clear">
+<footer id="colophon" class="site-footer clear">
                 <article class="clear">
                     <aside class="footer-nav left">
-                        <h2>इनफार्मेशन</h2>
+                        <h2>Information</h2>
                         <ul>
-                            <li><a href="contact-us">  कॉन्टैक्टस </a></li>
-                            <li><a href="privacy-policy">प्राइवेसी  पालिसी</a></li>
-                            <li><a href="terms-of-use">ट्रंसफुसे</a></li>
-                            <li><a href="accessibility">  एक्सेसिबिलिटी  स्टेटमेंट</a></li>
-                            <li><a href="disclosure">डिस्क्लोसूरेस
-                            </a></li>
+                            <li><a href="contact-us">Contact Us</a></li>
+                            <li><a href="privacy-policy">Privacy Policy</a></li>
+                            <li><a href="terms-of-use">Terms of Use</a></li>
+                            <li><a href="accessibility">Accessibility Statement</a></li>
+                            <li><a href="disclosure">Disclosures</a></li>
                         </ul>
                     </aside>
                     <aside class="left">
-                        <h2>पॉपुलर टैग्स  </h2>
+                        <h2>Popular Tags</h2>
                         <div class="tagcloud clear">
                             <a href="post-content&id=6"> हेल्थ और फिटनेस </a>
                             <!-- <a href="#">Believe It or Not</a> -->
@@ -100,11 +101,9 @@
                             <a href="post-content&id=5">म्यूज़िक</a>
                             <a href="post-content&id=10">ऑटो न्यूज़ </a>
                             <a href="post-content&id=11">ट्रेवल & टूरिज़म </a>
-                            <a href="post-content&id=17"> स्पेशल 
-
-       </a>
+                            <a href="post-content&id=17">More</a>
                         </div>
-                        <h2>फॉलो  उस</h2>
+                        <h2>Follow Us</h2>
                         <div class="footer-social-icons clear">
                             <ul>
                                 <li><a href="https://www.youtube.com/channel/UCsiQiezOigqrxrNIP0N1gaw" target="_blank"><i class="fab fa-youtube"></i></a></li>
@@ -127,12 +126,17 @@
                     </fieldset> */?>
                 </article>
                 <div class="site-info clear">
-                    <p class="left">© <span id="year"></span> मोबिलेमसाला.  आल  राइट्स  राइट्स.</p>
+                    <p class="left">© <span id="year"></span> Mobile Masala. All rights reserved.</p>
                 </div><!-- .site-info -->
-    </footer>
+</footer>
+
 <?php } ?>
+
+
+
+
 <?php if($lang == "Telugu"){ ?>
-    <footer id="colophon" class="site-footer clear">
+<footer id="colophon" class="site-footer clear">
                 <article class="clear">
                     <aside class="footer-nav left">
                         <h2>సమాచారం</h2>
@@ -141,7 +145,7 @@
                             <li><a href="privacy-policy">  ప్రైవసీ పాలసీ </a></li>
                             <li><a href="terms-of-use"> నిబంధనలు </a></li>
                             <li><a href="accessibility">యాక్సెసిబిలిటీ స్టేట్‌మెంట్
-                             </a></li>
+</a></li>
                             <li><a href="disclosure">డిస్క్లోజర్స్</a></li>
                         </ul>
                     </aside>
@@ -192,40 +196,40 @@
                 <div class="site-info clear">
                     <p class="left">© <span id="year"></span>మొబైల్ మసాలా.  అన్ని హక్కులు ప్రత్యేకించబడ్డాయి.</p>
                 </div><!-- .site-info -->
-    </footer>
+</footer>
 
 <?php } ?>
 
 <a href="#" class="scrollup"></a>
 <script>
-    function time_elapsed_string($datetime, $full = false) {
-        $now = new DateTime;
-        $ago = new DateTime($datetime);
-        $diff = $now->diff($ago);
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
 
-        $diff->w = floor($diff->d / 7);
-        $diff->d -= $diff->w * 7;
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
 
-        $string = array(
-            'y' => 'year',
-            'm' => 'month',
-            'w' => 'week',
-            'd' => 'day',
-            'h' => 'hour',
-            'i' => 'minute',
-            's' => 'second',
-        );
-        foreach ($string as $k => &$v) {
-            if ($diff->$k) {
-                $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
-            } else {
-                unset($string[$k]);
-            }
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
         }
-
-        if (!$full) $string = array_slice($string, 0, 1);
-        return $string ? implode(', ', $string) . ' ago' : 'just now';
     }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
 </script>
 <script>
     
@@ -308,60 +312,60 @@
 </script>
 <script>
 
-    $(".open").click(function(){
-        console.log("Working");
-        $(".copylabel").empty();
-        var id = $(this).val();
-        $.get("get-share-info&id="+id, function(data){
-            console.log(data);
-                if(data.success == true)
-                {
-                    var posttitle = "https://mobilemasala.com/meta_share&id="+data.posttitle+"&share=yes";
-                    $("#fb").attr("href", "http://www.facebook.com/sharer.php?u="+posttitle);
-                    $("#twit").attr("href", "https://twitter.com/share?url="+posttitle);
-                    $("#wa").attr("href", "https://api.whatsapp.com/send?text=https://mobilemasala.com/meta_share%26id="+data.posttitle+"%26share=yes")
-                    $("#insta").attr("href", "https://www.instagram.com/?url="+posttitle)
-                    $("#telegram").attr("href", "https://t.me/share/url?url=https://mobilemasala.com/post-single%26id="+data.posttitle)
-                    $("#mail").attr("href", "mailto:?subject=Take a Look of Article&amp;body=Check out this site "+posttitle)  
-                    
-                    $("#myInput").val(posttitle);
-                    $("#a").fadeIn();
-                    $("#b").fadeIn();
-                }
+$(".open").click(function(){
+    console.log("Working");
+    $(".copylabel").empty();
+    var id = $(this).val();
+    $.get("get-share-info&id="+id, function(data){
+        console.log(data);
+            if(data.success == true)
+            {
+                var posttitle = "https://mobilemasala.com/meta_share&id="+data.posttitle+"&share=yes";
+                $("#fb").attr("href", "http://www.facebook.com/sharer.php?u="+posttitle);
+                $("#twit").attr("href", "https://twitter.com/share?url="+posttitle);
+                $("#wa").attr("href", "https://api.whatsapp.com/send?text=https://mobilemasala.com/meta_share%26id="+data.posttitle+"%26share=yes")
+                $("#insta").attr("href", "https://www.instagram.com/?url="+posttitle)
+                $("#telegram").attr("href", "https://t.me/share/url?url=https://mobilemasala.com/post-single%26id="+data.posttitle)
+                $("#mail").attr("href", "mailto:?subject=Take a Look of Article&amp;body=Check out this site "+posttitle)  
                 
-            });
-    });
+                $("#myInput").val(posttitle);
+                 $("#a").fadeIn();
+                 $("#b").fadeIn();
+            }
+            
+        });
+});
 
 
-    $(".cancel").click(function(){
-        $("#a").fadeOut();
-        $("#b").fadeOut();
-    });
+$(".cancel").click(function(){
+     $("#a").fadeOut();
+     $("#b").fadeOut();
+});
 
-    $(".cpy").click(function(){
-        var copyText = document.getElementById("myInput");
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /* For mobile devices */
-        navigator.clipboard.writeText(copyText.value);
-        $(".copylabel").text("LINK COPIED");
-    })
-    $("#subscribe_submit").click(function(){
-            var denierid = "+"+$("#mobile_num_sub").val();
-            console.log(denierid);
-            var param = { 'phoneA_number': denierid };
-            $.ajax({
-                url: "http://13.234.96.218:3000/sendMessage",
-                dataType: "json",
-                contentType: "application/json",
-                type: "POST",
-                data: JSON.stringify(param),
-                success: function (msg) {
-                    if (msg != null) {
-                        return msg;
-                    }
+$(".cpy").click(function(){
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    navigator.clipboard.writeText(copyText.value);
+    $(".copylabel").text("LINK COPIED");
+})
+$("#subscribe_submit").click(function(){
+        var denierid = "+"+$("#mobile_num_sub").val();
+        console.log(denierid);
+        var param = { 'phoneA_number': denierid };
+        $.ajax({
+            url: "http://13.234.96.218:3000/sendMessage",
+            dataType: "json",
+            contentType: "application/json",
+            type: "POST",
+            data: JSON.stringify(param),
+            success: function (msg) {
+                if (msg != null) {
+                    return msg;
                 }
-            });
-    });
+            }
+        });
+});
 
 </script>
 </body>

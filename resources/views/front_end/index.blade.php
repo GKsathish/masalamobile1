@@ -1,7 +1,4 @@
-
-
 @extends('front_end.header')
-
 @section('content')
 
 
@@ -301,13 +298,16 @@
   
 }
 
-
+.AV62382721bab93c441117d951{
+    display:none;
+}
 
 </style>
   
 </head>
 
-<div class="entry-content ">
+
+<div class="entry-content">
     <!--Trending Now-->
 	<section class="container clear">
 	
@@ -336,7 +336,7 @@
 				
 			
             <div class="item clear">	
-				<a href="post-single&id={{$entertainmentinfo->posttitle}}&post=<?php echo $title;?>">   
+				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">   
                     <figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <aside>
 						@php
@@ -449,7 +449,7 @@
         </aside>
         <aside class="sidebar right" style="margin:0;">
             <div class="slider-carousel-withdot owl-carousel owl-theme clear" id="slider-carousel-sport">
-			@php 
+		  	    @php 
 					$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
@@ -489,7 +489,7 @@
 			googletag.display("gpt-passback-mobilemasala.com.Banner0.1638182447");
 			});
 		</script>
-     </div>
+    </div>
 	</section>
 
     <script>
@@ -500,7 +500,7 @@
         googletag.display("gpt-passback-mobilemasala.com.Banner0.1638182812");
       });
       </script>
-      </div>
+      
       
       
       <!--Horoscope-->
@@ -519,8 +519,8 @@
 					<a href="horoscope&id={{$get_vs1->storyid}}" target="_blank">
 						<img src="<?php echo $get_vs1->imagelink; ?>" style="min-height: 400px;" />
 						<figcaption>
-							<h2>{{$get_vs1->storytitle}}</h2>
-							<h5>FEATURED</h5>
+							<!--<h2>{{$get_vs1->storytitle}}</h2>-->
+							<h5>DAILY / WEEKLY </h5>
 						</figcaption>
 					</a>
 				</div>
@@ -558,8 +558,8 @@
 						</figcaption>
 						</a>
 						<button style="float:right; position: relative; bottom: 40px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-					<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-					</svg></button>		
+	<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+	</svg></button>		
                    	</li>
 			   	@endforeach
                 </ul>
@@ -1465,7 +1465,7 @@
 			@endforeach
         </div>
 	</section>
-
+	
 	
 </div>
 <script async='async' src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
@@ -1503,7 +1503,7 @@
 
 <div class="containermod" id="a">
 			
-		
+			</div>
 			<div class="modal" id="b">
 				<div class="modalcancel">
 					<a href="#" class="cancel">X</a>
@@ -1542,22 +1542,27 @@
 						</div> -->
 					</div>
 				</div>
-         
+
+
+
+            <!-- <div class="modal-footer">
+				<label class="copylabel"></label>
+                <div class="row"> <input class="col-10 ur" type="url"   id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>
+            </div> -->
         </div>
-		
-	</div>
-	 	
-<script>
+		</div>
+	 	<?php @include('front_end/footer');?>
+<!-- <script>
     $(document).ready(function() {
         var value = $("#tagchange").text();
-        //alert(value)
+     
         var res = value.split(" ").join("");
         $("#tagchange").empty();
         $("#tagchange").append(res);
        console.log(res);
        
-    });
-</script>
+    }); -->
+<!-- </script> -->
 
-@include('front_end/footer');
+
 @endsection

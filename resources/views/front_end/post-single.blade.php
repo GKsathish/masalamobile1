@@ -9,10 +9,15 @@ DB::table('post')->where('postid', $feed->postid)->take(1)->update(['hitcount' =
 @endforeach
 
 
+
+
+
 <?php $lang = $feed->language;?>
 
 
 @extends('front_end.langHeader')
+
+
 @section('content')
 
 <?php
@@ -274,7 +279,7 @@ $feed_date = $feed->published_date;
        
         <ul>
         @php 
-        $entertainmentinfo = DB::table('post')->where('categoryid',$feed->categoryid)->where('postid', '<>', $feed->postid)->where('status','Publish')->orderBy('created_at','desc')->skip(4)->take(12)->get(); 
+        $entertainmentinfo = DB::table('post')->where('categoryid',$feed->categoryid)->where('language',$feed->language)->where('postid', '<>', $feed->postid)->where('status','Publish')->orderBy('created_at','desc')->skip(4)->take(12)->get(); 
         @endphp
         @foreach($entertainmentinfo as $entertainmentinfo)
        										 <?php 
@@ -327,6 +332,9 @@ $feed_date = $feed->published_date;
     });
   </script>
 </div>
+
+<?php @include('front_end/langFooter');?>
+
 </div>
 
 <script>
@@ -341,5 +349,8 @@ $(document).ready(function(){
 });
 </script>
 
-@include('front_end/footer');
+
+
+
 @endsection
+<?php @include('front_end/langFooter');?>

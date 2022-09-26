@@ -1,6 +1,6 @@
 
-
 @extends('front_end.header')
+
 
 @section('content')
 <head>
@@ -921,10 +921,23 @@
 						</div> -->
 					</div>
 				</div>
-            
+            <div class="modal-footer">
+				<label class="copylabel"></label>
+                <div class="row"> <input class="col-10 ur" type="url"   id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>
+            </div>
         </div>
 		</div>
-
+	 	
+<script>
+    $(document).ready(function() {
+        var value = $("#tagchange").text();
+        //alert(value)
+        var res = value.split(" ").join("");
+        $("#tagchange").empty();
+        $("#tagchange").append(res);
+       console.log(res);
+       
+    });
 </script>
-@include('front_end/footer');
+
 @endsection
