@@ -12,11 +12,11 @@
 </div>
 @isset($feed)
 <section class="container padding-top-none clear" style="padding:0;">
- 		<h2><a href="post-content&id=9"><span>सुझाए गए लेख</span></a></h2>
+ 		<h2><a href="post-content&id=9"><span>सुग्गेस्टेड   आर्टिकल्स </span></a></h2>
 		 <div class="sidebarposts clear">
 					  <ul>
                       @php 
-                        $entertainmentinfo = DB::table('post')->where('language','Hindi')->where('categoryid',$feed->categoryid)->where('postid', '<>', $feed->postid)->where('status','Publish')->orderBy('created_at','desc')->take(4)->get(); 
+                        $entertainmentinfo = DB::table('post')->where('categoryid',$feed->categoryid)->where('language','Hindi')->where('postid', '<>', $feed->postid)->where('status','Publish')->orderBy('created_at','desc')->take(4)->get(); 
                         @endphp
                         @foreach($entertainmentinfo as $entertainmentinfo)
                             <li>
@@ -46,15 +46,13 @@
 			</div>
 			<div class="sidebarposts clear">
 				<div class="tab">
-					<button class="tablinks" onclick="openCity(event, 'Recent')" id="defaultOpen"> 
-हालिया </button>
-					<button class="tablinks" onclick="openCity(event, 'Popular')">    
-लोकप्रिय   </button>
+					<button class="tablinks" onclick="openCity(event, 'Recent')" id="defaultOpen">रीसेंट</button>
+					<button class="tablinks" onclick="openCity(event, 'Popular')">पॉपुलर</button>
 				</div>				
 				<div id="Recent" class="tabcontent clear">
 					<ul>
                     @php 
-					$entertainmentinfo = DB::table('post')->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(10)->get(); 
+					$entertainmentinfo = DB::table('post')->where('status','Publish')->where('language','Hindi')->orderBy('published_date','desc')->take(10)->get(); 
                     @endphp
                     @foreach($entertainmentinfo as $entertainmentinfo)
 						<li>
@@ -95,33 +93,32 @@
 				  </script>
 				</div> -->
 			<div class="widget_categories">
-				<h2>   श्रेणियाँ </h2>
+				<h2>काटेगोरिएस
+</h2>
 				<ul>
-					<li><a href="post-content&id=6">  स्वास्थ्य और कल्याण  </a></li>
-					<!-- <li><a href="#">General Gossip</a></li> -->
-					<li><a href="post-content&id=7">   प्रौद्योगिकी और गैजेट  </a></li>
-					<!-- <li><a href="#">Believe It or Not</a></li> -->
-					<li><a href="post-content&id=4">  
 
-चलचित्र </a></li>
-					<!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-					<li><a href="post-content&id=9">  खेल </a></li>
-					<!-- <li><a href="#">Hot Content</a></li> -->
-					<li><a href="post-content&id=1"> 
-फ़ैशन  </a></li>
-					<li><a href="post-content&id=2">   मशहूर व्यक्तियों के बारे में गपशप   </a></li>
-					<!-- <li><a href="#">Fitness</a></li> -->
-					<!-- <li><a href="post-content&id=9">Sports</a></li> -->
-					<li><a href="post-content&id=8">
-                    मनोरंजन
-                    </a></li>
-					<li><a href="post-content&id=5">  
-संगीत  </a></li>
-					<li><a href="post-content&id=10">  
-ऑटो समाचार </a></li>
-					<li><a href="post-content&id=11">  
-यात्रा पर्यटन   </a></li>
+				<li><a href="post-content&id=1&Fashion"> फ़ैशन </a></li>
+            <li><a href="post-content&id=2&Celebrity Gossip">  गपशप  </a></li>
+            <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
+            <li><a href="post-content&id=4&Movies"> मूवीज़ </a>
+            <li><a href="post-content&id=5&Music"> म्यूज़िक</a></li>
+                <!-- <ul class="sub-menu">
+                    <li><a href="post-content&id=1">Movie Reviews</a></li>
+                    <li><a href="post-content&id=1">New Movies (Trailers)</a></li>
+                    <li><a href="post-content&id=1">Music Reviews</a></li>
+                </ul> -->
+            </li>
+            <!-- <li><a href="#">Hot Content</a></li> -->
+            <li><a href="post-content&id=6&Health_Wellness">  हेल्थ और फिटनेस  </a></li>
+            <!-- <li><a href="#">Fitness</a></li>
+            <li><a href="#">General Gossip</a></li> -->
+            <li><a href="post-content&id=7&Technology&Gadgets"> टेक्नोलॉजी </a></li>
+            <li><a href="post-content&id=8&Entertainment"> मनोरंजन </a></li>
+            <li><a href="post-content&id=9&Sports">खेल</a></li>
+            <li><a href="post-content&id=10&Auto_News">  ऑटो न्यूज़  </a></li>
+            <li><a href="post-content&id=11&Travel & Tourism ">  ट्रेवल & टूरिज़म   </a></li>
 					
+					<li><a href="post-content&id=17&More">  स्पेशल</a></li>
 				</ul>
 			</div>
 			 <div style="text-align:center;">

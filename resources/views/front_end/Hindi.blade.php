@@ -328,7 +328,9 @@
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryname}}</h5>
+					
+							<h5>{{$get_cat->categoryname}}</h5>
+						
 						@endforeach
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
                     </aside>

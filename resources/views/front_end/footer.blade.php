@@ -127,7 +127,8 @@
                     </fieldset> */?>
                 </article>
                 <div class="site-info clear">
-                    <p class="left">© <span id="year"></span> मोबिलेमसाला.  आल  राइट्स  राइट्स.</p>
+                    <p class="left">© <span id="year"></span> मोबिलेमसाला.  आल  राइट्स  रिजर्व्ड.
+</p>
                 </div><!-- .site-info -->
     </footer>
 <?php } ?>

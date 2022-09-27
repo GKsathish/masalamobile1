@@ -12,7 +12,7 @@ DB::table('post')->where('postid', $feed->postid)->take(1)->update(['hitcount' =
 
 
 
-<?php $lang = $feed->language;?>
+<?php    $lang = $feed->language;?>
 
 
 @extends('front_end.langHeader')
@@ -86,8 +86,15 @@ $metaurl = "https://mobilemasala.com/";*/
 
 <header class="entry-nav clear">
 	<ul>
-		<li><a href="/">Home</a></li>
-        @php
+            <?php if($lang=="English" || $lang==""){?>
+                <li><a href="/">Home</a></li>
+            <?php }?>
+
+            <?php if($lang=="Hindi"){?>
+                <li><a href="/Hindi">होम
+    </a></li>
+            <?php }?>
+         @php
         $get_categoryname = DB::table('category')->where('categoryid',$feed->categoryid)->get();
         @endphp
         @foreach ($get_categoryname as $categoryname)
@@ -258,7 +265,7 @@ $feed_date = $feed->published_date;
             </aside>
 			<!-- <div class="ads"><img src="assets/front_end/images/g8.jpg" /></div>	 -->
         </div>
-
+        <?php if($lang == ""){?>
         <div class="next-prev-button clear">
             @foreach ($next_feed as $next_feed)
 			<a href="post-single&id={{$next_feed->postid}}" rel="prev">Previous</a>
@@ -268,19 +275,45 @@ $feed_date = $feed->published_date;
             <a href="post-single&id={{$previous_feed->postid}}" rel="next">Next</a>
             @endforeach
 		</div>
+        <?php }?>
+        <?php if($lang == "Hindi"){?>
+        <div class="next-prev-button clear">
+            @foreach ($next_feed as $next_feed)
+			<a href="post-single&id={{$next_feed->postid}}" rel="prev">प्रीवियस
+</a>
+            @endforeach
+            
+            @foreach ($previous_feed as $previous_feed)
+            <a href="post-single&id={{$previous_feed->postid}}" rel="next">   
+नेक्स्ट
+
+</a>
+            @endforeach
+		</div>
+        <?php }?>
+
+
     </div>	
     @endforeach 
 	<aside id="secondary" class="container post-sidebar widget-area right">
-    @include('front_end.sidebar')
+       
+
+    @include('front_end.sidebar');
 	</aside>
 	<!-- <div class="ads clear"><img src="assets/front_end/images/g6.jpg" /></div>	 -->
     <div class="container related-post clear">
-		<h2><span>Related Posts</span></h2>
-       
+        <?php if($lang == "Hindi"){?>
+		<h2><span>रिलेटेड पोस्ट्स</span></h2>
+        <?php }?>
+        <?php if($lang == ""){?>
+        <h2><span>Related posts</span></h2>
+        <?php }?>
         <ul>
         @php 
         $entertainmentinfo = DB::table('post')->where('categoryid',$feed->categoryid)->where('language',$feed->language)->where('postid', '<>', $feed->postid)->where('status','Publish')->orderBy('created_at','desc')->skip(4)->take(12)->get(); 
         @endphp
+    
+        
         @foreach($entertainmentinfo as $entertainmentinfo)
        										 <?php 
 				$titlorl = $entertainmentinfo->posttitle;
@@ -333,7 +366,7 @@ $feed_date = $feed->published_date;
   </script>
 </div>
 
-<?php @include('front_end/langFooter');?>
+
 
 </div>
 
