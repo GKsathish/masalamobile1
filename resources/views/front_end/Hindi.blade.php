@@ -486,7 +486,7 @@
       <!--Celebrity Gossip-->
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=2" class="text-dark"><span>मशहूर व्यक्तियों के बारे में गपशप</span></a></h2>
+ 			<h2><a href="post-content&id=21" class="text-dark"><span>मशहूर व्यक्तियों के बारे में गपशप</span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
@@ -870,7 +870,7 @@
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=4"><span>चलचित्र</span></a></h2>
+ 			<h2><a href="post-content&id=22"><span>चलचित्र</span></a></h2>
             <div class="grid clear">
 					@php 
 					$entertainmentinfo = DB::table('post')->where('language','Hindi')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
@@ -1117,7 +1117,7 @@
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=7"><span>प्रौद्योगिकी और गैजेट्स</span></a></h2>
+ 			<h2><a href="post-content&id=25"><span>प्रौद्योगिकी और गैजेट्स</span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
@@ -1171,7 +1171,7 @@
 	<!--Health and Wellness-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=6"><span>स्वास्थ्य और कल्याण</span></a></h2>
+ 		<h2><a href="post-content&id=24"><span>स्वास्थ्य और कल्याण</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
 			$entertainmentinfo = DB::table('post')->where('categoryid',6)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
@@ -1211,7 +1211,7 @@
 	<!--Sports-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=9"><span>खेल</span></a></h2>
+ 		<h2><a href="post-content&id=27"><span>खेल</span></a></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
@@ -1240,7 +1240,7 @@
 	<!--Music-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=5"><span>संगीत</span></a></h2>
+ 		<h2><a href="post-content&id=23"><span>संगीत</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
 			$entertainmentinfo = DB::table('post')->where('categoryid',5)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
@@ -1275,7 +1275,7 @@
 	
 	
 		<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=11"><span>यात्रा पर्यटन</span></a></h2>
+ 		<h2><a href="post-content&id=29"><span>यात्रा पर्यटन</span></a></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
@@ -1314,7 +1314,7 @@
 		<section class="container equal-height padding-top-none clear">
 	
 			<aside class="content left">
-    			<h2><span><a href="post-content&id=10">ऑटो समाचारs</a></span></h2>
+    			<h2><span><a href="post-content&id=28s">ऑटो समाचारs</a></span></h2>
     			<article class="single-article-box clear">
     					@php 
 					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 

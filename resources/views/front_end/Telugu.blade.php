@@ -709,7 +709,7 @@
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=4"><span>
+ 			<h2><a href="post-content&id=32"><span>
  			    సినిమాలు
  			</span></a></h2>
             <div class="grid clear">

@@ -11,8 +11,7 @@ DB::table('post')->where('postid', $feed->postid)->take(1)->update(['hitcount' =
 
 
 
-
-<?php    $lang = $feed->language;?>
+<?php  $lang = $feed->language;?>
 
 
 @extends('front_end.langHeader')
@@ -86,20 +85,48 @@ $metaurl = "https://mobilemasala.com/";*/
 
 <header class="entry-nav clear">
 	<ul>
-            <?php if($lang=="English" || $lang==""){?>
-                <li><a href="/">Home</a></li>
-            <?php }?>
+	    	<?php if($lang=="English" || $lang==""){?>
+            <li><a href="/">Home</a></li>
+        <?php }?>
 
-            <?php if($lang=="Hindi"){?>
-                <li><a href="/Hindi">होम
-    </a></li>
-            <?php }?>
-         @php
+        <?php if($lang=="Hindi"){?>
+            <li><a href="/Hindi">होम
+</a></li>
+        <?php }?>
+         <?php if($lang=="Telugu"){?>
+            <li><a href="/Telugu">
+                హోమ్
+
+</a></li>
+        <?php }?>
+		<?php if($lang=="English" || $lang==""){?>
+        @php
         $get_categoryname = DB::table('category')->where('categoryid',$feed->categoryid)->get();
         @endphp
         @foreach ($get_categoryname as $categoryname)
 		<li>{{ $categoryname->categoryname }}</li>
         @endforeach
+        <?php } ?>
+        
+        
+        		<?php if($lang=="Hindi"){?>
+        @php
+        $get_categoryname = DB::table('category')->where('categoryid',$feed->categoryid)->get();
+        @endphp
+        @foreach ($get_categoryname as $categoryname)
+		<li>{{ $categoryname->categoryhindi }}</li>
+        @endforeach
+        <?php } ?>
+        
+        
+        		<?php if($lang=="Telugu"){?>
+        @php
+        $get_categoryname = DB::table('category')->where('categoryid',$feed->categoryid)->get();
+        @endphp
+        @foreach ($get_categoryname as $categoryname)
+		<li>{{ $categoryname->categorytelugu }}</li>
+        @endforeach
+        <?php } ?>
 	</ul>
 </header>
 
@@ -265,7 +292,8 @@ $feed_date = $feed->published_date;
             </aside>
 			<!-- <div class="ads"><img src="assets/front_end/images/g8.jpg" /></div>	 -->
         </div>
-        <?php if($lang == ""){?>
+
+         <?php if($lang == "" || $lang =="English"){?>
         <div class="next-prev-button clear">
             @foreach ($next_feed as $next_feed)
 			<a href="post-single&id={{$next_feed->postid}}" rel="prev">Previous</a>
@@ -291,41 +319,65 @@ $feed_date = $feed->published_date;
             @endforeach
 		</div>
         <?php }?>
+<?php if($lang == "Telugu"){?>
+        <div class="next-prev-button clear">
+            @foreach ($next_feed as $next_feed)
+			<a href="post-single&id={{$next_feed->postid}}" rel="prev">ప్రీవియస్
+
+</a>
+            @endforeach
+            
+            @foreach ($previous_feed as $previous_feed)
+            <a href="post-single&id={{$previous_feed->postid}}" rel="next">   
+నెక్స్ట్
+
+
+</a>
+            @endforeach
+		</div>
+        <?php }?>
 
 
     </div>	
     @endforeach 
 	<aside id="secondary" class="container post-sidebar widget-area right">
-       
-
-    @include('front_end.sidebar');
+    @include('front_end.sidebar')
 	</aside>
 	<!-- <div class="ads clear"><img src="assets/front_end/images/g6.jpg" /></div>	 -->
     <div class="container related-post clear">
         <?php if($lang == "Hindi"){?>
 		<h2><span>रिलेटेड पोस्ट्स</span></h2>
         <?php }?>
-        <?php if($lang == ""){?>
+        <?php if($lang == ""|| $lang =="English"){?>
         <h2><span>Related posts</span></h2>
         <?php }?>
+        
+	
+        <?php if($lang == "Telugu"){?>
+        <h2><span> రిలేటెడ్  పోస్ట్స్ </span></h2>
+        
+        <?php }?>
+        
         <ul>
         @php 
         $entertainmentinfo = DB::table('post')->where('categoryid',$feed->categoryid)->where('language',$feed->language)->where('postid', '<>', $feed->postid)->where('status','Publish')->orderBy('created_at','desc')->skip(4)->take(12)->get(); 
         @endphp
-    
-        
         @foreach($entertainmentinfo as $entertainmentinfo)
        										 <?php 
 				$titlorl = $entertainmentinfo->posttitle;
 				$title = str_replace(" ","+",$titlorl);
 				?>
+          <?php $lang1=$entertainmentinfo->language;?>
+          <?php if($lang1 =="" ||$lang1 =="English"){?>
             <li>
 				
                 @php
 						$get_cat = DB::table('category')->where('categoryid',$feed->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
+				
                     	<h5 style="    padding: 8px 0;">{{$get_cat->categoryname}}</h5>
+                   
 						@endforeach
                    <a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title=""> <figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
             	</a>
@@ -336,6 +388,49 @@ $feed_date = $feed->published_date;
                     <p></p>
             	</a>
             </li>
+            <?php } ?>
+            <?php if($lang1 =="Hindi"){?>
+            <li>
+				
+                @php
+						$get_cat = DB::table('category')->where('categoryid',$feed->categoryid)->get();
+						@endphp
+						@foreach($get_cat as $get_cat)
+				
+                    	<h5 style="    padding: 8px 0;">{{$get_cat->categoryhindi}}</h5>
+                   
+						@endforeach
+                   <a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title=""> <figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
+            	</a>
+            	<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title="">
+                    <h3>{{$entertainmentinfo->posttitle}}</h3>
+            	</a>
+            	<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title="">
+                    <p></p>
+            	</a>
+            </li>
+            <?php } ?>
+            <?php if($lang1 =="Telugu"){?>
+            <li>
+				
+                @php
+						$get_cat = DB::table('category')->where('categoryid',$feed->categoryid)->get();
+						@endphp
+						@foreach($get_cat as $get_cat)
+				
+                    	<h5 style="    padding: 8px 0;">{{$get_cat->categorytelugu}}</h5>
+                   
+						@endforeach
+                   <a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title=""> <figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
+            	</a>
+            	<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title="">
+                    <h3>{{$entertainmentinfo->posttitle}}</h3>
+            	</a>
+            	<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" title="">
+                    <p></p>
+            	</a>
+            </li>
+            <?php } ?>
          @endforeach
         </ul>
        
@@ -365,9 +460,6 @@ $feed_date = $feed->published_date;
     });
   </script>
 </div>
-
-
-
 </div>
 
 <script>
@@ -381,9 +473,4 @@ $(document).ready(function(){
   $("aside a:contains(Also Read)").css("display", "none");
 });
 </script>
-
-
-
-
 @endsection
-<?php @include('front_end/langFooter');?>

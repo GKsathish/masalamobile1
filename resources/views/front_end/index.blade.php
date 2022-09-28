@@ -537,6 +537,7 @@
       <!--Celebrity Gossip-->
 	<section class="container padding-top-none clear">
     	<aside class="content left">
+		
  			<h2><a href="post-content&id=2" class="text-dark"><span>Celebrity Gossip</span></a></h2>
             <div class="single-article clear">
             	<ul>
