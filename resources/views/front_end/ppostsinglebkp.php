@@ -114,7 +114,7 @@ $metaurl = "https://mobilemasala.com/";*/
         $get_categoryname = DB::table('category')->where('categoryid',$feed->categoryid)->get();
         @endphp
         @foreach ($get_categoryname as $categoryname)
-		<li>{{ $categoryname->categoryname }}</li>
+		<li>{{ $categoryname->categoryhindi }}</li>
         @endforeach
         <?php } ?>
         
@@ -124,7 +124,7 @@ $metaurl = "https://mobilemasala.com/";*/
         $get_categoryname = DB::table('category')->where('categoryid',$feed->categoryid)->get();
         @endphp
         @foreach ($get_categoryname as $categoryname)
-		<li>{{ $categoryname->categoryname }}</li>
+		<li>{{ $categoryname->categorytelugu }}</li>
         @endforeach
         <?php } ?>
 	</ul>

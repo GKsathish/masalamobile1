@@ -1174,7 +1174,7 @@
  		<h2><a href="post-content&id=24"><span>स्वास्थ्य और कल्याण</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',6)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',"24")->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			   <?php 
@@ -1214,7 +1214,7 @@
  		<h2><a href="post-content&id=27"><span>खेल</span></a></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',27)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			 <?php 
@@ -1243,7 +1243,7 @@
  		<h2><a href="post-content&id=23"><span>संगीत</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',5)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',23)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			 <?php 
@@ -1279,7 +1279,7 @@
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',11)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(5)->get(); 
+				$entertainmentinfo = DB::table('post')->where('categoryid',29)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(5)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				

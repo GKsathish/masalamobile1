@@ -101,9 +101,8 @@
 
 </a>
                             <a href="post-content&id=23">म्यूज़िक</a>
-                            <a href="post-content&id=10&ऑटो न्यूज़  ">ऑटो न्यूज़ </a>
-                            <a href="post-content&id=11&ट्रेवल & टूरिज़म">ट्रेवल & टूरिज़म </a>
-                            <a href="post-content&id=17&स्पेशल"> स्पेशल 
+                            <a href="post-content&id=28">ऑटो न्यूज़ </a>
+                            <a href="post-content&id=29">ट्रेवल & टूरिज़म </a>
 
 </a>
                         </div>
