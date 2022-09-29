@@ -3,7 +3,20 @@
 @section('content')
 <header class="entry-nav clear">
 	<ul>
-		<li><a href="/">Home</a></li>
+  <?php if($lang=="English" || $lang==""){?>
+            <li><a href="/">Home</a></li>
+        <?php }?>
+
+        <?php if($lang=="Hindi"){?>
+            <li><a href="/Hindi">होम
+</a></li>
+        <?php }?>
+         <?php if($lang=="Telugu"){?>
+            <li><a href="/Telugu">
+                హోమ్
+
+</a></li>
+        <?php }?>
     @foreach ($categoryname as $categoryname)
       @php
       $categoryname = $categoryname->categoryname;
