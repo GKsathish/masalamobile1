@@ -567,7 +567,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 	
 			
-<?php $lang = $feed->language;?>
+<?php  $lang = $feed->language;?>
+
+<?php 
+
+
+if (empty($lang)) {
+  
+   $langnn = $_SERVER['REQUEST_URI'];
+   $langn = (explode("&lang=",$langnn)); 
+    $lang = $langn['1'];
+   
+   
+}
+
+?>
 	
 	
 	
@@ -575,29 +589,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<ul class="menu">
         
             <!-- <li><a href="/"><i class="fa fa-home"></i></a></li> -->
-            <li><a href="post-content&id=1&{Fashion}">Fashion</a></li>
-            <li><a href="post-content&id=2&{Celebrity Gossip}">Celebrity Gossip</a></li>
+            <li><a href="post-content&id=1&lang=English">Fashion</a></li>
+            <li><a href="post-content&id=2&lang=English">Celebrity Gossip</a></li>
             <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
-            <li><a href="post-content&id=4">Movies</a>
-            <li><a href="post-content&id=5">Music</a></li>
-                <!-- <ul class="sub-menu">
-                    <li><a href="post-content&id=1">Movie Reviews</a></li>
-                    <li><a href="post-content&id=1">New Movies (Trailers)</a></li>
-                    <li><a href="post-content&id=1">Music Reviews</a></li>
-                </ul> -->
-            </li>
+            <li><a href="post-content&id=4&lang=English">Movies</a></li>
+            <li><a href="post-content&id=5&lang=English">Music</a></li>
+               
             <!-- <li><a href="#">Hot Content</a></li> -->
-            <li><a href="post-content&id=6">Health &amp; Wellness</a></li>
+            <li><a href="post-content&id=6&lang=English">Health &amp; Wellness</a></li>
             <!-- <li><a href="#">Fitness</a></li>
             <li><a href="#">General Gossip</a></li> -->
-            <li><a href="post-content&id=7">Technology &amp; Gadgets</a></li>
-            <li><a href="post-content&id=8">Entertainment</a></li>
-            <li><a href="post-content&id=9">Sports</a></li>
-            <li><a href="post-content&id=10">Auto News</a></li>
-            <li><a href="post-content&id=11">Travel &amp; Tourism</a></li>
-            <li><a href="post-content&id=17">More</a></li>
+            <li><a href="post-content&id=7&lang=English">Technology &amp; Gadgets</a></li>
+            <li><a href="post-content&id=8&lang=English">Entertainment</a></li>
+            <li><a href="post-content&id=9&lang=English">Sports</a></li>
+            <li><a href="post-content&id=10&lang=English">Auto News</a></li>
+            <li><a href="post-content&id=11&lang=English">Travel &amp; Tourism</a></li>
+            <li><a href="post-content&id=17&lang=English">More</a></li>
             <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-            <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
+            <li><a href="search?lang=English"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
             <!-- <li class="subarrow"><a href="#">More</a> -->
                 <ul class="sub-menu">
                     <!-- <li><a href="#">Believe It or Not</a></li> -->
@@ -628,134 +637,132 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <?php if($lang == "Hindi"){ ?>
-    <ul class="menu">
-
-<!-- <li><a href="/"><i class="fa fa-home"></i></a></li> -->
-<li><a href="post-content&id=20
+	<ul class="menu">
+      <!-- <li><a href="/"><i class="fa fa-home"></i></a></li> -->
+            <li><a href="post-content&id=1&lang=Hindi
 "> फ़ैशन </a></li>
-<li><a href="post-content&id=21"> सेलिब्रिटी गॉसिप
+            <li><a href="post-content&id=2&lang=Hindi">  सेलिब्रिटी गॉसिप
 
-    </a></li>
-<!-- <li><a href="post-content&id=3">New Movies</a></li> -->
-<li><a href="post-content&id=22
+  </a></li>
+            <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
+            <li><a href="post-content&id=4&lang=Hindi
 "> मूवीज़ </a></li>
-<li><a href="post-content&id=23
+            <li><a href="post-content&id=5&lang=Hindi
 
 "> म्यूज़िक</a></li>
-<!-- <ul class="sub-menu">
-<li><a href="post-content&id=1">Movie Reviews</a></li>
-<li><a href="post-content&id=1">New Movies (Trailers)</a></li>
-<li><a href="post-content&id=1">Music Reviews</a></li>
-</ul> -->
-</li>
-<!-- <li><a href="#">Hot Content</a></li> -->
-<li><a href="post-content&id=24
+               
+            <!-- <li><a href="#">Hot Content</a></li> -->
+            <li><a href="post-content&id=6&lang=Hindi
 
 
-"> हेल्थ & वैलनेस
+">  हेल्थ & वैलनेस
 
 
-    </a></li>
-<!-- <li><a href="#">Fitness</a></li>
-<li><a href="#">General Gossip</a></li> -->
-<li><a href="post-content&id=25
+  </a></li>
+            <!-- <li><a href="#">Fitness</a></li>
+            <li><a href="#">General Gossip</a></li> -->
+            <li><a href="post-content&id=7&lang=Hindi
 
 "> टेक्नोलॉजी & गैजेट्स
 
-    </a></li>
-<li><a href="post-content&id=26"> मनोरंजन </a></li>
-<li><a href="post-content&id=27">खेल</a></li>
-<li><a href="post-content&id=28"> ऑटो न्यूज़ </a></li>
-<li><a href="post-content&id=29"> ट्रेवल & टूरिज़म </a></li>
-<!--<li><a href="post-content&id=17&Others">अधिक</a></li>-->
-<!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-<li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> खोज </a></li>
-<!-- <li class="subarrow"><a href="#">More</a> -->
-<ul class="sub-menu">
-    <!-- <li><a href="#">Believe It or Not</a></li> -->
-    <!-- <li><a href="post-content&id=1">Auto News</a></li>
-<li><a href="post-content&id=1">Travel &amp; Tourism</a></li> -->
-    <!-- <li><a href="#">App. Reviews</a></li> -->
-    <!-- <li><a href="post-content&id=1">Horoscope</a></li> -->
-    <!-- <li><a href="#">Shopping</a></li> -->
-    <!-- <li><a href="post-content&id=12">Entertainment</a></li>
-<li><a href="post-content&id=1">Sports</a></li> -->
-</ul>
-</li>
-<li class="dropdown">
-    <img src="{{asset('assets/front_end/images/adimage/A Icon1.png')}}" class="dropbtn">
-    <ul class="dropdown-content">
-        <!--<a href="/Hindi"> हिन्दी  </a>-->
-        <a href="/Telugu"> తెలుగు </a>
+ </a></li>
+            <li><a href="post-content&id=8&lang=Hindi"> मनोरंजन </a></li>
+            <li><a href="post-content&id=9&lang=Hindi">खेल</a></li>
+            <li><a href="post-content&id=10&lang=Hindi">  ऑटो न्यूज़  </a></li>
+            <li><a href="post-content&id=11&lang=Hindi">  ट्रेवल & टूरिज़म   </a></li>
+            <!--<li><a href="post-content&id=17&Others">अधिक</a></li>-->
+            <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
+            <li><a href="search?lang=Hindi"><i class="fa fa-search" aria-hidden="true"></i>  खोज </a></li>
+            <!-- <li class="subarrow"><a href="#">More</a> -->
+                <ul class="sub-menu">
+                    <!-- <li><a href="#">Believe It or Not</a></li> -->
+                    <!-- <li><a href="post-content&id=1">Auto News</a></li>
+                    <li><a href="post-content&id=1">Travel &amp; Tourism</a></li> -->
+                    <!-- <li><a href="#">App. Reviews</a></li> -->
+                    <!-- <li><a href="post-content&id=1">Horoscope</a></li> -->
+                    <!-- <li><a href="#">Shopping</a></li> -->
+                    <!-- <li><a href="post-content&id=12">Entertainment</a></li>
+                    <li><a href="post-content&id=1">Sports</a></li> -->
+                </ul>
+            </li>
+             <li class="dropdown">
+               <img src="{{asset('assets/front_end/images/adimage/A Icon1.png')}}"   class="dropbtn">
+              <ul class="dropdown-content">
+              <!--<a href="/Hindi"> हिन्दी  </a>-->
+               <a href="/Telugu"> తెలుగు </a>
+              
+              <a href="/">English</a>
+              </ul>
+            </li>
+        
+		</ul>
+		
+	
 
-        <a href="/">English</a>
-    </ul>
-</li>
 
-</ul>
+<?php }?>
 
-
-
-
-<?php } ?>
-
-<?php if ($lang == "Telugu") { ?>
-<ul class="menu">
-
-<li><a href="post-content&id=30
+	<?php if($lang == "Telugu"){ ?>
+        <ul class="menu">
+        
+          
+           <li><a href="post-content&id=1&lang=Telugu
 "> ఫాషన్
 
-    </a></li>
+ </a></li>
+             
+             <li><a href="post-content&id=2&lang=Telugu
+                ">
+                సెలబ్రిటీ గాసిప్స్
+                
+                </a></li>
+            <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
+          <li><a href="post-content&id=4&lang=Telugu">
+                సినిమా
+            
+            </a></li>
 
-<li><a href="post-content&id=31
-">
-        సెలబ్రిటీ గాసిప్స్
+            <li><a href="post-content&id=5&lang=Telugu
+            "> 
+             సంగీతం
+            
+            </a></li>
+                <!-- <ul class="sub-menu">
+                    <li><a href="post-content&id=1">Movie Reviews</a></li>
+                    <li><a href="post-content&id=1">New Movies (Trailers)</a></li>
+                    <li><a href="post-content&id=1">Music Reviews</a></li>
+                </ul> -->
+            </li>
+            <!-- <li><a href="#">Hot Content</a></li> -->
+            <li><a href="post-content&id=6&lang=Telugu
 
-    </a></li>
-<!-- <li><a href="post-content&id=3">New Movies</a></li> -->
-<li><a href="post-content&id=32">
-        సినిమా
+">  హెల్త్ & వెల్నెస్
 
-    </a></li>
-
-<li><a href="post-content&id=33
-">
-        సంగీతం
-
-    </a></li>
-<!-- <ul class="sub-menu">
-<li><a href="post-content&id=1">Movie Reviews</a></li>
-<li><a href="post-content&id=1">New Movies (Trailers)</a></li>
-<li><a href="post-content&id=1">Music Reviews</a></li>
-</ul> -->
-</li>
-<!-- <li><a href="#">Hot Content</a></li> -->
-<li><a href="post-content&id=34
-
-"> హెల్త్ & వెల్నెస్
-
-    </a></li>
-
-<!-- <li><a href="#">Fitness</a></li>
-<li><a href="#">General Gossip</a></li> -->
-<li><a href="post-content&id=35
+  </a></li>
+            
+            <!-- <li><a href="#">Fitness</a></li>
+            <li><a href="#">General Gossip</a></li> -->
+            <li><a href="post-content&id=7&lang=Telugu
 ">టెక్నాలజీ&గాడ్జెట్స్
 
-    </a></li>
-
-<li><a href="post-content&id=36
+ </a></li>
+            
+              <li><a href="post-content&id=8&lang=Telugu
 
 "> ఎంటర్టైన్మెంట్</a>
 
-<li><a href="post-content&id=37"> క్రీడలు</a></li>
+</li>
+<li><a href="post-content&id=9&lang=Telugu
+"> క్రీడలు</a></li>
+            
+            <li><a href="post-content&id=10&lang=Telugu
 
-<li><a href="post-content&id=38
-
-"> ఆటో న్యూస్ </a></li>
-
-<li><a href="post-content&id=39
-"> ట్రావెల్ & టూరిజం </a></li>
-
+">  ఆటో న్యూస్  </a></li>
+          
+            <li><a href="post-content&id=11&lang=Telugu
+ "> ట్రావెల్ & టూరిజం   </a></li>
+          
+          
             <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
             
          
@@ -764,7 +771,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!--    మరింత-->
             <!--</a></li>-->
             <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-            <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> 
+            <li><a href="search?&lang=Telugu"><i class="fa fa-search" aria-hidden="true"></i> 
             వెతకండి
             </a></li>
             <!-- <li class="subarrow"><a href="#">More</a> -->
