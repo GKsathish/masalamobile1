@@ -85,20 +85,20 @@ $metaurl = "https://mobilemasala.com/";*/
 
 <header class="entry-nav clear">
 	<ul>
-                <?php if($lang=="English" || $lang==""){?>
-                <li><a href="/">Home</a></li>
-            <?php }?>
+	    	<?php if($lang=="English" || $lang==""){?>
+            <li><a href="/">Home</a></li>
+        <?php }?>
 
-            <?php if($lang=="Hindi"){?>
-                <li><a href="/Hindi">होम
-    </a></li>
-            <?php }?>
-            <?php if($lang=="Telugu"){?>
-                <li><a href="/Telugu">
-                    హోమ్
+        <?php if($lang=="Hindi"){?>
+            <li><a href="/Hindi">होम
+</a></li>
+        <?php }?>
+         <?php if($lang=="Telugu"){?>
+            <li><a href="/Telugu">
+                హోమ్
 
-    </a></li>
-            <?php }?>
+</a></li>
+        <?php }?>
 		<?php if($lang=="English" || $lang==""){?>
         @php
         $get_categoryname = DB::table('category')->where('categoryid',$feed->categoryid)->get();
@@ -114,7 +114,7 @@ $metaurl = "https://mobilemasala.com/";*/
         $get_categoryname = DB::table('category')->where('categoryid',$feed->categoryid)->get();
         @endphp
         @foreach ($get_categoryname as $categoryname)
-		<li>{{ $categoryname->categoryname }}</li>
+		<li>{{ $categoryname->categoryhindi }}</li>
         @endforeach
         <?php } ?>
         
@@ -124,7 +124,7 @@ $metaurl = "https://mobilemasala.com/";*/
         $get_categoryname = DB::table('category')->where('categoryid',$feed->categoryid)->get();
         @endphp
         @foreach ($get_categoryname as $categoryname)
-		<li>{{ $categoryname->categoryname }}</li>
+		<li>{{ $categoryname->categorytelugu }}</li>
         @endforeach
         <?php } ?>
 	</ul>
@@ -248,7 +248,7 @@ $feed_date = $feed->published_date;
                 
 
         @php 
-      $tag = DB::table('post')->DISTINCT()->where('postid',$feed->postid)->->where('language',$feed->language)->take(8)->orderBy('created_at','desc')->get();
+      $tag = DB::table('post')->DISTINCT()->where('postid',$feed->postid)->take(8)->orderBy('created_at','desc')->get();
       @endphp
 
       
@@ -263,7 +263,7 @@ $feed_date = $feed->published_date;
              foreach ($re as $value) {?>
               
               <?php  if(!empty($value)){ ?>
-              <a href="https://www.mobilemasala.com/search= <?php echo $value;?>" class="tagclick">#<?php echo $taname = str_replace(' ','',$value); ?></a>
+              <a href="https://www.mobilemasala.com/search?search= <?php echo $value;?>" class="tagclick">#<?php echo $taname = str_replace(' ','',$value); ?></a>
               <?php } ?>
               <?php } ?>
             

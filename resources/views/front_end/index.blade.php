@@ -1,6 +1,5 @@
 @extends('front_end.header')
 @section('content')
-			
 
 
 
@@ -392,32 +391,7 @@
 	
 
 
-      <div class="hashtag" style="padding: 10px;">
-          <marquee behavior="scroll" direction="left"  width="100%">
-              
-              	@php 
-              	
-				
-			
-			
-			 	$tag = DB::select(DB::raw('SELECT hashtag,count(*) as COUNT FROM `hashtags` WHERE  hashtag !="" and date(cdt)>=date(NOW()-INTERVAL 10 DAY) GROUP by hashtag HAVING COUNT(hashtag)>3 limit 16 offset 0;'));
-				@endphp
-					@foreach($tag as $taginfo)
-				@foreach($tag as $taginfo)
-					@foreach($tag as $taginfo)
-			    
-                <a   href="https://www.mobilemasala.com/search={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
-        
-	         @endforeach
-	          @endforeach
-	         @endforeach
-	     
-	     
-          </marquee>
-      </div>
-
- 
-
+     
 
 
 	
@@ -996,7 +970,7 @@
 				
 				<!--<script async id="AV62382721bab93c441117d951" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=62382721bab93c441117d951&AV_PUBLISHERID=6229e046286f660f8b1f0456"></script>-->
 				
-				<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/MMsep82022.jpg')}}" style="margin-top:50px;width:100%"></a>
+				<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/Dussehra 5.jpg')}}" style="margin-top:50px;width:100%"></a>
 			</div>
         </aside>
 	</section>
