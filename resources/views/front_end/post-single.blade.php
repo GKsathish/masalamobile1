@@ -248,7 +248,7 @@ $feed_date = $feed->published_date;
                 
 
         @php 
-      $tag = DB::table('post')->DISTINCT()->where('postid',$feed->postid)->take(8)->orderBy('created_at','desc')->get();
+      $tag = DB::table('post')->DISTINCT()->where('postid',$feed->postid)->->where('language',$feed->language)->take(8)->orderBy('created_at','desc')->get();
       @endphp
 
       

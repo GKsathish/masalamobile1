@@ -19,7 +19,7 @@
         	<aside class="left">
             	<h2>Popular Tags</h2>
 				<div class="tagcloud clear">
-                <a href="post-content&id=6">Health &amp; Wellness</a>
+                    <a href="post-content&id=6">Health &amp; Wellness</a>
                     <!-- <a href="#">Believe It or Not</a> -->
                     <a href="post-content&id=8">Entertainment</a>
                     <!-- <a href="#">Hot Content</a>
@@ -32,7 +32,7 @@
                     <a href="post-content&id=1">Fashion</a>
                     <a href="post-content&id=7">Technology &amp; Gadgets</a>
                     <a href="post-content&id=4">Movies</a>
-                    <a href="post-content&id=&Celebrity Gossip">Celebrity Gossip</a>
+                    <a href="post-content&id=2">Celebrity Gossip</a>
 					<a href="post-content&id=5">Music</a>
 					<a href="post-content&id=10">Auto News</a>
 					<a href="post-content&id=11">Travel & Tourism</a>
@@ -83,26 +83,28 @@
                     <aside class="left">
                         <h2>पॉपुलर टैग्स  </h2>
                         <div class="tagcloud clear">
-                        <a href="post-content&id=24"> हेल्थ&वैलनेस</a>
+                               
+                         <a href="post-content&id=6"> हेल्थ&वैलनेस</a>
                             <!-- <a href="#">Believe It or Not</a> -->
-                            <a href="post-content&id=26">मनोरंजन</a>
+                            <a href="post-content&id=8">मनोरंजन</a>
                             
                 
                             <a href="post-content&id=27">खेल</a>
                            
-                            <a href="post-content&id=20">फ़ैशन </a>
-                            <a href="post-content&id=25">टेक्नोलॉजी</a>
-                            <a href="post-content&id=22">मूवीज़</a>
-                            <a href="post-content&id=21">सेलिब्रिटी गॉसिप
+                            <a href="post-content&id=1">फ़ैशन </a>
+                            <a href="post-content&id=7">टेक्नोलॉजी</a>
+                            <a href="post-content&id=4">मूवीज़</a>
+                            <a href="post-content&id=2">सेलिब्रिटी गॉसिप
 
 </a>
-                            <a href="post-content&id=23">म्यूज़िक</a>
-                            <a href="post-content&id=28">ऑटो न्यूज़ </a>
-                            <a href="post-content&id=29">ट्रेवल & टूरिज़म </a>
-                            <a href="post-content&id=17&स्पेशल"> स्पेशल 
+                            <a href="post-content&id=5">म्यूज़िक</a>
+                            <a href="post-content&id=10">ऑटो न्यूज़ </a>
+                            <a href="post-content&id=11">ट्रेवल & टूरिज़म </a>िज़म </a>
+<!--                            <a href="post-content&id=29&स्पेशल"> स्पेशल -->
 
-</a>
-                                  </div>
+<!--</a>                        -->
+
+</div>
                         <h2>फॉलो  उस</h2>
                         <div class="footer-social-icons clear">
                             <ul>
@@ -147,35 +149,38 @@
                     <aside class="left">
                         <h2>పాపులర్ ట్యాగ్స్</h2>
                         <div class="tagcloud clear">
-                        <a href="post-content&id=34
+                            <a href="post-content&id=6
 ">హెల్త్ & వెల్నెస్</a>
                             
                             <!-- <a href="#">Believe It or Not</a> -->
-                            <a href="post-content&id=36">ఎంటర్టైన్మెంట్</a>
+                            <a href="post-content&id=8">ఎంటర్టైన్మెంట్</a>
                            
                             <!-- <a href="#">Hot Content</a>
                             <a href="#">Fitness</a>
                             <a href="#">Sports</a> -->
                             <!-- <a href="post-content&id=11">Trending Now</a> -->
-                            <a href="post-content&id=37">క్రీడలు</a>
+                            <a href="post-content&id=9">క్రీడలు</a>
                            
                             <!-- <a href="post-content&id=9">General Gossip</a> -->
                             <!-- <a href="post-content&id=9">Uncategorized</a> -->
-                            <a href="post-content&id=30">ఫాషన్</a>
+                            <a href="post-content&id=1">ఫాషన్</a>
                            
-                            <a href="post-content&id=35">టెక్నాలజీ&గాడ్జెట్స్</a>
+                            <a href="post-content&id=7">టెక్నాలజీ&గాడ్జెట్స్</a>
                             
-                            <a href="post-content&id=32">సినిమా</a>
+                            <a href="post-content&id=4">సినిమా</a>
                             
-                            <a href="post-content&id=31"> సెలబ్రిటీ గాసిప్స్</a>
+                            <a href="post-content&id=2"> సెలబ్రిటీ గాసిప్స్</a>
                             
-                            <a href="post-content&id=33">సంగీతం</a>
+                            <a href="post-content&id=5">సంగీతం</a>
                             
-                            <a href="post-content&id=38">ఆటో న్యూస్</a>
+                            <a href="post-content&id=10">ఆటో న్యూస్</a>
                             
-                            <a href="post-content&id=39">ట్రావెల్ & టూరిజం</a>
+                            <a href="post-content&id=11">ట్రావెల్ & టూరిజం</a>
                             
                         
+                            <!--<a href="post-content&id=17&మరిన్ని"> మరిన్ని</a>-->
+                        
+
                         </div>
                         <h2>ఫాలో అస్</h2>
                         <div class="footer-social-icons clear">

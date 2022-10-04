@@ -1,5 +1,6 @@
 @extends('front_end.header')
 @section('content')
+			
 
 
 
@@ -405,7 +406,7 @@
 				@foreach($tag as $taginfo)
 					@foreach($tag as $taginfo)
 			    
-                <a   href="https://www.mobilemasala.com/search?search={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
+                <a   href="https://www.mobilemasala.com/search?search={{$taginfo->hashtag }}$lang=English" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
         
 	         @endforeach
 	          @endforeach
@@ -537,8 +538,7 @@
       <!--Celebrity Gossip-->
 	<section class="container padding-top-none clear">
     	<aside class="content left">
-		
- 			<h2><a href="post-content&id=2" class="text-dark"><span>Celebrity Gossip</span></a></h2>
+ 			<h2><a href="post-content&id=2&lang=English" class="text-dark"><span>Celebrity Gossip</span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
@@ -1135,7 +1135,7 @@
 	</section>
 	<!--Fashion and Autonews & Sidebar-->
 	<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=1"><span>Fashion</span></a></h2>
+ 		<h2><a href="post-content&id=1&lang=English"><span>Fashion</span></a></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
@@ -1169,7 +1169,7 @@
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=7"><span>Technology & Gadgets</span></a></h2>
+ 			<h2><a href="post-content&id=7&lang=English"><span>Technology & Gadgets</span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
@@ -1220,7 +1220,7 @@
 	<!--Health and Wellness-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=6"><span>Health & Wellness</span></a></h2>
+ 		<h2><a href="post-content&id=6&lang=English"><span>Health & Wellness</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
 			$entertainmentinfo = DB::table('post')->where('categoryid',6)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
@@ -1256,7 +1256,7 @@
 	<!--Sports-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=9"><span>Sports</span></a></h2>
+ 		<h2><a href="post-content&id=9&lang=English"><span>Sports</span></a></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
@@ -1285,7 +1285,7 @@
 	<!--Music-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=5"><span>Music</span></a></h2>
+ 		<h2><a href="post-content&id=5&lang=English"><span>Music</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
 			$entertainmentinfo = DB::table('post')->where('categoryid',5)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
@@ -1315,7 +1315,7 @@
 	
 	
 		<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=11"><span>Travel & Tourism</span></a></h2>
+ 		<h2><a href="post-content&id=11&lang=English"><span>Travel & Tourism</span></a></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
@@ -1354,7 +1354,7 @@
 		<section class="container equal-height padding-top-none clear">
 	
 			<aside class="content left">
-    			<h2><span><a href="post-content&id=10">Autonews</a></span></h2>
+    			<h2><span><a href="post-content&id=10&lang=English">Autonews</a></span></h2>
     			<article class="single-article-box clear">
     					@php 
 					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
@@ -1441,7 +1441,7 @@
 	<!--More-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=17"><span>More</span></a></h2>
+ 		<h2><a href="post-content&id=17&lang=English"><span>More</span></a></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			$entertainmentinfo = DB::table('post')->where('categoryid',17)->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
@@ -1543,27 +1543,24 @@
 						</div> -->
 					</div>
 				</div>
-
-
-
-            <!-- <div class="modal-footer">
-				<label class="copylabel"></label>
-                <div class="row"> <input class="col-10 ur" type="url"   id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>
-            </div> -->
+    <!--        <div class="modal-footer">-->
+				<!--<label class="copylabel"></label>-->
+    <!--            <div class="row"> <input class="col-10 ur" type="url"   id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>-->
+    <!--        </div>-->
         </div>
 		</div>
-	 	<?php @include('front_end/footer');?>
-<!-- <script>
-    $(document).ready(function() {
-        var value = $("#tagchange").text();
+	 		<?php @include('front_end/footer');?>
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        var value = $("#tagchange").text();-->
      
-        var res = value.split(" ").join("");
-        $("#tagchange").empty();
-        $("#tagchange").append(res);
-       console.log(res);
+<!--        var res = value.split(" ").join("");-->
+<!--        $("#tagchange").empty();-->
+<!--        $("#tagchange").append(res);-->
+<!--       console.log(res);-->
        
-    }); -->
-<!-- </script> -->
+<!--    });-->
+<!--</script>-->
 
 
 @endsection

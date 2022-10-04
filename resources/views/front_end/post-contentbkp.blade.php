@@ -1,9 +1,13 @@
-@extends('front_end.header')
+
+@extends('front_end.langHeader')
 
 @section('content')
 <header class="entry-nav clear">
 	<ul>
+
+  
 		<li><a href="/">Home</a></li>
+   
     @foreach ($categoryname as $categoryname)
       @php
       $categoryname = $categoryname->categoryname;
@@ -90,7 +94,7 @@
               <aside class="right">
                   <div>
                   
-                  <a href="post-single&id={{$feed->postlink}}">
+                  <a href="post-single&id={{$feed->postid}}">
                       <h2>{{$feed->posttitle}}</h2>
                   </a>
                   <!-- <p><?php //echo mb_substr($feed->description, 0,100)."..."; ?></p> -->

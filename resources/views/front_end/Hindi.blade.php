@@ -407,7 +407,7 @@
     	<aside class="content left">
             <div class="slider-carousel owl-carousel owl-theme clear" id="slider-carousel-enter">
 				@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',8)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',26)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo1)
 				
@@ -432,7 +432,7 @@
         <aside class="sidebar right" style="margin:0;">
             <div class="slider-carousel-withdot owl-carousel owl-theme clear" id="slider-carousel-sport">
 			@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('language','Hindi')->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',27)->where('language','Hindi')->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<?php 
@@ -1083,7 +1083,7 @@
 	</section>
 	<!--Fashion and Autonews & Sidebar-->
 	<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=1"><span>फ़ैशन</span></a></h2>
+ 		<h2><a href="post-content&id=20"><span>फ़ैशन</span></a></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
@@ -1121,7 +1121,7 @@
             <div class="single-article clear">
             	<ul>
 				@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',7)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(6)->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',25)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(6)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			       <?php 
@@ -1174,7 +1174,7 @@
  		<h2><a href="post-content&id=24"><span>स्वास्थ्य और कल्याण</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',"24")->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',24)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			   <?php 
@@ -1314,10 +1314,10 @@
 		<section class="container equal-height padding-top-none clear">
 	
 			<aside class="content left">
-    			<h2><span><a href="post-content&id=28s">ऑटो समाचारs</a></span></h2>
+    			<h2><span><a href="post-content&id=28">ऑटो समाचारs</a></span></h2>
     			<article class="single-article-box clear">
     					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid', 28)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
 					@endphp
 					@foreach($entertainmentinfo as $entertainmentinfo)
 						 <?php 

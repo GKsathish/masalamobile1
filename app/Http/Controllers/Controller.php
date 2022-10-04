@@ -50,13 +50,6 @@ class Controller extends BaseController
             $details =  DB::table('post')->where('categoryid',$id)->where('status','Publish')->Orderby('published_date', 'desc')->get();
             return view('front_end.post-content',['details' => $details],['categoryname'=>$categoryname]);
             }
-            // $details =  DB::table('post')->where('categoryid',$id)->where('status','Publish')->Orderby('published_date', 'desc')->get();
-            // return view('front_end.post-content',['details' => $details],['categoryhindi'=>$categoryhindi]);
-            // }
-            // $details =  DB::table('post')->where('categoryid',$id)->where('status','Publish')->Orderby('published_date', 'desc')->get();
-            // return view('front_end.post-content',['details' => $details],['categorytelugu'=>$categorytelugu]);
-            // }
-           
             
               public function vs($id){
               $details =  DB::table('v_storiestrans')->where('storyid',$id)->where('cat_type','stories')->Orderby('transid', 'desc')->get();
@@ -322,3 +315,4 @@ class Controller extends BaseController
                  
                   
 }
+  

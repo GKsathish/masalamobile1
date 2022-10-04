@@ -1,28 +1,62 @@
-@extends('front_end.langHeader')
 
+
+
+	<?php    echo $langnn = $_SERVER['REQUEST_URI'];?>
+	
+	<?php $langn = (explode("&lang=",$langnn)); 
+	
+	//var_dump($langn);
+	
+	  $lang = $langn['1'];
+	 
+	  $cat = $langn['0'];
+	 
+	 
+	$cat_id =  (explode("/post-content&id=",$cat));
+	
+
+	
+	  $catid = $cat_id['1'];
+	 
+	
+	?>
+
+@extends('front_end.langHeader')
 @section('content')
+
+
+
+<head>
+<!-- fb & Whatsapp -->
+<meta property="og:title" content="@yield('title')">
+<meta property="og:image" content="https://mobilemasala.com/assets/front_end/images/logo.png" />
+<meta name="description" content="Mobile Masala is a popular entertainment website in India. It is the one-stop site for trending film news, paparazzi videos, celeb gossip news, lifestyle tips, health advice, etc. The spectrum of content includes Bollywood News, Entertainment, Fashion, Celebrity Gossip, Movies, Music, Technology and Gadgets,  Food, Health and Wellness, Sports, Auto, Travel and Tourism, Indian Television, Regional Cinema, Movie Reviews, and more. Mobile Masala curates the best and most popular content in the form of text articles, images, paparazzi videos and visual stories." />
+<meta name="keywords" content="Celebrity Gossips,Entertainment,Fashion,Visual Stories" />
+<meta name="Author" content="https://mobilemasala.com/" />
+<meta property="og:url" content="https://mobilemasala.com/post-content&id=2" /> 
+<link rel="canonical" href="https://mobilemasala.com/post-content&id=2" />
+
+</head>
+
+
+	
+
+
 <header class="entry-nav clear">
 	<ul>
-  <?php if($lang=="English" || $lang==""){?>
-            <li><a href="/">Home</a></li>
-        <?php }?>
-
-        <?php if($lang=="Hindi"){?>
-            <li><a href="/Hindi">होम
-</a></li>
-        <?php }?>
-         <?php if($lang=="Telugu"){?>
-            <li><a href="/Telugu">
-                హోమ్
-
-</a></li>
-        <?php }?>
+		<li><a href="/">Home</a></li>
+		
     @foreach ($categoryname as $categoryname)
       @php
+      
       $categoryname = $categoryname->categoryname;
+      
+    
      
       @endphp
     @endforeach
+ 
+    
 		<li><?php echo $categoryname; ?></li>
        
 	</ul>
@@ -44,9 +78,24 @@
       </div>
   </div>	
 	<div class="container post-content newspost left">
-       <?php $i = 0; //$i = $loop->iteration%3 ;?>
-				@foreach($details as $feed)
-        @php
+	    
+	   
+    
+       <?php   $i = 0; //$i = $loop->iteration%3 ;?>
+                
+          
+       @php 
+			
+      $entertainmentinfo= DB::select(DB::raw( "SELECT  * from post where language='$lang' AND categoryid='$catid' ;"));
+   
+
+    @endphp
+
+     
+				@foreach($entertainmentinfo as $feed)
+			
+				
+		@php
             $i++;
             
         @endphp
@@ -98,12 +147,13 @@
         @endif
         
         <article class="clear lazy">
+            
             <h5 class="left"><?php echo $categoryname; ?></h5>
-        <figure class="left"><a href="post-single&id={{$feed->postid}}"><img src="{{$feed->imagepath}}" alt=""></a></figure>
+        <figure class="left"><a href="post-single&id={{$feed->postid}}&id={{$feed->postlink}}"><img src="{{$feed->imagepath}}" alt=""></a></figure>
               <aside class="right">
                   <div>
                   
-                  <a href="post-single&id={{$feed->postlink}}">
+                  <a href="post-single&id={{$feed->postid}}&id={{$feed->postlink}}">
                       <h2>{{$feed->posttitle}}</h2>
                   </a>
                   <!-- <p><?php //echo mb_substr($feed->description, 0,100)."..."; ?></p> -->
