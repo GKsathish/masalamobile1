@@ -240,7 +240,7 @@
                                             <td><a href="post-single&id={{$row->postid}}" class="btn btn-success" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>  
                                             @endif
                                             @if($row->status == 'Pending')
-                                            <td><a href="admin-post-single&id={{$row->postid}}" class="btn btn-success" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>  
+                                            <td><a href="admin-post-single&id={{$row->postid}}&lang=English" class="btn btn-success" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>  
                                             @endif
                          
 

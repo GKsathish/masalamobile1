@@ -1,36 +1,15 @@
 
 @extends('front_end.langHeader')
 @section('content')
-<?php     $langnn = $_SERVER['REQUEST_URI'];?>
+
 
 	
-<?php $langn = (explode("&lang=",$langnn)); 
-	
-	//var_dump($langn);
-	
-	  $lang = $langn['0'];
-	 
-	 
-	 
-	$cat_id =  (explode("/admin-post-single&id=",$lang));
-	
-
-	
-	   $catid = $cat_id['1'];
-	 
-	
-	?>
 
 
 
 
-@php 
-			
-      $entertainmentinfo= DB::select(DB::raw( "SELECT  * from post where postid='$catid';"));
-   
 
-    @endphp
-@foreach ($entertainmentinfo as $feed)
+@foreach ($details as $feed)
 
 <header class="entry-nav clear">
 	<ul>

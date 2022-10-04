@@ -1,13 +1,13 @@
 
 
 
-	<?php    echo $langnn = $_SERVER['REQUEST_URI'];?>
+	<?php    $langnn = $_SERVER['REQUEST_URI'];?>
 	
 	<?php $langn = (explode("&lang=",$langnn)); 
 	
 	//var_dump($langn);
 	
-	  $lang = $langn['1'];
+	 $lang = $langn['1'];
 	 
 	  $cat = $langn['0'];
 	 
@@ -44,9 +44,25 @@
 
 <header class="entry-nav clear">
 	<ul>
-		<li><a href="/">Home</a></li>
+		<?php if($lang=="English" || $lang==""){?>
+            <li><a href="/">Home</a></li>
+        <?php }?>
+
+        <?php if($lang=="Hindi"){?>
+            <li><a href="/Hindi">होम
+</a></li>
+        <?php }?>
+         <?php if($lang=="Telugu"){?>
+            <li><a href="/Telugu">
+                హోమ్
+
+</a></li>
+        <?php }?>
 		
-    @foreach ($categoryname as $categoryname)
+   <?php if($lang=="English"){?>
+   
+   
+       @foreach ($categoryname as $categoryname)
       @php
       
       $categoryname = $categoryname->categoryname;
@@ -58,6 +74,41 @@
  
     
 		<li><?php echo $categoryname; ?></li>
+   <?php }?>
+   
+   <?php if($lang=="Hindi"){?>
+   
+   
+       @foreach ($categoryname as $categoryname)
+      @php
+      
+      $categoryname = $categoryname->categoryhindi;
+      
+    
+     
+      @endphp
+    @endforeach
+ 
+    
+		<li><?php echo $categoryname; ?></li>
+   <?php }?>
+   
+   <?php if($lang=="Telugu"){?>
+   
+   
+       @foreach ($categoryname as $categoryname)
+      @php
+      
+      $categoryname = $categoryname->categorytelugu;
+      
+    
+     
+      @endphp
+    @endforeach
+ 
+    
+		<li><?php echo $categoryname; ?></li>
+   <?php }?>
        
 	</ul>
 </header>
@@ -83,16 +134,19 @@
     
        <?php   $i = 0; //$i = $loop->iteration%3 ;?>
                 
-          
-       @php 
+           @php 
+                 
+
 			
-      $entertainmentinfo= DB::select(DB::raw( "SELECT  * from post where language='$lang' AND categoryid='$catid' ;"));
+      $entertainmentinfo= DB::select(DB::raw( "SELECT  * from post where language='$lang' AND categoryid='$catid' ORDER BY published_date DESC"));
    
 
     @endphp
 
      
 				@foreach($entertainmentinfo as $feed)
+			
+     
 			
 				
 		@php
@@ -149,7 +203,7 @@
         <article class="clear lazy">
             
             <h5 class="left"><?php echo $categoryname; ?></h5>
-        <figure class="left"><a href="post-single&id={{$feed->postid}}&id={{$feed->postlink}}"><img src="{{$feed->imagepath}}" alt=""></a></figure>
+        <figure class="left"><a href="post-single&id={{$feed->postid}}&id={{$feed->postid}}"><img src="{{$feed->imagepath}}" alt=""></a></figure>
               <aside class="right">
                   <div>
                   
