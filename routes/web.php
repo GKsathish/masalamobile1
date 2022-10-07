@@ -174,7 +174,7 @@ Route::get('edit_paparazzi_posts', function () {
 Route::get('addrss', 'addrsspostsController@index');
 Route::get('setschedule', 'addrsspostsController@schedule');
 Route::get('search', 'Controller@search');
-
+Route::get('search1', 'Controller@search');
 Route::get('post-single&id={rsstitle}', 'Controller@feed');
 Route::get('paparazzi-post&id={rsstitle}', 'Controller@paparazzi_feed');
 Route::get('post-single/{rsstitle}', 'Controller@feed');

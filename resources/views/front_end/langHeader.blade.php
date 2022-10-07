@@ -606,7 +606,7 @@ if (empty($lang)) {
             <li><a href="post-content&id=11&lang=English">Travel &amp; Tourism</a></li>
             <li><a href="post-content&id=17&lang=English">More</a></li>
             <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-            <li><a href="search?lang=English"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
+            <li><a href="search?lang=English><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
             <!-- <li class="subarrow"><a href="#">More</a> -->
                 <ul class="sub-menu">
                     <!-- <li><a href="#">Believe It or Not</a></li> -->

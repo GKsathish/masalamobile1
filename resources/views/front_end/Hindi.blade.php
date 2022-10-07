@@ -381,13 +381,13 @@
 				
 			
 			
-			 	$tag = DB::select(DB::raw('SELECT hashtag,count(*) as COUNT FROM `hashtags` WHERE  hashtag !="" and date(cdt)>=date(NOW()-INTERVAL 10 DAY) GROUP by hashtag HAVING COUNT(hashtag)>3 limit 16 offset 0;'));
+			 	$tag = DB::select(DB::raw('SELECT hashtag FROM `hashtags` WHERE  hashtag !=""  limit 16 offset 0;'));
 				@endphp
 					@foreach($tag as $taginfo)
 				@foreach($tag as $taginfo)
 					@foreach($tag as $taginfo)
 			    
-                <a   href="https://www.mobilemasala.com/search?search={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
+                <a   href="https://www.mobilemasala.com/search?lang=Hindi={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
         
 	         @endforeach
 	          @endforeach

@@ -761,7 +761,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!--    మరింత-->
             <!--</a></li>-->
             <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-            <li><a href="search?lang=Telugu"><i class="fa fa-search" aria-hidden="true"></i> 
+            <li><a href="search?search"><i class="fa fa-search" aria-hidden="true"></i> 
             వెతకండి
             </a></li>
             <!-- <li class="subarrow"><a href="#">More</a> -->

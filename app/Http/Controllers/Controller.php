@@ -118,51 +118,58 @@ class Controller extends BaseController
                     </script>
                     <?php
                   } 
-                }             
+                } 
+                
+
+
+
+
                 public function search(Request $request){
                   $search_value1 = $request->input('search');
+                  $search_value2 = $request->input('lang');
                   
                   $search_value = str_replace(" ","%",$search_value1);
                   //echo $search_value;
                   //die;
-                  if($search_value == "")
+                  if($search_value1 == "")
                   {
-                  $info =  DB::table('post')->where('status','Publish')->inRandomOrder()->Orderby('published_date', 'desc')->take(15)->get();
+                  
+                  $info =  DB::table('post')->where('status','Publish')->where('language', 'like', '%' . $search_value2 . '%')->inRandomOrder()->Orderby('published_date', 'desc')->take(15)->get();
                   }
                   else
                   {
-                    $info =  DB::table('post')->where('posttitle', 'like', '%' . $search_value . '%')->where('postlink', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
+                    $info =  DB::table('post')->where('posttitle', 'like', '%' . $search_value1 . '%')->where('language', 'like', '%' . $search_value2 . '%')->where('postlink', 'like', '%' . $search_value1. '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
                     
                     if($info->count() == '0')
                     {
-                      $info =  DB::table('post')->where('postlink', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
+                      $info =  DB::table('post')->where('postlink', 'like', '%' . $search_value1. '%')->where('language', 'like', '%' . $search_value2 . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
                       if($info->count() > '0')
                       {
-                        return view('front_end.search',['info' => $info],['search_value1' => $search_value1]);
+                        return view('front_end.search',['info' => $info],['search_value1' => $search_value1],['search_value2'=> $search_value2]);
                       }
                     }
                     if($info->count() == '0')
                     {
-                      $get_cat_post = DB::table('category')->where('categoryname', 'like', '%' . $search_value . '%')->take(1)->get();
+                      $get_cat_post = DB::table('category')->where('categoryname', 'like', '%' . $search_value1 . '%')->where('language', 'like', '%' . $search_value2 . '%')->take(1)->get();
                       
                       if($get_cat_post->count() == '0')
                       {
-                        $info =  DB::table('post')->where('status','Publish')->inRandomOrder()->Orderby('published_date', 'desc')->take(15)->get();
-                         return view('front_end.search',['info' => $info],['search_value1' => ' ']);
+                        $info =  DB::table('post')->where('language', 'like', '%' . $search_value2 . '%')->where('status','Publish')->inRandomOrder()->Orderby('published_date', 'desc')->take(15)->get();
+                         return view('front_end.search',['info' => $info],['search_value1' => ' '],['search_value2'=> ' ']);
                       }
                       else{
                         foreach($get_cat_post as $cate_id => $value)
                         {
                           $cate_id = $value->categoryid;
                         }
-                        $info = DB::table('post')->where('categoryid',$cate_id)->where('status','Publish')->Orderby('published_date', 'desc')->get();
+                        $info = DB::table('post')->where('categoryid',$cate_id)->where('language', 'like', '%' . $search_value2 . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
                       }
                       
                     }
                   
                   }
                   // $info = DB::table('v_stories')->where('storyid',$id)->get();
-                     return view('front_end.search',['info' => $info],['search_value1' => $search_value1]);
+                     return view('front_end.search',['info' => $info],['search_value1' => $search_value1],['search_value2'=> $search_value2]);
                     
                   }
                   public function enquiry(Request $request){
@@ -182,10 +189,12 @@ class Controller extends BaseController
                   public function filtersearch(Request $request)
                   {
                     $searchname = $request->input('filtercategoryname');
-                    $info = DB::table('post')->where('status','Publish')->get();
+                    $search_value2=$request->input('lang');
+                    $info = DB::table('post')->where('status','Publish')->where('language', 'like', '%' . $search_value2 . '%')->get();
                     return view('back_end.posts',['info' => $info]);
                     //return response()->json(array('success' => true, 'value'=>$info));
                   }
+                  
                   public function  post_pending()
                   {
                     $request = $_POST['list'];

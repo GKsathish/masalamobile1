@@ -1,22 +1,52 @@
+<?php   $langnn = $_SERVER['REQUEST_URI'];?>
+<?php $langn = (explode("&lang=",$langnn)); 
+	
+	//var_dump($langn);
+	
+	 $lang = $langn['0'];
+	 $cat_id =  (explode("/search?lang=",$lang));
+	 $catid = $cat_id['1'];
+	 
+	?>
 @extends('front_end.langHeader')
+
+
 @section('content')
 <header class="entry-nav clear">
 	<ul>
+	    <?php if($catid =="English" || $catid==""){?>
 		<li><a href="/">Home</a></li>
 		<li>Search</li>
+       <?php }?>
        
+          <?php if($catid =="Hindi"){?>
+	<li><a href="/Hindi">होम
+</a></li>
+	
+		<li> खोज </li>
+    
+       <?php }?>
+       
+        <?php if($catid =="Telugu"){?>
+	 <li><a href="/Telugu">
+                హోమ్
+
+</a></li>
+		
+		<li> వెతకండి </li>
+      
+       <?php }?>
 	</ul>
 </header>
-    <div class="search m-5">
-        <form action="{{ url('search' ) }}" method="GET">
-        <?php if($search_value1 == "") { ?>
-        <input class="search-field" type="search" placeholder="Search..." name="search">
+    <div class="search">
+       <form action="{{ url('search') }}" method="GET">
+       <?php if($search_value1 == "") { ?>
+       <input class="search-field" type="search" placeholder="Search..." name="search">
         <?php } else { ?>
-            <input class="search-field" type="search" placeholder="Search..." name="search" value="<?php echo $search_value1; ?>">
-            
-        <?php } ?>
-        <!--<button type="submit" class="search-btn">Search</button>-->
-        </form>
+           <input class="search-field" type="search" placeholder="Search..." name="search" value="<?php echo $search_value1; ?>" sytle="display:none;">-->
+       <?php } ?>
+       <button type="submit" class="search-btn">Search</button>
+       </form>
     </div>
     @if (\Session::has('success'))
                             <div class="alert alert-success">
@@ -30,7 +60,15 @@
 
     
 	<div class="container post-content newspost left">
-	@foreach($info as $feed)
+
+    @php 
+			
+      $entertainmentinfo= DB::select(DB::raw( "SELECT  * from post where language='$catid';"));
+   
+
+    @endphp
+               
+			@foreach($entertainmentinfo as $feed)
                 @php
             $i = 1;
             $i = $loop->iteration%3;
@@ -40,7 +78,7 @@
             <div class="adscategory">
               <div>
                 <?php $id=rand(10,2000);?>
-                <script async src="http://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+                <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
                 <div id="gpt-passback-MRATF<?php echo $id;?>">
                   <script>
                     window.googletag = window.googletag || {cmd: []};
@@ -72,19 +110,33 @@
         @endif
     	<article class="clear">
         @php
-						$get_cat = DB::table('post')->where('postid',$feed->postid)->get();
+						$get_cat = DB::table('category')->where('categoryid',$feed->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->postid}}</h5>
+						 <?php if($catid =="English" || $catid==""){?>
+                    	<h5>{{$get_cat->categoryname}}</h5>
+                    	<?php }?>
+                    		 <?php if($catid =="Hindi"){?>
+                    	<h5>{{$get_cat->categoryhindi}}</h5>
+                    	<?php }?>
+                    		 <?php if($catid =="Telugu"){?>
+                    	<h5>{{$get_cat->categorytelugu}}</h5>
+                    	<?php }?>
 						@endforeach
-			<figure class="left"><a href="post-single&id={{$feed->postid}}"><img src="{{$feed->imagepath}}" alt=""></a></figure>
+			<figure class="left"><a href="post-single&id={{$feed->postid}}">
+			    <img src="{{$feed->imagepath}}" alt=""></a></figure>
             <aside class="right">
                 <div>
                 <a href="post-single&id={{$feed->postid}}">
-                	<h2><?php echo mb_substr($feed->posttitle, 0,50)."..."; ?></h2>
+                <h2><?php echo mb_substr($feed->posttitle, 0,100)."..."?>
+                    
+                </h2>
+                
+               
                 </a>
-              	<!-- <a href="#">Posted by <strong>admin</strong></a> -->
-                <p><?php echo mb_substr($feed->posttitle, 0,100)."..."; ?></p>
+              	
+       
+                
                 </div>
             </aside>
         </article>

@@ -1,4 +1,4 @@
-@extends('front_end.langHeader')
+@extends('front_end.header')
 @section('content')
 <header class="entry-nav clear">
 	<ul>
@@ -8,12 +8,11 @@
 	</ul>
 </header>
     <div class="search m-5">
-        <form action="{{ url('search' ) }}" method="GET">
+        <form action="{{ url('search') }}" method="GET">
         <?php if($search_value1 == "") { ?>
         <input class="search-field" type="search" placeholder="Search..." name="search">
         <?php } else { ?>
             <input class="search-field" type="search" placeholder="Search..." name="search" value="<?php echo $search_value1; ?>">
-            
         <?php } ?>
         <!--<button type="submit" class="search-btn">Search</button>-->
         </form>

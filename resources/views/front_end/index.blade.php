@@ -387,6 +387,29 @@
 	</section>
 	
 	
+	<div class="hashtag" style="padding: 10px;">
+          <marquee behavior="scroll" direction="left"  width="100%">
+              
+              	@php 
+              	
+				
+			
+			
+			 	$tag = DB::select(DB::raw('SELECT hashtag,count(*) as COUNT FROM `hashtags` WHERE  hashtag !="" and date(cdt)>=date(NOW()-INTERVAL 10 DAY) GROUP by hashtag HAVING COUNT(hashtag)>3 limit 16 offset 0;'));
+				@endphp
+					@foreach($tag as $taginfo)
+				@foreach($tag as $taginfo)
+					@foreach($tag as $taginfo)
+			    
+                <a   href="https://www.mobilemasala.com/search?lang=English&{{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
+        
+	         @endforeach
+	          @endforeach
+	         @endforeach
+	     
+	     
+          </marquee>
+      </div>
 
 	
 

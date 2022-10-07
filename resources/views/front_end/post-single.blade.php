@@ -263,7 +263,7 @@ $feed_date = $feed->published_date;
              foreach ($re as $value) {?>
               
               <?php  if(!empty($value)){ ?>
-              <a href="https://www.mobilemasala.com/search?search= <?php echo $value;?>" class="tagclick">#<?php echo $taname = str_replace(' ','',$value); ?></a>
+              <a href="https://www.mobilemasala.com/search= <?php echo $value;?>" class="tagclick">#<?php echo $taname = str_replace(' ','',$value); ?></a>
               <?php } ?>
               <?php } ?>
             
