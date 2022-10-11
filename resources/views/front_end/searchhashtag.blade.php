@@ -1,4 +1,4 @@
-<?php    $langnn = $_SERVER['REQUEST_URI'];?>
+
 
 
 @extends('front_end.langHeader')
@@ -12,8 +12,8 @@
     </ul>
   </header>
       <div class="search m-5">
-          <form action="{{ url('search' ) }}" method="GET">
-            <?php if($search_value2=="English"){?>
+          <form action="{{ url('searchhashtag' ) }}" method="GET">
+          
           <?php if($search_value1 == "") { ?>
           <input class="search-field" type="search" placeholder="Search..." name="search">
           <?php } else { ?>
@@ -23,18 +23,7 @@
             
 
           <button type="submit" class="search-btn">Search</button>
-          <?php }?>
-          <?php if($search_value2=="Hindi"){?>
-          <?php if($search_value1 == "") { ?>
-          <input class="search-field" type="search" placeholder="Search..." name="search">
-          <?php } else { ?>
-              <input class="search-field" type="search" placeholder="Search..." name="search" value="<?php echo $search_value1; ?>">
-             
-          <?php } ?>
-            
-
-          <button type="submit" class="search-btn">Search</button>
-          <?php }?>
+         
           </form>
       </div>
       @if (\Session::has('success'))
@@ -90,32 +79,16 @@
               </div>
           @endif
         <article class="clear">
-        <?php $lang=$feed->language;?>
-        <?php if($lang=="English" || $lang==""){?>
+ 
           @php
           $get_cat = DB::table('category')->where('categoryid',$feed->categoryid)->get();
               @endphp
               @foreach($get_cat as $get_cat)
                         <h5>{{$get_cat->categoryname}}</h5>
               @endforeach
-  <?php }?>
 
-  <?php if($lang=="Hindi"){?>
-          @php
-          $get_cat = DB::table('category')->where('categoryid',$feed->categoryid)->get();
-              @endphp
-              @foreach($get_cat as $get_cat)
-                        <h5>{{$get_cat->categoryhindi}}</h5>
-              @endforeach
-  <?php }?>
-  <?php if($lang=="Telugu"){?>
-          @php
-          $get_cat = DB::table('category')->where('categoryid',$feed->categoryid)->get();
-              @endphp
-              @foreach($get_cat as $get_cat)
-                        <h5>{{$get_cat->categorytelugu}}</h5>
-              @endforeach
-  <?php }?>
+
+  
         <figure class="left"><a href="post-single&id={{$feed->postid}}"><img src="{{$feed->imagepath}}" alt=""></a></figure>
               <aside class="right">
                   <div>
