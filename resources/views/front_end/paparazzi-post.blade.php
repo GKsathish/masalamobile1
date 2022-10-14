@@ -60,7 +60,7 @@ DB::table('paparazzi_post')->where('postlink', $feed->postlink)->take(1)->update
         <div class="post-content-inner clear">
             <h1>{{$feed->posttitle}}</h1>
             <?php
-            echo  $video = $feed->videopath . "?autoplay=1";
+             $video = $feed->videopath . "?autoplay=1";
 
 
             $vidoeurl = explode("https://www.youtube.com/embed/", $video);
@@ -244,66 +244,6 @@ DB::table('paparazzi_post')->where('postlink', $feed->postlink)->take(1)->update
 
     }
 </style>
-
-
-
-<script>
-        $(document).ready(function() {
-          $('.vid-item').each(function(index) {
-            $(this).on('click', function() {
-              var current_index = index + 1;
-              $('.vid-item .thumb').removeClass('active');
-              $('.vid-item:nth-child(' + current_index + ') .thumb').addClass('active');
-            });
-          });
-          
-
-		     $(".youtubembltoptext_V").on('click', function() {
-      
-              var text = $(this). text();
-              
-              $("#hidemain_V").hide();
-           
-               $( "#addtext_V" ).empty();
-              $( "#addtext_V" ).append(text);
-              
-              
-               $('#showmbl_V').animate({
-					 scrollTop: $("#videostories").offset().top
-			}, 2000);
-			$('#vid_frame2')[0].contentWindow.postMessage('{"event":"command","func":"' + 'startVideo' + '","args":""}', '*');
-             
-			    
-          });			
-					
-          $(".youtubedesktoptext_V").on('click', function() {
-      
-              var text = $(this). text();
-              
-              $("#hidemain_V").hide();
-               $( "#addtext_V" ).empty();
-              $( "#addtext_V" ).append(text);
-          });
-        });
-      </script>
-      
-      <script>
-      $(document).ready(function() {
-        $(window).scroll(function() {
-
-          //alert('ok')
-
-          $('#vid_frame2')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
-        });
-
-      });
-    </script>
-
-
-
-
-
-
 
 
 
