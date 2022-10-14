@@ -413,7 +413,7 @@ $(document).ready(function(){
   min-width: 100px;
   box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
   z-index: 9;
-  margin-left:-25px !important;
+  margin-left:-30px !important;
   text-align:center !important;
 }
 
@@ -425,7 +425,7 @@ $(document).ready(function(){
   text-align:center !important;
 }
 
-dropdown-content1 a:hover {background-color: #000;}
+.dropdcontent1 a:hover {background-color: #000;}
 
 .dropd:hover .dropdcontent1 {display: block;}
 
@@ -599,7 +599,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><a href="post-content&id=11&lang=English">Travel &amp; Tourism</a></li>
             <li><a href="post-content&id=17&lang=English">More</a></li>
             <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-            <li><a href="search?search&lang=English"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
+            <li><a href="search?lang=English"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
             <!-- <li class="subarrow"><a href="#">More</a> -->
                 <ul class="sub-menu">
                     <!-- <li><a href="#">Believe It or Not</a></li> -->
@@ -666,7 +666,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><a href="post-content&id=11&lang=Hindi">  ट्रेवल & टूरिज़म   </a></li>
             <!--<li><a href="post-content&id=17&Others">अधिक</a></li>-->
             <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-            <li><a href="search?search&lang=Hindi"><i class="fa fa-search" aria-hidden="true"></i>  खोज </a></li>
+            <li><a href="search?lang=Hindi"><i class="fa fa-search" aria-hidden="true"></i>  खोज </a></li>
             <!-- <li class="subarrow"><a href="#">More</a> -->
                 <ul class="sub-menu">
                     <!-- <li><a href="#">Believe It or Not</a></li> -->
@@ -730,27 +730,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <!-- <li><a href="#">Fitness</a></li>
             <li><a href="#">General Gossip</a></li> -->
-            <li><a href="post-content&id=7&lang=Telugu
-">టెక్నాలజీ&గాడ్జెట్స్
+<!--            <li><a href="post-content&id=7&lang=Telugu-->
+<!--">టెక్నాలజీ&గాడ్జెట్స్-->
 
- </a></li>
+<!-- </a></li>-->
             
               <li><a href="post-content&id=8&lang=Telugu
 
 "> ఎంటర్టైన్మెంట్</a>
 
 </li>
-            <li><a href="post-content&id=9&lang=Telugu"> క్రీడలు</a></li>
+<!--            <li><a href="post-content&id=9&lang=Telugu"> క్రీడలు</a></li>-->
                        
             
             
-                        <li><a href="post-content&id=10&lang=Telugu
+<!--                        <li><a href="post-content&id=10&lang=Telugu-->
 
-">  ఆటో న్యూస్  </a></li>
+<!--">  ఆటో న్యూస్  </a></li>-->
           
-            <li><a href="post-content&id=11&lang=Telugu
+<!--            <li><a href="post-content&id=11&lang=Telugu-->
 
- "> ట్రావెల్ & టూరిజం   </a></li>
+<!-- "> ట్రావెల్ & టూరిజం   </a></li>-->
           
           
             <!-- <li><a href="post-content&id=3">New Movies</a></li> -->
@@ -761,7 +761,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!--    మరింత-->
             <!--</a></li>-->
             <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-            <li><a href="search?search&lang=Telugu"><i class="fa fa-search" aria-hidden="true"></i> 
+            <li><a href="search?lang=Telugu"><i class="fa fa-search" aria-hidden="true"></i> 
             వెతకండి
             </a></li>
             <!-- <li class="subarrow"><a href="#">More</a> -->

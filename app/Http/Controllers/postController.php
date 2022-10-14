@@ -47,6 +47,7 @@ public function new_post(Request $request)
     $noti_input = $request->input('notification');
     $email = $request->input('email');
     $hashtag = trim($request->input('hashtag'));
+    $uploaded = $request->input('uploaded_by');
     $language = trim($request->input('language'));
     
     $gmail = trim($request->input('gmail'));
@@ -65,12 +66,12 @@ public function new_post(Request $request)
          
          foreach ($re as $value) {
              
-             DB::table('hashtags')->insert(['postid' =>'$title','hashtag' => $value,'cdt' => $date]);
+             DB::table('hashtags')->insert(['postid' =>$title,'hashtag' => $value,'language'=>$language,'cdt' => $date]);
             
          }
          
          
-        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink, 'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'published_date' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);    
+        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink, 'posttitle' => $title,'uploaded_by'=>$uploaded,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'published_date' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);    
      
      
         $RId = DB::getPdo()->lastInsertId();
@@ -110,7 +111,7 @@ public function new_post(Request $request)
     {
         
         
-        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink, 'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'updated_at' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);
+        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink,'uploaded_by'=>$uploaded, 'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'updated_at' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);
     }
     // if($noti_input == '1')
     // {
@@ -227,7 +228,7 @@ public function edit_post(Request $request)
          
                      foreach ($re as $value) {
                          
-                         DB::table('hashtags')->insert(['postid' =>$title,'hashtag' => $value,'cdt' => $date]);
+                         DB::table('hashtags')->insert(['postid' =>$title,'hashtag' => $value,'language'=>$language,'cdt' => $date]);
                         
                      }
                 

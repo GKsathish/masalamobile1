@@ -133,7 +133,7 @@ $metaurl = "https://mobilemasala.com/";*/
 <div class="entry-content">
 	<div class="ads">
         
-        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+        <script async src="http://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
         <div id="gpt-passback-mobilemasala.com.Banner0.1638192042">
             <script>
                 window.googletag = window.googletag || {cmd: []};
@@ -154,6 +154,7 @@ $metaurl = "https://mobilemasala.com/";*/
    
 	<div class="container post-content left">
     	<div class="post-content-inner clear">
+        <h3>{{$feed->uploaded_by}}</h3>
             <h1>{{$feed->posttitle}}</h1>
            <div class="postview-and-time clear">
            @if($feed->published_date != "")
@@ -233,22 +234,22 @@ $feed_date = $feed->published_date;
             <?php echo implode(' ', array_slice(explode(' ', $feed->description), 0)); ?>
             
             <div>
-                <a href="https://mobilemasala.com/" class="tagclick" >#MobileMasala</a>
+                <a href="http://127.0.0.1:8000" class="tagclick" >#MobileMasala</a>
                 
-                  @foreach ($get_categoryname as $categoryname)
+                @foreach ($get_categoryname as $categoryname)
                   
-                    <?php 
-                    
-                    $cat = $categoryname->categoryname;
-                    $catreplace =  str_replace(' ','',$cat);
-                    
-                    ?>
-            		<a href="https://mobilemasala.com/post-content&id={{$categoryname->categoryid}}&post=<?php echo $catreplace;?>" class="tagclick">#<?php echo $catreplace;  ?></a>
-                    @endforeach
+                  <?php 
+                  
+                  $cat = $categoryname->categoryname;
+                  $catreplace =  str_replace(' ','',$cat);
+                  
+                  ?>
+                  <a href="post-content&id={{$categoryname->categoryid}}&post=<?php echo $catreplace;?>" class="tagclick">#<?php echo $catreplace;  ?></a>
+                  @endforeach
                 
 
         @php 
-      $tag = DB::table('post')->DISTINCT()->where('postid',$feed->postid)->take(8)->orderBy('created_at','desc')->get();
+      $tag = DB::table('post')->DISTINCT()->where('postid',$feed->postid)->where('language',$feed->language)->take(8)->orderBy('created_at','desc')->get();
       @endphp
 
       
@@ -263,7 +264,7 @@ $feed_date = $feed->published_date;
              foreach ($re as $value) {?>
               
               <?php  if(!empty($value)){ ?>
-              <a href="https://127.0.0.1:8000/searchhashtag?searchhashtag= <?php echo $value;?>" class="tagclick">#<?php echo $taname = str_replace(' ','',$value); ?></a>
+              <a href="http://127.0.0.1:8000/searchhashtag?searchhashtag= <?php echo $value;?>" class="tagclick">#<?php echo $taname = str_replace(' ','',$value); ?></a>
               <?php } ?>
               <?php } ?>
             

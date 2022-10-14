@@ -1,6 +1,3 @@
-
-
-
 @extends('front_end.langHeader')
   @section('content')
   <header class="entry-nav clear">
@@ -12,8 +9,8 @@
     </ul>
   </header>
       <div class="search m-5">
-          <form action="{{ url('searchhashtag' ) }}" method="GET">
-          
+          <form action="{{ url('searchhashtag') }}" method="GET">
+           
           <?php if($search_value1 == "") { ?>
           <input class="search-field" type="search" placeholder="Search..." name="search">
           <?php } else { ?>
@@ -23,7 +20,7 @@
             
 
           <button type="submit" class="search-btn">Search</button>
-         
+          
           </form>
       </div>
       @if (\Session::has('success'))
@@ -79,14 +76,14 @@
               </div>
           @endif
         <article class="clear">
- 
+    
           @php
           $get_cat = DB::table('category')->where('categoryid',$feed->categoryid)->get();
               @endphp
               @foreach($get_cat as $get_cat)
                         <h5>{{$get_cat->categoryname}}</h5>
               @endforeach
-
+  
 
   
         <figure class="left"><a href="post-single&id={{$feed->postid}}"><img src="{{$feed->imagepath}}" alt=""></a></figure>

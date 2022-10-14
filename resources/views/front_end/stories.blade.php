@@ -42,6 +42,7 @@
 .cover .inner-align-end{background-image:linear-gradient(transparent, rgba(0,0,0,0.7)); background-color:transparent; border-radius:0;}
 
 
+
 .inner-align-end-next{ background: rgba(0,0,0,0); padding:20px 20px 170px 20px}
 .inner-align-end-next h2{font-size:22px; font-family:"Montserrat"; color:rgba(255, 255, 255, 1); line-height:1.27; margin-bottom:10px;}
 .inner-align-end-next .summary { font-size:16px; text-align:center; margin-bottom:10px;}

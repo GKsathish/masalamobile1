@@ -116,7 +116,7 @@
 <div class="entry-content">
 	<div class="ads">
     <!-- <img src="assets/front_end/images/g8.jpg" /> -->
-    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script async src="http://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
     <div id="gpt-passback-mobilemasala.com.Banner0.1638191573">
     <script>
     window.googletag = window.googletag || {cmd: []};
@@ -156,7 +156,7 @@
 
         @if( $i == 3 )
             <div class="adscategory">
-            <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+            <script async src="http://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
             <div id="gpt-passback-mobilemasala.com.Banner0.1638185587">
             <script>
             window.googletag = window.googletag || {cmd: []};
@@ -171,7 +171,7 @@
         @endif
         @if( $i == 6 )
             <div class="adscategory">
-            <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+            <script async src="http://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
             <div id="gpt-passback-mobilemasala.com.Banner0.1638182904">
             <script>
             window.googletag = window.googletag || {cmd: []};

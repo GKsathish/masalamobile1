@@ -1,7 +1,4 @@
-
 @extends('front_end.header')
-
-
 @section('content')
 <head>
  
@@ -305,7 +302,7 @@
      
 
 
- 		<h2><span>अभी का दौर</span></h2>
+ 		<h2><span>ट्रेंडिंग </span></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			
@@ -328,9 +325,7 @@
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-					
-							<h5>{{$get_cat->categoryname}}</h5>
-						
+                    	<h5>{{$get_cat->categoryhindi}}</h5>
 						@endforeach
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
                     </aside>
@@ -358,7 +353,7 @@
 
 							
 						  <div  style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">  
-						  <h5>अभी का द</h5>
+						  <h5>पैपराज</h5>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
 			                </div>
 						</div>
@@ -373,29 +368,7 @@
         
 	</section>
 	
-      <div class="hashtag" style="padding: 10px;">
-          <marquee behavior="scroll" direction="left"  width="100%">
-              
-              	@php 
-              	
-				
-			
-				  $tag = DB::select(DB::raw('SELECT hashtag,count(*) as COUNT FROM `hashtags` WHERE  hashtag !="" and date(cdt)>=date(NOW()-INTERVAL 10 DAY) GROUP by hashtag HAVING COUNT(hashtag)>3 limit 16 offset 0;'));
-			
-			 				@endphp
-					@foreach($tag as $taginfo)
-				@foreach($tag as $taginfo)
-					@foreach($tag as $taginfo)
-			    
-                <a   href="https://127.0.0.1:8000//searchhashtag?searchhashtag={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
-        
-	         @endforeach
-	          @endforeach
-	         @endforeach
-	     
-	     
-          </marquee>
-      </div>
+     
 
  
 
@@ -407,7 +380,7 @@
     	<aside class="content left">
             <div class="slider-carousel owl-carousel owl-theme clear" id="slider-carousel-enter">
 				@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',26)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',7)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo1)
 				
@@ -432,7 +405,7 @@
         <aside class="sidebar right" style="margin:0;">
             <div class="slider-carousel-withdot owl-carousel owl-theme clear" id="slider-carousel-sport">
 			@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',27)->where('language','Hindi')->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('language','Hindi')->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<?php 
@@ -486,7 +459,9 @@
       <!--Celebrity Gossip-->
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=21" class="text-dark"><span>मशहूर व्यक्तियों के बारे में गपशप</span></a></h2>
+ 			<h2><a href="post-content&id=2&lang=Hindi" class="text-dark"><span>  सेलिब्रिटी गॉसिप
+
+</span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
@@ -503,7 +478,9 @@
 						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
 						<figcaption>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
-							<h5>मशहूर व्यक्तियों के बारे में गपशप</h5>
+							<h5> सेलिब्रिटी गॉसिप
+
+</h5>
 						</figcaption>
 						</a>
 						<button style="float:right; position: relative; bottom: 40px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
@@ -555,7 +532,7 @@
 
       <!--Visual Stories-->
       <section class="container visual-stories clear">
-		<h2 class="left"><span><a href="javascript:void(0)">दृश्य कहानियां</a></span></h2>
+		<h2 class="left"><span><a href="javascript:void(0)">फोटो  स्टोरीज  </a></span></h2>
 		<div class="tab visualstories right">
 			<!-- <button class="tablinks_VS" onclick="openVisualStories(event, 'FEATURED')" id="defaultOpenvs">FASHION</button>
 			<button class="tablinks_VS" onclick="openVisualStories(event, 'LIFESTYLE')">LIFESTYLE</button>
@@ -617,7 +594,7 @@
 						<img src="<?php echo $get_vs->imagelink; ?>" style="min-height: 400px;" />
 						<figcaption>
 							<h2>{{$get_vs->storytitle}}</h2>
-							<h5>FEATURED</h5>
+							<h5>फोटो  स्टोरीज </h5>
 						</figcaption>
 					</a>
 				</div>
@@ -691,7 +668,7 @@
     	<!--Paparazzi-->
 	
 	<section class="container random-posts padding-top-none clear" >
- 		<h2><a href="Video-stories-details"><span>वीडियो कहानियां</span></a></h2>
+ 		<h2><a href="Video-stories-details"><span>वीडियो स्टोरीजं</span></a></h2>
 		<div id="randomposts">
 	          
 		  
@@ -818,7 +795,7 @@
     </script>
 
 		</div>
-		<button class="more_pap_btn" onclick="location.href='Video-stories-details'">अधिक वीडियो कहानियां</button>
+		<button class="more_pap_btn" onclick="location.href='Video-stories-details'">अधिक वीडियो स्टोरीज</button>
 	</section>
     
     
@@ -833,7 +810,7 @@
 	
     <!--Random Posts-->
 	<section class="container random-posts padding-top-none clear">
- 		<h2><span>यादृच्छिक पोस्ट</span></h2>
+ 		<h2><span>अन्य पोस्ट्स</span></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
@@ -849,7 +826,7 @@
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryname}}</h5>
+                    	<h5>{{$get_cat->categoryhindi}}</h5>
 						@endforeach
 						
 						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
@@ -870,7 +847,7 @@
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=22"><span>चलचित्र</span></a></h2>
+ 			<h2><a href="post-content&id=4&lang=Hindi"><span>मूवीज़ </span></a></h2>
             <div class="grid clear">
 					@php 
 					$entertainmentinfo = DB::table('post')->where('language','Hindi')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
@@ -884,7 +861,7 @@
 					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo->imagepath}}" alt="" width="100%">
                         <figcaption>
-                            <h5>चलचित्र</h5>
+                            <h5>मूवीज़ </h5>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
                         </figcaption>
                     </a>
@@ -944,7 +921,7 @@
 				
 				<!--<script async id="AV62382721bab93c441117d951" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=62382721bab93c441117d951&AV_PUBLISHERID=6229e046286f660f8b1f0456"></script>-->
 				
-				<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/MMsep82022.jpg')}}" style="margin-top:50px;width:100%"></a>
+				<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/Dussehra 5.jpg')}}" style="margin-top:50px;width:100%"></a>
 			</div>
         </aside>
 	</section>
@@ -952,7 +929,7 @@
 	<!--Paparazzi-->
 	
 	<section class="container random-posts padding-top-none clear">
- 		<h2><a href="paparazzi-details"><span>पत्रकारों</span></a></h2>
+ 		<h2><a href="paparazzi-details"><span>पैपराजं</span></a></h2>
 		<div id="randomposts">
 	          
 		  
@@ -1079,11 +1056,11 @@
     </script>
 
 		</div>
-		<button class="more_pap_btn" onclick="location.href='paparazzi-details'">अधिक पापराज़ी</button>
+		<button class="more_pap_btn" onclick="location.href='paparazzi-details'">अधिक  पैपराजी   </button>
 	</section>
 	<!--Fashion and Autonews & Sidebar-->
 	<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=20"><span>फ़ैशन</span></a></h2>
+ 		<h2><a href="post-content&id=1&lang=Hindi"><span>फ़ैशन</span></a></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
@@ -1099,7 +1076,7 @@
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryname}}</h5>
+                    	<h5>{{$get_cat->categoryhindi}}</h5>
 						@endforeach
 						
 						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
@@ -1117,11 +1094,11 @@
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=25"><span>प्रौद्योगिकी और गैजेट्स</span></a></h2>
+ 			<h2><a href="post-content&id=7&lang=Hindi"><span> टेक्नोलॉजी   </span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',25)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(6)->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',7)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(6)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			       <?php 
@@ -1134,7 +1111,7 @@
                     <figcaption>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
                         <h5>
-                            प्रौद्योगिकी और गैजेट्स
+                            टेक्नोलॉजी 
                             
                         </h5>
                     </figcaption>
@@ -1171,10 +1148,10 @@
 	<!--Health and Wellness-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=24"><span>स्वास्थ्य और कल्याण</span></a></h2>
+ 		<h2><a href="post-content&id=6&lang=Hindi"><span>  हेल्थ और फिटनेस   </span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',24)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',6)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			   <?php 
@@ -1188,7 +1165,7 @@
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
                         <h5> 
                         
-                        स्वास्थ्य और कल्याण   
+        हेल्थ और फिटनेस   
                         
                         </h5>
                     </aside>
@@ -1211,10 +1188,10 @@
 	<!--Sports-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=27"><span>खेल</span></a></h2>
+ 		<h2><a href="post-content&id=9&lang=Hindi"><span> खेल  </span></a></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',27)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			 <?php 
@@ -1225,7 +1202,7 @@
 				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
                     <figure><img src="<?php echo $entertainmentinfo->imagepath; ?>" alt=""></figure>
                     <aside>
-                    	<h5>Sports</h5>
+                    	<h5>  खेल   </h5>
                     	<h3>{{$entertainmentinfo->posttitle}}</h3>
                     </aside>
 				</a>
@@ -1240,10 +1217,10 @@
 	<!--Music-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=23"><span>संगीत</span></a></h2>
+ 		<h2><a href="post-content&id=5&lang=Hindi"><span>म्यूज़िक </span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',23)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',5)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			 <?php 
@@ -1257,8 +1234,7 @@
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
                         <h5>
                             
-                            संगीत
-                        
+                            म्यूज़िक
                         
                         </h5>
                     </aside>
@@ -1275,11 +1251,11 @@
 	
 	
 		<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=29"><span>यात्रा पर्यटन</span></a></h2>
+ 		<h2><a href="post-content&id=11&lang=Hindi"><span>  ट्रेवल & टूरिज़म </span></a></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',29)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(5)->get(); 
+				$entertainmentinfo = DB::table('post')->where('categoryid',11)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(5)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				
@@ -1297,7 +1273,7 @@
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryname}}</h5>
+                    	<h5>{{$get_cat->categoryhindi}}</h5>
 						@endforeach
 						
 						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
@@ -1314,10 +1290,10 @@
 		<section class="container equal-height padding-top-none clear">
 	
 			<aside class="content left">
-    			<h2><span><a href="post-content&id=28">ऑटो समाचारs</a></span></h2>
+    			<h2><span><a href="post-content&id=10&lang=Hindi">  ऑटोन्यूज़ </a></span></h2>
     			<article class="single-article-box clear">
     					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid', 28)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
 					@endphp
 					@foreach($entertainmentinfo as $entertainmentinfo)
 						 <?php 
@@ -1357,8 +1333,8 @@
 			<aside class="sidebar right">
 				<div class="news-list sidebarposts nomargin">
 					<div class="tab">
-						<button class="tablinks" onclick="openCity(event, 'Recent')" id="defaultOpen">हाल ही का</button>
-						<button class="tablinks" onclick="openCity(event, 'Popular')">लोकप्रिय</button>
+						<button class="tablinks" onclick="openCity(event, 'Recent')" id="defaultOpen">रीसेंट</button>
+						<button class="tablinks" onclick="openCity(event, 'Popular')">पॉपुलर</button>
 					</div>
 					<div id="Recent" class="tabcontent clear">
 						<ul>
@@ -1477,13 +1453,23 @@
 						</div> -->
 					</div>
 				</div>
-            <div class="modal-footer">
-				<label class="copylabel"></label>
-                <div class="row"> <input class="col-10 ur" type="url"   id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>
-            </div>
+    <!--        <div class="modal-footer">-->
+				<!--<label class="copylabel"></label>-->
+    <!--            <div class="row"> <input class="col-10 ur" type="url"   id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>-->
+    <!--        </div>-->
         </div>
 		</div>
-	<?php @include('front_end/footer');?>
-
+	 		<?php @include('front_end/footer');?>
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        var value = $("#tagchange").text();-->
+        
+<!--        var res = value.split(" ").join("");-->
+<!--        $("#tagchange").empty();-->
+<!--        $("#tagchange").append(res);-->
+<!--       console.log(res);-->
+       
+<!--    });-->
+<!--</script>-->
 
 @endsection

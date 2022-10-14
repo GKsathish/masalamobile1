@@ -11,8 +11,12 @@
 |
 */
 
-
-
+Route::get('Horoscope_details', function () {
+    return view('front_end.Horoscope_details');
+});
+Route::get('trailerscontent', function () {
+    return view('front_end.trailerscontent');
+});
 
 Route::get('admin', function () {
     return view('auth.login');
@@ -106,21 +110,14 @@ Route::get('/', function () {
     return view('front_end.index');
 });
 
-
-Route::get('/Hindi', function () {
-    return view('front_end.Hindi');
-});
-Route::get('/English', function () {
-    return view('front_end.English');
-});
 Route::get('/Telugu', function () {
     return view('front_end.Telugu');
 });
 
-
-Route::get('/', function () {
-    return view('front_end.index');
+Route::get('/Hindi', function () {
+    return view('front_end.Hindi');
 });
+
 Route::get('contact-us', function () {
     return view('front_end.contact-us');
 });
@@ -233,4 +230,9 @@ Route::get('add_subcription','Controller@add_subcription');
 
 Route::get('/upload',function(){
     return view('upload');
+});
+
+
+Route::get('/trailers',function(){
+    return view('front_end.trailers');
 });

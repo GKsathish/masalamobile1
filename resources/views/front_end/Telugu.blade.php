@@ -1,7 +1,4 @@
-
 @extends('front_end.header')
-
-
 @section('content')
 <head>
  
@@ -307,8 +304,7 @@
 
  		<h2><span>
  		    
- 		    ఇప్పుడు ట్రెండింగ్‌లో ఉంది
- 		    
+ 		   ట్రెండింగ
  		</span></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
@@ -332,7 +328,7 @@
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryname}}</h5>
+                    	<h5>{{$get_cat->categorytelugu}}</h5>
 						@endforeach
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
                     </aside>
@@ -375,29 +371,7 @@
         
 	</section>
 	
-      <div class="hashtag" style="padding: 10px;">
-          <marquee behavior="scroll" direction="left"  width="100%">
-              
-              	@php 
-              	
-				
-			
-			
-			 	$tag = DB::select(DB::raw('SELECT hashtag,count(*) as COUNT FROM `hashtags` WHERE  hashtag !="" and date(cdt)>=date(NOW()-INTERVAL 10 DAY) GROUP by hashtag HAVING COUNT(hashtag)>3 limit 16 offset 0;'));
-				@endphp
-					@foreach($tag as $taginfo)
-				@foreach($tag as $taginfo)
-					@foreach($tag as $taginfo)
-			    
-                <a   href="https://www.mobilemasala.com/search?search={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
-        
-	         @endforeach
-	          @endforeach
-	         @endforeach
-	     
-	     
-          </marquee>
-      </div>
+     
 
  
 
@@ -409,7 +383,7 @@
     	<aside class="content left">
             <div class="slider-carousel owl-carousel owl-theme clear" id="slider-carousel-enter">
 				@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',8)->where('language','Telugu')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',8)->where('language','Telugu')->where('status','Publish')->take(8)->orderBy('published_date','asc)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo1)
 				
@@ -422,7 +396,7 @@
 					<a href="post-single&id={{$entertainmentinfo1->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo1->imagepath}}" alt="">
                         <figcaption>
-							<h5>  వినోదం </h5>
+							<h5>   ఎంటర్టైన్మెంట్ </h5>
 							
 							<h1>{{$entertainmentinfo1->posttitle}}</h1>
                         </figcaption>
@@ -461,14 +435,14 @@
       <!--Celebrity Gossip-->
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=2" class="text-dark"><span>
- 			    ప్రముఖుల గాసిప్
-
+ 			<h2><a href="post-content&id=2&lang=Telugu" class="text-dark"><span>
+ 			    సెలబ్రిటీ గాసిప్స్
+ 			    
  			</span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',2)->where('language','Telugu')->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
+				$entertainmentinfo = DB::table('post')->where('categoryid',2)->where('language','Telugu')->where('status','Publish')->orderBy('published_date','asc)->take(3)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 						<?php 
@@ -482,8 +456,7 @@
 						<figcaption>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
 							<h5>
-							    సెలబ్రిటీ గాసిప్
-
+							   సెలబ్రిటీ గాసిప్స్
 							</h5>
 						</figcaption>
 						</a>
@@ -534,8 +507,7 @@
       <section class="container visual-stories clear">
 		<h2 class="left"><span><a href="javascript:void(0)">
 		    
-		    విజువల్ కథలు
-
+		    విజువల్ స్టోరీస్
 		</a></span></h2>
 		<div class="tab visualstories right">
 			<!-- <button class="tablinks_VS" onclick="openVisualStories(event, 'FEATURED')" id="defaultOpenvs">FASHION</button>
@@ -553,7 +525,7 @@
 		<div id="FEATURED" class="tabVisualStories clear">
 			<div class="visual-stories-carousel owl-carousel owl-theme clear">	
 			@php
-			$get_vs1 = DB::table('v_stories')->where('categoryid',1)->where('cat_type','visualstories')->orderBy('storyid','desc')->get();
+			$get_vs1 = DB::table('v_stories')->where('categoryid',1)->where('cat_type','visualstories')->orderBy('storyid','asc)->get();
 			@endphp			
 			@foreach ($get_vs1 as $get_vs1)		
 				<div class="item clear">
@@ -670,13 +642,12 @@
     <!--Random Posts-->
 	<section class="container random-posts padding-top-none clear">
  		<h2><span>
- 		    యాదృచ్ఛిక పోస్ట్‌లు
-
+ 		    రాండమ్ పోస్ట్‌లు
  		</span></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('language','Telugu')->where('status','Publish')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)')->inRandomOrder()->take(5)->orderBy('published_date','desc')->get(); 
+				$entertainmentinfo = DB::table('post')->where('language','Telugu')->where('status','Publish')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)')->inRandomOrder()->take(5)->orderBy('published_date','asc)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<li>
@@ -688,7 +659,7 @@
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryname}}</h5>
+                    	<h5>{{$get_cat->categorytelugu}}</h5>
 						@endforeach
 						
 						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
@@ -709,12 +680,12 @@
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=32"><span>
- 			    సినిమాలు
+ 			<h2><a href="post-content&id=4&lang=Telugu"><span>
+ 			    సినిమా
  			</span></a></h2>
             <div class="grid clear">
 					@php 
-					$entertainmentinfo = DB::table('post')->where('language','Telugu')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
+					$entertainmentinfo = DB::table('post')->where('language','Telugu')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','asc)->take(3)->get(); 
                     @endphp
                     @foreach($entertainmentinfo as $entertainmentinfo)
                     <?php 
@@ -725,7 +696,7 @@
 					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo->imagepath}}" alt="" width="100%">
                         <figcaption>
-                            <h5>    సినిమాలు  </h5>
+                            <h5>సినిమా  </h5>
 							
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
                         </figcaption>
@@ -786,7 +757,7 @@
 				
 				<!--<script async id="AV62382721bab93c441117d951" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=62382721bab93c441117d951&AV_PUBLISHERID=6229e046286f660f8b1f0456"></script>-->
 				
-				<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/MMsep82022.jpg')}}" style="margin-top:50px;width:100%"></a>
+				<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/Dussehra 5.jpg')}}" style="margin-top:50px;width:100%"></a>
 			</div>
         </aside>
 	</section>
@@ -807,7 +778,7 @@
 					<div id="Recent" class="tabcontent clear">
 						<ul>
 						@php 
-						$entertainmentinfo = DB::table('post')->where('status','Publish')->where('language','Telugu')->orderBy('published_date','desc')->take(8)->get(); 
+						$entertainmentinfo = DB::table('post')->where('status','Publish')->where('language','Telugu')->orderBy('published_date','asc)->take(8)->get(); 
 						@endphp
 						@foreach($entertainmentinfo as $entertainmentinfo)
 									 <?php 
@@ -825,9 +796,9 @@
 					</div>
 					<div id="Popular" class="tabcontent clear">
 						<ul>
-						<?php /* $entertainmentinfo = DB::table('post')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();  */  //OLD LOGIC ?> 
+						<?php /* $entertainmentinfo = DB::table('post')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','asc)->get();  */  //OLD LOGIC ?> 
 						@php 
-							$entertainmentinfo = DB::table('post')->where('language','Telugu')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();
+							$entertainmentinfo = DB::table('post')->where('language','Telugu')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','asc)->get();
 							@endphp
 							@foreach($entertainmentinfo as $entertainmentinfo)
 													 <?php 
@@ -921,23 +892,25 @@
 						</div> -->
 					</div>
 				</div>
-            <div class="modal-footer">
-				<label class="copylabel"></label>
-                <div class="row"> <input class="col-10 ur" type="url"   id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>
-            </div>
+    <!--        <div class="modal-footer">-->
+				<!--<label class="copylabel"></label>-->
+    <!--            <div class="row"> <input class="col-10 ur" type="url"   id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;width: 70%; margin-top:7px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>-->
+    <!--        </div>-->
         </div>
 		</div>
+			<?php @include('front_end/footer');?>
 	 	
-<script>
-    $(document).ready(function() {
-        var value = $("#tagchange").text();
-        //alert(value)
-        var res = value.split(" ").join("");
-        $("#tagchange").empty();
-        $("#tagchange").append(res);
-       console.log(res);
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        var value = $("#tagchange").text();-->
        
-    });
-</script>
+<!--        var res = value.split(" ").join("");-->
+<!--        $("#tagchange").empty();-->
+<!--        $("#tagchange").append(res);-->
+<!--       console.log(res);-->
+       
+<!--    });-->
+<!--</script>-->
+
 
 @endsection

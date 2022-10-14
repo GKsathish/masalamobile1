@@ -150,7 +150,7 @@ class Controller extends BaseController
                       if($get_cat_post->count() == '0')
                       {
                         $info =  DB::table('post')->where('status','Publish')->inRandomOrder()->Orderby('published_date', 'desc')->take(15)->get();
-                        return view('front_end.search',['info' => $info],['search_value1' => ' ','search_value2'=>' ']);
+                        return view('front_end.search',['info' => $info],['search_value1'=>' ']);
                       }
                       else{
                         foreach($get_cat_post as $cate_id => $value)

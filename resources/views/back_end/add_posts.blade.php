@@ -146,6 +146,14 @@
                        </div>
                        
                     </div>
+
+                    <div class="row">
+
+                    <div class="col-md-6 form-group">
+                        <label>UploadedBy</label>
+                        <input type="text" class="form-control" required placeholder="Uploaded_by" name="uploaded_by"/>
+                    </div>
+                  </div>
                     <div class="row">
                        
                        <div class="col-md-12 form-group">

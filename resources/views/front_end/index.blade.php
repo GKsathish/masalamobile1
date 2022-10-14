@@ -123,7 +123,7 @@
 }
   .descp2{
     
-        -webkit-line-clamp: 2;POSITION
+        -webkit-line-clamp: 2 POSITION;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -263,7 +263,7 @@
 
   .descp2{
     
-        -webkit-line-clamp: 2;POSITION
+        -webkit-line-clamp: 2 POSITION;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -364,6 +364,7 @@
 						<a href="paparazzi-post&id={{$entertainmentinfo->postid}}">
              			<div style="border:2px  solid #e9e9e9; display:flex;  border-radius:3px;">
 						 <figure style="margin:4px;"  >
+						 
                 							<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe> -->
               								<iframe width="100" height="90" src="{{$entertainmentinfo->videopath}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                							</figure>
@@ -387,30 +388,66 @@
 	</section>
 	
 	
-	<div class="hashtag" style="padding: 10px;">
-          <marquee behavior="scroll" direction="left"  width="100%">
-              
-              	@php 
-              	
-				
-			
-			
-			 	
-				  $tag = DB::select(DB::raw('SELECT hashtag,count(*) as COUNT FROM `hashtags` WHERE  hashtag !="" and language="English"  GROUP by hashtag HAVING COUNT(hashtag)>3 limit 16 offset 0;'));
-				@endphp
-					@foreach($tag as $taginfo)
-				@foreach($tag as $taginfo)
-					@foreach($tag as $taginfo)
-			    
-                <a   href="searchhashtag?searchhashtag={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
-        
-	         @endforeach
-	          @endforeach
-	         @endforeach
-	     
-	     
-          </marquee>
-      </div>
+
+
+	<section class="container clear">
+	
+     
+    
+  <!--Trending Now-->
+     
+
+
+	<h2><span>Trailers & Teasers</span></h2>
+   <div class="tumbnailcarousel owl-carousel owl-theme clear">
+	   @php 
+	   
+	 
+	   $entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+
+	   @endphp
+	   
+
+		   
+
+	   
+		@foreach($entertainmentinfo1 as $entertainmentinfo1)
+	   
+		<?php
+            $video = $entertainmentinfo1->videopath;
+            $vidoeurl = explode("https://www.youtube.com/embed/", $video);
+            //var_dump($vidoeurl);
+            $shortcode = $vidoeurl['1'];
+            ?>
+	   
+				   <a href="paparazzi-post&id={{$entertainmentinfo1->postid}}">
+					<div >
+					<figure style="margin:4px;"  >
+									   <!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
+										 <img  width="100%" height="100%" src="{{$entertainmentinfo1->videopath}}" /> -->
+									 
+										 <img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" />
+                
+
+										</figure>
+			   
+
+					   
+					 <div style="text-align:center;" >  
+					 <h5>Trailers&Teasers</h5>
+					   <h3>{{$entertainmentinfo1->posttitle}}</h3>
+					   </div>
+				   </div>
+				   </a>
+	   @endforeach 
+		   
+	   
+		   
+   </div>
+
+   
+   
+</section>
 
 	
 
@@ -437,7 +474,9 @@
 					<a href="post-single&id={{$entertainmentinfo1->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo1->imagepath}}" alt="">
                         <figcaption>
+							
 							<h5>Entertainment</h5>
+							<h5>{{$entertainmentinfo1->uploaded_by}}</h5>
 							<h1>{{$entertainmentinfo1->posttitle}}</h1>
                         </figcaption>
 					</a>
@@ -763,9 +802,76 @@
           <iframe id="vid_frame2" class="video" width="640" height="360" src="https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
         
             <div id ="hidemain_V" class="desc"><p class="descp2"><b>{{$entertainmentinfo->posttitle}}</b></p></div><br>
-            <div id ="" class="desc"><p id="addtext_V" class="descp2"></p></div><br>
+            
+			
+			<div id ="" class="desc"><p id="addtext_V" class="descp2"></p></div><br>
+			<script>
+var tag = document.createElement("script");
+tag.src = "https://www.youtube.com/iframe_api";
+document.head.appendChild(tag);
+
+function onYouTubeIframeAPIReady() {
+  var player1 = new YT.Player("player", {
+    height: "100%",
+    width: "100%",
+    videoId: "7E2q5PRU5MQ",
+    origin: "https://s.codepen.io",
+    playerVars: {
+      controls: 1
+    },
+    events: {
+      onReady: function(e) {
+        e.target.mute();
+        videoAutoControl(".video", e.target, 0.5);
+      }
+    }
+  });
+}
+
+
+function videoAutoControl(selector, video, videoTogglePct) {
+  
+  var videoHeightPct = $(selector).height() / $(window).height();
+  var offsetIn = (1 - videoTogglePct * videoHeightPct) * 100;
+  var offsetOut = -(videoTogglePct * videoHeightPct) * 100;
+
+  function inView(video) {
+    video.playVideo();
+  }
+
+  function outView(video) {
+    video.pauseVideo();
+  }
+
+  
+  $(selector).waypoint(
+    function(direction) {
+      if (direction == "down")
+        inView(video); 
+      else outView(video); 
+    },
+    {
+      offset: offsetIn + "%"
+    }
+  );
+
+
+  $(selector).waypoint(
+    function(direction) {
+      if (direction == "up")
+        inView(video); 
+      else outView(video); 
+    },
+    {
+      offset: offsetOut + "%"
+    }
+  );
+}
+
+</script>
             
           @endforeach
+
 
         </div>
 
@@ -930,10 +1036,13 @@
 				$titlorl = $entertainmentinfo->posttitle;
 				$title = str_replace(" ","+",$titlorl);
 				?>
+				
 				<article>
+				<h3>{{$entertainmentinfo->uploaded_by}}</h3>
 					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo->imagepath}}" alt="" width="100%">
                         <figcaption>
+						
                             <h5>Movies</h5>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
                         </figcaption>
@@ -1183,6 +1292,7 @@
 					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <figcaption>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
+						
                         <h5>Technology & Gadgets</h5>
                     </figcaption>
                     </a>
