@@ -1,4 +1,4 @@
-	@extends('front_end.header')
+@extends('front_end.header')
 	@section('content')
 
 
@@ -12,23 +12,9 @@
 		float: left;
 		color: #1d1dc3;
 	}
-	/* .smallcont{
-		display: flex;
-       flex-direction: row;
-	 width:100%;
-	  
-	   
-	} */
 	.trilers{
-	
-		display: grid;
-	
-		align-content: space-evenly;
-		grid-template-columns: auto auto auto auto;
-		gap: 10px;
-
-		padding: 10px;
-				
+		width: 100%;
+        margin:10px;
 	}
 	.img1{
 		height:100%;
@@ -36,20 +22,10 @@
 		
 	}
 	@media only screen and (max-width:920px) {
-		
-	
-	.trilers{
-		display: grid;
-	
-	align-content: space-evenly;
-	grid-template-columns: auto auto ;
-	gap: 5px;
-
-	padding: 1px;
-		
-	
+		.trilers{
+		width: 40%;
+    float: left;
 	}
-
 	}
 	.hashtag{
 		width: 90%;
@@ -498,181 +474,288 @@ function openCity(evt, cityName) {
 
 
 		
-				
-<section class="container random-posts padding-top-none clear "> 
-
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#tabs" ).tabs();
-  } );
-
-  
-  </script>
-	<div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">All</a></li>
-    <li><a href="#tabs-2">Hindi</a></li>
-    <li><a href="#tabs-3">Telugu</a></li>
-  </ul>
-	<div id="tabs-1">
 	
-	    <div id="randomposts">				
-						@php 
-								
-								
-							$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date DESC LIMIT 4) AS temptable  LIMIT 4'));
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+				<h2><span>Trailers & Teasers</span></h2>
 
-						@endphp
-				    <ul  class="trilers" >
-						@foreach($entertainmentinfo1 as $entertainmentinfo1)
-						
-						
-						
-							
-							<?php
-								$video = $entertainmentinfo1->videopath;
-								$vidoeurl = explode("https://www.youtube.com/embed/", $video);
-								//var_dump($vidoeurl);
-								$shortcode = $vidoeurl['1'];
-								?>
-						        <li>
-									<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}">
-									
-										<figure style="margin:4px;"  >
-														<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
-															<img  width="100%" height="100%" src="{{$entertainmentinfo1->videopath}}" /> -->
-														
-															<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img1"/>
-									
-
-															</figure>
-								
-
-										
-
-										<h3>{{$entertainmentinfo1->posttitle}}</h3>
-										
-									
-									</a>
-                                </li>
-							
-
-						@endforeach
-                    </ul>	
-						
-					
-					
-						
-        </div>			
 				
-	</div>
-	<div id="tabs-2">
+		
 	
-	    <div id="randomposts">				
-						@php 
-								
-								
-							$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date DESC LIMIT 4) AS temptable  LIMIT 4'));
-
-						@endphp
-				    <ul  class="trilers" >
-						@foreach($entertainmentinfo1 as $entertainmentinfo1)
-						
-						
-						
-							
-							<?php
-								$video = $entertainmentinfo1->videopath;
-								$vidoeurl = explode("https://www.youtube.com/embed/", $video);
-								//var_dump($vidoeurl);
-								$shortcode = $vidoeurl['1'];
-								?>
-						        <li>
-									<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}">
-									
-										<figure style="margin:4px;"  >
-														<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
-															<img  width="100%" height="100%" src="{{$entertainmentinfo1->videopath}}" /> -->
-														
-															<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img1"/>
-									
-
-															</figure>
-								
-
-										
-
-										<h3>{{$entertainmentinfo1->posttitle}}</h3>
-										
-									
-									</a>
-                                </li>
-							
-
-						@endforeach
-                    </ul>	
-						
-					
-					
-						
-        </div>			
-				
-	</div>
-	<div id="tabs-3">
 	
-	    <div id="randomposts">				
-						@php 
-								
-								
-							$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date DESC LIMIT 4) AS temptable  LIMIT 4'));
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#home">All</a></li>
+					<li><a data-toggle="tab" href="#me1">Hindi</a></li>
+					<li><a data-toggle="tab" href="#me2">Telugu</a></li>
+					<li><a data-toggle="tab" href="#me3">Tamil</a></li>
+				</ul>
 
-						@endphp
-				    <ul  class="trilers" >
-						@foreach($entertainmentinfo1 as $entertainmentinfo1)
-						
-						
-						
-							
-							<?php
-								$video = $entertainmentinfo1->videopath;
-								$vidoeurl = explode("https://www.youtube.com/embed/", $video);
-								//var_dump($vidoeurl);
-								$shortcode = $vidoeurl['1'];
-								?>
-						        <li>
-									<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}">
-									
-										<figure style="margin:4px;"  >
-														<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
-															<img  width="100%" height="100%" src="{{$entertainmentinfo1->videopath}}" /> -->
-														
-															<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img1"/>
-									
-
-															</figure>
-								
-
-										
-
-										<h3>{{$entertainmentinfo1->posttitle}}</h3>
-										
-									
-									</a>
-                                </li>
-							
-
-						@endforeach
-                    </ul>	
-						
-					
-					
-						
-        </div>			
+			<div class="tab-content">
+				<div id="home" class="tab-pane fade in active">
 				
-	</div>
-</section>
+				
+					<div>
+						
+							@php 
+									
+									
+								$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date DESC LIMIT 4) AS temptable  LIMIT 4'));
 
+							@endphp
+
+							@foreach($entertainmentinfo1 as $entertainmentinfo1)
+							
+							<div class="trilers" >
+								
+								
+								<?php
+									$video = $entertainmentinfo1->videopath;
+									$vidoeurl = explode("https://www.youtube.com/embed/", $video);
+									//var_dump($vidoeurl);
+									$shortcode = $vidoeurl['1'];
+									?>
+							
+										<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}"  class="col-3 col-md-3 col-xl-3 col-lg-3">
+										<div>
+											<figure style="margin:4px;"  >
+															<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
+																<img  width="100%" height="100%" src="{{$entertainmentinfo1->videopath}}" /> -->
+															
+																<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img1"/>
+										
+
+																</figure>
+									
+
+											
+											<div style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">  
+										
+											<h3>{{$entertainmentinfo1->posttitle}}</h3>
+											</div>
+										</div>
+										</a>
+							
+							</div>	
+
+							@endforeach
+					
+							
+						
+						
+							
+					
+					</div>
+				</div>
+			
+			
+				<div id="me1" class="tab-pane fade">
+				
+				
+					<div >
+					
+					
+					
+				
+					
+
+
+					       @php 
+									
+									
+								$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date ASC LIMIT 4) AS temptable  LIMIT 4'));
+
+							@endphp
+					
+							@foreach($entertainmentinfo1 as $entertainmentinfo1)
+							
+							<div class="trilers" >
+								
+								
+								<?php
+									$video = $entertainmentinfo1->videopath;
+									$vidoeurl = explode("https://www.youtube.com/embed/", $video);
+									//var_dump($vidoeurl);
+									$shortcode = $vidoeurl['1'];
+									?>
+							
+										<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}"  class="col-3 col-md-3 col-xl-3 col-lg-3">
+											<div>
+											<figure style="margin:4px;"  >
+															<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
+																<img  width="100%" height="100%" src="{{$entertainmentinfo1->videopath}}" /> -->
+															
+																<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img1"/>
+										
+
+																</figure>
+									
+
+											
+											<div style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">  
+										
+											<h3>{{$entertainmentinfo1->posttitle}}</h3>
+											</div>
+										</div>
+										</a>
+							
+							</div>	
+
+							@endforeach
+					
+							
+						
+						
+							
+					
+					</div>
+				
+				
+					
+				</div>
+            
+			    <div id="me2" class="tab-pane fade">
+				
+				
+					<div >
+					
+					
+					
+				
+					
+
+
+					       @php 
+									
+									
+								$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date DESC LIMIT 4) AS temptable  LIMIT 4'));
+
+							@endphp
+					
+							@foreach($entertainmentinfo1 as $entertainmentinfo1)
+							
+							<div class="trilers" >
+								
+								
+								<?php
+									$video = $entertainmentinfo1->videopath;
+									$vidoeurl = explode("https://www.youtube.com/embed/", $video);
+									//var_dump($vidoeurl);
+									$shortcode = $vidoeurl['1'];
+									?>
+							
+										<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}"  class="col-3 col-md-3 col-xl-3 col-lg-3">
+											<div>
+											<figure style="margin:4px;"  >
+															<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
+																<img  width="100%" height="100%" src="{{$entertainmentinfo1->videopath}}" /> -->
+															
+																<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img1"/>
+										
+
+																</figure>
+									
+
+											
+											<div style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">  
+										
+											<h3>{{$entertainmentinfo1->posttitle}}</h3>
+											</div>
+										</div>
+										</a>
+							
+							</div>	
+
+							@endforeach
+					
+							
+						
+						
+							
+					
+					</div>
+				
+				
+					
+				</div>
+               
+				<div id="me3" class="tab-pane fade">
+				
+				
+					<div >
+					
+					
+					
+				
+					
+
+
+					       @php 
+									
+									
+								$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date ASC LIMIT 4) AS temptable  LIMIT 4'));
+
+							@endphp
+					
+							@foreach($entertainmentinfo1 as $entertainmentinfo1)
+							
+							<div class="trilers" >
+								
+								
+								<?php
+									$video = $entertainmentinfo1->videopath;
+									$vidoeurl = explode("https://www.youtube.com/embed/", $video);
+									//var_dump($vidoeurl);
+									$shortcode = $vidoeurl['1'];
+									?>
+							
+										<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}"  class="col-3 col-md-3 col-xl-3 col-lg-3">
+											<div>
+											<figure style="margin:4px;"  >
+															<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
+																<img  width="100%" height="100%" src="{{$entertainmentinfo1->videopath}}" /> -->
+															
+																<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img1"/>
+										
+
+																</figure>
+									
+
+											
+											<div style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">  
+										
+											<h3>{{$entertainmentinfo1->posttitle}}</h3>
+											</div>
+										</div>
+										</a>
+							
+							</div>	
+
+							@endforeach
+					
+							
+						
+						
+							
+					
+					</div>
+				
+				
+					
+				</div>
+            
+			    
+			</div>
+		
+			
+        
+	</section>
+
+
+
+
+
+
+			
 		<!--Entertainment & Sports-->
 		<section class="container equal-height padding-top-none clear">
 			<aside class="content left">
@@ -805,14 +888,11 @@ function openCity(evt, cityName) {
 					?>
 						
 						<li>
-						<p style="padding-left:10px;">{{$entertainmentinfo->user}} <span style="font-size:10px;">{{$entertainmentinfo->published_date}}</span></p>
 							<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
-							 
 							<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
 							<figcaption>
 								<h3>{{$entertainmentinfo->posttitle}}</h3>
-								
-            
+								<h5>Celebrity Gossip</h5>
 							</figcaption>
 							</a>
 							<button style="float:right; position: relative; bottom: 40px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">

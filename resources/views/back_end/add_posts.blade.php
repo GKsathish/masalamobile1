@@ -25,7 +25,7 @@
         
    </div>
    
-   <?php $email = Session::get('email'); ?>
+   <?php  echo  $email = Session::get('email'); ?>
                    </div>
                </div>
                <!-- end row -->
@@ -83,7 +83,7 @@
                        </div>
                        
                         
-   
+                       <?php  echo  $email = Session::get('email'); ?>
                        <div class="col-md-6 form-group">
                            <label>Status</label>
                            <select class="form-control" name="status">
@@ -153,6 +153,39 @@
                         <label>UploadedBy</label>
                         <input type="text" class="form-control" required placeholder="Uploaded_by" name="uploaded_by"/>
                     </div>
+                  
+
+                        <div class="col-md-6 form-group">
+                        <label>USER</label>
+        
+                        <?php if($email = "info@masalamobile.com"){
+
+
+                      ?>
+                            <select class="form-control" name="user">
+                            
+                                <option value="">Select</option>
+                                <option value="Amalu">Amalu</option>
+                                <option value="Deepa">Deepa</option>
+                                
+                            
+                            </select>
+                                <?php } else {  ?>
+                                
+                                    <select class="form-control" name="user">
+                                   
+                                    <option value="MM Authors">MM Authors</option>
+
+                                </select>
+                                <?php } ?>
+                               
+                               
+
+                        
+
+                                    
+        
+                            </div>
                   </div>
                     <div class="row">
                        

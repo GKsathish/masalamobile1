@@ -118,6 +118,10 @@ Route::get('/Hindi', function () {
     return view('front_end.Hindi');
 });
 
+Route::get('/index27', function () {
+    return view('front_end.index27');
+});
+
 Route::get('contact-us', function () {
     return view('front_end.contact-us');
 });

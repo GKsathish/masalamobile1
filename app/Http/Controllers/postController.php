@@ -35,6 +35,7 @@ public function new_post(Request $request)
     $date = Carbon::now()->toDateTimeString();
     $category = $request->input('category');
     $title = $request->input('title');
+    $user = $request->input('user');
     $description = $request->input('description');
     $rss = $request->input('rss');
     $status = $request->input('status');
@@ -71,7 +72,7 @@ public function new_post(Request $request)
          }
          
          
-        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink, 'posttitle' => $title,'uploaded_by'=>$uploaded,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'published_date' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);    
+        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink,'user'=>$user, 'posttitle' => $title,'uploaded_by'=>$uploaded,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'published_date' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);    
      
      
         $RId = DB::getPdo()->lastInsertId();
@@ -111,7 +112,7 @@ public function new_post(Request $request)
     {
         
         
-        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink,'uploaded_by'=>$uploaded, 'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'updated_at' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);
+        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink,'uploaded_by'=>$uploaded,'user'=>$user, 'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'updated_at' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);
     }
     // if($noti_input == '1')
     // {

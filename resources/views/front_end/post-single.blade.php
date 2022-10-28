@@ -154,7 +154,7 @@ $metaurl = "https://mobilemasala.com/";*/
    
 	<div class="container post-content left">
     	<div class="post-content-inner clear">
-        <h3>{{$feed->uploaded_by}}</h3>
+        <h3><span style="font-size:28px;color:blue; margin-right:20px;">{{$feed->user}}</span> {{$feed->published_date}}</h3> 
             <h1>{{$feed->posttitle}}</h1>
            <div class="postview-and-time clear">
            @if($feed->published_date != "")

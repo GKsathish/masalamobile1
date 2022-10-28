@@ -71,7 +71,66 @@
 
                             </div>
                             @endif
-                            
+                            <div class="form-group text-center">
+                                <form action="paparazzi" method="GET">
+                                
+                                    <div class="row border p-3" style="background-color:lightgrey;">
+                                    <div class="col-md-1 mt-2">
+                                    <label class="m-auto text-dark" >Filters :</label>
+                                </div>
+                                <div class="col-md-3">
+                               
+                                @php
+                                $filter_cate = DB::table('category')->where('post_cate','Yes')->get();
+                                @endphp
+                                <select class="form-control" id="categoryname" name="categoryname">
+                                    <option value="">Select Category</option>
+                                    @foreach ($filter_cate as $filter_cate)
+                                    <option value="{{$filter_cate->categoryid}}" >{{$filter_cate->categoryname}}</option>
+                                    @endforeach
+                                </select> 
+                                </div>
+                                <div class="col-md-3">
+                                
+                                @php
+                                $filter_cate = DB::table('rss')->get();
+                                @endphp
+                                <select class="form-control" id="rssname" name="rssname">
+                                    <option value="rssname">Select RSS</option>
+                                    @foreach ($filter_cate as $filter_cate)
+                                     @php
+                                    $cate_name = DB::table('category')->where('categoryid', $filter_cate->categoryid)->get();
+                                    @endphp
+                                   @foreach($cate_name as $cate_names)
+                                    <option value="{{$filter_cate->rssid}}" >{{$filter_cate->rssname}} - {{$cate_names->categoryname}}</option>
+                                    @endforeach
+                                   
+                                    @endforeach
+                                </select> 
+                                </div>
+                                <div class="col-md-3">
+                               
+                               
+                                <select class="form-control" id="status" name="status">
+                               
+                                    <option value="">Select Status</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Publish">Publish</option>
+                                </select> 
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-info" type="submit">Submit</button>
+                                </div>
+                                
+                                </div>
+                                
+                                </form>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <button class="btn btn-primary" id="publish"><i class="fas fa-globe-americas"></i> Publish</button>
+                                <!-- <button class="btn btn-info"><i class="fa fa-pen"></i> Pending</button>
+                                <button class="btn btn-warning"><i class="fa fa-times"></i> Delete</button> -->
+                            </div>
                             <div class="postsrow ">
                             <table id="datatable"  class="table table-bordered dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
