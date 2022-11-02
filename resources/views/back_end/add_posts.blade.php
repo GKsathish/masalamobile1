@@ -25,7 +25,7 @@
         
    </div>
    
-   <?php  echo  $email = Session::get('email'); ?>
+   <?php $email = Session::get('email'); ?>
                    </div>
                </div>
                <!-- end row -->
@@ -82,18 +82,19 @@
                            </select>
                        </div>
                        
-                        
-                       <?php  echo  $email = Session::get('email'); ?>
-                       <div class="col-md-6 form-group">
-                           <label>Status</label>
-                           <select class="form-control" name="status">
-                               <option value="Pending">Pending</option>
-                               <option value="Publish">Publish</option>
+                             
+                       
+                          <div class="col-md-6 form-group">
+                            <label>User</label>
+                           <select class="form-control" name="email">
+                               <option value="<?php echo $email; ?>"><?php echo $email; ?></option>
+                               
                            </select>
                        </div>
                        
-                       
+                  
                    </div>
+                   
    
                    <div class="row">
                        
@@ -104,7 +105,8 @@
                            <input type="checkbox" id="hotcontent" name="hotcontent" value="Hot Content">
                            <label for=""> Hot Content</label>
                            
-                           
+                           <input type="checkbox" id="gmail" name="gmail" value="Send Gmail">
+                           <label for="">Send Gmail</label>
                        </div>
                        <div class="col-md-6 form-group">
                            <label>Select Images <span style="color:red;font-size:10px;"> (Please Upload Above 500 X 1300 Pixels For Better Quality)</label>
@@ -133,60 +135,27 @@
                                                                <option value="">Select</option>
                                                                <option value="Telugu">Telugu</option>
                                                                <option value="Hindi">Hindi</option>
-                                                             
+                                                               <option value="Tamil">Tamil</option>
                                                                <option value="English">English</option>
                                                            </select>
    
                                                           
                                                        </div>
-                       
-                         <div class="col-md-6 form-group">
-                           <label>HashTag</label>
-                           <input type="text" class="form-control"  placeholder="Enter HashTag Name" name="hashtag"/>
                        </div>
-                       
-                    </div>
-
-                    <div class="row">
-
-                    <div class="col-md-6 form-group">
-                        <label>UploadedBy</label>
-                        <input type="text" class="form-control" required placeholder="Uploaded_by" name="uploaded_by"/>
-                    </div>
-                  
-
-                        <div class="col-md-6 form-group">
-                        <label>USER</label>
-        
-                        <?php if($email = "info@masalamobile.com"){
-
-
-                      ?>
-                            <select class="form-control" name="user">
-                            
-                                <option value="">Select</option>
-                                <option value="Amalu">Amalu</option>
-                                <option value="Deepa">Deepa</option>
-                                
-                            
-                            </select>
-                                <?php } else {  ?>
-                                
-                                    <select class="form-control" name="user">
-                                   
-                                    <option value="MM Authors">MM Authors</option>
-
-                                </select>
-                                <?php } ?>
+                       <div class="row">
+                                 <div class="col-md-6 form-group">
+                                   <label>HashTag</label>
+                                   <input type="text" class="form-control"  placeholder="Enter HashTag Name" name="hashtag"/>
+                               </div>
+                               <div class="col-md-6 form-group">
+                                   <label>Status</label>
+                                   <select class="form-control" name="status">
+                                       <option value="Pending">Pending</option>
+                                       <option value="Publish">Publish</option>
+                                   </select>
+                               </div>
                                
-                               
-
-                        
-
-                                    
-        
-                            </div>
-                  </div>
+                       </div>
                     <div class="row">
                        
                        <div class="col-md-12 form-group">

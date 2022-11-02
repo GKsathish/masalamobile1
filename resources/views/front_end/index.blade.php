@@ -30,16 +30,21 @@
 		padding: 10px;
 				
 	}
-	.img1{
-		height:100%;
-		width:100%;
+
+	.img1{	
+    width: 300px;
+    height:200px;
+    vertical-align: middle;
+    border-radius: 8px;
+    
+}
 		
-	}
+	
 	@media only screen and (max-width:920px) {
 		
 	
 	.trilers{
-		display: grid;
+	display: grid;
 	
 	align-content: space-evenly;
 	grid-template-columns: auto auto ;
@@ -49,6 +54,7 @@
 		
 	
 	}
+	
 
 	}
 	.hashtag{
@@ -500,7 +506,8 @@ function openCity(evt, cityName) {
 		
 				
 <section class="container random-posts padding-top-none clear "> 
-
+<h2 ><span><a href="paparazzi-details&18?lang=English">Trailers & Teasers</a></span></h2>
+			
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script>
   $( function() {
@@ -524,7 +531,7 @@ function openCity(evt, cityName) {
 							$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date DESC LIMIT 4) AS temptable  LIMIT 4'));
 
 						@endphp
-				    <ul  class="trilers" >
+				    <div class="trilers" >
 						@foreach($entertainmentinfo1 as $entertainmentinfo1)
 						
 						
@@ -536,8 +543,8 @@ function openCity(evt, cityName) {
 								//var_dump($vidoeurl);
 								$shortcode = $vidoeurl['1'];
 								?>
-						        <li>
-									<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}">
+						        
+									<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}&lang='English'">
 									
 										<figure style="margin:4px;"  >
 														<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
@@ -555,11 +562,11 @@ function openCity(evt, cityName) {
 										
 									
 									</a>
-                                </li>
+                                
 							
 
 						@endforeach
-                    </ul>	
+                    </div>	
 						
 					
 					
@@ -576,7 +583,7 @@ function openCity(evt, cityName) {
 							$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date DESC LIMIT 4) AS temptable  LIMIT 4'));
 
 						@endphp
-				    <ul  class="trilers" >
+				    <div  class="trilers" >
 						@foreach($entertainmentinfo1 as $entertainmentinfo1)
 						
 						
@@ -588,8 +595,8 @@ function openCity(evt, cityName) {
 								//var_dump($vidoeurl);
 								$shortcode = $vidoeurl['1'];
 								?>
-						        <li>
-									<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}">
+						        
+									<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}&lang=' '">
 									
 										<figure style="margin:4px;"  >
 														<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
@@ -607,11 +614,11 @@ function openCity(evt, cityName) {
 										
 									
 									</a>
-                                </li>
+                                
 							
 
 						@endforeach
-                    </ul>	
+                    </div>	
 						
 					
 					
@@ -628,7 +635,7 @@ function openCity(evt, cityName) {
 							$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date DESC LIMIT 4) AS temptable  LIMIT 4'));
 
 						@endphp
-				    <ul  class="trilers" >
+				    <div  class="trilers" >
 						@foreach($entertainmentinfo1 as $entertainmentinfo1)
 						
 						
@@ -640,8 +647,7 @@ function openCity(evt, cityName) {
 								//var_dump($vidoeurl);
 								$shortcode = $vidoeurl['1'];
 								?>
-						        <li>
-									<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}">
+						    									<a href="paparazzi-post&id={{$entertainmentinfo1->postid}}&lang='English'">
 									
 										<figure style="margin:4px;"  >
 														<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
@@ -659,11 +665,11 @@ function openCity(evt, cityName) {
 										
 									
 									</a>
-                                </li>
+                                
 							
 
 						@endforeach
-                    </ul>	
+                    </div>	
 						
 					
 					
@@ -1246,7 +1252,7 @@ function openCity(evt, cityName) {
 		
 		<section class="container padding-top-none clear">
 			<aside class="content left">
-				<h2><a href="post-content&id=4"><span>Movies</span></a></h2>
+				<h2><a href="post-content&id=4&lang=English"><span>Movies</span></a></h2>
 				<div class="grid clear">
 						@php 
 						$entertainmentinfo = DB::table('post')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 

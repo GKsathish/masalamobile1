@@ -158,6 +158,8 @@ $metaurl = "https://mobilemasala.com/";*/
             <h1>{{$feed->posttitle}}</h1>
            <div class="postview-and-time clear">
            @if($feed->published_date != "")
+
+           
 				<span class="left" ><i class="fa fa-eye"></i><?php
 
 

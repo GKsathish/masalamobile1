@@ -33,9 +33,9 @@ public function new_post(Request $request)
           }
 
     $date = Carbon::now()->toDateTimeString();
- 
     $category = $request->input('category');
     $title = $request->input('title');
+    // $user = $request->input('user');
     $description = $request->input('description');
     $rss = $request->input('rss');
     $status = $request->input('status');
@@ -48,6 +48,7 @@ public function new_post(Request $request)
     $noti_input = $request->input('notification');
     $email = $request->input('email');
     $hashtag = trim($request->input('hashtag'));
+    $uploaded = $request->input('uploaded_by');
     $language = trim($request->input('language'));
     
     $gmail = trim($request->input('gmail'));
@@ -66,12 +67,12 @@ public function new_post(Request $request)
          
          foreach ($re as $value) {
              
-             DB::table('hashtags')->insert(['postid' =>'$title','hashtag' => $value,'cdt' => $date]);
+             DB::table('hashtags')->insert(['postid' =>$title,'hashtag' => $value,'language'=>$language,'cdt' => $date]);
             
          }
          
          
-        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink,'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'published_date' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);    
+        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink, 'posttitle' => $title,'uploaded_by'=>$uploaded,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'published_date' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);    
      
      
         $RId = DB::getPdo()->lastInsertId();
@@ -111,7 +112,7 @@ public function new_post(Request $request)
     {
         
         
-        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink, 'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'updated_at' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);
+        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink,'uploaded_by'=>$uploaded,'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'updated_at' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);
     }
     // if($noti_input == '1')
     // {
@@ -132,25 +133,6 @@ public function new_post(Request $request)
 }
 public function add_new_paparazzi_post(Request $request)
     {
-        
-        
-         function generate_uuid() {
-            return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
-                mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),
-                mt_rand( 0, 0xffff ),
-                mt_rand( 0, 0x0C2f ) | 0x4000,
-                mt_rand( 0, 0x3fff ) | 0x8000,
-                mt_rand( 0, 0x2Aff ), mt_rand( 0, 0xffD3 ), mt_rand( 0, 0xff4B )
-            );
-          
-          }
-    
-          $idd = generate_uuid();
-          $images="";
-          if(move_uploaded_file($_FILES["images"]["tmp_name"], "image/post-img/" .$_FILES["images"]["name"]))
-          {
-            $images= "image/post-img/" . $_FILES["images"]["name"];
-          }
 
     $date = Carbon::now()->toDateTimeString();
     $title = $request->input('title');
@@ -163,13 +145,12 @@ public function add_new_paparazzi_post(Request $request)
     
     $category = $request->input('category');
     
-    
     if($status == 'Publish')
     {
-        DB::table('paparazzi_post')->insert(['postlink' => $postlink, 'posttitle' => $title, 'imagepath' => "https://mobilemasala.com/".$images,'description' => $description,'videopath' =>$video_link ,'status' => $status,'created_at' => $date,'published_date' => $date,'trending_now' => $trending,'cat_type' => $category]);
+        DB::table('paparazzi_post')->insert(['postlink' => $postlink, 'posttitle' => $title,'description' => $description,'videopath' =>$video_link ,'status' => $status,'created_at' => $date,'published_date' => $date,'trending_now' => $trending,'cat_type' => $category]);
     }
     else{
-        DB::table('paparazzi_post')->insert(['postlink' => $postlink, 'posttitle' => $title,'description' => $description, 'imagepath' => "https://mobilemasala.com/".$images,'videopath' =>$video_link ,'status' => $status,'created_at' => $date,'trending_now' => $trending,'cat_type' => $category]);
+        DB::table('paparazzi_post')->insert(['postlink' => $postlink, 'posttitle' => $title,'description' => $description,'videopath' =>$video_link ,'status' => $status,'created_at' => $date,'trending_now' => $trending,'cat_type' => $category]);
     }
     return redirect('paparazzi')->with('success', 'Paparazzi Posts Added Successfully'); 
 }
@@ -248,7 +229,7 @@ public function edit_post(Request $request)
          
                      foreach ($re as $value) {
                          
-                         DB::table('hashtags')->insert(['postid' =>$title,'hashtag' => $value,'cdt' => $date]);
+                         DB::table('hashtags')->insert(['postid' =>$title,'hashtag' => $value,'language'=>$language,'cdt' => $date]);
                         
                      }
                 

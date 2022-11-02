@@ -7,16 +7,34 @@ $hitcount_value = DB::table('paparazzi_post')->where('postid', $feed->postid)->t
 DB::table('paparazzi_post')->where('postid', $feed->postid)->take(1)->update(['hitcount' => $hitcount->hitcount + 1]);
 @endphp
 @endforeach
+<?php  $lang = $feed->language;?>
 
-@extends('front_end.header')
+
+@extends('front_end.langHeader')
+
 @section('content')
 
 <header class="entry-nav clear">
 	<ul>
-		<li><a href="/">Home</a></li>
-      
-		<li>Paparazzi</li>
-       
+    <?php if($lang=="English" || $lang==""){?>
+            <li><a href="/">Home</a></li>
+            <li>Paparazzi</li>
+        <?php }?>
+
+        <?php if($lang=="Hindi"){?>
+            <li><a href="/Hindi">होम
+</a></li>
+<li>Paparazzi</li>
+        <?php }?>
+         <?php if($lang=="Telugu"){?>
+            <li><a href="/Telugu">
+                హోమ్
+
+</a></li>
+		
+<li>Paparazzi</li>
+		
+       <?php }?>
 	</ul>
 </header>
 
@@ -261,14 +279,26 @@ $feed_date = $feed->published_date;
 	</aside>
 	<!-- <div class="ads clear"><img src="assets/front_end/images/g6.jpg" /></div>	 -->
     <div class="container related-post clear">
-		<h2><span>Related Posts</span></h2>
-       
+    <?php if($lang == "Hindi"){?>
+		<h2><span>रिलेटेड पोस्ट्स</span></h2>
+        <?php }?>
+        <?php if($lang == ""|| $lang =="English"){?>
+        <h2><span>Related posts</span></h2>
+        <?php }?>
+        
+	
+        <?php if($lang == "Telugu"){?>
+        <h2><span> రిలేటెడ్  పోస్ట్స్ </span></h2>
+        
+        <?php }?>
+        
         <ul>
         @php 
-        $entertainmentinfo = DB::table('paparazzi_post')->where('postid', '<>', $feed->postid)->where('status','Publish')->orderBy('published_date','desc')->skip(4)->take(12)->get(); 
+        $entertainmentinfo = DB::table('paparazzi_post')->where('postid', '<>', $feed->postid)->where('status','Publish')->where('language',$feed->language)->orderBy('published_date','desc')->skip(4)->take(12)->get(); 
         @endphp
         @foreach($entertainmentinfo as $entertainmentinfo)
-       
+      
+          <?php if($lang =="" ||$lang =="Telugu"){?>
             <li>
 				<a href="#" title="">
                
@@ -284,6 +314,27 @@ $feed_date = $feed->published_date;
                     <p></p>
             	</a>
             </li>
+         
+         <?php }?>
+         <?php if($lang =="Hindi"){?>
+            <li>
+				<a href="#" title="">
+               
+                    	<h5>Paparazzi</h5>
+                    <figure >
+                    <iframe width="100%" height="150" src="{{$entertainmentinfo->videopath}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </figure>
+            	</a>
+            	<a href="paparazzi-post&id={{$entertainmentinfo->postid}}" title="">
+                    <h3>{{$entertainmentinfo->posttitle}}</h3>
+            	</a>
+            	<a href="paparazzi-post&id={{$entertainmentinfo->postid}}" title="">
+                    <p></p>
+            	</a>
+            </li>
+         
+         <?php }?>
+
          @endforeach
         </ul>
        

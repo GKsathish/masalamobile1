@@ -52,6 +52,7 @@ class addrsspostsController extends BaseController
                     'imagepath' =>  $imagepath,
                     'rssid' => $rssdata->rssid,
                     'status' => 'Pending',
+                    'writer' => 'HT Articles',
                     ]);
                 }
                 else
