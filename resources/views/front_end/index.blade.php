@@ -19,44 +19,111 @@
 	  
 	   
 	} */
-	.trilers{
-	
-		display: grid;
-	
-		align-content: space-evenly;
-		grid-template-columns: auto auto auto auto;
-		gap: 10px;
-
-		padding: 10px;
-				
-	}
-
-	.img1{	
-    width: 300px;
-    height:200px;
-    vertical-align: middle;
-    border-radius: 8px;
+	.tr-cont li {
     
+    width:10% !important;
+    font-size:14px !important;
+    font-weight:bold;
 }
-		
-	
-	@media only screen and (max-width:920px) {
-		
-	
-	.trilers{
+
+.ct{
+        display: block;
+    font-size: 14px;
+    margin:2px;
+        line-height: 18px;
+
+
+    font-weight: bold;
+   
+       width: 100%;
+    height:40px;
+    
+    word-break:break-all;
+    
+
+}
+
+.trilers{
 	display: grid;
 	
-	align-content: space-evenly;
-	grid-template-columns: auto auto ;
-	gap: 5px;
+	grid-template-columns: repeat(4,1fr) ;
+	width:100%;
+		
+        gap:10px;
+	margin-top: 10px;
+	
+	}
+.img2{	
+    width: 100% ;
+    height:100% ;
+    vertical-align: middle;
+    border-radius: 4px;
+    
+}
+/*.thead{*/
+    
+/*    margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 1;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;*/
+/*}*/
+	@media only screen and (max-width:920px) {
 
-	padding: 1px;
+	.tr-cont li  {
+	padding:20px;
+    
+    width:32% !important;
+     
+
+	
+}
+..tr-cont li a{
+    
+    width:32% !important;
+
+    
+	text-decoration: underline  !important;
+	
+}
+	.trilers{
+		display: grid;
+	
+	grid-template-columns: repeat(2,1fr) ;
+	width:100%;
+	float:left;
+		margin-top: 10px;
+	
 		
 	
 	}
 	
+	.img2{	
+    width: 100%;
+    height:100%;
+    vertical-align: middle;
+
+    
+}
+
+.ct{
+    /*    display: block;*/
+    /*font-size: 12px;*/
+
+    /*font-weight: bold;*/
+     width: 100%;
+    height:40px;
+        display: block;
+    font-size: 14px;
+    margin-top:10px;
+        line-height: 18px;
+
+    word-break:break-all;
+    font-weight: bold;
+    
+    
+}
 
 	}
+	
+	
+	
 	.hashtag{
 		width: 90%;
 	
@@ -506,7 +573,7 @@ function openCity(evt, cityName) {
 		
 				
 <section class="container random-posts padding-top-none clear "> 
-<h2 ><span><a href="paparazzi-details&18?lang=English">Trailers & Teasers</a></span></h2>
+<h2 ><span><a href="paparazzi-details">Trailers & Teasers</a></span></h2>
 			
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script>
@@ -517,7 +584,7 @@ function openCity(evt, cityName) {
   
   </script>
 	<div id="tabs">
-  <ul>
+  <ul class="tr-cont">
     <li><a href="#tabs-1">All</a></li>
     <li><a href="#tabs-2">Hindi</a></li>
     <li><a href="#tabs-3">Telugu</a></li>
@@ -550,7 +617,7 @@ function openCity(evt, cityName) {
 														<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
 															<img  width="100%" height="100%" src="{{$entertainmentinfo1->videopath}}" /> -->
 														
-															<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img1"/>
+															<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img2"/>
 									
 
 															</figure>
@@ -558,7 +625,7 @@ function openCity(evt, cityName) {
 
 										
 
-										<h3>{{$entertainmentinfo1->posttitle}}</h3>
+										<h3 class="ct">{{$entertainmentinfo1->posttitle}}</h3>
 										
 									
 									</a>
@@ -580,7 +647,7 @@ function openCity(evt, cityName) {
 						@php 
 								
 								
-							$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date DESC LIMIT 4) AS temptable  LIMIT 4'));
+							$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE  cat_type="paparazzi"   ORDER BY published_date ASC LIMIT 4) AS temptable  LIMIT 4'));
 
 						@endphp
 				    <div  class="trilers" >
@@ -602,7 +669,7 @@ function openCity(evt, cityName) {
 														<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
 															<img  width="100%" height="100%" src="{{$entertainmentinfo1->videopath}}" /> -->
 														
-															<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img1"/>
+															<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img2"/>
 									
 
 															</figure>
@@ -610,7 +677,7 @@ function openCity(evt, cityName) {
 
 										
 
-										<h3>{{$entertainmentinfo1->posttitle}}</h3>
+										<h3 class="ct">{{$entertainmentinfo1->posttitle}}</h3>
 										
 									
 									</a>
@@ -653,7 +720,7 @@ function openCity(evt, cityName) {
 														<!-- <iframe src="{{$entertainmentinfo->videopath}}" frameborder="0"></iframe>
 															<img  width="100%" height="100%" src="{{$entertainmentinfo1->videopath}}" /> -->
 														
-															<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img1"/>
+															<img src="https://img.youtube.com/vi/<?php echo $shortcode; ?>/default.jpg" class="img2"/>
 									
 
 															</figure>
@@ -661,7 +728,7 @@ function openCity(evt, cityName) {
 
 										
 
-										<h3>{{$entertainmentinfo1->posttitle}}</h3>
+										<h3 class="ct">{{$entertainmentinfo1->posttitle}}</h3>
 										
 									
 									</a>
@@ -1006,7 +1073,7 @@ function openCity(evt, cityName) {
 			<!--Paparazzi-->
 		
 		<section class="container random-posts padding-top-none clear" >
-			<h2><a href="Video-stories-details"><span>VIDEO STORIES</span></a></h2>
+			<h2><a href="paparazzi-details"><span>VIDEO STORIES</span></a></h2>
 			<div id="randomposts">
 				
 			

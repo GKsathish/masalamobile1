@@ -1,30 +1,8 @@
-
-
-
-
-
-
-
-	
-
-<?php  echo   $langnn = $_SERVER['REQUEST_URI'];?>
-
-
-@extends('front_end.langHeader')
-
-
-
-
-
+@extends('front_end.header1')
 @section('content')
-
-
-	
-	
-	 
 <section class="container random-posts padding-top-none clear">
  		<h2><span>Paparazzi</span></h2>
-		<div id="randomposts">
+		<div id="randomposts">	
 		<ul class="clear">
 				@php 
 				$entertainmentinfo = DB::table('paparazzi_post')->where('cat_type','paparazzi')->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(100)->get(); 

@@ -10,7 +10,7 @@
     $paparazzi_permit_edit = '';
     $paparazzi_permit_delete = '';
     $paparazzi_permit_add = '';
-    $paparazzi_access_details = DB::table('permissions')->where('role_id', $roleid)->where('module_id','6')->get();
+    $paparazzi_access_details = DB::table('permissions')->where('role_id', $roleid)->where('module_id','2')->get();
     
     foreach($paparazzi_access_details as $permit)
     {
@@ -72,58 +72,45 @@
                             </div>
                             @endif
                             <div class="form-group text-center">
-                                <form action="paparazzi" method="GET">
-                                
+                                <form action="paparazzi" method="POST">
+                                    @CSRF
                                     <div class="row border p-3" style="background-color:lightgrey;">
-                                    <div class="col-md-1 mt-2">
-                                    <label class="m-auto text-dark" >Filters :</label>
-                                </div>
-                                <div class="col-md-3">
-                               
-                                @php
-                                $filter_cate = DB::table('category')->where('post_cate','Yes')->get();
-                                @endphp
-                                <select class="form-control" id="categoryname" name="categoryname">
-                                    <option value="">Select Category</option>
-                                    @foreach ($filter_cate as $filter_cate)
-                                    <option value="{{$filter_cate->categoryid}}" >{{$filter_cate->categoryname}}</option>
-                                    @endforeach
-                                </select> 
-                                </div>
-                                <div class="col-md-3">
-                                
-                                @php
-                                $filter_cate = DB::table('rss')->get();
-                                @endphp
-                                <select class="form-control" id="rssname" name="rssname">
-                                    <option value="rssname">Select RSS</option>
-                                    @foreach ($filter_cate as $filter_cate)
-                                     @php
-                                    $cate_name = DB::table('category')->where('categoryid', $filter_cate->categoryid)->get();
-                                    @endphp
-                                   @foreach($cate_name as $cate_names)
-                                    <option value="{{$filter_cate->rssid}}" >{{$filter_cate->rssname}} - {{$cate_names->categoryname}}</option>
-                                    @endforeach
-                                   
-                                    @endforeach
-                                </select> 
-                                </div>
-                                <div class="col-md-3">
-                               
-                               
-                                <select class="form-control" id="status" name="status">
-                               
-                                    <option value="">Select Status</option>
-                                    <option value="Pending">Pending</option>
-                                    <option value="Publish">Publish</option>
-                                </select> 
-                                </div>
-                                <div class="col-md-2">
-                                    <button class="btn btn-info" type="submit">Submit</button>
-                                </div>
-                                
-                                </div>
-                                
+                                        <div class="col-md-1 mt-2">
+                                            <label class="m-auto text-dark">Filters :</label>
+                                        </div>
+                                        <div class="col-md-3">
+
+                                            @php
+                                            $filter_cate = DB::table('paparazzi_post')->where('postid','DESC')->get();
+                                            @endphp
+                                            <select class="form-control" id="filtercategoryname" name="categoryname">
+                                                <option value="">Select Category</option>
+                                               
+                                                   
+                                                    <option value="{{$filter_cate->categoryid}}">paparazzi</option>
+                                                    <option value="{{$filter_cate->categoryid}}">VideoStories</option>
+                                                    <option value="{{$filter_cate->categoryid}}">Trailers</option>
+                                                
+                                                    
+                                            
+                                            </select>
+                                        </div>
+                                       
+                                        <div class="col-md-3">
+
+
+                                            <select class="form-control" id="" name="status">
+                                                <option value="">Select Status</option>
+                                                <option value="Pending">Pending</option>
+                                                <option value="Publish">Publish</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-info" type="submit">Submit</button>
+                                        </div>
+
+                                    </div>
+
                                 </form>
                             </div>
                             <div class="col-md-12 mb-3">
@@ -137,6 +124,7 @@
                                 <thead>
                                     <tr style="text-align:center">
                                         <th>S.No</th>
+                                        <th>Category</th>
                                         <th>Paparazzi Title</th>
                                         <th>Video Link</th>
                                         <th>Status</th>
@@ -161,6 +149,7 @@
                                         <tr style="text-align:center">
                                            
                                             <td style="max-width:10px;">{{$i}}</td>
+                                            <td>{{$row->cat_type}}</td>
                                             <td>{{$row->posttitle}}</td>
                                             <td>{{$row->videopath}}</td>
                                             <td>
