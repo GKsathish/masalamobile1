@@ -41,15 +41,13 @@ DB::table('paparazzi_post')->where('postid', $feed->postid)->take(1)->update(['h
 	</ul>
 </header>
 
-
-
 <div class="entry-content">
 
 
-<!-- 
+
 	<div class="ads">
         <!-- <img src="assets/front_end/images/g8.jpg" /> -->
-        <!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
         <div id="gpt-passback-mobilemasala.com.Banner0.1638192042">
             <script>
                 window.googletag = window.googletag || {cmd: []};
@@ -58,9 +56,9 @@ DB::table('paparazzi_post')->where('postid', $feed->postid)->take(1)->update(['h
                     googletag.enableServices();
                     googletag.display("gpt-passback-mobilemasala.com.Banner0.1638192042");
                 });
-            </script> -->
-        <!-- </div> -->
-    <!-- </div>	 --> -->
+            </script>
+        </div>
+    </div>	
    
 	<div class="container post-content left">
     	<div class="post-content-inner clear">
@@ -110,10 +108,6 @@ $feed_date = $feed->published_date;
 @endif
                 <span class="left"><i class="fa fa-eye"></i>{{$feed->hitcount}} View</span>
 			</div>
-            
-            <div class="video-wrap">
-  
-  
             <?php
                 $video = $feed->videopath . "?autoplay=1";
 
@@ -123,19 +117,13 @@ $feed_date = $feed->published_date;
                 $shortcode = $vidoeurl['1'];
 
                 ?>
+                <div class="video-str">
+                    <figure>
 
-                        <iframe id="vid_frame2"   class="video"width="100%" height="700" src="{{$video}}" id="mob_paparazzi_main" allow="accelerometer; autoplay=1; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-                    
 
-
-</div> 
-
-              
-                    
-
-                    <!-- <figure class="content-media content-media--video" id="featured-media">
-      <iframe class="content-media__object" id="featured-video" src="https://www.youtube.com/embed/SF4aHwxHtZ0?enablejsapi=1&rel=0&showinfo=0&controls=0" frameborder="0"></iframe>
-    </figure> -->
+                        <iframe id="vid_frame2"   class="video"width="100%" height="700" src="{{$video}}" id="mob_paparazzi_main" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </figure>
+                </div>
             <div class="clear"></div>
             <aside class="post-content-inner-postdetails left">
             <?php if($feed->published_date != '') { ?>
@@ -229,7 +217,7 @@ $feed_date = $feed->published_date;
 				</div>	
 </section>
 <div style="text-align:center;">
-	    <!-- <div class="ads">
+	    <div class="ads">
 			<!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
 			<div id="gpt-passback-MRMTF">
 			  <script>
@@ -242,8 +230,8 @@ $feed_date = $feed->published_date;
 			    });
 			  </script>
 			</div></div>	 -->
-			<!-- </div> -->
-			 -->
+			</div>
+			
 			<!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
 				<div id="gpt-passback-MRBTF001">
 				  <script>
@@ -384,28 +372,6 @@ $feed_date = $feed->published_date;
 
 
 
-    (function($) {
-	var $window = $(window);
-	var $videoWrap = $('.video-wrap');
-	var $video = $('.video');
-	var videoHeight = $video.outerHeight();
-
-	$window.on('scroll',  function() {
-		var windowScrollTop = $window.scrollTop();
-		var videoBottom = videoHeight + $videoWrap.offset().top;
-		
-		if (windowScrollTop > videoBottom) {
-			$videoWrap.height(videoHeight);
-			$video.addClass('stuck');
-		} else {
-			$videoWrap.height('auto');
-			$video.removeClass('stuck');
-		}
-	});
-}(jQuery));
-
-
-   
   </script>
 </div>
 </div>
@@ -422,34 +388,5 @@ $feed_date = $feed->published_date;
 
     
 }
-
-
-@keyframes fade-in-up {
-	 0% {
-		 opacity: 0;
-	}
-	 100% {
-		 transform: translateY(0);
-		 opacity: 1;
-	}
-}
-
-.video iframe {
-	 max-width: 100%;
-	 max-height: 100%;
-}
-
-.video.stuck {
-	 position: fixed;
-	 bottom: 20px;
-	 right: 20px;
-	 width: 260px;
-	 height: 145px;
-	 transform: translateY(100%);
-	 animation: fade-in-up 0.75s ease forwards;
-	z-index: 1;
-}
-
-    
    </style>
 @endsection

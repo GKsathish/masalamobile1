@@ -410,7 +410,7 @@
 	}
 
 	.AV62382721bab93c441117d951{
-		display:none;
+		display:block;
 	}
 	
 
@@ -468,23 +468,38 @@ tabs//
 }
 
 }
+
+@keyframes fade-in-up {
+	 0% {
+		 opacity: 0;
+	}
+	 100% {
+		 transform: translateY(0);
+		 opacity: 1;
+	}
+}
+
+.video iframe {
+	 max-width: 100%;
+	 max-height: 100%;
+}
+
+.video.stuck {
+	 position: fixed;
+	 bottom: 20px;
+	 right: 20px;
+	 width: 260px;
+	 height: 145px;
+	 transform: translateY(100%);
+	 animation: fade-in-up 0.75s ease forwards;
+	z-index: 1;
+}
+
+
+
 	</style>
 	
-	<script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-</script>
+	
 	</head>
 
 
@@ -588,6 +603,8 @@ function openCity(evt, cityName) {
     <li><a href="#tabs-1">All</a></li>
     <li><a href="#tabs-2">Hindi</a></li>
     <li><a href="#tabs-3">Telugu</a></li>
+	<li><a href="#tabs-3">Telugu</a></li>
+	<li><a href="#tabs-3">Telugu</a></li>
   </ul>
 	<div id="tabs-1">
 	
@@ -1092,9 +1109,13 @@ function openCity(evt, cityName) {
 			//var_dump($vidoeurl);
 			$shortcode = $vidoeurl['1'];
 			?>
+<div id='sticky' style='position: fixed; right: 0px; bottom: 0px; margin: 0 auto;width: 100%; background-color: rgba(255, 255, 255, 0.8); border-top: 2px solid rgba(225, 225, 225, 0.8); visibility: hidden; z-index:99999999;'><button id='ad_close' style='color:#000; background-color: hsla(0,0%,100%,.8); border: hsla(0,0%,100%,.8); position:absolute; left : 0px; top : -45px;'>x</button>
+	<div id='gpt-passback-Sticky' style='min-width: 300px; min-height: 50px;text-align: center; display: flex; justify-content:center;'>
+
 			<iframe id="vid_frame2" class="video" width="640" height="360" src="https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
-			
-				<div id ="hidemain_V" class="desc"><p class="descp2"><b>{{$entertainmentinfo->posttitle}}</b></p></div><br>
+	</div>
+			</div>
+						<div id ="hidemain_V" class="desc"><p class="descp2"><b>{{$entertainmentinfo->posttitle}}</b></p></div><br>
 				
 				
 				<div id ="" class="desc"><p id="addtext_V" class="descp2"></p></div><br>
@@ -1423,8 +1444,11 @@ function openCity(evt, cityName) {
 				//var_dump($vidoeurl);
 				$shortcode = $vidoeurl['1'];
 				?>
+				 <div class="video-wrap">
 				<iframe id="vid_frame" class="video" width="640" height="360" src="https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
-				
+				</div>
+
+
 					<div id ="hidemain" class="desc"><p class="descp2"><b>{{$entertainmentinfo->posttitle}}</b></p></div><br>
 					<div id ="" class="desc"><p id="addtext" class="descp2"></p></div><br>
 					
@@ -1528,6 +1552,34 @@ function openCity(evt, cityName) {
 				});
 
 			});
+
+
+			(function($) {
+	var $window = $(window);
+	var $videoWrap = $('.video-wrap');
+	var $video = $('.video');
+	var videoHeight = $video.outerHeight();
+
+	$window.on('scroll',  function() {
+		var windowScrollTop = $window.scrollTop();
+		var videoBottom = videoHeight + $videoWrap.offset().top;
+		
+		if (windowScrollTop > videoBottom) {
+			$videoWrap.height(videoHeight);
+			$video.addClass('stuck');
+		} else {
+			$videoWrap.height('auto');
+			$video.removeClass('stuck');
+		}
+	});
+}(jQuery));
+
+
+   
+
+
+
+
 			</script>
 
 			</div>
@@ -1871,7 +1923,7 @@ function openCity(evt, cityName) {
 		
 	</div>
 	<script async='async' src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
-	<div id='sticky' style='position: fixed; right: 0px; bottom: 0px; margin: 0 auto;width: 100%; background-color: rgba(255, 255, 255, 0.8); border-top: 2px solid rgba(225, 225, 225, 0.8); visibility: hidden; z-index:99999999;'><button id='ad_close' style='color:#000; background-color: hsla(0,0%,100%,.8); border: hsla(0,0%,100%,.8); position:absolute; left : 0px; top : -45px;'>x</button>
+	<div id='sticky' style='position: fixed; right: 0px; bottom: 0px; margin: 0 auto;width: 100%; background-color: rgba(255, 255, 255, 0.8); border-top: 2px solid rgba(225, 225, 225, 0.8); visibility: hidden; y-index:99999999;'><button id='ad_close' style='color:#000; background-color: hsla(0,0%,100%,.8); border: hsla(0,0%,100%,.8); position:absolute; left : 0px; top : -45px;'>x</button>
 	<div id='gpt-passback-Sticky' style='min-width: 300px; min-height: 50px;text-align: center; display: flex; justify-content:center;'>
 	<script>
 		window.googletag = window.googletag || {cmd: []};
@@ -1964,4 +2016,89 @@ function openCity(evt, cityName) {
 	<!--</script>-->
 
 
-	@endsection
+	<div class="tab1">
+  <button id="antrianBtn" class="tablinks" onclick="openCity(event, 'antrian')">Antrian</button>
+  <button id="semuaBtn" class="tablinks" onclick="openCity(event, 'semua')">Semua</button>
+</div>
+
+<div id="antrian" class="tabcontent">
+  <h3>Antrian</h3>
+</div>
+
+<div id="semua" class="tabcontent">
+  <h3>Semua</h3>
+</div>
+
+
+<style>
+
+.tab1 {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f0ff1e;
+  color: black;
+}
+
+
+/* Style the buttons inside the tab */
+
+.tab1 button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+
+/* Change background color of buttons on hover */
+
+.tab1 button:hover {
+  background-color: #ddd;
+}
+
+
+/* Create an active/current tablink class */
+
+.tab1 button.active {
+  background-color: #ccc;
+}
+
+
+/* Style the tab content */
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+
+<script type="text/javascript">
+	document.getElementById('antrian').className = '';
+document.getElementsByClassName('tablinks')[0].className = 'active'
+document.getElementById('antrian').className = 'active';
+
+function openCity(event, city) {
+
+  if (city === 'semua') {
+    document.getElementById('antrian').className = 'tabcontent';
+    document.getElementById('semua').className = '';
+    document.getElementById('antrianBtn').className = '';
+    document.getElementById('semuaBtn').className = 'active';
+  }
+
+  if (city === 'antrian') {
+    document.getElementById('antrian').className = '';
+    document.getElementById('semua').className = 'tabcontent';
+    document.getElementById('antrianBtn').className = 'active';
+    document.getElementById('semuaBtn').className = '';
+  }
+
+}
+</script>	
+@endsection

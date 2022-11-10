@@ -1472,4 +1472,45 @@
 <!--    });-->
 <!--</script>-->
 
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Tab 1</a>
+        </li>
+        <li><a href="#tabs-2">Tab 2</a>
+        </li>
+        <li><a href="#tabs-3">Tab 3</a>
+        </li>
+    </ul>
+    <div id="tabs-1">
+        <p>Content for Tab 1</p>
+    </div>
+    <div id="tabs-2">
+        <p>Content for Tab 2</p>
+    </div>
+    <div id="tabs-3">
+        <p>Content for Tab 3</p>
+    </div>
+</div>
+<div id="tabid"></div>
+
+<style>
+	
+#tabs {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+</style>
+
+<script>
+	$("#tabs").tabs({
+    active: 1,
+    activate: function (event, ui) {
+      var active = $('#tabs').tabs('option', 'active');
+      $("#tabid").html('the tab id is ' + $("#tabs ul>li a").eq(active).attr("href"));
+
+    }
+});
+</script>
 @endsection

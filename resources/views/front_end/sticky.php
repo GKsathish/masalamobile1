@@ -112,8 +112,10 @@ $feed_date = $feed->published_date;
 			</div>
             
             <div class="video-wrap">
-  
-  
+  <!-- <div class="video">
+    <iframe width="600" height="340" src="https://www.youtube.com/embed/0pThnRneDjw" frameborder="0" gesture="media" allowfullscreen></iframe>
+  </div> -->
+<!-- </div> -->
             <?php
                 $video = $feed->videopath . "?autoplay=1";
 
@@ -124,11 +126,11 @@ $feed_date = $feed->published_date;
 
                 ?>
 
-                        <iframe id="vid_frame2"   class="video"width="100%" height="700" src="{{$video}}" id="mob_paparazzi_main" allow="accelerometer; autoplay=1; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="vid_frame2"   class="video"width="100%" height="700" src="{{$video}}" id="mob_paparazzi_main" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
                     
 
 
-</div> 
+              
 
               
                     

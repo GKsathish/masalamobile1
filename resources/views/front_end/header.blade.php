@@ -9,6 +9,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
 <meta charset="UTF-8">
 <meta name="robots" content="max-image-preview:large">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1">
@@ -22,7 +24,7 @@
 
 
 
-
+<link  rel="stylesheet"href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
 
 <meta property="og:url" content="https://mobilemasala.com/" /> 
 <meta property="og:title" content="@yield('title')">
@@ -51,6 +53,8 @@
 <link as="script" rel="preload" href="https://cdn.ampproject.org/v0.js">
 
 
+
+
 <script src="https://cdn.ampproject.org/v0.js" async>
 	
 </script>
@@ -71,6 +75,8 @@
 <link rel="stylesheet" href="{{asset('assets/front_end/css/menu.css')}}" type="text/css"/>
 
 <script type="text/javascript" src="{{asset('assets/front_end/js/menu.js')}}"></script>
+
+
 <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.8.1/css/all.css"></script>
 <script type="text/javascript" src="{{asset('assets/front_end/js/menu.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/front_end/js/jquery.js')}}"></script>
@@ -79,9 +85,9 @@
 <script src="{{asset('assets/front_end/js/amp-story-1.0.js')}}"></script>
 <link href="{{asset('assets/front_end/css/owl.carousel.min.css')}}" rel="stylesheet" type="text/css">
 <link href="{{asset('assets/front_end/css/owl.theme.default.min.css')}}" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<script async id="AV62382721bab93c441117d951" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=62382721bab93c441117d951&AV_PUBLISHERID=6229e046286f660f8b1f0456"></script>
+<script async id="AV62382721bab93c441117d951" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=62382721bab93c441117d951&AV_PUBLISHERID=6229e046286f660f8b1f0456"></script> -->
 
 <script>function myFunction(x){x.classList.toggle("change");}</script>
 <script>

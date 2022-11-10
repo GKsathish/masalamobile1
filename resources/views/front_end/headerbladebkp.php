@@ -44,7 +44,7 @@
 
 
 <link as="script" rel="preload" href="https://cdn.ampproject.org/v0.js">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" ></script>
 
 <script src="https://cdn.ampproject.org/v0.js" async>
 	

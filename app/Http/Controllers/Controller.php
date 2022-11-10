@@ -33,6 +33,18 @@ class Controller extends BaseController
             return view('front_end.paparazzi-post',['details' => $details]);
           }
         
+
+          public function paparazzi_feed1($id){
+            $details =  DB::table('paparazzi_post1')->where('postid',$id)->where('status','Publish')->take(1)->get();
+              
+              return view('front_end.paparazzi-post1',['details' => $details]);
+            }
+            
+            public function paparazzi_feed2($id){
+              $details =  DB::table('paparazzi_post2')->where('postid',$id)->where('status','Publish')->take(1)->get();
+                
+                return view('front_end.paparazzi-post2',['details' => $details]);
+              }
         public function feed_meta(Request $request){
         $details =  DB::table('post')->where('postid',$request->rsstitle)->where('status','Publish')->take(1)->get();
           

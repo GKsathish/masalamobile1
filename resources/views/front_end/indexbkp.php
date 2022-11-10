@@ -302,6 +302,41 @@
 </style>
   
 </head>
+<script>
+$("#tabs1").tabs1({
+    active: 1,
+    activate: function (event, ul) {
+      var active = $('#tabs1').tabs('option', 'active');
+      $("#tabid").html('the tab id is ' + $("#tabs1 ul>li a").eq(active).attr("href"));
+
+    }
+});
+
+
+  </script>
+
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Tab 1</a>
+        </li>
+        <li><a href="#tabs-2">Tab 2</a>
+        </li>
+        <li><a href="#tabs-3">Tab 3</a>
+        </li>
+    </ul>
+    <div id="tabs-1">
+        <p>Content for Tab 1</p>
+    </div>
+    <div id="tabs-2">
+        <p>Content for Tab 2</p>
+    </div>
+    <div id="tabs-3">
+        <p>Content for Tab 3</p>
+    </div>
+</div>
+<div id="tabid"></div>
+  
 
 
 <div class="entry-content">
