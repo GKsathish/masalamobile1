@@ -54,7 +54,7 @@
                 </div>
             </div>
             <!-- end row -->
-            <?php   echo $langnn = $_SERVER['REQUEST_URI'];?>
+            <?php    $langnn = $_SERVER['REQUEST_URI'];?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -157,15 +157,49 @@
            
                
 
-}else{
+} else{
+    
+    if($_GET["categoryname"]=="paparazzi"&& $_GET["status"]=="Publish" ){
                        
                        
 
                       
-                       $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type ='paparazzi' ORDER BY published_date DESC"));
+                       $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type ='paparazzi' and status='Publish' ORDER BY published_date DESC"));
                        
                        
-               } ?>
+               } 
+               
+                if($_GET["categoryname"]=="paparazzi" && $_GET["status"]=="Pending" ){
+                       
+                       
+
+                      
+                $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type ='paparazzi' and status='Pending' ORDER BY published_date DESC"));
+                
+                
+        } 
+
+         if($_GET["categoryname"]=="Video_Stories" && $_GET["status"]=="Publish" ){
+                       
+                       
+
+                      
+            $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type ='Video_Stories' and status='Publish' ORDER BY published_date DESC"));
+            
+            
+    } 
+    
+     if($_GET["categoryname"]=="Video_Stories" && $_GET["status"]=="Pending" ){
+            
+            
+
+           
+     $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type ='Video_Storiess' and status='Pending' ORDER BY published_date DESC"));
+     
+     
+} 
+}
+               ?>
 
 
                                     <?php $i = 1; ?>
