@@ -218,6 +218,8 @@ Route::post('change_password','LoginController@change_password');
 
 // Route::post('postscategory','Controller@postcategoryadmin');
 Route::post('posts','Controller@postcategoryadmin');
+Route::get('paparazzi','Controller@postcategoryadmin_new');
+
 Route::get('get-json','Controller@getjson');
 Route::post('posts-pending','Controller@post_pending');
 Route::get('noti-token-send&id={id}','Controller@getnotitoken');

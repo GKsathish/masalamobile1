@@ -30,9 +30,6 @@
 @section('content')
 
 
-
-
-
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -43,8 +40,7 @@
 
                     </div>
                    
-                   
-                                    @if($paparazzi_permit_add == '1' || $roleid == '0')
+                    @if($paparazzi_permit_add == '1' || $roleid == '0')
                     <div class="col-sm-6 text-right">
                         <button class="btn btn-info" onclick="window.location.href='{{url('add_paparazzi_posts')}}'"  type="button"><i class="fa fa-plus" aria-hidden="true"></i> Add New</button>
                     </div>
@@ -54,7 +50,51 @@
                 </div>
             </div>
             <!-- end row -->
-            <?php   echo $langnn = $_SERVER['REQUEST_URI'];?>
+
+            <div class="form-group text-center">
+                                <form action="paparazzi" method="POST">
+                                @CSRF
+                                    <div class="row border p-3" style="background-color:lightgrey;">
+                                    <div class="col-md-1 mt-2">
+                                    <label class="m-auto text-dark" >Filters :</label>
+                                </div>
+                                <div class="col-md-3">
+                               
+                                @php
+                                $filter_cate = DB::table('paparazzi_post')->where('postid','desc')->get();
+                                @endphp
+                                <select class="form-control" id="categoryname" name="category">
+                                    <option value="">Select Category</option>
+                                    
+                                    <option value="Video_Stories" >Video Stories</option>
+                                    <option value="paparazzi" >Paparazzi</option>
+                                    <option value="trailers" >Trailers</option>
+                                    
+                                </select> 
+                                </div>
+
+                                
+
+                                <div class="col-md-3">
+                               
+                               
+                                <select class="form-control" id="status" name="status">
+                               
+                                    <option value="">Select Status</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Publish">Publish</option>
+                                </select> 
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-info" type="submit">Submit</button>
+                                </div>
+                                
+                                </div>
+                                
+                                </form>
+                            </div>
+
+
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -75,112 +115,44 @@
 
                             </div>
                             @endif
-	
-                            
-                            <div class="form-group text-center">
-                                <form action="paparazzi" method="GET">
-                                    
-                                    <div class="row border p-3" style="background-color:lightgrey;">
-                                        <div class="col-md-1 mt-2">
-                                            <label class="m-auto text-dark">Filters :</label>
-                                        </div>
-                                        <div class="col-md-3">
-
-                                         
-                                            <select class="form-control" id="filtercategoryname" name="categoryname">
-                                                <option value="">Select Category</option>
-                                           
-                                                  
-                                                    <option value="Video_Stories">Videos</option>
-                                                    <option value="paparazzi">Paparazzi</option>
-                                                    
-                                                    
-                                                    
-                                            </select>
-                                        </div>
-                                        
-                                        <div class="col-md-3">
-
-
-                                            <select class="form-control" id="" name="status">
-                                                <option value="">Select Status</option>
-                                                <option value="Pending">Pending</option>
-                                                <option value="Publish">Publish</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <button class="btn btn-info" type="submit">Submit</button>
-                                        </div>
-
-                                    </div>
-
-                                    
-                                </form>
-                            </div>
-
                             <div class="col-md-12 mb-3">
                                 <button class="btn btn-primary" id="publish"><i class="fas fa-globe-americas"></i> Publish</button>
                                 <!-- <button class="btn btn-info"><i class="fa fa-pen"></i> Pending</button>
                                 <button class="btn btn-warning"><i class="fa fa-times"></i> Delete</button> -->
                             </div>
-                            
                             <div class="postsrow ">
                             <table id="datatable"  class="table table-bordered dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                                 <thead>
                                     <tr style="text-align:center">
                                         <th>S.No</th>
-                                        <th>Paparazzi Title</th>
                                         <th>Category</th>
+                                        <th>Paparazzi Title</th>
                                         <th>Video Link</th>
                                         <th>Status</th>
-                                       
                                         <th>Created on</th>
                                         <th>Published on</th>
                                         <th>Edited on</th>
                                         <!--<th>View</th>-->
-                                        
                                         <th>Action</th>
-                                        
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                               
-                                <?php if(empty($_GET["categoryname"])) {     
-             
-
                                     
-			
-                 $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type!='' ORDER BY published_date DESC"));
-              
-           
-               
-
-}else{
-                       
-                       
-
-                      
-                       $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type ='paparazzi' ORDER BY published_date DESC"));
-                       
-                       
-               } ?>
-
-
+                                   
+                                   
+                                    @php 
+                                    $info = DB::table('paparazzi_post')->Orderby('published_date','desc')->get();
+                                    @endphp
                                     <?php $i = 1; ?>
-
-                                    
-
-
-                                    @foreach ($info as $row)
+                                        @foreach ($info as $row)
                                        
                                         <tr style="text-align:center">
                                            
                                             <td style="max-width:10px;">{{$i}}</td>
-                                            <td>{{$row->posttitle}}</td>
                                             <td>{{$row->cat_type}}</td>
-                                            
+                                            <td>{{$row->posttitle}}</td>
                                             <td>{{$row->videopath}}</td>
                                             <td>
                                             <?php if($row->status == 'Publish'){?>
@@ -208,7 +180,8 @@
                                             <!-- <td><?php //echo date_format(date_create($row->published_date),"d-m-Y H:i:s"); ?></td>
                                             <td><?php //echo date_format(date_create($row->updated_at),"d-m-Y H:i:s"); ?></td> -->
                                             
-                                            
+                                           
+
                                             <td> 
                                             
                                             <?php if($paparazzi_permit_edit == '1' || $roleid == '0') { ?>
@@ -220,7 +193,6 @@
                                                 <?php } ?>
                                                 
                                             </td>
-                                            
                                         </tr>
                                         <?php $i++ ?>
                                             @endforeach

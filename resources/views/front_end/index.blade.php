@@ -504,6 +504,11 @@ tabs//
 
 
 	<div class="entry-content">
+
+
+	
+	
+
 		<!--Trending Now-->
 	<section class="container random-posts padding-top-none clear">
 		
@@ -2016,89 +2021,5 @@ tabs//
 	<!--</script>-->
 
 
-	<div class="tab1">
-  <button id="antrianBtn" class="tablinks" onclick="openCity(event, 'antrian')">Antrian</button>
-  <button id="semuaBtn" class="tablinks" onclick="openCity(event, 'semua')">Semua</button>
-</div>
 
-<div id="antrian" class="tabcontent">
-  <h3>Antrian</h3>
-</div>
-
-<div id="semua" class="tabcontent">
-  <h3>Semua</h3>
-</div>
-
-
-<style>
-
-.tab1 {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f0ff1e;
-  color: black;
-}
-
-
-/* Style the buttons inside the tab */
-
-.tab1 button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-
-/* Change background color of buttons on hover */
-
-.tab1 button:hover {
-  background-color: #ddd;
-}
-
-
-/* Create an active/current tablink class */
-
-.tab1 button.active {
-  background-color: #ccc;
-}
-
-
-/* Style the tab content */
-
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-</style>
-
-<script type="text/javascript">
-	document.getElementById('antrian').className = '';
-document.getElementsByClassName('tablinks')[0].className = 'active'
-document.getElementById('antrian').className = 'active';
-
-function openCity(event, city) {
-
-  if (city === 'semua') {
-    document.getElementById('antrian').className = 'tabcontent';
-    document.getElementById('semua').className = '';
-    document.getElementById('antrianBtn').className = '';
-    document.getElementById('semuaBtn').className = 'active';
-  }
-
-  if (city === 'antrian') {
-    document.getElementById('antrian').className = '';
-    document.getElementById('semua').className = 'tabcontent';
-    document.getElementById('antrianBtn').className = 'active';
-    document.getElementById('semuaBtn').className = '';
-  }
-
-}
-</script>	
 @endsection

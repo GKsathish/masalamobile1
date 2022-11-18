@@ -86,7 +86,7 @@ if ($email == 'venkata.krishna@beeinnovations.com') {
                                     @CSRF
                                     <div class="row border p-3" style="background-color:lightgrey;">
                                         <div class="col-md-1 mt-2">
-                                            <label class="m-auto text-dark">Filters :</label>
+                                           <label class="m-auto text-dark">Filters :</label>
                                         </div>
                                         <div class="col-md-3">
 
