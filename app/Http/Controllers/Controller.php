@@ -88,11 +88,37 @@ class Controller extends BaseController
               if ($status != '')
               $info = $info->where('status',$status);
                                                                                       
-              $info = $info->Orderby('postid', 'desc')->take(2000)->get();
+              $info = $info->Orderby('postid', 'desc')->take(3)->get();
 
                  return view('back_end.posts',['info' => $info]);
                  //return response()->json(["success" => true, "data" => $info]);
               }
+
+              public function postcategoryadmin_new(Request $request){
+                $cat_name = $request->input('categoryname');
+               
+                $status = $request->input('status');
+                
+                $info = DB::table('paparazzi_post');
+                if ($cat_name != '')
+                $info = $info->where('cat_type',$cat_name);
+               
+                if ($status != '')
+                $info = $info->where('status',$status);
+                                                                                        
+                $info = $info->Orderby('postid', 'desc')->take(100)->get();
+  
+                   return view('back_end.paparazzi',['info' => $info]);
+                   //return response()->json(["success" => true, "data" => $info]);
+                }
+
+              
+
+              
+             
+              
+
+
               public function add_story($id){
                 // $info =  DB::table('post')->where('categoryid',$request->input('filtercategoryname'))->get();
                 $info = DB::table('v_stories')->where('storyid',$id)->get();
