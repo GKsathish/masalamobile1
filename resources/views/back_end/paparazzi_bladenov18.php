@@ -54,7 +54,7 @@
                 </div>
             </div>
             <!-- end row -->
-            <?php   $langnn = $_SERVER['REQUEST_URI'];?>
+            <?php   echo $langnn = $_SERVER['REQUEST_URI'];?>
             
             <div class="row">
                 <div class="col-12">
@@ -148,7 +148,7 @@
 
                                 <tbody>
                                
-                                <?php if(empty($_GET["categoryname"]) ) {     
+                                <?php if(empty($_GET["categoryname"])) {     
              
 
                                     
@@ -159,16 +159,46 @@
                
 
 } else{
-    $cat_name= $_GET["categoryname"];
-    $get_status = $_GET["status"];
     
+    if($_GET["categoryname"]=="paparazzi"&& $_GET["status"]=="Publish" ){
+                       
                        
 
                       
-                       $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type ='$cat_name' and status='$get_status' ORDER BY published_date DESC"));
+                       $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type ='paparazzi' and status='Publish' ORDER BY published_date DESC"));
                        
-                    
+                       
+               } 
+               
+                if($_GET["categoryname"]=="paparazzi" && $_GET["status"]=="Pending" ){
+                       
+                       
 
+                      
+                $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type ='paparazzi' and status='Pending' ORDER BY published_date DESC"));
+                
+                
+        } 
+
+         if($_GET["categoryname"]=="Video_Stories" && $_GET["status"]=="Publish" ){
+                       
+                       
+
+                      
+            $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type ='Video_Stories' and status='Publish' ORDER BY published_date DESC"));
+            
+            
+    } 
+    
+     if($_GET["categoryname"]=="Video_Stories" && $_GET["status"]=="Pending" ){
+            
+            
+
+           
+     $info= DB::select(DB::raw( "SELECT  * from paparazzi_post where cat_type ='Video_Storiess' and status='Pending' ORDER BY published_date DESC"));
+     
+     
+} 
 
 
 }

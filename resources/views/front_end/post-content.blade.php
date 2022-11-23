@@ -1,7 +1,7 @@
 
 
 
-	<?php    $langnn = $_SERVER['REQUEST_URI'];?>
+	<?php  echo  $langnn = $_SERVER['REQUEST_URI'];?>
 	
 	<?php $langn = (explode("&lang=",$langnn)); 
 	
@@ -9,7 +9,7 @@
 	
 	 $lang = $langn['1'];
 	 
-	  $cat = $langn['0'];
+	 echo $cat = $langn['0'];
 	 
 	 
 	$cat_id =  (explode("/post-content&id=",$cat));
