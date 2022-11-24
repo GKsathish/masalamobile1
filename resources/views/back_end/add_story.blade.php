@@ -168,7 +168,7 @@
                                     @php 
                                    
                                    
-                                    $storytrans = DB::table('v_storiestrans')->where('storyid', $info->storyid)->get();
+                                    $storytrans = DB::table('v_storiestrans')->where('storyid', $info->storyid)->where('storyid','desc')->get();
                                     
                                     @endphp
                                     <?php $i = 1; ?>

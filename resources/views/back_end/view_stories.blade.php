@@ -60,7 +60,7 @@
 
                                      $info = DB::table('v_stories')
                                             ->join('v_storiestrans', 'v_storiestrans.storyid', '=', 'v_stories.storyid')
-                                            ->Orderby('v_storiestrans.transid', 'desc')                                          
+                                            ->Orderby('v_storiestrans.transid', 'asc')                                          
                                             ->get();
                                     foreach ($info as $val) { 
                                         $vis_id = $val->storyid;
