@@ -14,10 +14,10 @@
       <div class="search m-5">
           <form action="{{ url('search' ) }}" method="GET">
             <?php if(($search_value2=="English") && ($search_value1 == "")) { ?>
-          <input class="search-field" type="search" placeholder="Search..." name="search">
+          <input class="search-field" type="search" placeholder="Search..." name="search" value="<?php echo $search_value1; ?>">
           <?php } 
               else if(($search_value2=="Hindi") && ($search_value1 == "")) { ?>
-          <input class="search-field" type="search" placeholder="Search..." name="search">
+          <input class="search-field" type="search" placeholder="Search..." name="search" value="<?php echo $search_value1; ?>">
           <?php } else { ?>
               <input class="search-field" type="search" placeholder="Search..." name="search" value="<?php echo $search_value1; ?>">
              

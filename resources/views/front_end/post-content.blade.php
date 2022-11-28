@@ -111,9 +111,15 @@
    <?php }?>
        
 	</ul>
+
+
+  
 </header>
 
 <div class="entry-content">
+
+
+
 	<div class="ads">
     <!-- <img src="assets/front_end/images/g8.jpg" /> -->
     <script async src="http://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
@@ -251,3 +257,5 @@
 </div>
 </div>
 @endsection
+
+

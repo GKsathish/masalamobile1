@@ -374,7 +374,7 @@
   <amp-story publisher-logo-src="assets/front_end/images/AMP-Brand-White-Icon.svg" poster-portrait-src="assets/front_end/images/cover.jpg" title="image" standalone>
     @foreach($detailsmain as $main_cart)
 
-    <amp-story-page class="cover" auto-advance-after="" id="Page1">
+    <amp-story-page class="cover" auto-advance-after="id1" id="Page1">
       <amp-story-grid-layer template="fill">
         <amp-img tabindex="0" height="1024" width="768" class="image" layout="responsive" src="<?php echo $main_cart->imagelink; ?>" alt="imag">
 
@@ -383,7 +383,7 @@
       </amp-story-grid-layer>
 
       <amp-story-grid-layer class="align-end" template="vertical">
-        <div class="align-end ">
+        <div class="align-end " id="id1">
 
           <p class="para1"><?php echo implode(' ', array_slice(explode(' ', $main_cart->description), 0)); ?></p>
 
@@ -402,7 +402,7 @@
                 </script>    
                 
         </amp-analytics> -->
-    <amp-story-page class="slide" auto-advance-after="" id="page1">
+    <amp-story-page class="slide"id="page2">
 
 
 
@@ -434,7 +434,7 @@
 
 
 
-    <amp-story-page class="cover" auto-advance-after="" id="Page1">
+    <!-- <amp-story-page class="cover" auto-advance-after="" id="Page1">
       <amp-story-grid-layer template="fill">
         <amp-img tabindex="0" height="1024" width="768" class="image" layout="responsive" src="<?php echo $main_cart->imagelink; ?>" alt="imag">
 
@@ -442,13 +442,13 @@
 
       </amp-story-grid-layer>
 
-      <amp-story-grid-layer class="align-end" template="vertical">
+      <!-- <amp-story-grid-layer class="align-end" template="vertical">
         <div class="align-end ">
 
           <p class="para1"><?php echo implode(' ', array_slice(explode(' ', $main_cart->description), 0)); ?></p>
           <a href="http://127.0.0.1:8000/stories&id=248">FIND MORE</a>
         </div>
-      </amp-story-grid-layer>
+      </amp-story-grid-layer> -->
     </amp-story-page>
 
   </amp-story>

@@ -255,6 +255,7 @@ class Controller extends BaseController
                       return view('front_end.search',['info' => $info],['search_value1' => $search_value,'search_value2'=>$search_value2]);
                       
                     }
+                    
                   public function enquiry(Request $request){
                     $name = $request->input('name');
                     $email = $request->input('email');

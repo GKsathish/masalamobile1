@@ -228,7 +228,7 @@
                                 <?php } ?>
                                 &nbsp;&nbsp;
                                 <?php if($post_permit_delete == '1' || $roleid == '0') { ?>
-                                <a href="delete_post&{{$row->postid}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                <a href="delete_post&{{$row->postid}}"oncl><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                 <?php } ?>
                             </td>
                                          

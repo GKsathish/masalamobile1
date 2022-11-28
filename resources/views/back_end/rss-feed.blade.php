@@ -90,7 +90,7 @@ $access_rss = explode (",", $rss_access);
 
                                     $info = DB::table('rss')
                                             ->join('category', 'category.categoryid', '=', 'rss.categoryid')
-                                            ->Orderby('rss.rssid', 'desc')                                          
+                                            ->Orderby('rss.rssid', 'asc')                                          
                                             ->get(); 
 
                                     foreach ($info as $val) { 

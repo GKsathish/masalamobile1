@@ -286,8 +286,7 @@ if ($email == 'venkata.krishna@beeinnovations.com') {
 
                                                 &nbsp;&nbsp;
 
-                                                <a href="delete_post&{{$row->postid}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-
+                                                <a href="delete_post&{{$row->postid}}" onclick="return confirm('Sure Want Delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 
                                             </td>
 
@@ -312,5 +311,46 @@ if ($email == 'venkata.krishna@beeinnovations.com') {
         </div>
     </div>
 </div>
+
+div class="modal" id="mdelete" role="dialog" aria-labelledby="moddelete">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="moddelete">Confirm Delete</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <p>Are you sure you want to delete</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="hidden" name="txtid" id="txtid" />
+                                    <input type="text" name="uid" id="uid" />
+                                    
+                                    <button type="button" class="btn btn-danger " data-dismiss="modal">No</button>
+                                
+                                    <span class="text-right">
+                                        <button type="button" class="btn btn-primary btndelete">Yes</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+$(document).ready(function() {
+
+    $('#mdelete').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var userid = button.data('id');
+        var uname = button.data('name');
+        var modal = $(this);
+        modal.find('#txtid').val(userid);
+        modal.find('#uid').val(userid);
+        modal.find('.modal-body').text(
+            'Are you sure you want to delete ' + uname);
+    })
+});
+
 
 @endsection

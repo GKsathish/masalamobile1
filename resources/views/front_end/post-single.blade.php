@@ -266,7 +266,7 @@ $feed_date = $feed->published_date;
              foreach ($re as $value) {?>
               
               <?php  if(!empty($value)){ ?>
-              <a href="http://127.0.0.1:8000/searchhashtag?searchhashtag= <?php echo $value;?>" class="tagclick">#<?php echo $taname = str_replace(' ','',$value); ?></a>
+              <a href="http://127.0.0.1:8000/search?search= <?php echo $value;?>" class="tagclick">#<?php echo $taname = str_replace(' ','',$value); ?></a>
               <?php } ?>
               <?php } ?>
             

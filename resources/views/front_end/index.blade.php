@@ -525,8 +525,8 @@ tabs//
 			<div class="tumbnailcarousel owl-carousel owl-theme clear">
 				@php 
 				
-				$entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW"  ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
-				$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+				$entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW" AND status="Publish"  ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
+				$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"  AND status="Publish"	  ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
@@ -605,7 +605,7 @@ tabs//
 				@foreach($tag as $taginfo)
 					@foreach($tag as $taginfo)
 			    
-                <a   href="https://127.0.0.1:8000/search?search={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
+                <a   href="https://127.0.0.1:8000/search?lang=English&search={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
         
 	         @endforeach
 	          @endforeach
@@ -1000,7 +1000,7 @@ tabs//
 			<div id="FEATURED" class="tabVisualStories clear">
 				<div class="visual-stories-carousel owl-carousel owl-theme clear">	
 				@php
-				$get_vs1 = DB::table('v_stories')->where('categoryid',1)->where('cat_type','visualstories')->orderBy('storyid','desc')->get();
+				$get_vs1 = DB::table('v_stories')->where('categoryid',1)->where('cat_type','visualstories')->orderBy('storyid','asc')->get();
 				@endphp			
 				@foreach ($get_vs1 as $get_vs1)		
 					<div class="item clear">

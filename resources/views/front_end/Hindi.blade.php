@@ -375,7 +375,7 @@
               	@php 
               	
 				
-				$tag = DB::select(DB::raw('SELECT hashtag,count(*) as count FROM `hashtags` WHERE  hashtag !=""  GROUP by hashtag HAVING COUNT(hashtag)>3  limit 16 offset 0;'));
+				$tag = DB::select(DB::raw('SELECT hashtag,count(*) as count FROM `hashtags` WHERE  hashtag !="" and language="Hindi"  GROUP by hashtag HAVING COUNT(hashtag)>0  limit 16 offset 0;'));
 				@endphp
 					@foreach($tag as $taginfo)
 				@foreach($tag as $taginfo)
