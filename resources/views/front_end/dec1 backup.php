@@ -131,7 +131,7 @@
       </div>
   </div>
     
-                    
+                                
 
 	<div class="container post-content newspost left">
 	    
@@ -147,16 +147,10 @@
    
 
     @endphp
-    <div class="search">
-     <form action="{{ url('post-content') }}" method="GET">
-        <input class="search-field" type="search" placeholder="Search..." name="search1">
-      
-        <button type="submit" class="search-btn">Search</button>
-    </form> 
-    </div>
-         
+
+     
 				@foreach($entertainmentinfo as $feed)
-      
+			
      
 			
 				

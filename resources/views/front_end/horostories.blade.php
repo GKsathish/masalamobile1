@@ -126,7 +126,7 @@ standalone publisher-logo-src="assets/front_end/images/AMP-Brand-White-Icon.svg"
                  
 
 			
-      $get_vs1= DB::select(DB::raw( "SELECT  * from `v_stories`  where cat_type='visualstories'  and  storyid <'$lang'  ORDER BY storyid DESC" ));
+      $get_vs1= DB::select(DB::raw( "SELECT  * from `H_stories`  where cat_type='horoscope'  and  storyid <'$lang'  ORDER BY storyid DESC" ));
    
 
     @endphp

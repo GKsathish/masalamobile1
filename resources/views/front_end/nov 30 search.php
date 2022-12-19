@@ -1,3 +1,16 @@
+
+<?php   $langnn = $_SERVER['REQUEST_URI'];?>
+
+<?php $langn = (explode("&lang= ",$langnn)); 
+	
+	//var_dump($langn);
+	
+	 $lang = $langn['0'];
+	 $cat_id =  (explode("/search?search=",$lang));
+echo	 $catid = $cat_id['1'];
+	 
+	?>
+
 @extends('front_end.header1')
 @section('content')
 <header class="entry-nav clear">
@@ -79,15 +92,15 @@
 						@foreach($get_cat as $get_cat)
                     	<h5>{{$get_cat->categoryname}}</h5>
 						@endforeach
-			<figure class="left"><a href="post-single&id={{$feed->postid}}&{{$feed->postlink}}"><img src="{{$feed->imagepath}}" alt=""></a></figure>
+			<figure class="left"><a href="post-single&id={{$feed->postlink}}"><img src="{{$feed->imagepath}}" alt=""></a></figure>
             <aside class="right">
                 <div>
-                    
-                     <a href="post-single&id={{$feed->postid}}&id={{$feed->postlink}}">
-                  
+                <a href="post-single&id={{$feed->postlink}}">
                 	<h2><?php echo mb_substr($feed->posttitle, 0,50)."..."; ?></h2>
                 </a>
-              
+              	<!-- <a href="#">Posted by <strong>admin</strong></a> -->
+                <p><?php echo mb_substr($feed->posttitle, 0,100)."..."; ?></p>
+                </div>
             </aside>
         </article>
         @endforeach
@@ -97,7 +110,7 @@
     </div>	
     
 	<aside id="secondary" class="container post-sidebar widget-area right">
-	@include('front_end.sidebar1')
+	@include('front_end.sidebar')
 	</aside>
 </div>
 @endsection

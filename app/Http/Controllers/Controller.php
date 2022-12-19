@@ -28,23 +28,22 @@ class Controller extends BaseController
           return view('front_end.post-single',['details' => $details,'next_feed' => $next_feed , 'previous_feed' => $previous_feed]);
         }
         public function paparazzi_feed($id){
-          $details =  DB::table('paparazzi_post')->where('postid',$id)->where('status','Publish')->take(1)->get();
+          $details =  DB::table('paparazzi_post')->where('postid',$id)->where('cat_type','paparazzi')->where('status','Publish')->take(1)->get();
             
             return view('front_end.paparazzi-post',['details' => $details]);
           }
         
-
-          public function paparazzi_feed1($id){
-            $details =  DB::table('paparazzi_post1')->where('postid',$id)->where('status','Publish')->take(1)->get();
-              
-              return view('front_end.paparazzi-post1',['details' => $details]);
-            }
+        public function paparazzi_feed1($id){
+          $details =  DB::table('paparazzi_post')->where('postid',$id)->where('cat_type','Video_Stories')->where('status','Publish')->take(1)->get();
             
-            public function paparazzi_feed2($id){
-              $details =  DB::table('paparazzi_post2')->where('postid',$id)->where('status','Publish')->take(1)->get();
-                
-                return view('front_end.paparazzi-post2',['details' => $details]);
-              }
+            return view('front_end.paparazzi-post1',['details' => $details]);
+          }
+          
+          public function paparazzi_feed2($id){
+          $details =  DB::table('paparazzi_post')->where('postid',$id)->where('cat_type','trailers')->where('status','Publish')->take(1)->get();
+            
+            return view('front_end.paparazzi-post2',['details' => $details]);
+          }
         public function feed_meta(Request $request){
         $details =  DB::table('post')->where('postid',$request->rsstitle)->where('status','Publish')->take(1)->get();
           
@@ -59,7 +58,11 @@ class Controller extends BaseController
      public function category($id){
             $categoryname =  DB::table('category')->where('categoryid',$id)->get();
             
+            
             $details =  DB::table('post')->where('categoryid',$id)->where('status','Publish')->Orderby('published_date', 'desc')->get();
+            
+           
+            
             return view('front_end.post-content',['details' => $details],['categoryname'=>$categoryname]);
             }
             
@@ -88,12 +91,16 @@ class Controller extends BaseController
               if ($status != '')
               $info = $info->where('status',$status);
                                                                                       
-              $info = $info->Orderby('postid', 'desc')->take(3)->get();
+              $info = $info->Orderby('postid', 'desc')->take(1500)->get();
 
                  return view('back_end.posts',['info' => $info]);
                  //return response()->json(["success" => true, "data" => $info]);
               }
-
+              
+              
+              
+              //sathish added
+              
               public function postcategoryadmin_new(Request $request){
                 $cat_name = $request->input('categoryname');
                
@@ -106,19 +113,14 @@ class Controller extends BaseController
                 if ($status != '')
                 $info = $info->where('status',$status);
                                                                                         
-                $info = $info->Orderby('postid', 'desc')->take(100)->get();
+                $info = $info->Orderby('postid', 'desc')->take(2000)->get();
   
                    return view('back_end.paparazzi',['info' => $info]);
                    //return response()->json(["success" => true, "data" => $info]);
                 }
 
               
-
               
-             
-              
-
-
               public function add_story($id){
                 // $info =  DB::table('post')->where('categoryid',$request->input('filtercategoryname'))->get();
                 $info = DB::table('v_stories')->where('storyid',$id)->get();
@@ -156,106 +158,56 @@ class Controller extends BaseController
                     </script>
                     <?php
                   } 
-                } 
-                
-                public function searchhashtag(Request $request){
-                  $search_value1 = $request->input('searchhashtag');
-               
-
-                  $search_value = str_replace(" ","%",$search_value1);
-                  //echo $search_value;
-                  //die;
-                  if($search_value == "")
-                  {
-                  $info =  DB::table('post')->where('status','Publish')->inRandomOrder()->Orderby('published_date', 'desc')->take(15)->get();
-                  }
-                  else
-                  {
-                    $info =  DB::table('post')->where('posttitle', 'like', '%' . $search_value . '%')
-                                              ->where('postlink', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
-                    if($info->count() == '0')
-                    {
-                      $info =  DB::table('post')->where('postlink', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
-                      if($info->count() > '0')
-                      {
-                        return view('front_end.searchhashtag',['info' => $info],['search_value1' => $search_value]);
-                      }
-                    }
-                    if($info->count() == '0')
-                    {
-                      $get_cat_post = DB::table('category')->where('categoryname', 'like', '%' . $search_value . '%')->take(1)->get();
-                      
-                      if($get_cat_post->count() == '0')
-                      {
-                        $info =  DB::table('post')->where('status','Publish')->inRandomOrder()->Orderby('published_date', 'desc')->take(15)->get();
-                        return view('front_end.search',['info' => $info],['search_value1'=>' ']);
-                      }
-                      else{
-                        foreach($get_cat_post as $cate_id => $value)
-                        {
-                          $cate_id = $value->categoryid;
-                        }
-                        $info = DB::table('post')->where('categoryid',$cate_id)->where('status','Publish')->Orderby('published_date', 'desc')->get();
-                      }
-                      
-                    }
-                  
-                  }
-                  // $info = DB::table('v_stories')->where('storyid',$id)->get();
-                    return view('front_end.searchhashtag',['info' => $info],['search_value1' => $search_value]);
-                    
-                  }
-
-
-
-                  public function search(Request $request){
-                    $search_value1 = $request->input('search');
-                    $search_value2 = $request->input('lang');
-
-                    $search_value = str_replace(" ","%",$search_value1);
-                    //echo $search_value;
-                    //die;
-                    if($search_value == "")
-                    {
-                    $info =  DB::table('post')->where('status','Publish')->where('language', 'like', '%' . $search_value2 . '%')->inRandomOrder()->Orderby('published_date', 'desc')->take(15)->get();
-                    }
-                    else
-                    {
-                      $info =  DB::table('post')->where('posttitle', 'like', '%' . $search_value . '%')
-                                                ->where('postlink', 'like', '%' . $search_value . '%')->where('language', 'like', '%' . $search_value2 . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
-                      if($info->count() == '0')
-                      {
-                        $info =  DB::table('post')->where('language', 'like', '%' . $search_value2 . '%')->where('postlink', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
-                        if($info->count() > '0')
-                        {
-                          return view('front_end.search',['info' => $info],['search_value1' => $search_value,'search_value2'=>$search_value2]);
-                        }
-                      }
-                      if($info->count() == '0')
-                      {
-                        $get_cat_post = DB::table('category')->where('categoryname', 'like', '%' . $search_value . '%')->take(1)->get();
-                        
-                        if($get_cat_post->count() == '0')
-                        {
-                          $info =  DB::table('post')->where('status','Publish')->where('language', 'like', '%' . $search_value2 . '%')->inRandomOrder()->Orderby('published_date', 'desc')->take(15)->get();
-                          return view('front_end.search',['info' => $info],['search_value1' => ' ','search_value2'=>' ']);
-                        }
-                        else{
-                          foreach($get_cat_post as $cate_id => $value)
-                          {
-                            $cate_id = $value->categoryid;
-                          }
-                          $info = DB::table('post')->where('categoryid',$cate_id)->where('language', 'like', '%' . $search_value2 . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
-                        }
-                        
-                      }
-                    
-                    }
-                    // $info = DB::table('v_stories')->where('storyid',$id)->get();
-                      return view('front_end.search',['info' => $info],['search_value1' => $search_value,'search_value2'=>$search_value2]);
-                      
-                    }
-                    
+                }             
+              	 public function search(Request $request){
+		          $search_value1 = $request->input('search');
+		          
+		          $search_value = str_replace(" ","%",$search_value1);
+		          //echo $search_value;
+		          //die;
+		          if($search_value == "")
+		          {
+		          $info =  DB::table('post')->where('status','Publish')->inRandomOrder()->Orderby('published_date', 'desc')->take(25)->get();
+		          }
+		          else
+		          {
+		          
+		             $info =  DB::table('post')->where('hashtag', 'like', '%' . $search_value . '%')->where('posttitle', 'like', '%' . $search_value . '%')->where('postlink', 'like', '%' . $search_value . '%')->where('description', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
+		           
+		          
+		            
+		            if($info->count() == '0')
+		            {
+		              $info =  DB::table('post')->where('postlink', 'like', '%' . $search_value . '%')->where('posttitle', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
+		              if($info->count() > '0')
+		              {
+		                return view('front_end.search',['info' => $info],['search_value1' => $search_value1]);
+		              }
+		            }
+		            if($info->count() == '0')
+		            {
+		              $get_cat_post = DB::table('category')->where('categoryname', 'like', '%' . $search_value . '%')->take(15)->get();
+		              
+		              if($get_cat_post->count() == '0')
+		              {
+		                $info =  DB::table('post')->where('status','Publish')->Orderby('published_date', 'desc')->get();
+		                 return view('front_end.search',['info' => $info],['search_value1' => ' ']);
+		              }
+		              else{
+		                foreach($get_cat_post as $cate_id => $value)
+		                {
+		                  $cate_id = $value->categoryid;
+		                }
+		                $info = DB::table('post')->where('categoryid',$cate_id)->where('status','Publish')->Orderby('published_date', 'desc')->get();
+		              }
+		              
+		            }
+		          
+		          }
+		          // $info = DB::table('v_stories')->where('storyid',$id)->get();
+		             return view('front_end.search',['info' => $info],['search_value1' => $search_value1]);
+		            
+		          }
                   public function enquiry(Request $request){
                     $name = $request->input('name');
                     $email = $request->input('email');
@@ -270,17 +222,15 @@ class Controller extends BaseController
                     </script>
                     <?php
                   }
-                  // public function filtersearch(Request $request)
-                  // {
-                  //   $search_value1 = $request->input('search');
-                  //   $search_value = str_replace(" ","%",$search_value1);
-                  //   $searchname = $request->input('filtercategoryname');
+                  public function filtersearch(Request $request)
+                  {
                   
-                  //   $info = DB::table('post')->where('status','Publish')->where('posttitle',  $searchname)->get();
-                  //   return view('back_end.posts',['info' => $info]);
-                  //   //return response()->json(array('success' => true, 'value'=>$info));
-                  // }
+                    $searchname = $request->input('filtercategoryname');
                   
+                    $info = DB::table('post')->where('status','Publish')->where('posttitle',  $searchname)->get();
+                    return view('back_end.posts',['info' => $info]);
+                    //return response()->json(array('success' => true, 'value'=>$info));
+                  }
                   public function  post_pending()
                   {
                     $request = $_POST['list'];
@@ -410,4 +360,6 @@ class Controller extends BaseController
                  
                   
 }
+
+
   

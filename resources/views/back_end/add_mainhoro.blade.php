@@ -17,7 +17,7 @@
                                 <div class="float-right d-none d-md-block">
 
                                    <div class="button-items">
-                                      <button type="button" class="btn btn-primary waves-effect waves-light" onclick="window.location.href='{{url('visualstories')}}'">View Stories</button>
+                                      <button type="button" class="btn btn-primary waves-effect waves-light" onclick="window.location.href='{{url('horoscopestories')}}'">View Stories</button>
              
                                    </div>
          
@@ -41,7 +41,7 @@
                             @endif
 
                             <div class="m-b-30">
-                                    <form id="myForm" action="{{url('add_visualstory')}}" enctype="multipart/form-data" method="post">
+                                    <form id="myForm" action="{{url('add_mainhoro')}}" enctype="multipart/form-data" method="post">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-6 form-group">
@@ -91,7 +91,7 @@
                                  
                                         <select class="form-control" name="categorytype" required>
                                           
-                                          <option value="visualstories"> Visual Stories</option>
+                                          <option value="horoscope"> Horoscope</option>
                                           
                                         </select>
                                      

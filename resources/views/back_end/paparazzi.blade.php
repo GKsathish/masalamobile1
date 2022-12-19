@@ -110,7 +110,7 @@
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <button class="btn btn-info" type="submit">Submit</button>
+                                             <button class="btn btn-info" type="submit">Submit</button>
                                         </div>
 
                                     </div>

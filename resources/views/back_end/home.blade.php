@@ -4,11 +4,14 @@
     $post_permit = '';
     $rss_permit = '';
     $vs_permit = '';
+    $hs_permit = '';
     $trending_permit = '';
     $dashboard_access_details = DB::table('permissions')->where('role_id', $roleid)->where('module_id','1')->get();
     $post_access_details = DB::table('permissions')->where('role_id', $roleid)->where('module_id','2')->get();
     $rss_access_details = DB::table('permissions')->where('role_id', $roleid)->where('module_id','3')->get();
     $vs_access_details = DB::table('permissions')->where('role_id', $roleid)->where('module_id','4')->get();
+    $hs_access_details = DB::table('permissions')->where('role_id', $roleid)->where('module_id','7')->get();
+
     $trending_access_details = DB::table('permissions')->where('role_id', $roleid)->where('module_id','5')->get();
 
     foreach($dashboard_access_details as $permit)
@@ -35,6 +38,14 @@
         $vs_permit_edit = $permit->edit;
         $vs_permit_delete = $permit->delete;
         $vs_permit_add = $permit->add;
+    }
+
+    foreach($hs_access_details as $permit)
+    {
+        $hs_permit = $permit->access;
+        $hs_permit_edit = $permit->edit;
+        $hs_permit_delete = $permit->delete;
+        $hs_permit_add = $permit->add;
     }
     foreach($trending_access_details as $permit)
     {
@@ -73,6 +84,8 @@
     $rss = DB::table('rss')->where('status', '=', 'Active')->count();
     $category = DB::table('category')->count();
     $story = DB::table('v_stories')->where('status', '=', 'Active')->count();
+    $Hstory = DB::table('H_stories')->where('status', '=', 'Active')->count();
+
 
 @endphp
 
@@ -132,7 +145,7 @@
                                 </div>
                             </div>
                             @endif
-                            
+                           
                             <div class="col-xl-3 col-md-6">
                                 <div class="card mini-stat bg-success text-white">
                                     <div class="card-body">
@@ -149,9 +162,27 @@
                                 </div>
                             </div>
                         </div>
+                        @if($hs_permit == '1'  || $roleid == '0')
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card mini-stat bg-info text-white">
+                                    <div class="card-body">
+                                        <a href="horoscopestories   ">
+                                        <div class="mb-4">
+                                            <div class="float-left mini-stat-img mr-4">
+                                                <img src="assets/images/services-icon/02.png" alt="" >
+                                            </div>
+                                            <h5 class="font-14 text-uppercase mt-0 text-white-50">Horoscope Stories</h5>
+                                        <h4 class="font-500" style="color:#fff;">{{ $Hstory }}</h4>
+                                           
+                                        </div>
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
                         <!-- end row -->
                 </div> 
             </div> 
         </div> 
-       
+
         @endsection

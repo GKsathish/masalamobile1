@@ -1,5 +1,5 @@
 <?php   $langnn = $_SERVER['REQUEST_URI'];?>
-<?php $langn = (explode("&lang=",$langnn)); 
+<?php $langn = (explode("&lang= ",$langnn)); 
 	
 	//var_dump($langn);
 	
@@ -61,13 +61,13 @@
     
 	<div class="container post-content newspost left">
 
-    @php 
-			
-      $entertainmentinfo= DB::select(DB::raw( "SELECT  * from post where language='$catid';"));
-   
+      @php 
+        
+        $entertainmentinfo= DB::select(DB::raw( "SELECT  * from post where language='$catid';"));
+    
 
-    @endphp
-               
+      @endphp
+                
 			@foreach($entertainmentinfo as $feed)
                 @php
             $i = 1;

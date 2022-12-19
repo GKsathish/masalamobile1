@@ -13,6 +13,26 @@ class postController extends Controller
 
 public function new_post(Request $request)
     {
+    $title1 = $request->input('title1');
+    $title2='';
+    
+   $to_lang='en';
+
+function translate($language, $to_lan, $title1){
+
+
+
+    $json = json_decode(file_get_contents(' https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=' . urlencode($title1) . '&langpair=' . $language . '|' . $to_lan));
+    $translated_text = $json->responseData->translatedText;
+
+ $title2=$translated_text;  
+
+ }
+
+
+    
+
+
 
      function generate_uuid() {
             return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
@@ -36,6 +56,7 @@ public function new_post(Request $request)
  
     $category = $request->input('category');
     $title = $request->input('title');
+    // $title1 = $request->input('title1');
     $description = $request->input('description');
     $rss = $request->input('rss');
     $status = $request->input('status');
@@ -53,7 +74,8 @@ public function new_post(Request $request)
     $gmail = trim($request->input('gmail'));
     
     
-      
+       $writer = $request->input('user');
+    
         
  
     if($status == "Publish")
@@ -66,12 +88,12 @@ public function new_post(Request $request)
          
          foreach ($re as $value) {
              
-             DB::table('hashtags')->insert(['postid' =>'$title','hashtag' => $value,'cdt' => $date]);
+             DB::table('hashtags')->insert(['postid' =>'$title','hashtag' => $value, 'language'=>$language]);
             
          }
          
          
-        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink,'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'published_date' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);    
+        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink,'posttitle' => $title,'posttitle_new'=>$title2,'user'=>$writer,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'published_date' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);    
      
      
         $RId = DB::getPdo()->lastInsertId();
@@ -111,7 +133,7 @@ public function new_post(Request $request)
     {
         
         
-        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink, 'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'updated_at' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);
+        DB::table('post')->insert(['categoryid' => $category,'postlink' => $postlink,'user'=>$writer,'posttitle_new'=>$title2, 'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => "https://mobilemasala.com/".$images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'created_at' => $date,'updated_at' => $date,'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'uploaded_by'=>$email,'hashtag'=>$hashtag,'language'=>$language]);
     }
     // if($noti_input == '1')
     // {
@@ -162,42 +184,86 @@ public function add_new_paparazzi_post(Request $request)
     $postlink = preg_replace('/[^A-Za-z0-9\-]/', '', $postlink);
     
     $category = $request->input('category');
+     $language = $request->input('language');
     
     
     if($status == 'Publish')
     {
-        DB::table('paparazzi_post')->insert(['postlink' => $postlink, 'posttitle' => $title, 'imagepath' => "https://mobilemasala.com/".$images,'description' => $description,'videopath' =>$video_link ,'status' => $status,'created_at' => $date,'published_date' => $date,'trending_now' => $trending,'cat_type' => $category]);
+        DB::table('paparazzi_post')->insert(['postlink' => $postlink, 'posttitle' => $title, 'imagepath' => "https://mobilemasala.com/".$images,'description' => $description,'videopath' =>$video_link ,'status' => $status,'created_at' => $date,'published_date' => $date,'trending_now' => $trending,'language'=>$language,'cat_type' => $category]);
     }
     else{
-        DB::table('paparazzi_post')->insert(['postlink' => $postlink, 'posttitle' => $title,'description' => $description, 'imagepath' => "https://mobilemasala.com/".$images,'videopath' =>$video_link ,'status' => $status,'created_at' => $date,'trending_now' => $trending,'cat_type' => $category]);
+        DB::table('paparazzi_post')->insert(['postlink' => $postlink, 'posttitle' => $title,'description' => $description, 'imagepath' => "https://mobilemasala.com/".$images,'videopath' =>$video_link ,'status' => $status,'created_at' => $date,'trending_now' => $trending,'cat_type' => $category,'language'=>$language]);
     }
     return redirect('paparazzi')->with('success', 'Paparazzi Posts Added Successfully'); 
 }
 public function edit_paparazzi_post(Request $request)
     {
+       
+
     $post_id = $request->input('postid');
+      $images=$request->file('images');
     $date = Carbon::now()->toDateTimeString();
     $title = $request->input('posttitle');
     $video_link = $request->input('video_link');
     $description = $request->input('description');
     $trending = $request->input('trending');
     $status = $request->input('status');
+     $language = $request->input('language');
     $check_status = $request->input('checkstatus');
     $postlink = str_replace(' ','-',$title);
     $postlink = preg_replace('/[^A-Za-z0-9\-]/', '', $postlink);
-    if($check_status == "Publish")
-    {
-        DB::table('paparazzi_post')->where('postid',$post_id)->update(['postlink' => $postlink, 'posttitle' => $title,'description' => $description,'videopath' =>$video_link ,'status' => $status,'updated_at' => $date,'trending_now' => $trending]);
+    
+    
+    
+    if (empty($images)) {
+            if($check_status == "Publish")
+            {
+                DB::table('paparazzi_post')->where('postid',$post_id)->update(['postlink' => $postlink,'language'=>$language, 'posttitle' => $title,'description' => $description,'videopath' =>$video_link ,'status' => $status,'updated_at' => $date,'trending_now' => $trending]);
+            }
+            else if($status == 'Publish'){
+                DB::table('paparazzi_post')->where('postid',$post_id)->update(['postlink' => $postlink,'language'=>$language,'posttitle' => $title,'description' => $description,'videopath' =>$video_link ,'status' => $status,'published_date' => $date,'updated_at' => $date,'trending_now' => $trending]);
+            }
+            else{
+                DB::table('paparazzi_post')->where('postid',$post_id)->update(['postlink' => $postlink,'language'=>$language, 'posttitle' => $title,'description' => $description,'videopath' =>$video_link ,'status' => $status,'updated_at' => $date,'trending_now' => $trending]);
+            }
+            return redirect('paparazzi')->with('success', 'Paparazzi Posts Updated Successfully'); 
+    
+        
+     }
+     else {
+    function generate_uuid() {
+            return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+                mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),
+                mt_rand( 0, 0xffff ),
+                mt_rand( 0, 0x0C2f ) | 0x4000,
+                mt_rand( 0, 0x3fff ) | 0x8000,
+                mt_rand( 0, 0x2Aff ), mt_rand( 0, 0xffD3 ), mt_rand( 0, 0xff4B )
+            );
+          
+          }
+    
+          $idd = generate_uuid();
+          if(move_uploaded_file($_FILES["images"]["tmp_name"], "image/post-img/" .$_FILES["images"]["name"]))
+          {
+            $images= "image/post-img/" . $_FILES["images"]["name"];
+          }
+       
+       if($check_status == "Publish")
+            {
+                DB::table('paparazzi_post')->where('postid',$post_id)->update(['postlink' => $postlink,'language'=>$language, 'imagepath'=> $images,'posttitle' => $title,'description' => $description,'videopath' =>$video_link ,'status' => $status,'updated_at' => $date,'trending_now' => $trending]);
+            }
+            else if($status == 'Publish'){
+                DB::table('paparazzi_post')->where('postid',$post_id)->update(['postlink' => $postlink,'language'=>$language,'imagepath'=> $images,'posttitle' => $title,'description' => $description,'videopath' =>$video_link ,'status' => $status,'published_date' => $date,'updated_at' => $date,'trending_now' => $trending]);
+            }
+            else{
+                DB::table('paparazzi_post')->where('postid',$post_id)->update(['postlink' => $postlink,'language'=>$language,'imagepath'=> $images, 'posttitle' => $title,'description' => $description,'videopath' =>$video_link ,'status' => $status,'updated_at' => $date,'trending_now' => $trending]);
+            }
+            return redirect('paparazzi')->with('success', 'Paparazzi Posts Updated Successfully'); 
+    
+        
+          
     }
-    else if($status == 'Publish'){
-        DB::table('paparazzi_post')->where('postid',$post_id)->update(['postlink' => $postlink, 'posttitle' => $title,'description' => $description,'videopath' =>$video_link ,'status' => $status,'published_date' => $date,'updated_at' => $date,'trending_now' => $trending]);
     }
-    else{
-        DB::table('paparazzi_post')->where('postid',$post_id)->update(['postlink' => $postlink, 'posttitle' => $title,'description' => $description,'videopath' =>$video_link ,'status' => $status,'updated_at' => $date,'trending_now' => $trending]);
-    }
-    return redirect('paparazzi')->with('success', 'Paparazzi Posts Updated Successfully'); 
-}
-
 public function delete_paparazzi_post($id)
     {
         $del = DB::table('paparazzi_post')->where('postid', $id)->get();
@@ -209,11 +275,12 @@ public function delete_paparazzi_post($id)
 public function edit_post(Request $request)
 {
 
-
+    
     $date = Carbon::now()->toDateTimeString();
     $post_id = $request->input('post_id');
     $category = $request->input('category');
     $title = $request->input('posttitle');
+    $title1=$request->input('posturltitle');
     $description = $request->input('description');
     $rss = $request->input('rss_name');
     $status = $request->input('status');
@@ -229,6 +296,7 @@ public function edit_post(Request $request)
     
     $hashtag = $request->input('hashtag');
     $language = $request->input('language');
+   
 
 
         
@@ -248,12 +316,12 @@ public function edit_post(Request $request)
          
                      foreach ($re as $value) {
                          
-                         DB::table('hashtags')->insert(['postid' =>$title,'hashtag' => $value,'cdt' => $date]);
+                         DB::table('hashtags')->insert(['postid' =>$title,'hashtag' => $value,'language'=>$language,'cdt' => $date]);
                         
                      }
                 
                     
-                DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posttitle' => $title,'description' => $description,'publishedon' => $date ,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'published_date' => $date,'schedule' => $schedule, 'schedule_date'=> $scheduleinput,'noti_input' => $noti_input,'hashtag'=>$hashtag,'language'=>$language]);
+                DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posturltitle'=>$title1,'posttitle' => $title,'description' => $description,'publishedon' => $date ,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'published_date' => $date,'schedule' => $schedule, 'schedule_date'=> $scheduleinput,'noti_input' => $noti_input,'hashtag'=>$hashtag,'language'=>$language]);
                 if($noti_input == '1')
                 {
                     return redirect('send_noti'); 
@@ -265,12 +333,12 @@ public function edit_post(Request $request)
             }
             else
             {
-                DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posttitle' => $title,'description' => $description,'publishedon' => $date , 'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'updated_at' => $date, 'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'hashtag'=>$hashtag,'language'=>$language]);
+                DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posturltitle'=>$title1,'posttitle' => $title,'description' => $description,'publishedon' => $date , 'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'updated_at' => $date, 'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'hashtag'=>$hashtag,'language'=>$language]);
             }
         }
         else 
         {
-            DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posttitle' => $title,'description' => $description,'publishedon' => $date , 'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'updated_at' => $date, 'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'hashtag'=>$hashtag,'language'=>$language]);
+            DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posturltitle'=>$title1,'posttitle' => $title,'description' => $description,'publishedon' => $date , 'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'updated_at' => $date, 'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input,'hashtag'=>$hashtag,'language'=>$language]);
         }
     } else {
     function generate_uuid() {
@@ -293,7 +361,7 @@ public function edit_post(Request $request)
         {
             if($status == "Publish")
             {
-                DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => $images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'published_date' => $date, 'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input]);
+                DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posturltitle'=>$title1,'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => $images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'published_date' => $date, 'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input]);
                 if($noti_input == '1')
                 {
                     return redirect('send_noti'); 
@@ -305,12 +373,12 @@ public function edit_post(Request $request)
             }
             else
             {
-                DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => $images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'updated_at' => $date, 'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input]);
+                DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posturltitle'=>$title1,'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => $images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'updated_at' => $date, 'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input]);
             }
         }
         else 
         {
-            DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => $images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'updated_at' => $date, 'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input]);
+            DB::table('post')->where('postid', $post_id)->update(['categoryid' => $category,'postlink' => $postlink,'posturltitle'=>$title1,'posttitle' => $title,'description' => $description,'publishedon' => $date ,'imagepath' => $images,'rssid' => $rss,'status' => $status,'trending_now' => $trending,'hot_content' => $hotcontent,'updated_at' => $date, 'schedule' => $schedule, 'schedule_date' => $scheduleinput,'noti_input' => $noti_input]);
         }
 
         }     

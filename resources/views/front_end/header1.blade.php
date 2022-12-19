@@ -9,6 +9,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
 <meta charset="UTF-8">
 <meta name="robots" content="max-image-preview:large">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=1">
@@ -22,7 +24,7 @@
 
 
 
-
+<link  rel="stylesheet"href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
 
 <meta property="og:url" content="https://mobilemasala.com/" /> 
 <meta property="og:title" content="@yield('title')">
@@ -51,6 +53,8 @@
 <link as="script" rel="preload" href="https://cdn.ampproject.org/v0.js">
 
 
+
+
 <script src="https://cdn.ampproject.org/v0.js" async>
 	
 </script>
@@ -71,6 +75,8 @@
 <link rel="stylesheet" href="{{asset('assets/front_end/css/menu.css')}}" type="text/css"/>
 
 <script type="text/javascript" src="{{asset('assets/front_end/js/menu.js')}}"></script>
+
+
 <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.8.1/css/all.css"></script>
 <script type="text/javascript" src="{{asset('assets/front_end/js/menu.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/front_end/js/jquery.js')}}"></script>
@@ -572,9 +578,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 	
 			
-	
-	
-	
 
 
 
@@ -630,66 +633,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+		
+	
+
+
+
+	
+		
+		
+		
+
     </nav>
 </div>
 @yield('content')
-<footer id="colophon" class="site-footer clear">
-    	<article class="clear">
-        	<aside class="footer-nav left">
-            	<h2>Information</h2>
-                <ul>
-                    <li><a href="contact-us">Contact Us</a></li>
-                    <li><a href="privacy-policy">Privacy Policy</a></li>
-                    <li><a href="terms-of-use">Terms of Use</a></li>
-                    <li><a href="accessibility">Accessibility Statement</a></li>
-                    <li><a href="disclosure">Disclosures</a></li>
-                </ul>
-            </aside>
-        	<aside class="left">
-            	<h2>Popular Tags</h2>
-				<div class="tagcloud clear">
-                    <a href="post-content&id=6">Health &amp; Wellness</a>
-                    <!-- <a href="#">Believe It or Not</a> -->
-                    <a href="post-content&id=8">Entertainment</a>
-                    <!-- <a href="#">Hot Content</a>
-                    <a href="#">Fitness</a>
-                    <a href="#">Sports</a> -->
-                    <!-- <a href="post-content&id=11">Trending Now</a> -->
-                    <a href="post-content&id=9">Sports</a>
-                    <!-- <a href="post-content&id=9">General Gossip</a> -->
-                    <!-- <a href="post-content&id=9">Uncategorized</a> -->
-                    <a href="post-content&id=1">Fashion</a>
-                    <a href="post-content&id=7">Technology &amp; Gadgets</a>
-                    <a href="post-content&id=4">Movies</a>
-                    <a href="post-content&id=2">Celebrity Gossip</a>
-					<a href="post-content&id=5">Music</a>
-					<a href="post-content&id=10">Auto News</a>
-					<a href="post-content&id=11">Travel & Tourism</a>
-					<a href="post-content&id=17">More</a>
-				</div>
-				<h2>Follow Us</h2>
-                <div class="footer-social-icons clear">
-                    <ul>
-                        <li><a href="https://www.youtube.com/channel/UCsiQiezOigqrxrNIP0N1gaw" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                        <li><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="javascript:void(0)"><i class="fab fa-pinterest"></i></a></li>
-                        <li><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="javascript:void(0)"><i class="fab fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
-            </aside>
-            <?php /*<fieldset class="right">
-            	<h2>Subscribe</h2>
-                <p>Get Mobile Masala free every morning and evening.</p>
-                <form action="{{ url('subscribe-addon') }}" method="POST">
-                    @csrf
-                	<input type="email" name="email" value="" size="40" aria-required="true" aria-invalid="false" placeholder="Enter your email address">						 					<input type="submit" value="Submit">
-                </form>
-                <!-- <p class="subscribe-msg">Thanks You for Subscribing Masalamobile</p> -->
-            </fieldset> */?>
-        </article>
-		<div class="site-info clear">
-        	<p class="left">© <span id="year"></span> Mobile Masala. All rights reserved.</p>
-		</div><!-- .site-info -->
-	</footer>
+@extends('front_end.footer')

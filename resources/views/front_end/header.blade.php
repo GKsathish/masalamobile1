@@ -678,7 +678,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><a href="post-content&id=11&lang=Hindi">  ट्रेवल & टूरिज़म   </a></li>
             <!--<li><a href="post-content&id=17&Others">अधिक</a></li>-->
             <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-            <li><a href="search?lang=Hindi"><i class="fa fa-search" aria-hidden="true"></i>  खोज </a></li>
+            <!-- <li><a href="search?lang=Hindi"><i class="fa fa-search" aria-hidden="true"></i>  खोज </a></li> -->
             <!-- <li class="subarrow"><a href="#">More</a> -->
                 <ul class="sub-menu">
                     <!-- <li><a href="#">Believe It or Not</a></li> -->
@@ -773,9 +773,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!--    మరింత-->
             <!--</a></li>-->
             <!-- <li><a href="post-content&id=12">Horoscope</a></li> -->
-            <li><a href="search?lang=Telugu"><i class="fa fa-search" aria-hidden="true"></i> 
+            <!-- <li><a href="search?lang=Telugu"><i class="fa fa-search" aria-hidden="true"></i> 
             వెతకండి
-            </a></li>
+            </a></li> -->
             <!-- <li class="subarrow"><a href="#">More</a> -->
                 <ul class="sub-menu">
                     <!-- <li><a href="#">Believe It or Not</a></li> -->

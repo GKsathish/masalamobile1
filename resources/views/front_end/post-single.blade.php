@@ -155,7 +155,43 @@ $metaurl = "https://mobilemasala.com/";*/
 	<div class="container post-content left">
     	<div class="post-content-inner clear">
         <h3><span style="font-size:28px;color:blue; margin-right:20px;">{{$feed->user}}</span> {{$feed->published_date}}</h3> 
-            <h1>{{$feed->posttitle}}</h1>
+     <?php     
+        function translate( $posttitle, $domain = 'default' ) {
+	$translations = get_translations_for_domain( $domain );
+	$translation  = $translations->translate( $posttitle );
+
+	/**
+	 * Filters text with its translation.
+	 *
+	 * @since 2.0.11
+	 *
+	 * @param string $translation Translated text.
+	 * @param string $text        Text to translate.
+	 * @param string $domain      Text domain. Unique identifier for retrieving translated strings.
+	 */
+	 $translation = apply_filters( 'gettext', $translation, $posttitle, $domain );
+
+	/**
+	 * Filters text with its translation for a domain.
+	 *
+	 * The dynamic portion of the hook name, `$domain`, refers to the text domain.
+	 *
+	 * @since 5.5.0
+	 *
+	 * @param string $translation Translated text.
+	 * @param string $text        Text to translate.
+	 * @param string $domain      Text domain. Unique identifier for retrieving translated strings.
+	 */
+	 $translation = apply_filters( "gettext_{$domain}", $translation, $posttitle, $domain );
+
+	return  $translation;
+
+}
+
+     ;?>
+        
+        
+        <h1>{{$feed->posttitle}}</h1>
            <div class="postview-and-time clear">
            @if($feed->published_date != "")
 
@@ -211,12 +247,13 @@ $feed_date = $feed->published_date;
             <?php } ?>
                 <div class="socialshare clear">
                     <ul>
-                       <li><a href="http://www.facebook.com/sharer.php?u=<?php echo env('SITE_URL'); ?>post-single/<?php echo $feed->postid; ?>" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li> <a href="https://twitter.com/share?url=<?php echo env('SITE_URL'); ?>post-single&id=<?php echo $feed->postid; ?>" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"> <i class="fab fa-twitter"></i></a></li>
+
+                       <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo env('SITE_URL'); ?>post-single&id=<?php echo $feed->posttitle ?><?php echo $feed->imagepath?>" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li> <a href="https://twitter.com/share?url=<?php echo env('SITE_URL'); ?>post-single&id=<?php echo $feed->posttitle; ?>" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"> <i class="fab fa-twitter"></i></a></li>
                         <!-- <li><a href="#"><i class="fa fa-pinterest"></i></a></li> -->
-                        <li><a href="https://www.instagram.com/?url=<?php echo env('SITE_URL'); ?>post-single&id=<?php echo $feed->postid; ?>" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/direct/inbox?url=<?php echo env('SITE_URL'); ?>post-single&id=<?php echo $feed->posttitle; ?>" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"><i class="fab fa-instagram"></i></a></li>
                         <!-- <li><a href="#"><i class="fa fa-linkedin"></i></a></li> -->
-                       <li><a href="https://api.whatsapp.com/send?text=<?php echo env('SITE_URL'); ?><?php echo "meta_share%26id=".$feed->postid."%26share=yes"; ?>" data-action="share/whatsapp/share"  data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                       <li><a href="https://api.whatsapp.com/send?text=<?php echo env('SITE_URL'); ?><?php echo "meta_share%26id=".$feed->posttitle."%26share=yes"; ?>" data-action="share/whatsapp/share"  data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
                 </div>
     			<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
@@ -241,12 +278,12 @@ $feed_date = $feed->published_date;
                 @foreach ($get_categoryname as $categoryname)
                   
                   <?php 
-                  
+                  $cat1=$categoryname->categoryid;
                   $cat = $categoryname->categoryname;
-                  $catreplace =  str_replace(' ','',$cat);
+                  $catreplace =  str_replace('','',$cat);
                   
                   ?>
-                  <a href="post-content&id={{$categoryname->categoryid}}&post=<?php echo $catreplace;?>" class="tagclick">#<?php echo $catreplace;  ?></a>
+                  <a href="http://127.0.0.1:8000/search?search=<?php echo $catreplace;?>" class="tagclick">#<?php echo $catreplace;  ?></a>
                   @endforeach
                 
 
@@ -346,6 +383,8 @@ $feed_date = $feed->published_date;
 	<aside id="secondary" class="container post-sidebar widget-area right">
     @include('front_end.sidebar')
 	</aside>
+
+
 	<!-- <div class="ads clear"><img src="assets/front_end/images/g6.jpg" /></div>	 -->
     <div class="container related-post clear">
         <?php if($lang == "Hindi"){?>

@@ -1,8 +1,21 @@
 @extends('front_end.header')
 @section('content')
+
+
+
+
+
 <head>
- 
+
 <style>
+
+.ui-state-active{
+    color:#fe004c !important;
+}
+
+.ui-tabs-active{
+  color:#fe004c !important;   
+}
 #tagchange {
     width: auto;
     float: left;
@@ -117,9 +130,9 @@
         line-height: 18px !important;
         font-weight:bold;
 }
-.descp2{
+  .descp2{
     
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 2;POSITION
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -130,6 +143,7 @@
     margin: 11px 5px;
     padding-top:25px;
 }
+
 
 #hidetext{
  display:none;   
@@ -176,7 +190,10 @@
       display:none ;
   }
   
-  
+   .video1{
+    width:640px; 
+    height:360px;
+} 
   
 @media only screen and (max-width:1020px){
       #showdesk{
@@ -242,7 +259,9 @@
     height: 235px;
   }
   
-  
+ 
+
+
   .descp{
     
         -webkit-line-clamp: 3;
@@ -256,11 +275,23 @@
 
 }
 
-  
-
+  .descp2{
+    
+        -webkit-line-clamp: 2;POSITION
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: initial;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px !important;
+    margin: 11px 5px;
+    padding:12px 0px;
 }
 
 
+
+}
 @media only screen and (min-width: 275px) and (max-width: 910px) {
 	.vid-container iframe, .vid-container object, .vid-container embed {
     width: 100%;
@@ -277,43 +308,382 @@
 
   }
   
-  
+  .video1{
+    width:400px ; 
+    height:260px;
+}
 
   
 }
 
+.AV62382721bab93c441117d951{
+    display:none;
+}
+
+@media only screen and (max-width: 1020px) {
+ 
+ .cricket{
+    width: 90% !important;
+    margin: 0 auto !important;
+}
+    
+}
 
 
+.cricket{
+    width: 24%;
+    margin: 0 auto;
+    margin-top: 0;
+}
+
+
+	
+	.thead{
+	
+	    color: #000;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: initial;
+}
+
+.tr-cont li  :hover{
+    color:#fe004c !important;
+}
+
+/*.active{*/
+/*    color:#fe004c !important;*/
+/*}*/
+
+.tr-cont li  a:active{
+    color:#fe004c !important;
+     background:#fe004c !important;
+}	
+.tr-cont li {
+    margin:10px;
+    width:10% !important;
+    font-size:14px !important;
+    font-weight:bold;
+     background:#ffffff !important;
+     text-decoration:underline ;
+     text-align:center;
+}
+.ct1{
+    /*    display: block;*/
+    /*font-size: 14px;*/
+    /*margin: 2px;*/
+    /*line-height: 18px;*/
+    /*font-weight: bold;*/
+    /*width: 100%;*/
+    /*height: 20px;*/
+    /*word-break: break-all;*/
+    
+    color: #7b7b7b;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-left: solid 1px #ff004c;
+    padding-left: 3px;
+    display: inline-block;
+}
+    
+.ct{
+        display: block;
+    font-size: 14px;
+    margin:2px;
+        line-height: 18px;
+
+
+    font-weight: bold;
+   
+       width: 100%;
+    height:40px;
+    
+    word-break:break-all;
+    
+
+}
+
+.trilers{
+	display: grid;
+	
+	grid-template-columns: repeat(4,1fr) ;
+	width:100%;
+		
+        gap:10px;
+	margin-top: 10px;
+	
+	}
+.img2{	
+    width: 100% ;
+    height:100% ;
+    vertical-align: middle;
+    border-radius: 4px;
+    
+}
+
+
+
+/*.thead{*/
+    
+/*    margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 1;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;*/
+/*}*/
+@media only screen and (min-width: 275px) and (max-width: 990px) {
+
+	    
+	.tr-cont li :hover{
+    color:#fe004c !important;
+}
+
+	
+	.tr-cont li  {
+    margin:12px;
+    width:32%;
+    background:#ffffff !important;
+    height:30px;
+    
+
+
+    text-decoration: underline  !important;
+    
+}
+	.trilers{
+		display: grid;
+	
+	grid-template-columns: repeat(2,1fr) ;
+	width:100%;
+	float:left;
+		margin-top: 10px;
+	
+		
+	
+	}
+	
+	.img2{	
+    width: 100%;
+    height:100%;
+    vertical-align: middle;
+
+    
+}
+
+.ct{
+    /*    display: block;*/
+    /*font-size: 12px;*/
+
+    font-weight: 600px;
+     width: 100%;
+    height:40px;
+        display: block;
+    font-size: 14px;
+    margin-top:10px !important;
+        line-height: 14px;
+
+    word-break:break-word;
+    /*font-weight: bold;*/
+    
+    
+}
+
+.ct1{
+    /*    display: block;*/
+    /*font-size: 14px;*/
+    /*margin: 2px;*/
+    /*line-height: 18px;*/
+    /*font-weight: bold;*/
+    /*width: 100%;*/
+    /*height: 20px;*/
+    /*word-break: break-all;*/
+    color: #7b7b7b;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-left: solid 1px #ff004c;
+    padding-left: 3px;
+    display: inline-block;
+}
+    
+    
+
+.tr-cont li a :active{
+    color:#fe004c !important;
+    
+}
+	
+	
+	
+	
+
+        	  .cont1{
+        	      width:450px ;
+        	      overflow:scroll;
+        	      
+        	      	  } 
+        		
+        		
+        		.cont2{
+        		    
+        	      width:1000px ;
+        	      
+        	  } 
+		}
+	
+
+
+/*.tr-cont li {*/
+    
+/*    width:30% !important;*/
+/*}*/
+
+/*.ct{*/
+/*        display: block;*/
+/*    font-size: 1.0em;*/
+/*    margin-top:0.5em;*/
+/*    margin-block-start: 0em;*/
+/*    margin-block-end: 0em;*/
+/*    margin-inline-start: 0px;*/
+/*    margin-inline-end: 0px;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*.trilers{*/
+	
+/*		display: grid;*/
+	
+/*		align-content: space-evenly;*/
+/*		grid-template-columns: auto auto auto auto;*/
+		
+/*        gap:10px;*/
+/*	margin-top: 10px;*/
+/*	}*/
+/*.img1{	*/
+/*    width: 380px;*/
+/*    height:200px;*/
+/*    vertical-align: middle;*/
+/*    border-radius: 8px;*/
+    
+/*}*/
+/*.thead{*/
+    
+/*    margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 1;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;*/
+/*}*/
+/*	@media only screen and (max-width:920px) {*/
+		
+	
+/*	.trilers{*/
+/*		display: grid;*/
+	
+/*	align-content: space-evenly;*/
+/*	grid-template-columns: auto auto ;*/
+/*	gap: 10px;*/
+
+/*		margin-top: 10px;*/
+		
+	
+/*	}*/
+	
+/*	.img1{	*/
+/*    width: 160px;*/
+/*    height:100px;*/
+/*    vertical-align: middle;*/
+/*    border-radius: 8px;*/
+    
+/*}*/
+
+/*.ct{*/
+/*        display: block;*/
+/*    font-size: 12px;*/
+
+/*    font-weight: bold;*/
+/*}*/
+
+/*	}*/
+	
+/*	}*/
+
+.active{
+  background-color:#ffffff;
+  color:#d90000;
+
+}
 </style>
   
 </head>
-
-
+ <!-- DIWALI CODE -->
+ 
+<body>
+  
 <div class="entry-content">
-	
+    
+    
+
+      
+      
+ 
+
+
+
+    
+    
     <!--Trending Now-->
 	<section class="container clear">
-	
+
+
      
     <!--video ad added by praveen--> 
     
 <!--    <script async id="AV62382721bab93c441117d951" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=62382721bab93c441117d951&AV_PUBLISHERID=6229e046286f660f8b1f0456"></script>
 -->    
     <!--video ad added by praveen-->
-     
+<!--     <div class="ads">-->
+        
+<!--        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>-->
+<!--        <div id="gpt-passback-mobilemasala.com.Banner0.1638192042">-->
+<!--            <script>-->
+<!--                window.googletag = window.googletag || {cmd: []};-->
+<!--                googletag.cmd.push(function() {-->
+<!--                googletag.defineSlot('/22387492205,22578111928/mobilemasala.com.Banner0.1638192042', [[300,250],[250,250],[336,280],[360,300],[320,280],[320,50],[320,100],[300,100],[300,50]], 'gpt-passback-mobilemasala.com.Banner0.1638192042').addService(googletag.pubads());-->
+<!--                    googletag.enableServices();-->
+<!--                    googletag.display("gpt-passback-mobilemasala.com.Banner0.1638192042");-->
+<!--                });-->
+<!--            </script>-->
+<!--        </div>-->
+<!--</div>-->
 
 
- 		<h2><span>ट्रेंडिंग </span></h2>
+
+
+
+         <div class="ads">
+        
+        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+        <div id="gpt-passback-mobilemasala.com.Banner0.1638192042">
+            <script>
+                window.googletag = window.googletag || {cmd: []};
+                googletag.cmd.push(function() {
+                googletag.defineSlot('/22387492205,22578111928/mobilemasala.com.Banner0.1638192042', [[300,250],[250,250],[336,280],[360,300],[320,280],[320,50],[320,100],[300,100],[300,50]], 'gpt-passback-mobilemasala.com.Banner0.1638192042').addService(googletag.pubads());
+                    googletag.enableServices();
+                    googletag.display("gpt-passback-mobilemasala.com.Banner0.1638192042");
+                });
+                
+ 
+            </script>
+        </div>
+</div>
+    
+    
+  
+ 		<h2><span>Trending Now</span></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
 			
-		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW" and language="Hindi"   ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
-			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"    ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+		    $entertainmentinfo= DB::select(DB::raw('SELECT  * FROM(SELECT  imagepath,postid,posttitle,categoryid   FROM post  WHERE trending_now="TRENDING NOW"  AND status="Publish"  ORDER BY  published_date DESC LIMIT 15) AS temptable  LIMIT 12'));
+			$entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,postid,posttitle FROM paparazzi_post  WHERE trending_now="TRENDING NOW"   AND status="Publish"  ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
-
-			
 				<?php 
 				$titlorl = $entertainmentinfo->posttitle;
 				$title = str_replace(" ","+",$titlorl);
@@ -328,9 +698,9 @@
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryhindi}}</h5>
+                    	<h5>{{$get_cat->categoryname}}</h5>
 						@endforeach
-						<h3>{{$entertainmentinfo->posttitle}}</h3>
+						<h3 >{{$entertainmentinfo->posttitle}}</h3>
                     </aside>
 				</a>
 	
@@ -339,8 +709,7 @@
 				<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
 				</svg></button>	
 		    </div>
-		    
-		    
+	
 			 @endforeach
 			 @foreach($entertainmentinfo1 as $entertainmentinfo)
 			
@@ -356,7 +725,7 @@
 
 							
 						  <div  style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">  
-						  <h5>पैपराज</h5>
+						  <h5>Paparazzi</h5>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
 			                </div>
 						</div>
@@ -366,25 +735,31 @@
 			
 				
 		</div>
+			    
+		   
 
-        
+        	
+ <div class="cricket">
+		     <a href="https://mobilemasala.com/post-single&id=82100"><img src="https://d3fn5rm3qk8k6v.cloudfront.net/songs/audio/Notification-20-04-2022/Fifa2022.gif"/></a>
+		    </div>
+		    
         
 	</section>
 	
-     
-	<div class="hashtag" style="padding: 10px;">
+
+
+<div class="hashtag" style="padding: 10px;">
           <marquee behavior="scroll" direction="left"  width="100%">
-              
+             
               	@php 
-              	
-				
-				$tag = DB::select(DB::raw('SELECT hashtag,count(*) as count FROM `hashtags` WHERE  hashtag !="" and language="Hindi"  GROUP by hashtag HAVING COUNT(hashtag)>0  limit 16 offset 0;'));
+                    $tag = DB::select(DB::raw('SELECT hashtag,count(*) as count FROM `hashtags` WHERE hashtag !=" " and date(cdt)>=date(NOW()-INTERVAL 15 DAY) GROUP BY hashtag HAVING COUNT(hashtag)>3 ORDER BY `count` DESC limit 16'));
+			
 				@endphp
 					@foreach($tag as $taginfo)
 				@foreach($tag as $taginfo)
 					@foreach($tag as $taginfo)
 			    
-                <a   href="https://127.0.0.1:8000/search?search={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
+                <a   href="https://www.mobilemasala.com/search?search={{$taginfo->hashtag }}" style="color:#2d2dcb;padding: 10px;" >#{{str_replace(' ','',$taginfo->hashtag)}}</a>
         
 	         @endforeach
 	          @endforeach
@@ -397,13 +772,12 @@
 
 
 
-	
 	<!--Entertainment & Sports-->
 	<section class="container equal-height padding-top-none clear">
     	<aside class="content left">
             <div class="slider-carousel owl-carousel owl-theme clear" id="slider-carousel-enter">
 				@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',7)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',8)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo1)
 				
@@ -416,7 +790,7 @@
 					<a href="post-single&id={{$entertainmentinfo1->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo1->imagepath}}" alt="">
                         <figcaption>
-							<h5>मनोरंजन</h5>
+							<h5>Entertainment</h5>
 							<h1>{{$entertainmentinfo1->posttitle}}</h1>
                         </figcaption>
 					</a>
@@ -427,8 +801,8 @@
         </aside>
         <aside class="sidebar right" style="margin:0;">
             <div class="slider-carousel-withdot owl-carousel owl-theme clear" id="slider-carousel-sport">
-			@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('language','Hindi')->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
+		  	    @php 
+					$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('status','Publish')->take(4)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<?php 
@@ -438,7 +812,7 @@
 				<div class="item clear">
 					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>" style="background-image:url(<?php echo $entertainmentinfo->imagepath ?>)">
                         <figcaption>
-							<h5>खेल</h5>
+							<h5>Sports</h5>
 							<h1>{{$entertainmentinfo->posttitle}}</h1>
                         </figcaption>
 					</a>
@@ -455,7 +829,7 @@
             </div>
         </aside>
         
-        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+        <!--<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>-->
     
     
     <div id="gpt-passback-mobilemasala.com.Banner0.1638182447">
@@ -467,7 +841,26 @@
 			googletag.display("gpt-passback-mobilemasala.com.Banner0.1638182447");
 			});
 		</script>
-     </div>
+    </div>
+    
+
+    
+    
+  
+<!--      <div id="div-gpt-ad-1667381824882-0" >-->
+          
+<!--		<script>-->
+<!--			window.googletag = window.googletag || {cmd: []};-->
+<!--			googletag.cmd.push(function() {-->
+<!--	googletag.defineSlot('/22387492205,22578111928/mobilemasala.com.Banner0.1638182447', [[300,250],[250,250],[336,280],[360,300],[320,280],[320,50],[320,100],[300,100],[300,50]], 'gpt-passback-mobilemasala.com.Banner0.1638182447').addService(googletag.pubads());-->
+<!--			googletag.defineSlot('/21902364955,22578111928/CM_Mobilemasala.com_Entertainment_News_TOP/CM_Mobilemasala.com_Entertainment_News_Rspv_WC1', [[300, 250], [300, 75]], 'div-gpt-ad-1667381824882-0').defineSizeMapping(slotmapping2).addService(googletag.pubads());-->
+<!--			googletag.enableServices();-->
+<!-- 			googletag.display("gpt-passback-mobilemasala.com.Banner0.1638182447");-->
+<!--googletag.display('div-gpt-ad-1667381824882-0');-->
+<!--			});-->
+<!--		</script>-->
+<!--    </div>-->
+
 	</section>
 
     <script>
@@ -478,17 +871,49 @@
         googletag.display("gpt-passback-mobilemasala.com.Banner0.1638182812");
       });
       </script>
-      </div>
+      
+      <!--<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>-->
+      
+      
+      <!--Horoscope-->
+      
+      <section class="container visual-stories clear">
+	<h2 class="left"><span><a href="/Horoscope_Details">Horoscope</a></span></h2>
+		
+	
+		<div >
+			<div class="visual-stories-carousel owl-carousel owl-theme clear">	
+			@php
+			$get_vs1 = DB::table('v_stories')->where('cat_type','horoscope')->orderBy('storyid','desc')->get();
+			@endphp			
+			@foreach ($get_vs1 as $get_vs1)		
+				<div class="item clear">
+					<a href="horoscope&id={{$get_vs1->storyid}}" target="_blank">
+						<img src="<?php echo $get_vs1->imagelink; ?>" style="min-height: 400px;" />
+						<figcaption>
+							<!--<h2>{{$get_vs1->storytitle}}</h2>-->
+							<h5>DAILY / WEEKLY </h5>
+						</figcaption>
+					</a>
+				</div>
+			@endforeach
+			</div>
+		</div>
+
+    </section>
+      <!--Horoscope-->
+      
+
+      
+
       <!--Celebrity Gossip-->
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=2&lang=Hindi" class="text-dark"><span>  सेलिब्रिटी गॉसिप
-
-</span></a></h2>
+ 			<h2><a href="post-content&id=2&lang=English" class="text-dark"><span>Celebrity Gossip</span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',2)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
+				$entertainmentinfo = DB::table('post')->where('categoryid',2)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 						<?php 
@@ -501,9 +926,7 @@
 						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
 						<figcaption>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
-							<h5> सेलिब्रिटी गॉसिप
-
-</h5>
+							<h5>Celebrity Gossip</h5>
 						</figcaption>
 						</a>
 						<button style="float:right; position: relative; bottom: 40px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
@@ -533,7 +956,7 @@
 						});
 					</script>
 				</div> -->
-					<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+					<!--<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>-->
                     <div id="gpt-passback-mobilemasala.com.Banner0.1638182846">
                     <script>
                     window.googletag = window.googletag || {cmd: []};
@@ -555,7 +978,7 @@
 
       <!--Visual Stories-->
       <section class="container visual-stories clear">
-		<h2 class="left"><span><a href="javascript:void(0)">फोटो  स्टोरीज  </a></span></h2>
+		<h2 class="left"><span><a href="javascript:void(0)">Visual Stories</a></span></h2>
 		<div class="tab visualstories right">
 			<!-- <button class="tablinks_VS" onclick="openVisualStories(event, 'FEATURED')" id="defaultOpenvs">FASHION</button>
 			<button class="tablinks_VS" onclick="openVisualStories(event, 'LIFESTYLE')">LIFESTYLE</button>
@@ -617,7 +1040,7 @@
 						<img src="<?php echo $get_vs->imagelink; ?>" style="min-height: 400px;" />
 						<figcaption>
 							<h2>{{$get_vs->storytitle}}</h2>
-							<h5>फोटो  स्टोरीज </h5>
+							<h5>FEATURED</h5>
 						</figcaption>
 					</a>
 				</div>
@@ -682,16 +1105,16 @@
     
     
   
-    
-      
-
+  
+  
+  
     <!--VIDEO STORIES-->
     
     
     	<!--Paparazzi-->
 	
 	<section class="container random-posts padding-top-none clear" >
- 		<h2><a href="Video-stories-details"><span>वीडियो स्टोरीजं</span></a></h2>
+ 		<h2><a href="Video-stories-details"><span>VIDEO STORIES</span></a></h2>
 		<div id="randomposts">
 	          
 		  
@@ -700,7 +1123,7 @@
         <!-- THE YOUTUBE PLAYER -->
         <div class="vid-container" id = "videostories">
           @php
-           $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->take(1)->get();
+          $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->take(1)->get();
           @endphp
           @foreach($entertainmentinfo as $entertainmentinfo)
 
@@ -710,9 +1133,9 @@
           //var_dump($vidoeurl);
           $shortcode = $vidoeurl['1'];
           ?>
-          <iframe id="vid_frame2" class="video" width="640" height="360" src="https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
+          <iframe id="vid_frame2" class="video video1"  src="https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
         
-            <div id ="hidemain_V" class="desc"><p class="descp2"><b>{{$entertainmentinfo->posttitle}}</b></p></div><br>
+            <div id ="hidemain_V" class="desc"><p class="descp2"><b  style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 1;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">{{$entertainmentinfo->posttitle}}</b></p></div><br>
             <div id ="" class="desc"><p id="addtext_V" class="descp2"></p></div><br>
             
           @endforeach
@@ -723,7 +1146,7 @@
         <div class="vid-list-container" id="vid-list">
           <ol id="vid-list">
             @php
-           $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
+            $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','Video_Stories')->orderBy('postid','desc')->inRandomOrder()->take(6)->get();
             @endphp
           	@foreach($entertainmentinfo ->slice(1, 20) as $entertainmentinfo)
 					
@@ -818,7 +1241,7 @@
     </script>
 
 		</div>
-		<button class="more_pap_btn" onclick="location.href='Video-stories-details'">अधिक वीडियो स्टोरीज</button>
+		<button class="more_pap_btn" onclick="location.href='Video-stories-details'">More Video Stories</button>
 	</section>
     
     
@@ -826,18 +1249,417 @@
     
     
     
+    	<!--Trailers-->
+				
+    <section class="container random-posts padding-top-none clear "> 
+    <h2><a href="Trailers&Teasers-details"><span>Trailers & Teasers</span></a></h2>
+      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+
+      <script>
+      $( function() {
+        $( "#tabs" ).tabs();
     
+      } );
+    
+      $(document).ready(function(){
+  $(' ul li a').click(function(){
+    $('li a').removeClass("active");
+    $(this).addClass("active");
+});
+});
+      </script>
+    	<div id="tabs">
+<div class="cont1">
+    <div class="cont2">
+        
+        
+        <ul class="tr-cont">
+            <li><a href="#tabs-1" class="active">All</a></li>
+            <li><a href="#tabs-3">Hindi</a></li>
+                <li><a href="#tabs-4" >Telugu</a></li>
+        
+         <li><a href="#tabs-2">English</a></li>
+       
+           <li><a href="#tabs-6">Tamil</a></li>
+            <li><a href="#tabs-7">Kannada</a></li>
+            <li><a href="#tabs-5">Malayalam</a></li>
+              
+              
+      </ul>
+        
+    </div>
+</div>    	    
+      
+    	<div id="tabs-1">
+    	
+    	    <div id="randomposts">				
+    					
+                    		   @php 
+                    	   
+                    	 
+                    	   $entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,imagepath,postid,posttitle,language  FROM paparazzi_post  WHERE  cat_type="trailers" and language !=""   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+                    
+                    	   @endphp
+                    	   
+    					
+    				    <div  class="trilers" >
+    						@foreach($entertainmentinfo1 as $entertainmentinfo1)
+    						
+    						
+    						
+    							
+                    						<?php 
+                    				$titlorl = $entertainmentinfo1->posttitle;
+                    				$title = str_replace(" ","+",$titlorl);
+                    				?>
+                    			
+                    				   <a href="paparazzi-post2&id={{$entertainmentinfo1->postid}}" >
+                    				
+                    				
+                    
+                    					 <div style="border:1px solid #f6e8ec;padding:5px;">
+                    					       	<img src="{{$entertainmentinfo1->imagepath}}" alt="" class="img2">
+                    					
+                    				       <h3 class="ct1">{{$entertainmentinfo1->language}}</h3>
+                    					  
+                    					       <h3 class="ct">{{$entertainmentinfo1->posttitle}}</h3>
+                    				
+                    					 </div>
+                    					   
+                    				   
+                    				   </a>
+                    				 
+                    	   @endforeach 
+                    		    
+                        </div>	
+    						
+    					
+    					
+    						
+            </div>			
+    		<button class="more_pap_btn" onclick="location.href='Trailers&Teasers-detailsall'">More </button>					
+    	</div>
+    	<div id="tabs-2">
+    	
+    	    <div id="randomposts">				
+    					
+                    		   @php 
+                    	   
+                    	 
+                    	   $entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,imagepath,postid,posttitle,language FROM paparazzi_post  WHERE  cat_type="trailers" and language="English"  ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+                    
+                    	   @endphp
+                    	   
+    					
+    				    <div  class="trilers" >
+    						@foreach($entertainmentinfo1 as $entertainmentinfo1)
+    						
+    						
+    						
+    							
+                    						<?php 
+                    				$titlorl = $entertainmentinfo1->posttitle;
+                    				$title = str_replace(" ","+",$titlorl);
+                    				?>
+                    			
+                    				   <a href="paparazzi-post2&id={{$entertainmentinfo1->postid}}">
+                    				
+                    				
+                     <div style="border:1px solid #f6e8ec; padding:5px;">
+                    					       	<img src="{{$entertainmentinfo1->imagepath}}" alt="" class="img2">
+                    					
+                    				
+                    					 <h3 class="ct1">{{$entertainmentinfo1->language}}</h3>
+                    					       <h3 class="ct">{{$entertainmentinfo1->posttitle}}</h3>
+                    				
+                    					 </div>
+                    					   
+                    			
+                    					   
+                    				   
+                    				   </a>
+                    				 
+                    	   @endforeach 
+                    		    
+                        </div>	
+    						
+    					
+    					
+    						
+            </div>			
+    		<button class="more_pap_btn" onclick="location.href='Trailers&Teasers-details?lang={{$entertainmentinfo1->language}}'">More </button>					
+    	</div>
+    	<div id="tabs-3">
+    	
+    	    <div id="randomposts">				
+    						
+                    		   @php 
+                    	   
+                    	 
+                    	   $entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,imagepath,postid,posttitle,language FROM paparazzi_post  WHERE  cat_type="trailers" and language="Hindi"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+                    
+                    	   @endphp
+                    	   
+    					
+    				    <div  class="trilers" >
+    						@foreach($entertainmentinfo1 as $entertainmentinfo1)
+    						
+    						
+    						
+    							
+                    						<?php 
+                    				$titlorl = $entertainmentinfo1->posttitle;
+                    				$title = str_replace(" ","+",$titlorl);
+                    				?>
+                    			
+                    				   <a href="paparazzi-post2&id={{$entertainmentinfo1->postid}}">
+                    				
+                    				
+                    
+                    					   <div style="border:1px solid #f6e8ec; padding:5px; ">
+                    					       	<img src="{{$entertainmentinfo1->imagepath}}" alt="" class="img2">
+                    					
+                    				 <h3 class="ct1">{{$entertainmentinfo1->language}}</h3>
+                    					
+                    					       <h3 class="ct">{{$entertainmentinfo1->posttitle}}</h3>
+                    				
+                    					 </div>
+                    					   
+                    					   
+                    				   
+                    				   </a>
+                    				 
+                    	   @endforeach 
+                    		    
+                        </div>	
+    					
+    					
+    						
+            </div>			
+    		<button class="more_pap_btn" onclick="location.href='Trailers&Teasers-details?lang={{$entertainmentinfo1->language}}'">More </button>					
+    	</div>
+    		<div id="tabs-4">
+    	
+    	    <div id="randomposts">				
+    						
+                    		   @php 
+                    	   
+                    	 
+                    	   $entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,imagepath,postid,posttitle,language FROM paparazzi_post  WHERE  cat_type="trailers" and language="Telugu"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+                    
+                    	   @endphp
+                    	   
+    					
+    				    <div  class="trilers" >
+    						@foreach($entertainmentinfo1 as $entertainmentinfo1)
+    						
+    						
+    						
+    							
+                    						<?php 
+                    				$titlorl = $entertainmentinfo1->posttitle;
+                    				$title = str_replace(" ","+",$titlorl);
+                    				?>
+                    			
+                    				   <a href="paparazzi-post2&id={{$entertainmentinfo1->postid}}">
+                    				
+                    				
+                    
+                    					   <div style="border:1px solid #f6e8ec; padding:5px; ">
+                    					       	<img src="{{$entertainmentinfo1->imagepath}}" alt="" class="img2">
+                    					
+                    				
+                    					 <h3 class="ct1">{{$entertainmentinfo1->language}}</h3>
+                    					       <h3 class="ct">{{$entertainmentinfo1->posttitle}}</h3>
+                    				
+                    					 </div>
+                    					   
+                    					   
+                    				   
+                    				   </a>
+                    				 
+                    	   @endforeach 
+                    		    
+                        </div>	
+    					
+    					
+    						
+            </div>			
+    		<button class="more_pap_btn" onclick="location.href='Trailers&Teasers-details?lang={{$entertainmentinfo1->language}}'">More </button>					
+    	</div>
+    	<div id="tabs-5">
+    	
+    	    <div id="randomposts">				
+    						
+                    		   @php 
+                    	   
+                    	 
+                    	   $entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,imagepath,postid,posttitle,language FROM paparazzi_post  WHERE  cat_type="trailers" and language="Malayalam"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+                    
+                    	   @endphp
+                    	   
+    					
+    				    <div  class="trilers" >
+    						@foreach($entertainmentinfo1 as $entertainmentinfo1)
+    						
+    						
+    						
+    							
+                    						<?php 
+                    				$titlorl = $entertainmentinfo1->posttitle;
+                    				$title = str_replace(" ","+",$titlorl);
+                    				?>
+                    			
+                    				   <a href="paparazzi-post2&id={{$entertainmentinfo1->postid}}">
+                    				
+                    				
+                    
+                    					   <div style="border:1px solid #f6e8ec; padding:5px; ">
+                    					       	<img src="{{$entertainmentinfo1->imagepath}}" alt="" class="img2">
+                    					
+                    				
+                    					 <h3 class="ct1">{{$entertainmentinfo1->language}}</h3>
+                    					       <h3 class="ct">{{$entertainmentinfo1->posttitle}}</h3>
+                    				
+                    					 </div>
+                    					   
+                    					   
+                    				   
+                    				   </a>
+                    				 
+                    	   @endforeach 
+                    		    
+                        </div>	
+    					
+    					
+    						
+            </div>			
+    		<button class="more_pap_btn" onclick="location.href='Trailers&Teasers-details?lang={{$entertainmentinfo1->language}}'">More </button>					
+    	</div>
+    	<div id="tabs-6">
+    	
+    	    <div id="randomposts">				
+    						
+                    		   @php 
+                    	   
+                    	 
+                    	   $entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,imagepath,postid,posttitle,language FROM paparazzi_post  WHERE  cat_type="trailers" and language="Tamil"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+                    
+                    	   @endphp
+                    	   
+    					
+    				    <div  class="trilers" >
+    						@foreach($entertainmentinfo1 as $entertainmentinfo1)
+    						
+    						
+    						
+    							
+                    						<?php 
+                    				$titlorl = $entertainmentinfo1->posttitle;
+                    				$title = str_replace(" ","+",$titlorl);
+                    				?>
+                    			
+                    				   <a href="paparazzi-post2&id={{$entertainmentinfo1->postid}}">
+                    				
+                    				
+                    
+                    					   <div style="border:1px solid #f6e8ec; padding:5px; ">
+                    					       	<img src="{{$entertainmentinfo1->imagepath}}" alt="" class="img2">
+                    					
+                    				 <h3 class="ct1">{{$entertainmentinfo1->language}}</h3>
+                    					
+                    					       <h3 class="ct">{{$entertainmentinfo1->posttitle}}</h3>
+                    				
+                    					 </div>
+                    					   
+                    					   
+                    				   
+                    				   </a>
+                    				 
+                    	   @endforeach 
+                    		    
+                        </div>	
+    					
+    					
+    						
+            </div>			
+    		<button class="more_pap_btn" onclick="location.href='Trailers&Teasers-details?lang={{$entertainmentinfo1->language}}'">More </button>					
+    	</div>
+    	
+    	
+    		<div id="tabs-7">
+    	
+    	    <div id="randomposts">				
+    						
+                    		   @php 
+                    	   
+                    	 
+                    	   $entertainmentinfo1= DB::select(DB::raw('SELECT * FROM (SELECT videopath,imagepath,postid,posttitle,language FROM paparazzi_post  WHERE  cat_type="trailers" and language="Kannada"   ORDER BY published_date DESC LIMIT 8) AS temptable  LIMIT 4'));
+                    
+                    	   @endphp
+                    	   
+    					
+    				    <div  class="trilers" >
+    						@foreach($entertainmentinfo1 as $entertainmentinfo1)
+    						
+    						
+    						
+    							
+                    						<?php 
+                    				$titlorl = $entertainmentinfo1->posttitle;
+                    				$title = str_replace(" ","+",$titlorl);
+                    				?>
+                    			
+                    				   <a href="paparazzi-post2&id={{$entertainmentinfo1->postid}}">
+                    				
+                    				
+                    
+                    					   <div style="border:1px solid #f6e8ec; padding:5px; ">
+                    					       	<img src="{{$entertainmentinfo1->imagepath}}" alt="" class="img2">
+                    					
+                    				 <h3 class="ct1">{{$entertainmentinfo1->language}}</h3>
+                    					
+                    					       <h3 class="ct">{{$entertainmentinfo1->posttitle}}</h3>
+                    				
+                    					 </div>
+                    					   
+                    					   
+                    				   
+                    				   </a>
+                    				 
+                    	   @endforeach 
+                    		    
+                        </div>	
+    					
+    					
+    						
+            </div>			
+    		<button class="more_pap_btn" onclick="location.href='Trailers&Teasers-details?lang={{$entertainmentinfo1->language}}'">More </button>					
+    	</div>
+    	
+    </section>
+    
+
+
+    <!-- trailers -->
+        
+
+
+       <!--Trailers-->
+
     
    
 	
 	
     <!--Random Posts-->
 	<section class="container random-posts padding-top-none clear">
- 		<h2><span>अन्य पोस्ट्स</span></h2>
+ 		<h2><span>Random Posts</span></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('language','Hindi')->where('status','Publish')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)')->inRandomOrder()->take(5)->orderBy('published_date','desc')->get(); 
+				$entertainmentinfo = DB::table('post')->where('status','Publish')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)')->inRandomOrder()->take(5)->orderBy('published_date','desc')->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<li>
@@ -849,10 +1671,10 @@
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryhindi}}</h5>
+                    	<h5>{{$get_cat->categoryname}}</h5>
 						@endforeach
 						
-						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
+						<figure><img src="{{$entertainmentinfo->imagepath}}" alt="" class="img1"></figure>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
 					</a>
 					
@@ -865,15 +1687,18 @@
 	  <!--Random Posts-->
 	
 	
+
+	
+	
 	
 	<!--Movies-->
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=4&lang=Hindi"><span>मूवीज़ </span></a></h2>
+ 			<h2><a href="post-content&id=4"><span>Movies</span></a></h2>
             <div class="grid clear">
 					@php 
-					$entertainmentinfo = DB::table('post')->where('language','Hindi')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid',4)->where('status','Publish')->orderBy('published_date','desc')->take(3)->get(); 
                     @endphp
                     @foreach($entertainmentinfo as $entertainmentinfo)
                     <?php 
@@ -884,7 +1709,7 @@
 					<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
                         <img src="{{$entertainmentinfo->imagepath}}" alt="" width="100%">
                         <figcaption>
-                            <h5>मूवीज़ </h5>
+                            <h5>Movies</h5>
 							<h3>{{$entertainmentinfo->posttitle}}</h3>
                         </figcaption>
                     </a>
@@ -944,7 +1769,7 @@
 				
 				<!--<script async id="AV62382721bab93c441117d951" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=62382721bab93c441117d951&AV_PUBLISHERID=6229e046286f660f8b1f0456"></script>-->
 				
-				<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/Dussehra 5.jpg')}}" style="margin-top:50px;width:100%"></a>
+				<a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/MM 599 2022-11-23 .jpeg')}}" style="margin-top:50px;width:100%"></a>
 			</div>
         </aside>
 	</section>
@@ -952,7 +1777,7 @@
 	<!--Paparazzi-->
 	
 	<section class="container random-posts padding-top-none clear">
- 		<h2><a href="paparazzi-details"><span>पैपराजं</span></a></h2>
+ 		<h2><a href="paparazzi-details"><span>Paparazzi</span></a></h2>
 		<div id="randomposts">
 	          
 		  
@@ -971,9 +1796,9 @@
           //var_dump($vidoeurl);
           $shortcode = $vidoeurl['1'];
           ?>
-          <iframe id="vid_frame" class="video" width="640" height="360" src="https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
+          <iframe id="vid_frame" class="video video1"  src="https://www.youtube.com/embed/<?php echo  $shortcode;  ?>	?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
         
-            <div id ="hidemain" class="desc"><p class="descp2"><b>{{$entertainmentinfo->posttitle}}</b></p></div><br>
+            <div id ="hidemain" class="desc"><p class="descp2"><b  style="margin: 10px 0 0 0;color: #000;font-weight: 600;font-size: 15px;line-height: 18px;-webkit-line-clamp: 1;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;max-height: initial;">{{$entertainmentinfo->posttitle}}</b></p></div><br>
             <div id ="" class="desc"><p id="addtext" class="descp2"></p></div><br>
             
           @endforeach
@@ -984,7 +1809,7 @@
         <div class="vid-list-container" id="vid-list">
           <ol id="vid-list">
             @php
-            $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','<>','Video_Stories')->where('cat_type','paparazzi')->orderBy('postid','desc')->inRandomOrder()->take(20)->get();
+            $entertainmentinfo = DB::table('paparazzi_post')->where('status','Publish')->where('cat_type','<>','Video_Stories')->where('cat_type','paparazzi')->orderBy('postid','desc')->inRandomOrder()->take(6)->get();
             @endphp
           	@foreach($entertainmentinfo ->slice(1, 20) as $entertainmentinfo)
 					
@@ -1079,15 +1904,15 @@
     </script>
 
 		</div>
-		<button class="more_pap_btn" onclick="location.href='paparazzi-details'">अधिक  पैपराजी   </button>
+		<button class="more_pap_btn" onclick="location.href='paparazzi-details'">More Paparazzi</button>
 	</section>
 	<!--Fashion and Autonews & Sidebar-->
 	<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=1&lang=Hindi"><span>फ़ैशन</span></a></h2>
+ 		<h2><a href="post-content&id=1&lang=English"><span>Fashion</span></a></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',1)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(10)->get(); 
+				$entertainmentinfo = DB::table('post')->where('categoryid',1)->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(10)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				<li>
@@ -1099,7 +1924,7 @@
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryhindi}}</h5>
+                    	<h5>{{$get_cat->categoryname}}</h5>
 						@endforeach
 						
 						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
@@ -1117,11 +1942,11 @@
 	
 	<section class="container padding-top-none clear">
     	<aside class="content left">
- 			<h2><a href="post-content&id=7&lang=Hindi"><span> टेक्नोलॉजी   </span></a></h2>
+ 			<h2><a href="post-content&id=7&lang=English"><span>Technology & Gadgets</span></a></h2>
             <div class="single-article clear">
             	<ul>
 				@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',7)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(6)->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',7)->where('status','Publish')->orderBy('published_date','desc')->take(6)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			       <?php 
@@ -1133,10 +1958,7 @@
 					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <figcaption>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
-                        <h5>
-                            टेक्नोलॉजी 
-                            
-                        </h5>
+                        <h5>Technology & Gadgets</h5>
                     </figcaption>
                     </a>
 					<button style="float:right; position: relative; bottom: 40px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
@@ -1151,7 +1973,7 @@
             
         	<div class="ads">
         	    </br></br>
-        	    <a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img src="{{asset('assets/front_end/images/adimage/MMAUG222022.jpg')}}"></a>
+        	    <a href="https://play.google.com/store/apps/details?id=com.beeinnovations.zing" target="_blank"><img  style="width:100%;" src="{{asset('assets/front_end/images/adimage/MM 769  2022-11-23 PM.jpeg')}}"></a>
 				<!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
 				<div id="gpt-passback-MRMTF">
 					<script>
@@ -1171,10 +1993,10 @@
 	<!--Health and Wellness-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=6&lang=Hindi"><span>  हेल्थ और फिटनेस   </span></a></h2>
+ 		<h2><a href="post-content&id=6&lang=English"><span>Health & Wellness</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',6)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',6)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			   <?php 
@@ -1186,11 +2008,7 @@
 					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <aside>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
-                        <h5> 
-                        
-        हेल्थ और फिटनेस   
-                        
-                        </h5>
+                        <h5>Health & Wellness</h5>
                     </aside>
 				</a>
 				<button style="float:right; position: relative; bottom: 20px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
@@ -1211,10 +2029,10 @@
 	<!--Sports-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=9&lang=Hindi"><span> खेल  </span></a></h2>
+ 		<h2><a href="post-content&id=9&lang=English"><span>Sports</span></a></h2>
         <div class="tumbnailcarousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',9)->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			 <?php 
@@ -1225,7 +2043,7 @@
 				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
                     <figure><img src="<?php echo $entertainmentinfo->imagepath; ?>" alt=""></figure>
                     <aside>
-                    	<h5>  खेल   </h5>
+                    	<h5>Sports</h5>
                     	<h3>{{$entertainmentinfo->posttitle}}</h3>
                     </aside>
 				</a>
@@ -1240,10 +2058,10 @@
 	<!--Music-->
 	
 	<section class="container padding-top-none clear">
- 		<h2><a href="post-content&id=5&lang=Hindi"><span>म्यूज़िक </span></a></h2>
+ 		<h2><a href="post-content&id=5&lang=English"><span>Music</span></a></h2>
 		<div class="single-article-carousel owl-carousel owl-theme clear">
 			@php 
-			$entertainmentinfo = DB::table('post')->where('categoryid',5)->where('language','Hindi')->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
+			$entertainmentinfo = DB::table('post')->where('categoryid',5)->where('status','Publish')->take(8)->orderBy('published_date','desc')->get(); 
 			@endphp
 			@foreach($entertainmentinfo as $entertainmentinfo)
 			 <?php 
@@ -1255,11 +2073,7 @@
 					<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
                     <aside>
 						<h3>{{$entertainmentinfo->posttitle}}</h3>
-                        <h5>
-                            
-                            म्यूज़िक
-                        
-                        </h5>
+                        <h5>Music</h5>
                     </aside>
 				</a>
 				<button style="float:right; position: relative; bottom: 20px; right: 20px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
@@ -1274,11 +2088,11 @@
 	
 	
 		<section class="container random-posts padding-top-none clear">
- 		<h2><a href="post-content&id=11&lang=Hindi"><span>  ट्रेवल & टूरिज़म </span></a></h2>
+ 		<h2><a href="post-content&id=11&lang=English"><span>Travel & Tourism</span></a></h2>
 		<div id="randomposts">
 			<ul class="clear">
 				@php 
-				$entertainmentinfo = DB::table('post')->where('categoryid',11)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(5)->get(); 
+				$entertainmentinfo = DB::table('post')->where('categoryid',11)->where('status','Publish')->orderBy('published_date','desc')->inRandomOrder()->take(5)->get(); 
 				@endphp
 				@foreach($entertainmentinfo as $entertainmentinfo)
 				
@@ -1296,7 +2110,7 @@
 						$get_cat = DB::table('category')->where('categoryid',$entertainmentinfo->categoryid)->get();
 						@endphp
 						@foreach($get_cat as $get_cat)
-                    	<h5>{{$get_cat->categoryhindi}}</h5>
+                    	<h5>{{$get_cat->categoryname}}</h5>
 						@endforeach
 						
 						<figure><img src="{{$entertainmentinfo->imagepath}}" alt=""></figure>
@@ -1313,10 +2127,10 @@
 		<section class="container equal-height padding-top-none clear">
 	
 			<aside class="content left">
-    			<h2><span><a href="post-content&id=10&lang=Hindi">  ऑटोन्यूज़ </a></span></h2>
+    			<h2><span><a href="post-content&id=10&lang=English">Autonews</a></span></h2>
     			<article class="single-article-box clear">
     					@php 
-					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('language','Hindi')->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
+					$entertainmentinfo = DB::table('post')->where('categoryid', 10)->where('status','Publish')->orderBy('published_date','desc')->take(4)->get(); 
 					@endphp
 					@foreach($entertainmentinfo as $entertainmentinfo)
 						 <?php 
@@ -1327,12 +2141,7 @@
 						<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
 							<figure style="background-image:url('<?php echo $entertainmentinfo->imagepath; ?>');"></figure>
 							<figcaption>
-								<h5>
-								    
-ऑटोन्यूज़
-								
-								
-								</h5>
+								<h5>Autonews</h5>
 								<h3>{{$entertainmentinfo->posttitle}}</h3>
 							</figcaption>
 						</a>
@@ -1356,13 +2165,13 @@
 			<aside class="sidebar right">
 				<div class="news-list sidebarposts nomargin">
 					<div class="tab">
-						<button class="tablinks" onclick="openCity(event, 'Recent')" id="defaultOpen">रीसेंट</button>
-						<button class="tablinks" onclick="openCity(event, 'Popular')">पॉपुलर</button>
+						<button class="tablinks" onclick="openCity(event, 'Recent')" id="defaultOpen">Recent</button>
+						<button class="tablinks" onclick="openCity(event, 'Popular')">Popular</button>
 					</div>
 					<div id="Recent" class="tabcontent clear">
 						<ul>
 						@php 
-						$entertainmentinfo = DB::table('post')->where('status','Publish')->where('language','Hindi')->orderBy('published_date','desc')->take(8)->get(); 
+						$entertainmentinfo = DB::table('post')->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
 						@endphp
 						@foreach($entertainmentinfo as $entertainmentinfo)
 									 <?php 
@@ -1381,9 +2190,11 @@
 					<div id="Popular" class="tabcontent clear">
 						<ul>
 						<?php /* $entertainmentinfo = DB::table('post')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();  */  //OLD LOGIC ?> 
+						
 						@php 
-							$entertainmentinfo = DB::table('post')->where('language','Hindi')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();
-							@endphp
+							$entertainmentinfo = DB::table('post')->whereRaw('DATE(published_date) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)')->where('hitcount', '>',0)->where('status','Publish')->take(7)->orderBy('hitcount','desc')->get();
+						@endphp
+						
 							@foreach($entertainmentinfo as $entertainmentinfo)
 													 <?php 
 				$titlorl = $entertainmentinfo->posttitle;
@@ -1401,8 +2212,69 @@
 				</div>
 			</aside>
 		</section>
-	
+		
+		
+<!-- /21902364955,22578111928/CM_Mobilemasala.com_Entertainment_News_TOP/CM_Mobilemasala.com_Entertainment_News_Rspv_LB -->
+<!--<div id='div-gpt-ad-1667381699733-0' style='min-width: 300px; min-height: 75px;'>-->
+<!--  <script>-->
+<!--    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1667381699733-0'); });-->
+<!--  </script>-->
+<!--</div>-->
+		
+		
+		<div style='min-width: 300px; min-height: 75px;'>
+<div id='div-gpt-ad-1667381824882-0'>
+  <script>
+   
+          window.googletag = window.googletag || {cmd: []};
+                googletag.cmd.push(function() {
+                              googletag.defineSlot('/22387492205,22578111928/mobilemasala.com.Banner0.1638192042', [[300,250],[250,250],[336,280],[360,300],[320,280],[320,50],[320,100],[300,100],[300,50]], 'gpt-passback-mobilemasala.com.Banner0.1638192042').addService(googletag.pubads());
 
+
+
+googletag.defineSlot('/21902364955,22578111928/CM_Mobilemasala.com_Entertainment_News_TOP/CM_Mobilemasala.com_Entertainment_News_Rspv_WC1', [[300, 250], [300, 75]], 'div-gpt-ad-1667381824882-0').defineSizeMapping(slotmapping2).addService(googletag.pubads());
+
+         googletag.enableServices();
+          googletag.display("gpt-passback-mobilemasala.com.Banner0.1638192042");
+        googletag.display('div-gpt-ad-1667381824882-0'); 
+                    
+                });
+  </script>
+  
+</div>
+</div>
+		
+	
+	<!--More-->
+	
+	<section class="container padding-top-none clear">
+ 		<h2><a href="post-content&id=17&lang=English"><span>More</span></a></h2>
+        <div class="tumbnailcarousel owl-carousel owl-theme clear">
+			@php 
+			$entertainmentinfo = DB::table('post')->where('categoryid',17)->where('status','Publish')->orderBy('published_date','desc')->take(8)->get(); 
+			@endphp
+			@foreach($entertainmentinfo as $entertainmentinfo)
+													 <?php 
+				$titlorl = $entertainmentinfo->posttitle;
+				$title = str_replace(" ","+",$titlorl);
+				?>
+			<div class="item clear">
+				<a href="post-single&id={{$entertainmentinfo->postid}}&post=<?php echo $title;?>">
+                    <figure><img src="<?php echo $entertainmentinfo->imagepath; ?>" alt=""></figure>
+                    <aside>
+                    	<h5>More</h5>
+                    	<h3>{{$entertainmentinfo->posttitle}}</h3>
+                    </aside>
+				</a>
+				<button style="float:right; position: relative; bottom: 95px; right: 10px; cursor: pointer; border: none;" class="open" value="{{$entertainmentinfo->postid}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+				<path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+				</svg></button>	
+			</div>
+			@endforeach
+        </div>
+	</section>
+	
+	
 </div>
 <script async='async' src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
 <div id='sticky' style='position: fixed; right: 0px; bottom: 0px; margin: 0 auto;width: 100%; background-color: rgba(255, 255, 255, 0.8); border-top: 2px solid rgba(225, 225, 225, 0.8); visibility: hidden; z-index:99999999;'><button id='ad_close' style='color:#000; background-color: hsla(0,0%,100%,.8); border: hsla(0,0%,100%,.8); position:absolute; left : 0px; top : -45px;'>x</button>
@@ -1427,7 +2299,11 @@
   </script>
 </div>
 </div>
- 
+  <?php if (\Session::has('success')) { ?>
+		<script>
+			alert("Subscription Added Successfully");
+		</script>
+		<?php } ?>
 </div>
 </div>
 
@@ -1443,15 +2319,13 @@
 				<div class="modal-body" style="padding: 5.5% 14%">
 					<div class="icon-container1" style="display:flex;" >
 						<a id="twit" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class=" img-thumbnail fab fa-twitter fa-2x ico" style="color:#4c6ef5;background-color: aliceblue"></i>
-							<p>ट्विटर</p>
+							<p>Twitter</p>
 						</div></a>
 						<a id="fb" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class="img-thumbnail fab fa-facebook fa-2x ico" style="color: #3b5998;background-color: #eceff5;"></i>
-							<p>फेसबुक</p>
+							<p>Facebook</p>
 						</div></a>
 						<a id="wa" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class="img-thumbnail fab fa-whatsapp fa-2x ico" style="color: #25D366;background-color: #cef5dc;"></i>
-							<p> 
-							Whatsapp
-							</p>
+							<p>Whatsapp</p>
 						</div></a>
 						<!-- <div class="smd"> <i class="img-thumbnail fab fa-reddit-alien fa-2x" style="color: #FF5700;background-color: #fdd9ce;"></i>
 							<p>Reddit</p>
@@ -1463,13 +2337,13 @@
 					<div class="icon-container2" style="display:flex;" >
 						
 						<a id="mail"onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class="img-thumbnail fas fa-envelope-open-text fa-2x ico" style="color: #3b5998;background-color: #eceff5;"></i>
-							<p>  ईमेल  </p>
+							<p>Mail</p>
 						</div></a>
 						<a id="telegram" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class="img-thumbnail fab fa-telegram fa-2x ico" style="color: #4c6ef5;background-color: aliceblue"></i>
-							<p> तार </p>
+							<p>Telegram</p>
 						</div></a>
 						<a id="insta" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><div class="smd"> <i class="img-thumbnail fab fa-instagram fa-2x ico" style="color: #bd3c96;background-color: aliceblue"></i>
-							<p>   Instagram  </p>
+							<p>Instagram</p>
 						</div></a>
 						<!-- <div class="smd"> <i class="img-thumbnail fab fa-weixin fa-2x" style="color: #7bb32e;background-color: #daf1bc;"></i>
 							<p>WeChat</p>
@@ -1486,7 +2360,7 @@
 <!--<script>-->
 <!--    $(document).ready(function() {-->
 <!--        var value = $("#tagchange").text();-->
-        
+     
 <!--        var res = value.split(" ").join("");-->
 <!--        $("#tagchange").empty();-->
 <!--        $("#tagchange").append(res);-->
@@ -1495,45 +2369,8 @@
 <!--    });-->
 <!--</script>-->
 
-<div id="tabs">
-    <ul>
-        <li><a href="#tabs-1">Tab 1</a>
-        </li>
-        <li><a href="#tabs-2">Tab 2</a>
-        </li>
-        <li><a href="#tabs-3">Tab 3</a>
-        </li>
-    </ul>
-    <div id="tabs-1">
-        <p>Content for Tab 1</p>
-    </div>
-    <div id="tabs-2">
-        <p>Content for Tab 2</p>
-    </div>
-    <div id="tabs-3">
-        <p>Content for Tab 3</p>
-    </div>
-</div>
-<div id="tabid"></div>
 
-<style>
-	
-#tabs {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-}
-</style>
 
-<script>
-	$("#tabs").tabs({
-    active: 1,
-    activate: function (event, ui) {
-      var active = $('#tabs').tabs('option', 'active');
-      $("#tabid").html('the tab id is ' + $("#tabs ul>li a").eq(active).attr("href"));
 
-    }
-});
-</script>
 @endsection
+    

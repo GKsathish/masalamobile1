@@ -1,3 +1,11 @@
+<ul>
+<li><a href="http://www.facebook.com/sharer.php?u=<?php echo env('SITE_URL'); ?>post-single/<?php echo $feed->postid; ?>" onClick="javascript: window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500,padding=200');return false;" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+ <li> <a href="https://twitter.com/share?url=<?php echo env('SITE_URL'); ?>post-single&id=<?php echo $feed->postid; ?>" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"> <i class="fab fa-twitter"></i></a></li>
+ <!-- <li><a href="#"><i class="fa fa-pinterest"></i></a></li> -->
+ <li><a href="https://www.instagram.com/?url=<?php echo env('SITE_URL'); ?>post-single&id=<?php echo $feed->postid; ?>" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"><i class="fab fa-instagram"></i></a></li>
+ <!-- <li><a href="#"><i class="fa fa-linkedin"></i></a></li> -->
+<li><a href="https://api.whatsapp.com/send?text=<?php echo env('SITE_URL'); ?><?php echo "meta_share%26id=".$feed->postid."%26share=yes"; ?><?php echo $feed->posttitle; ?>" data-action="share/whatsapp/share"  data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+</ul> 
 import react,{useEffect,useState,submit} from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';

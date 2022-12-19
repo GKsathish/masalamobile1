@@ -1,21 +1,10 @@
-
-
-   
-    
-
-
-
-
-
 @if(session()->has('userid'))
    
    @else 
     <script>window.location.href="/admin";</script>
    @endif
    @extends('layouts.header') @section('content')
-
-
-     <div class="content-page">
+   <div class="content-page">
        <div class="content">
            <div class="container-fluid">
                <div class="page-title-box">
@@ -53,7 +42,7 @@
                                </div>
                                @endif
    
-        <div class="m-b-30">
+                               <div class="m-b-30">
                             <form action="{{url('new_post')}}" enctype="multipart/form-data" method="post">
                    @csrf
                    <div class="row">
@@ -79,11 +68,8 @@
                        </div>
                    </div>
    <div class="row">
-                   <div class="col-md-6 form-group">
-                           <label>Post Title</label>
-                           <input type="text" class="form-control" required placeholder="Enter Title" name="title1" id='title1' value=""/>
-                       </div>   
-</div>
+
+
                    <div class="row">
                        
          
@@ -92,27 +78,25 @@
                             <label>RSS Name</label>
                            <select class="form-control" name="rss">
                                <option value="0">Admin</option>
-                               
+                               <!--<option value="2">Hindustan</option>-->
+                               <!--<option value="3">Times of India</option>-->
+                               <!--<option value="4">Hindu</option>-->
                            </select>
                        </div>
                        
                              
                        
-                          <!-- <div class="col-md-6 form-group">
+                          <div class="col-md-6 form-group">
                             <label>User</label>
-                           <select class="form-control" name="email" >
+                           <select class="form-control" name="email">
                                <option value="<?php echo $email; ?>"><?php echo $email; ?></option>
                                
                            </select>
-                       </div> -->
+                       </div>
                        
                   
                    </div>
                    
-   
-
-
-   
    
                    <div class="row">
                        
@@ -128,7 +112,7 @@
                        </div>
                        <div class="col-md-6 form-group">
                            <label>Select Images <span style="color:red;font-size:10px;"> (Please Upload Above 500 X 1300 Pixels For Better Quality)</label>
-                           <input required type="file" onchange="ValidateSize(this)" class="form-control" name="images" accept=".jpg,.png,.gif,.jpeg,.webp"> 
+                           <input required type="file" onchange="ValidateSize(this)" class="form-control" name="images" accept=".jpg,.png,.gif,.jpeg"> 
                        </div>
                    </div>
                    
@@ -160,10 +144,7 @@
                                                           
                                                        </div>
                        </div>
-                       
-                       
-                        <div class="row">    
-                           
+                       <div class="row">
                                  <div class="col-md-6 form-group">
                                    <label>HashTag</label>
                                    <input type="text" class="form-control"  placeholder="Enter HashTag Name" name="hashtag"/>
@@ -171,70 +152,12 @@
                                <div class="col-md-6 form-group">
                                    <label>Status</label>
                                    <select class="form-control" name="status">
-                                        <option value="Publish">Publish</option>
                                        <option value="Pending">Pending</option>
-                                      
+                                       <option value="Publish">Publish</option>
                                    </select>
                                </div>
                                
                        </div>
-                       <div class="row">
-                           
-                                    <div class="col-md-6 form-group">
-                           <label>Author</label>
-           
-                           <?php if($email == "info@masalamobile.com" || $email =="venkata.krishna@beeinnovations.com"){
-   
-   
-                         ?>
-                               <select class="form-control" name="user">
-                             
-                                   
-                                   <option value="Admin">Admin</option>
-                               
-                               </select>
-                               
-                              <?php  }else if($email =="deepa.kesavan@beeinnovations.com"){ ?>
-                              
-                                 <select class="form-control" name="user">
-                               
-                                  
-                                   <option value="Deepa Kesavan">Deepa Kesavan</option>
-                                
-                               
-                               </select>
-                               
-                               <?php } else if($email =="amalu.n@beeinnovations.com"){ ?>
-                              
-                                 <select class="form-control" name="user">
-                               
-                                   <option value="Amalu Sathyadevan">Amalu Sathyadevan</option>
-                                
-                               
-                               </select>
-                               <?php }
-                                    else {  ?>
-                                   
-                                       <select class="form-control" name="user">
-                                      
-                                       <option value="MM Author">MM Author</option>
-   
-                                   </select>
-                                   <?php } ?>
-                                  
-           
-                           
-   
-   
-           
-                               </div>
-                     </div>
-   
-                       
-   
-                       
-                       
-                      
                     <div class="row">
                        
                        <div class="col-md-12 form-group">

@@ -15,6 +15,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function feed($id){
         $details =  DB::table('post')->where('postid',$id)->where('status','Publish')->take(1)->get();
+
         // get previous 
         $previous = DB::table('post')->where('categoryid',$details[0]->categoryid)->where('status','Publish')->where('postid', '<', $details[0]->postid)->max('postid');
 
@@ -65,12 +66,12 @@ class Controller extends BaseController
               public function vs($id){
               $details =  DB::table('v_storiestrans')->where('storyid',$id)->where('cat_type','stories')->Orderby('transid', 'desc')->get();
                $detailsmain =  DB::table('v_stories')->where('storyid',$id)->where('cat_type','visualstories')->get();
-                         return view('front_end.stories',['detailsmain1' => $details, 'detailsmain2'=>$detailsmain]);
+                         return view('front_end.stories',['details' => $details, 'detailsmain'=>$detailsmain]);
               }
 
                 public function hs($id){
-              $details =  DB::table('H_storiestrans')->where('storyid',$id)->where('cat_type','horoscope')->Orderby('transid', 'desc')->get();
-               $detailsmain =  DB::table('H_stories')->where('storyid',$id)->where('cat_type','horoscope')->get();
+              $details =  DB::table('v_storiestrans')->where('storyid',$id)->where('cat_type','horoscope')->Orderby('transid', 'desc')->get();
+               $detailsmain =  DB::table('v_stories')->where('storyid',$id)->where('cat_type','horoscope')->get();
                          return view('front_end.horoscope',['details' => $details, 'detailsmain'=>$detailsmain]);
               }
               
@@ -124,13 +125,6 @@ class Controller extends BaseController
                    return view('back_end.add_story',['info' => $info]);
                   
                 }
-
-                public function add_mainhoro($id){
-                  // $info =  DB::table('post')->where('categoryid',$request->input('filtercategoryname'))->get();
-                  $info = DB::table('H_stories')->where('storyid',$id)->get();
-                     return view('back_end.add_mainhoro',['info' => $info]);
-                    
-                  }
                  public function getjson(){
                   //$info =  DB::table('post')->select('posttitle','imagepath','postlink')->where('status','Publish')->where('created_at', '>=', Carbon::now()->subDays(2))->inRandomOrder()->get();
                   $info =  DB::table('post')->select('posttitle','imagepath','postlink')->where('status','Publish')->orderBy('created_at', 'DESC')->take(20)->inRandomOrder()->get();
@@ -224,11 +218,11 @@ class Controller extends BaseController
                     //die;
                     if($search_value == "")
                     {
-                    $info =  DB::table('post')->where('status','Publish')->inRandomOrder()->Orderby('published_date', 'desc')->take(35)->get();
+                    $info =  DB::table('post')->where('status','Publish')->inRandomOrder()->Orderby('published_date', 'desc')->take(25)->get();
                     }
-                    else  
+                    else
                     {
-                      $info =  DB::table('post')->where('posttitle', 'like', '%' . $search_value . '%')->where('postlink', 'like', '%' . $search_value . '%')->where('hashtag', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
+                      $info =  DB::table('post')->where('posttitle', 'like', '%' . $search_value . '%')->where('postlink', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
                       
                       if($info->count() == '0')
                       {
@@ -238,15 +232,13 @@ class Controller extends BaseController
                           return view('front_end.search',['info' => $info],['search_value1' => $search_value1]);
                         }
                       }
-
-                     
                       if($info->count() == '0')
                       {
                         $get_cat_post = DB::table('category')->where('categoryname', 'like', '%' . $search_value . '%')->take(1)->get();
                         
                         if($get_cat_post->count() == '0')
                         {
-                          $info =  DB::table('post')->where('status','Publish')->inRandomOrder()->Orderby('published_date', 'desc')->take(25)->get();
+                          $info =  DB::table('post')->where('status','Publish')->inRandomOrder()->Orderby('published_date', 'desc')->take(15)->get();
                            return view('front_end.search',['info' => $info],['search_value1' => ' ']);
                         }
                         else{
