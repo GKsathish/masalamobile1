@@ -70,14 +70,14 @@
 
 <link href="{{asset('assets/front_end/css/style.css')}}" rel="stylesheet" type="text/css">
 <link href="{{asset('assets/front_end/css/responsive.css')}}" rel="stylesheet" type="text/css">
-<link rel="icon" type="image/png" href="{{asset('assets/front_end/images/favicon.png')}}">
-<link rel="stylesheet" href="{{asset('assets/front_end/css/menu.css')}}" type="text/css"/>
+<!-- <link rel="icon" type="image/png" href="{{asset('assets/front_end/images/favicon.png')}}"> -->
+<!-- <link rel="stylesheet" href="{{asset('assets/front_end/css/menu.css')}}" type="text/css"/> -->
 
-<script type="text/javascript" src="{{asset('assets/front_end/js/menu.js')}}"></script>
+<!-- <script type="text/javascript" src="{{asset('assets/front_end/js/menu.js')}}"></script> -->
 <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.8.1/css/all.css"></script>
-<script type="text/javascript" src="{{asset('assets/front_end/js/menu.js')}}"></script>
+<!-- <script type="text/javascript" src="{{asset('assets/front_end/js/menu.js')}}"></script> -->
 <script type="text/javascript" src="{{asset('assets/front_end/js/jquery.js')}}"></script>
-<script src="{{asset('assets/front_end/js/v0.js')}}"></script>
+    <script src="{{asset('assets/front_end/js/v0.js')}}"></script>
 <script src="{{asset('assets/front_end/js/amp-video-0.1.js')}}"></script>
 <script src="{{asset('assets/front_end/js/amp-story-1.0.js')}}"></script>
 <link href="{{asset('assets/front_end/css/owl.carousel.min.css')}}" rel="stylesheet" type="text/css">
