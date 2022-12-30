@@ -1,7 +1,47 @@
+
+
+
 @extends('front_end.header')
 @section('content')
 <head>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+
+<script >
+
+
+function openModal(){
+    $("#exampleModalLong").modal();
+    setTimeout(function(){ $("#exampleModalLong").modal("hide"); }, 3000);
+}
  
+	const confirmationMessage = document.getElementById("message_validation");
+
+// launch confirmationMessage form 
+const launchConfirmationMessage = () => {
+  confirmationMessage.style.display = "flex";
+}
+
+//close confirmationMessage form
+const closeConfirmationMessage = () => {
+  confirmationMessage.style.display = "none";
+}
+
+// TimeOut du confirmationMessage
+const timeOutConfirmMess = () => {
+  setTimeout(closeConfirmationMessage, 3000);
+}
+
+
+// open and close window after 3s
+function confirm() {
+  launchConfirmationMessage();
+  
+  timeOutConfirmMess();
+}
+console.log(confirm());
+</script>
 <style>
 #tagchange {
     width: auto;
@@ -282,15 +322,63 @@
   
 }
 
+#test {
+ width: 100px;
+ height: 100px;
+ background: #ffb;
+ padding: 10px;
+ border: 2px solid #999;
+}
+
+
+
+
+.message-validation{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  left: 13%;
+  top: 41%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.9);
+  color: white;
+  padding: 5%;
+  border-radius: 5px;
+}
 
 
 </style>
   
+
 </head>
+<body onload="openModal()">
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Happy New Year 2023</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          .
+        </div>
 
+      </div>
+    </div>
+  </div>
+</body>
 
-<div class="entry-content">
-	
+<div class="entry-content" >
+<div id="message_validation" class="message-validation">
+   Bravo! Votre réservation est prise en compte.
+ </div>
+
     <!--Trending Now-->
 	<section class="container clear">
 	
@@ -1495,45 +1583,70 @@
 <!--    });-->
 <!--</script>-->
 
-<div id="tabs">
-    <ul>
-        <li><a href="#tabs-1">Tab 1</a>
-        </li>
-        <li><a href="#tabs-2">Tab 2</a>
-        </li>
-        <li><a href="#tabs-3">Tab 3</a>
-        </li>
-    </ul>
-    <div id="tabs-1">
-        <p>Content for Tab 1</p>
-    </div>
-    <div id="tabs-2">
-        <p>Content for Tab 2</p>
-    </div>
-    <div id="tabs-3">
-        <p>Content for Tab 3</p>
-    </div>
-</div>
-<div id="tabid"></div>
-
-<style>
 	
-#tabs {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-}
-</style>
+
+
+
 
 <script>
-	$("#tabs").tabs({
-    active: 1,
-    activate: function (event, ui) {
-      var active = $('#tabs').tabs('option', 'active');
-      $("#tabid").html('the tab id is ' + $("#tabs ul>li a").eq(active).attr("href"));
+        
+        checkWindowSize();
 
-    }
-});
-</script>
+        // Check if the page has enough content or not. If not then fetch records
+        function checkWindowSize(){
+            if($(window).height() >= $(document).height()){
+                  // Fetch records
+                  fetchData();
+            }
+        }
+
+        // Fetch records
+        function fetchData(){
+             var start = Number($('#start').val());
+             var allcount = Number($('#totalrecords').val());
+             var rowperpage = Number($('#rowperpage').val());
+             start = start + rowperpage;
+
+             if(start <= allcount){
+                  $('#start').val(start);
+
+                  $.ajax({
+                       url:"ajaxfile.php",
+                       type: 'post',
+                       data: {start:start,rowperpage: rowperpage},
+                       success: function(response){
+
+                            // Add
+                            $(".post:last").after(response).show().fadeIn("slow");
+
+                            // Check if the page has enough content or not. If not then fetch records
+                            checkWindowSize();
+                       }
+                  });
+             }
+        }
+
+        $(document).on('touchmove', onScroll); // for mobile
+       
+        function onScroll(){
+
+             if($(window).scrollTop() > $(document).height() - $(window).height()-100) {
+
+                   fetchData(); 
+             }
+        }
+
+        $(window).scroll(function(){
+
+             var position = $(window).scrollTop();
+             var bottom = $(document).height() - $(window).height();
+
+             if( position == bottom ){
+                   fetchData(); 
+             }
+
+        });
+
+        </script>
+
 @endsection

@@ -172,7 +172,7 @@ class Controller extends BaseController
 		          else
 		          {
 		          
-		             $info =  DB::table('post')->where('hashtag', 'like', '%' . $search_value . '%')->where('posttitle', 'like', '%' . $search_value . '%')->where('postlink', 'like', '%' . $search_value . '%')->where('description', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
+		             $info =  DB::table('post')->where('hashtag', 'like', '%' . $search_value . '%')->orwhere('posttitle', 'like', '%' . $search_value . '%')->orwhere('postlink', 'like', '%' . $search_value . '%')->orwhere('description', 'like', '%' . $search_value . '%')->where('status','Publish')->Orderby('published_date', 'desc')->get();
 		           
 		          
 		            
